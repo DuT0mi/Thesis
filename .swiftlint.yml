@@ -1,0 +1,35 @@
+included:
+  - ThesisAccessibilityHelper
+excluded:
+  - ${PWD}/Pods
+
+deployment_target:
+  iOS_deployment_target: 16.4
+
+disabled_rules:
+  - orphaned_doc_comment
+
+opt_in_rules:
+  - indentation_width
+  - force_unwrapping
+  - redundant_type_annotation
+  - force_try
+  - operator_usage_whitespace
+
+force_cast: warning
+
+indentation_width:
+  indentation_width: 2
+
+line_length:
+  ignores_urls: true
+  ignores_function_declarations: true
+  ignores_comments: true
+
+identifier_name:
+  excluded:
+    - i
+    - id
+
+indentation_width:
+  indentation_width: 2
