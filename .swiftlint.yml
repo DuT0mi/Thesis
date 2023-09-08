@@ -19,7 +19,7 @@ opt_in_rules:
 force_cast: warning
 
 indentation_width:
-  indentation_width: 2
+  indentation_width: 4
 
 line_length:
   ignores_urls: true
@@ -30,6 +30,3 @@ identifier_name:
   excluded:
     - i
     - id
-
-indentation_width:
-  indentation_width: 2

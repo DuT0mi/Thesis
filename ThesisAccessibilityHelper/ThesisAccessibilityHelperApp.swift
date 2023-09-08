@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct ThesisAccessibilityHelperApp: App{
+struct ThesisAccessibilityHelperApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
