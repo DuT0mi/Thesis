@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct CustomSheetStyleModifier: ViewModifier {
+    // MARK: - Types
+
     /// Could be also changing between programatically
     /// usage:  .presentationDetents(...., selection:)
-
-    var presentationStyle: PresentationDententStyle = .medium
-    var dismissable = true
-    var showIndicator = true
 
     enum PresentationDententStyle {
         case medium
@@ -23,6 +21,14 @@ struct CustomSheetStyleModifier: ViewModifier {
         case height(_ height: CGFloat)
     }
 
+    // MARK: - Properties
+
+    var presentationStyle: PresentationDententStyle = .medium
+    var dismissable = true
+    var showIndicator = true
+
+    // MARK: - Fuctions
+
     func body(content: Content) -> some View {
         content
             .presentationDragIndicator(showIndicator ? .visible : .hidden)
@@ -30,6 +36,8 @@ struct CustomSheetStyleModifier: ViewModifier {
             .modifier(SheetDetentsModifier(presentationStyle: presentationStyle))
     }
 }
+
+// MARK: - SheetDetentsModifier
 
 struct SheetDetentsModifier: ViewModifier {
     var presentationStyle: CustomSheetStyleModifier.PresentationDententStyle
@@ -49,6 +57,8 @@ struct SheetDetentsModifier: ViewModifier {
         }
     }
 }
+
+// MARK: - View extension
 
 extension View {
     func sheetStyle(style: CustomSheetStyleModifier.PresentationDententStyle, dismissable: Bool, showIndicator: Bool) -> some View {

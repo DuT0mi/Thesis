@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DemoLandingView: View {
+    // MARK: - Properties
+
     var body: some View {
         BaseView {
             Text("Demo View")
@@ -15,6 +17,8 @@ struct DemoLandingView: View {
         .ignoresSafeArea()
     }
 }
+
+// MARK: - Preview
 
 struct DemoLandingView_Previews: PreviewProvider {
     static var previews: some View {
