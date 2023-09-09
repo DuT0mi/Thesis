@@ -7,28 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A9665CA2AACC6FC0087F964 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9665C92AACC6FC0087F964 /* BaseView.swift */; };
+		1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9665CC2AACC77A0087F964 /* BaseViewModel.swift */; };
 		1A96BE2F2AAB39C6003DE05B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A96BE2E2AAB39C6003DE05B /* AppConstants.swift */; };
 		1A96BE352AAB4747003DE05B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A96BE372AAB4747003DE05B /* Localizable.strings */; };
 		1A96BE3A2AAB48AD003DE05B /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A96BE392AAB48AD003DE05B /* Localized.swift */; };
+		1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A24AB2AACE21A0005EBA0 /* ViewModifier+Sheet.swift */; };
 		1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */; };
 		1AA05F7B2AAAFA430084568F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA05F7A2AAAFA430084568F /* ContentView.swift */; };
 		1AA05F7D2AAAFA440084568F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F7C2AAAFA440084568F /* Assets.xcassets */; };
 		1AA05F802AAAFA440084568F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */; };
 		1AA05F872AAAFBF30084568F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */; };
+		1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */; };
 		58CB5F85CE618AF4CF86BF2C /* Pods_ThesisAccessibilityHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD499F1BFD2F4609E9CC0129 /* Pods_ThesisAccessibilityHelper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A9665C92AACC6FC0087F964 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		1A9665CC2AACC77A0087F964 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		1A96BE2E2AAB39C6003DE05B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		1A96BE362AAB4747003DE05B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A96BE382AAB4756003DE05B /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A96BE392AAB48AD003DE05B /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		1A9A24AB2AACE21A0005EBA0 /* ViewModifier+Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModifier+Sheet.swift"; sourceTree = "<group>"; };
 		1AA05F752AAAFA430084568F /* ThesisAccessibilityHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThesisAccessibilityHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThesisAccessibilityHelperApp.swift; sourceTree = "<group>"; };
 		1AA05F7A2AAAFA430084568F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1AA05F7C2AAAFA440084568F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongLoadingView.swift; sourceTree = "<group>"; };
 		72A052398BF7A2748003A60C /* Pods-ThesisAccessibilityHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisAccessibilityHelper.release.xcconfig"; path = "Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper.release.xcconfig"; sourceTree = "<group>"; };
 		72B228165FA3EA003D4F0CCB /* Pods-ThesisAccessibilityHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisAccessibilityHelper.debug.xcconfig"; path = "Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		DD499F1BFD2F4609E9CC0129 /* Pods_ThesisAccessibilityHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThesisAccessibilityHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A9665CB2AACC76C0087F964 /* BaseViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1A9665CC2AACC77A0087F964 /* BaseViewModel.swift */,
+			);
+			path = BaseViewModel;
+			sourceTree = "<group>";
+		};
 		1A96BE2B2AAB38B6003DE05B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,7 +81,8 @@
 		1A96BE2D2AAB3959003DE05B /* Utils+Consts */ = {
 			isa = PBXGroup;
 			children = (
-				1A96BE2E2AAB39C6003DE05B /* AppConstants.swift */,
+				1A9A24AA2AACE1FA0005EBA0 /* Extensions */,
+				1A9A24A92AACE1F20005EBA0 /* Constants */,
 			);
 			path = "Utils+Consts";
 			sourceTree = "<group>";
@@ -82,6 +99,7 @@
 		1A96BE312AAB3EF5003DE05B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1AC500442AACC6D7007D0167 /* Base */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -93,6 +111,22 @@
 				1A96BE372AAB4747003DE05B /* Localizable.strings */,
 			);
 			path = Localize;
+			sourceTree = "<group>";
+		};
+		1A9A24A92AACE1F20005EBA0 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1A96BE2E2AAB39C6003DE05B /* AppConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		1A9A24AA2AACE1FA0005EBA0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A9A24AB2AACE21A0005EBA0 /* ViewModifier+Sheet.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1AA05F6C2AAAFA430084568F = {
@@ -133,6 +167,32 @@
 				1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1AAA6C5D2AACCD5500F1CA85 /* StateViews */ = {
+			isa = PBXGroup;
+			children = (
+				1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */,
+			);
+			path = StateViews;
+			sourceTree = "<group>";
+		};
+		1AC500442AACC6D7007D0167 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1AAA6C5D2AACCD5500F1CA85 /* StateViews */,
+				1A9665CB2AACC76C0087F964 /* BaseViewModel */,
+				1AC500452AACC6DE007D0167 /* BaseView */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		1AC500452AACC6DE007D0167 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				1A9665C92AACC6FC0087F964 /* BaseView.swift */,
+			);
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 		DC7DD037F0DACB8656998225 /* Frameworks */ = {
@@ -288,9 +348,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA05F7B2AAAFA430084568F /* ContentView.swift in Sources */,
+				1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */,
+				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
 				1A96BE3A2AAB48AD003DE05B /* Localized.swift in Sources */,
+				1A9665CA2AACC6FC0087F964 /* BaseView.swift in Sources */,
 				1A96BE2F2AAB39C6003DE05B /* AppConstants.swift in Sources */,
 				1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */,
+				1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +502,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,6 +533,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

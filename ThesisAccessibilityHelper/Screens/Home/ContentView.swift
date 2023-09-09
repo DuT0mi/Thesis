@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @State var tester = false
     var body: some View {
-        VStack {
-            Text(Localized.helloWorld)
+        BaseView {
+            VStack {
+                Text(Localized.helloWorld)
+                Button("Show") {
+                    tester.toggle()
+                }
+            }
         }
+        .sheet(isPresented: $tester, content: {
+            LongLoadingView()
+                .sheetStyle(style: .medium, dismissable: true, showIndicator: true)
+        })
+        .ignoresSafeArea()
     }
 }
 

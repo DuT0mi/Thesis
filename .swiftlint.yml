@@ -22,9 +22,12 @@ indentation_width:
   indentation_width: 4
 
 line_length:
-  ignores_urls: true
+  warning: 170
+  error: 200
   ignores_function_declarations: true
   ignores_comments: true
+  ignores_interpolated_strings: true
+  ignores_urls: true
 
 identifier_name:
   excluded:
