@@ -21,7 +21,7 @@ struct LandingHomeView: View {
         .ignoresSafeArea()
         .sheet(isPresented: $tester, content: {
             LongLoadingView()
-                .sheetStyle(style: .medium, dismissable: true, showIndicator: true)
+                .sheetStyle(style: .medium, dismissable: false, showIndicator: true)
         })
     }
 }
