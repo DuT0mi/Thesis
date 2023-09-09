@@ -12,7 +12,7 @@ struct Landing: View {
 
     @Namespace private var animation
 
-    @State private var activeTab: Tab = .home // -> VM
+    @State private var activeTab: Tab = .home // TODO: -> VM
     @State private var tabShapePosition: CGPoint = .zero
 
     var body: some View {
@@ -73,6 +73,8 @@ struct Landing: View {
         .animation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7), value: activeTab)
     }
 }
+
+// MARK: - Preview
 
 struct Landing_Previews: PreviewProvider {
     static var previews: some View {

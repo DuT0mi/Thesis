@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AuthenticationLandingView: View {
+    // MARK: - Properties
+
     var body: some View {
         BaseView {
             Text("Auth")
@@ -15,6 +17,8 @@ struct AuthenticationLandingView: View {
         .ignoresSafeArea()
     }
 }
+
+// MARK: - Preview
 
 struct AuthenticationLandingView_Previews: PreviewProvider {
     static var previews: some View {

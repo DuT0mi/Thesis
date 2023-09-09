@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LandingHomeView: View {
+    // MARK: - Properties
 
     @State var tester = false // -> Tester
 
@@ -24,6 +25,8 @@ struct LandingHomeView: View {
         })
     }
 }
+
+// MARK: - Preview
 
 struct LandingHomeView_Previews: PreviewProvider {
     static var previews: some View {
