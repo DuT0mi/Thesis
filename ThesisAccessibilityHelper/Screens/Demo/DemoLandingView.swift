@@ -36,21 +36,6 @@ struct DemoLandingView: View {
                                 .lineLimit(2)
                                 .minimumScaleFactor(0.7)
                         }
-                        NavigationLink {
-
-                        } label: {
-                            Text("Selecting Photos and Videos in iOS - PhotoKit")
-                                .lineLimit(2)
-                                .minimumScaleFactor(0.7)
-                        }
-
-                        NavigationLink {
-
-                        } label: {
-                            Text("Explore a location with a highly detailed map and Look Around - Map Kit")
-                                .lineLimit(2)
-                                .minimumScaleFactor(0.7)
-                        }
 
                         NavigationLink {
                             CustomCameraView()
