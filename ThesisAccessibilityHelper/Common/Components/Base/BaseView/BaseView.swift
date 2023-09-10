@@ -17,6 +17,8 @@ struct BaseView<Content>: View where Content: View {
     // MARK: - Types
 
     struct GradientConfiguration {
+        // MARK: - GradientConfiguration properties
+
         var colors: [Color]
         var colorsOpacity: CGFloat = .zero {
             willSet {
@@ -27,6 +29,8 @@ struct BaseView<Content>: View where Content: View {
         var gradientStart: UnitPoint
         var gradientEnd: UnitPoint
 
+        // MARK: - GradientConfiguration pnitialization
+
         init(
             colors: [Color] = [
                 .blue.opacity(AppConstants.AppColor.opacityDefaultLow),
@@ -34,7 +38,7 @@ struct BaseView<Content>: View where Content: View {
                 .orange.opacity(AppConstants.AppColor.opacityDefaultLow)
             ],
             colorsOpacity: CGFloat = AppConstants.AppColor.opacityDefaultMedium,
-            gradientStart: UnitPoint = .bottomLeading,
+            gradientStart: UnitPoint = .center,
             gradientEnd: UnitPoint = .topTrailing,
             shouldIgnoreSafeArea: Bool = true
         ) {
@@ -43,6 +47,8 @@ struct BaseView<Content>: View where Content: View {
             self.gradientStart = gradientStart
             self.gradientEnd = gradientEnd
         }
+
+        // MARK: - GradientConfiguration functions
 
         mutating private func updateColors(_ newValue: CGFloat) {
             self.colors = self.colors.map { $0.opacity(newValue) }

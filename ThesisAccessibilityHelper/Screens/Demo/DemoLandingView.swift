@@ -59,7 +59,6 @@ struct DemoLandingView: View {
                         }
 
                     }
-                    .padding()
                 }
             }
             .navigationTitle("Apple Demos")

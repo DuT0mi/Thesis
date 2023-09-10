@@ -65,10 +65,9 @@ struct Landing: View {
         .background(content: {
             TabShape(midPoint: tabShapePosition.x)
                 .fill(.gray.opacity(0.5))
-                .ignoresSafeArea()
                 .shadow(color: activeTint.opacity(0.2), radius: 5, x: 0, y: -5)
                 .blur(radius: 2)
-                .padding(.top, 25)
+                .padding(.top, 30)
         })
         .animation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7), value: activeTab)
     }
