@@ -12,6 +12,8 @@ struct Landing: View {
 
     @Namespace private var animation
 
+    @StateObject private var viewModel = LandingViewModel()
+
     @State private var activeTab: Tab = .home // TODO: -> VM
     @State private var tabShapePosition: CGPoint = .zero
 
@@ -32,9 +34,12 @@ struct Landing: View {
                         .tag(Tab.activity)
                 }
 
-                customTabBarFactory()
+                if viewModel.shouldShowTabBar {
+                    customTabBarFactory()
+                }
             }
         }
+        .environmentObject(viewModel)
         .ignoresSafeArea()
     }
 

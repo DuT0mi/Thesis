@@ -6,9 +6,9 @@
 //
 
 import Foundation
+import Combine
 
 protocol BaseViewModelInput: AnyObject {
-    var title: String? { get }
 }
 
 class BaseViewModel: ObservableObject {
@@ -18,7 +18,4 @@ class BaseViewModel: ObservableObject {
 // MARK: - BaseViewModelInput
 
 extension BaseViewModel: BaseViewModelInput {
-    var title: String? {
-        nil
-    }
 }

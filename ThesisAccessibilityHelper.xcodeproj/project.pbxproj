@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1A5A011E2AADD88C0060F528 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A011D2AADD88C0060F528 /* CustomCameraView.swift */; };
+		1A5A01212AADF4C00060F528 /* CustomCameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A01202AADF4C00060F528 /* CustomCameraViewModel.swift */; };
+		1A5A01232AADF6480060F528 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A01222AADF6480060F528 /* LandingViewModel.swift */; };
+		1A5A01252AAE08020060F528 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A01242AAE08020060F528 /* CameraPreviewView.swift */; };
 		1A9665CA2AACC6FC0087F964 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9665C92AACC6FC0087F964 /* BaseView.swift */; };
 		1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9665CC2AACC77A0087F964 /* BaseViewModel.swift */; };
 		1A96BE2F2AAB39C6003DE05B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A96BE2E2AAB39C6003DE05B /* AppConstants.swift */; };
@@ -18,7 +21,7 @@
 		1A9C7CC82AACF51E008730C5 /* LandingHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C7CC72AACF51E008730C5 /* LandingHomeView.swift */; };
 		1A9C7CCB2AACF5E1008730C5 /* DemoLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C7CCA2AACF5E1008730C5 /* DemoLandingView.swift */; };
 		1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */; };
-		1AA05F7B2AAAFA430084568F /* Landing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA05F7A2AAAFA430084568F /* Landing.swift */; };
+		1AA05F7B2AAAFA430084568F /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA05F7A2AAAFA430084568F /* LandingView.swift */; };
 		1AA05F7D2AAAFA440084568F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F7C2AAAFA440084568F /* Assets.xcassets */; };
 		1AA05F802AAAFA440084568F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */; };
 		1AA05F872AAAFBF30084568F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */; };
@@ -32,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		1A5A011D2AADD88C0060F528 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
+		1A5A01202AADF4C00060F528 /* CustomCameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraViewModel.swift; sourceTree = "<group>"; };
+		1A5A01222AADF6480060F528 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
+		1A5A01242AAE08020060F528 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		1A9665C92AACC6FC0087F964 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		1A9665CC2AACC77A0087F964 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		1A96BE2E2AAB39C6003DE05B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -44,7 +50,7 @@
 		1A9C7CCA2AACF5E1008730C5 /* DemoLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoLandingView.swift; sourceTree = "<group>"; };
 		1AA05F752AAAFA430084568F /* ThesisAccessibilityHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThesisAccessibilityHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThesisAccessibilityHelperApp.swift; sourceTree = "<group>"; };
-		1AA05F7A2AAAFA430084568F /* Landing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landing.swift; sourceTree = "<group>"; };
+		1AA05F7A2AAAFA430084568F /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		1AA05F7C2AAAFA440084568F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -73,9 +79,19 @@
 		1A5A011C2AADD6470060F528 /* CustomCamera */ = {
 			isa = PBXGroup;
 			children = (
+				1A5A011F2AADF4930060F528 /* Views */,
 				1A5A011D2AADD88C0060F528 /* CustomCameraView.swift */,
+				1A5A01202AADF4C00060F528 /* CustomCameraViewModel.swift */,
 			);
 			path = CustomCamera;
+			sourceTree = "<group>";
+		};
+		1A5A011F2AADF4930060F528 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A5A01242AAE08020060F528 /* CameraPreviewView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		1A9665CB2AACC76C0087F964 /* BaseViewModel */ = {
@@ -100,7 +116,8 @@
 		1A96BE2C2AAB38C0003DE05B /* Landing */ = {
 			isa = PBXGroup;
 			children = (
-				1AA05F7A2AAAFA430084568F /* Landing.swift */,
+				1AA05F7A2AAAFA430084568F /* LandingView.swift */,
+				1A5A01222AADF6480060F528 /* LandingViewModel.swift */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -420,7 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A5A011E2AADD88C0060F528 /* CustomCameraView.swift in Sources */,
-				1AA05F7B2AAAFA430084568F /* Landing.swift in Sources */,
+				1AA05F7B2AAAFA430084568F /* LandingView.swift in Sources */,
 				1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */,
 				1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
@@ -432,8 +449,11 @@
 				1A9C7CCB2AACF5E1008730C5 /* DemoLandingView.swift in Sources */,
 				1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */,
 				1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */,
+				1A5A01252AAE08020060F528 /* CameraPreviewView.swift in Sources */,
 				1A9C7CC82AACF51E008730C5 /* LandingHomeView.swift in Sources */,
 				1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */,
+				1A5A01212AADF4C00060F528 /* CustomCameraViewModel.swift in Sources */,
+				1A5A01232AADF6480060F528 /* LandingViewModel.swift in Sources */,
 				1A9C7CC52AACF332008730C5 /* AuthenticationLandingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -517,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
