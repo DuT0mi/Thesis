@@ -8,6 +8,8 @@ deployment_target:
 
 disabled_rules:
   - orphaned_doc_comment
+  - nesting
+  - switch_case_alignment
 
 opt_in_rules:
   - indentation_width
