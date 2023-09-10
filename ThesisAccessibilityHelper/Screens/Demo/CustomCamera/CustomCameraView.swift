@@ -19,19 +19,21 @@ struct CustomCameraView: View {
                 .ignoresSafeArea()
 #endif
             VStack { // swiftlint:enable indentation_width
-                if viewModel.isTaken {
-                    HStack {
-                        Spacer()
-
+                HStack {
+                    Image(systemName: "signpost.left.circle")
+                        .onTapGesture {
+                            self.dismiss.callAsFunction()
+                        }
+                        .padding(.init(top: 5, leading: 5, bottom: 0, trailing: 0))
+                    Spacer()
+                    if viewModel.isTaken {
                         Button {
                             viewModel.reTakePicture()
                         } label: {
-                            Image(systemName: "arrow.triangle.2.circlepath.camera")
-                                .foregroundColor(.black)
-                                .background(Color.white)
-                                .clipShape(Circle())
+                            Image(systemName: "camera")
+                                .foregroundColor(.white)
                         }
-                        .padding(.trailing)
+                        .padding(.init(top: 5, leading: 0, bottom: 0, trailing: 5))
                     }
                 }
 
@@ -67,6 +69,7 @@ struct CustomCameraView: View {
                                     .frame(width: 75, height: 75)
                             }
                         }
+                        .padding(.bottom)
                     }
                 }
                 .frame(height: 75)
