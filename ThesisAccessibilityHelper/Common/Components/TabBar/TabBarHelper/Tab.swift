@@ -7,8 +7,6 @@
 
 import Foundation
 
-// swiftlint:disable switch_case_alignment
-
 enum Tab: String, CaseIterable {
     case home = "Home"
     case services = "Services"
@@ -32,4 +30,3 @@ enum Tab: String, CaseIterable {
         return Tab.allCases.firstIndex(of: self) ?? 0
     }
 }
-// swiftlint:enable switch_case_alignment

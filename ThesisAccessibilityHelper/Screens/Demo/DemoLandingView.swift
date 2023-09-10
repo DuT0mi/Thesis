@@ -51,6 +51,13 @@ struct DemoLandingView: View {
                                 .lineLimit(2)
                                 .minimumScaleFactor(0.7)
                         }
+
+                        NavigationLink {
+                            CustomCameraView()
+                        } label: {
+                            Text("Custom Camera")
+                        }
+
                     }
                     .padding()
                 }

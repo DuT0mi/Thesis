@@ -7,8 +7,6 @@
 
 import UIKit
 
-// swiftlint:disable nesting
-
 final class AppConstants {
     struct ScreenDimensions {
         #if os(iOS) || os(tvOS)
@@ -38,5 +36,3 @@ extension AppConstants {
     typealias AppColor = AppConstants.Screens.Common.Appearance.Color
     typealias AppDimension = AppConstants.ScreenDimensions
 }
-
-// swiftlint:enable nesting
