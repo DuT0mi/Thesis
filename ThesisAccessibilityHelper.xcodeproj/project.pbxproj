@@ -12,6 +12,9 @@
 		1A5DF3CA2AB48ACC00A872F2 /* TabProfileLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3C92AB48ACC00A872F2 /* TabProfileLandingView.swift */; };
 		1A5DF3CC2AB48ADF00A872F2 /* TabMenuLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3CB2AB48ADF00A872F2 /* TabMenuLandingView.swift */; };
 		1A5DF3CE2AB48B0300A872F2 /* TabHomeLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3CD2AB48B0300A872F2 /* TabHomeLandingView.swift */; };
+		1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3D12AB490A700A872F2 /* MenuView.swift */; };
+		1A5DF3D42AB4925500A872F2 /* MenuViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3D32AB4925500A872F2 /* MenuViewItem.swift */; };
+		1A5DF3D72AB4D45900A872F2 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3D62AB4D45900A872F2 /* MenuViewModel.swift */; };
 		1A9665CA2AACC6FC0087F964 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9665C92AACC6FC0087F964 /* BaseView.swift */; };
 		1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9665CC2AACC77A0087F964 /* BaseViewModel.swift */; };
 		1A96BE2F2AAB39C6003DE05B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A96BE2E2AAB39C6003DE05B /* AppConstants.swift */; };
@@ -38,6 +41,9 @@
 		1A5DF3C92AB48ACC00A872F2 /* TabProfileLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabProfileLandingView.swift; sourceTree = "<group>"; };
 		1A5DF3CB2AB48ADF00A872F2 /* TabMenuLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMenuLandingView.swift; sourceTree = "<group>"; };
 		1A5DF3CD2AB48B0300A872F2 /* TabHomeLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHomeLandingView.swift; sourceTree = "<group>"; };
+		1A5DF3D12AB490A700A872F2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		1A5DF3D32AB4925500A872F2 /* MenuViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewItem.swift; sourceTree = "<group>"; };
+		1A5DF3D62AB4D45900A872F2 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		1A9665C92AACC6FC0087F964 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		1A9665CC2AACC77A0087F964 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		1A96BE2E2AAB39C6003DE05B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -93,6 +99,7 @@
 		1A5DF3C52AB48A4400A872F2 /* TabMenu */ = {
 			isa = PBXGroup;
 			children = (
+				1A5DF3CF2AB4908200A872F2 /* View */,
 				1A5DF3CB2AB48ADF00A872F2 /* TabMenuLandingView.swift */,
 			);
 			path = TabMenu;
@@ -104,6 +111,32 @@
 				1A5DF3C92AB48ACC00A872F2 /* TabProfileLandingView.swift */,
 			);
 			path = TabProfile;
+			sourceTree = "<group>";
+		};
+		1A5DF3CF2AB4908200A872F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1A5DF3D02AB4909400A872F2 /* Menu */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1A5DF3D02AB4909400A872F2 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				1A5DF3D52AB4D43F00A872F2 /* Views */,
+				1A5DF3D12AB490A700A872F2 /* MenuView.swift */,
+				1A5DF3D62AB4D45900A872F2 /* MenuViewModel.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		1A5DF3D52AB4D43F00A872F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A5DF3D32AB4925500A872F2 /* MenuViewItem.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		1A9665CB2AACC76C0087F964 /* BaseViewModel */ = {
@@ -433,9 +466,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5DF3D42AB4925500A872F2 /* MenuViewItem.swift in Sources */,
 				1AA05F7B2AAAFA430084568F /* TabHosterView.swift in Sources */,
 				1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */,
 				1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */,
+				1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
 				1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */,
 				1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */,
@@ -446,6 +481,7 @@
 				1AF13F2A2AACEE600097E085 /* Tab.swift in Sources */,
 				1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */,
 				1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */,
+				1A5DF3D72AB4D45900A872F2 /* MenuViewModel.swift in Sources */,
 				1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */,
 				1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */,
 				1A5DF3CC2AB48ADF00A872F2 /* TabMenuLandingView.swift in Sources */,

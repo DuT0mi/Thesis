@@ -9,7 +9,10 @@ import SwiftUI
 
 struct TabMenuLandingView: View {
     var body: some View {
-        Text("Menu Landing")
+        BaseView {
+            MenuView()
+        }
+        .ignoresSafeArea()
     }
 }
 
