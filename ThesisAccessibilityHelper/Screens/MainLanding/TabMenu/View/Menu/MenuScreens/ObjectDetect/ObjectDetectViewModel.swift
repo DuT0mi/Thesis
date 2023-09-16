@@ -45,7 +45,6 @@ final class ObjectDetectViewModel: ObservableObject {
 
 extension ObjectDetectViewModel: ObjectDetectViewModelInput {
     func didAppear() {
-        tabHosterInstance.tabBarStatus.send(.hide)
     }
 
     func didDisAppear() {

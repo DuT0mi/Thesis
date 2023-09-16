@@ -11,10 +11,10 @@ final class CameraManager: NSObject, ObservableObject {
     // MARK: - Types
 
     enum Status {
-      case unconfigured
-      case configured
-      case unauthorized
-      case failed
+        case unconfigured
+        case configured
+        case unauthorized
+        case failed
     }
 
     // MARK: - Properties
@@ -84,6 +84,7 @@ final class CameraManager: NSObject, ObservableObject {
         }
     }
 
+    // swiftlint:disable force_unwrapping
     private func setupSession() {
         guard status == .unconfigured else { return }
 
@@ -146,6 +147,7 @@ final class CameraManager: NSObject, ObservableObject {
 
         status = .configured
     }
+    // swiftlint:enable force_unwrapping
 
     private func set(error: Error) {
         guard let error = error as? CameraError else { return }
@@ -159,12 +161,9 @@ final class CameraManager: NSObject, ObservableObject {
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 
 extension CameraManager: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func set(
-      _ delegate: AVCaptureVideoDataOutputSampleBufferDelegate,
-      queue: DispatchQueue
-    ) {
-      sessionQueue.async {
-        self.videoOutput.setSampleBufferDelegate(delegate, queue: queue)
-      }
+    func set(_ delegate: AVCaptureVideoDataOutputSampleBufferDelegate, queue: DispatchQueue) {
+        sessionQueue.async {
+            self.videoOutput.setSampleBufferDelegate(delegate, queue: queue)
+        }
     }
 }

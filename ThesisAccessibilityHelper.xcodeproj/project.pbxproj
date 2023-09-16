@@ -34,6 +34,7 @@
 		1AB0409C2AB5CFE70037215E /* Error+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0409B2AB5CFE70037215E /* Error+Camera.swift */; };
 		1AB0409E2AB5D95A0037215E /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0409D2AB5D95A0037215E /* FrameManager.swift */; };
 		1AB040A02AB5DBB40037215E /* CGImage+create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0409F2AB5DBB40037215E /* CGImage+create.swift */; };
+		1AB040A32AB5F4490037215E /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040A22AB5F4490037215E /* NavigationButton.swift */; };
 		1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */; };
 		1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F272AACEE3E0097E085 /* TabBarItem.swift */; };
 		1AF13F2A2AACEE600097E085 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F292AACEE600097E085 /* Tab.swift */; };
@@ -72,6 +73,7 @@
 		1AB0409B2AB5CFE70037215E /* Error+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Camera.swift"; sourceTree = "<group>"; };
 		1AB0409D2AB5D95A0037215E /* FrameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
 		1AB0409F2AB5DBB40037215E /* CGImage+create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+create.swift"; sourceTree = "<group>"; };
+		1AB040A22AB5F4490037215E /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		1AF13F272AACEE3E0097E085 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		1AF13F292AACEE600097E085 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		1A96BE2D2AAB3959003DE05B /* Utils+Consts */ = {
 			isa = PBXGroup;
 			children = (
+				1AB040A12AB5F4320037215E /* Utils */,
 				1A9A24AA2AACE1FA0005EBA0 /* Extensions */,
 				1A9A24A92AACE1F20005EBA0 /* Constants */,
 			);
@@ -320,6 +323,14 @@
 				1AB0409D2AB5D95A0037215E /* FrameManager.swift */,
 			);
 			path = SingletonManagers;
+			sourceTree = "<group>";
+		};
+		1AB040A12AB5F4320037215E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1AB040A22AB5F4490037215E /* NavigationButton.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		1ABE4AF32AB2306D004DD0EE /* Resources */ = {
@@ -540,6 +551,7 @@
 				1AF13F2A2AACEE600097E085 /* Tab.swift in Sources */,
 				1AB040A02AB5DBB40037215E /* CGImage+create.swift in Sources */,
 				1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */,
+				1AB040A32AB5F4490037215E /* NavigationButton.swift in Sources */,
 				1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */,
 				1A5DF3D72AB4D45900A872F2 /* MenuViewModel.swift in Sources */,
 				1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */,

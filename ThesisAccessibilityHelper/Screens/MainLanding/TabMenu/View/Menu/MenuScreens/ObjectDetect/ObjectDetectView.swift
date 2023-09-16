@@ -18,9 +18,6 @@ struct ObjectDetectView: View {
                 .ignoresSafeArea()
             // Error view / alert
         }
-        .onAppear {
-            viewModel.didAppear()
-        }
         .onDisappear {
             viewModel.didDisAppear()
         }
