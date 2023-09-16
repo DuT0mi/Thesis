@@ -7,8 +7,9 @@
 
 import AVFoundation
 import UIKit
+import Vision
 
-class CameraManager: NSObject, ObservableObject {
+final class CameraManager: NSObject, ObservableObject {
     // MARK: - Types
 
     enum Status {
@@ -18,15 +19,25 @@ class CameraManager: NSObject, ObservableObject {
         case failed
     }
 
+    private struct Consts {
+        static let model = (name: "YOLOv3Tiny", fileExtension: "mlmodelc")
+    }
+
     // MARK: - Properties
 
     @Published var error: CameraError?
 
+    @Published var resultLabel: VNClassificationObservation?
+    @Published var boundsSize: CGRect?
+
+    // Vision parts
+    @Published var requests = [VNRequest]()
+
+    var bufferSize: CGSize = .zero
+
     static let shared = CameraManager()
 
     private let session = AVCaptureSession()
-
-    private var bufferSize: CGSize = .zero
 
     private let sessionQueue = DispatchQueue(label: "SessionQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
 
@@ -58,6 +69,17 @@ class CameraManager: NSObject, ObservableObject {
             name: UIDevice.orientationDidChangeNotification,
             object: nil
         )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(visiounShouldConfigure),
+            name: Notification.Name("VISIONNOW"),
+            object: nil
+        )
+    }
+
+    @objc private func visiounShouldConfigure() {
+        configure()
     }
 
     @objc private func orientationDidChangeHandler() {
@@ -65,6 +87,10 @@ class CameraManager: NSObject, ObservableObject {
         let orientation = UIDevice.current.orientation
 
         connection.videoOrientation = AVCaptureVideoOrientation(rawValue: orientation.rawValue) ?? .portrait
+
+//        if boundsSize != nil {
+//            boundsSize = convertRectToPortraitOrientation(boundsSize!, currentOrientation: orientation)
+//        }
     }
 
     private func configure() {
@@ -72,6 +98,7 @@ class CameraManager: NSObject, ObservableObject {
 
         sessionQueue.async {
             self.setupSession()
+            self.setupVision()
             self.session.startRunning()
         }
     }
@@ -182,14 +209,65 @@ class CameraManager: NSObject, ObservableObject {
             self.error = error
         }
     }
+
+    @discardableResult
+    private func setupVision() -> NSError? {
+        var error: NSError?
+
+        guard let modelURL = Bundle.main.url(forResource: Consts.model.name, withExtension: Consts.model.fileExtension) else {
+            return NSError(domain: "\(#file)", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing!"])
+        }
+
+        do {
+            let visionModel = try VNCoreMLModel(for: .init(contentsOf: modelURL))
+            let objectRecognition = VNCoreMLRequest(model: visionModel) { request, error in
+                DispatchQueue.main.async {
+                    if let result = request.results {
+                        self.handleResults(result)
+                    }
+                }
+            }
+            self.requests = [objectRecognition]
+        } catch let error as NSError {
+            print("ERROR: \(String(describing: error.localizedDescription)) | AT: \(#file),\(#function), \(#line)")
+        }
+
+        return error
+    }
+
+    private func handleResults(_ results: [Any]) {
+        for observation in results where observation is VNRecognizedObjectObservation {
+            guard let objectObservation = observation as? VNRecognizedObjectObservation else {
+                continue
+            }
+            // Select only the label with the highest confidence.
+            let topLabelObservation = objectObservation.labels[0]
+            let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
+
+            resultLabel = topLabelObservation
+            boundsSize = objectBounds
+
+            print("TEST | ID: \(topLabelObservation.identifier), CONFIDENCE: \(topLabelObservation.confidence)")
+        }
+    }
+
+    func convertRectToPortraitOrientation(_ rect: CGRect, currentOrientation: UIDeviceOrientation) -> CGRect {
+        if currentOrientation == .portrait || currentOrientation == .unknown {
+            return rect
+        }
+
+        return CGRect(x: rect.origin.y, y: rect.origin.x, width: rect.size.height, height: rect.size.width)
+    }
 }
 
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 
 extension CameraManager: AVCaptureVideoDataOutputSampleBufferDelegate {
+
     func set(_ delegate: AVCaptureVideoDataOutputSampleBufferDelegate, queue: DispatchQueue) {
         sessionQueue.async {
             self.videoOutput.setSampleBufferDelegate(delegate, queue: queue)
+            print(#function)
         }
     }
 }

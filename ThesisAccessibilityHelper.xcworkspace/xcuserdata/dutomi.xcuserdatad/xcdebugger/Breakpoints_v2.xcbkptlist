@@ -16,5 +16,129 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05ADE5B7-3F29-4939-9E03-643BBA35E80F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "setupVision()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "05ADE5B7-3F29-4939-9E03-643BBA35E80F - 33abf6468a3c0a75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.CameraManager.setupVision() -&gt; Swift.Optional&lt;__C.NSError&gt;"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "219"
+                  endingLineNumber = "219"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "05ADE5B7-3F29-4939-9E03-643BBA35E80F - 33abf6468a3c0a75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.CameraManager.setupVision() -&gt; Swift.Optional&lt;__C.NSError&gt;"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "219"
+                  endingLineNumber = "219"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "05ADE5B7-3F29-4939-9E03-643BBA35E80F - 33abf6468a3c0a75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.CameraManager.setupVision() -&gt; Swift.Optional&lt;__C.NSError&gt;"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "219"
+                  endingLineNumber = "219"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "05ADE5B7-3F29-4939-9E03-643BBA35E80F - 33abf6468a3c0a75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.CameraManager.setupVision() -&gt; Swift.Optional&lt;__C.NSError&gt;"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "219"
+                  endingLineNumber = "219"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "05ADE5B7-3F29-4939-9E03-643BBA35E80F - 33abf6468a3c05bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.CameraManager.setupVision() -&gt; Swift.Optional&lt;__C.NSError&gt;"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "225"
+                  endingLineNumber = "225"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "05ADE5B7-3F29-4939-9E03-643BBA35E80F - 33abf6468a3c05bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.CameraManager.setupVision() -&gt; Swift.Optional&lt;__C.NSError&gt;"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "225"
+                  endingLineNumber = "225"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A5E1688-F89A-4D78-A73C-F8F8A9FF0187"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "handleResults(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

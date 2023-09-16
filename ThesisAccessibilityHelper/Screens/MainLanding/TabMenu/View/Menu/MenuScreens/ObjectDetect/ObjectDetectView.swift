@@ -16,10 +16,15 @@ struct ObjectDetectView: View {
         ZStack {
             CameraFrameView(image: viewModel.frame)
                 .ignoresSafeArea()
-            // Error view / alert
+            if let label = viewModel.resultLabel?.identifier, let size = viewModel.bufferSize {
+                ObjectView(resultLabel: label, bufferSize: size)
+            }
         }
         .onDisappear {
             viewModel.didDisAppear()
+        }
+        .onAppear {
+            viewModel.didAppear()
         }
     }
 }

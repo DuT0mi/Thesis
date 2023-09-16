@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreImage
+import Vision
+import Combine
 
 protocol ObjectDetectViewModelInput: BaseViewModelInput {
 }
@@ -16,10 +18,14 @@ final class ObjectDetectViewModel: ObservableObject {
 
     @Published var frame: CGImage? // Holds the current image
     @Published var error: Error?
+    @Published var resultLabel: VNClassificationObservation?
+    @Published var bufferSize: CGRect?
 
     private let tabHosterInstance = TabHosterViewViewModel.shared
     private let frameManagerInstance = FrameManager.shared
     private let cameraManagerInstance = CameraManager.shared
+
+    private var cancellables = Set<AnyCancellable>()
 
     init() {
         subscriptions()
@@ -37,17 +43,27 @@ final class ObjectDetectViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .map { $0 } // CameraError -> Error
             .assign(to: &$error)
-    }
 
+        cameraManagerInstance.$boundsSize
+            .receive(on: RunLoop.main)
+            .assign(to: &$bufferSize)
+
+        cameraManagerInstance.$resultLabel
+            .receive(on: RunLoop.main)
+            .assign(to: &$resultLabel)
+    }
 }
 
 // MARK: - ObjectDetectViewModelInput
 
 extension ObjectDetectViewModel: ObjectDetectViewModelInput {
     func didAppear() {
+        let noti = Notification(name: Notification.Name("VISIONNOW"))
+        NotificationCenter.default.post(noti)
     }
 
     func didDisAppear() {
         tabHosterInstance.tabBarStatus.send(.show)
+        cameraManagerInstance.stopSession()
     }
 }

@@ -35,6 +35,7 @@
 		1AB0409E2AB5D95A0037215E /* FrameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0409D2AB5D95A0037215E /* FrameManager.swift */; };
 		1AB040A02AB5DBB40037215E /* CGImage+create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0409F2AB5DBB40037215E /* CGImage+create.swift */; };
 		1AB040A32AB5F4490037215E /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040A22AB5F4490037215E /* NavigationButton.swift */; };
+		1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040A42AB63E5B0037215E /* ObjectView.swift */; };
 		1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */; };
 		1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F272AACEE3E0097E085 /* TabBarItem.swift */; };
 		1AF13F2A2AACEE600097E085 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F292AACEE600097E085 /* Tab.swift */; };
@@ -74,6 +75,7 @@
 		1AB0409D2AB5D95A0037215E /* FrameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameManager.swift; sourceTree = "<group>"; };
 		1AB0409F2AB5DBB40037215E /* CGImage+create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+create.swift"; sourceTree = "<group>"; };
 		1AB040A22AB5F4490037215E /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		1AB040A42AB63E5B0037215E /* ObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectView.swift; sourceTree = "<group>"; };
 		1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		1AF13F272AACEE3E0097E085 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		1AF13F292AACEE600097E085 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				1AB040942AB5C51E0037215E /* CameraFrameView.swift */,
+				1AB040A42AB63E5B0037215E /* ObjectView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				1AB0409A2AB5CD6B0037215E /* CameraManager.swift in Sources */,
 				1AB0409C2AB5CFE70037215E /* Error+Camera.swift in Sources */,
 				1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */,
+				1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */,
 				1AB0409E2AB5D95A0037215E /* FrameManager.swift in Sources */,
 				1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
