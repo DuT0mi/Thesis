@@ -18,7 +18,7 @@ struct MenuView: View {
                 VStack {
                     Group {
                         HStack(spacing: 20) {
-                            NavigationButton(delay: 0.5) {
+                            NavigationButton(delay: 1.0) {
                                 viewModel.didTapItem()
                             } destination: {
                                 ObjectDetectView()

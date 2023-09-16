@@ -43,6 +43,12 @@ final class CameraManager: NSObject, ObservableObject {
 
     // MARK: - Functions
 
+    func stopSession() {
+        if session.isRunning {
+            session.stopRunning()
+        }
+    }
+
     private func configure() {
         checkPermission()
 
@@ -125,6 +131,8 @@ final class CameraManager: NSObject, ObservableObject {
 
             let connection = videoOutput.connection(with: .video)
             connection?.isEnabled = true
+            connection?.videoOrientation = .portrait
+            connection?.isVideoMirrored = true
 
             do {
                 try device!.lockForConfiguration()
@@ -135,7 +143,7 @@ final class CameraManager: NSObject, ObservableObject {
 
                 device!.unlockForConfiguration()
             } catch {
-
+                print(error)
             }
 
         } else {
