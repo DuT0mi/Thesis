@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct MenuView: View {
+    // MARK: - Properties
+
+    @StateObject private var viewModel = MenuViewModel()
+
     var body: some View {
         NavigationView {
             BaseView {
                 VStack {
                     Group {
                         HStack(spacing: 20) {
-                            NavigationLink(destination: Circle1DetailView()) {
-                                MenuViewItem()
+                            NavigationButton(delay: 0.5) {
+                                viewModel.didTapItem()
+                            } destination: {
+                                ObjectDetectView()
+                            } label: {
+                                MenuViewItem(systemName: "camera")
                             }
+
                             NavigationLink(destination: Circle2DetailView()) {
                                 MenuViewItem()
                             }

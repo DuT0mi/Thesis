@@ -8,17 +8,28 @@
 import Foundation
 
 protocol MenuViewModelInput: BaseViewModelInput {
+    func didTapItem()
 }
 
 @MainActor
 final class MenuViewModel: ObservableObject {
     // MARK: - Properties
 
-    @Published private(set) var indexes: [Int]
+    private let tabHosterInstance = TabHosterViewViewModel.shared
+}
 
-    // MARK: - Initialization
+// MARK: - ObjectDetectViewModelInput
 
-    init() {
-        _indexes = .init(wrappedValue: (1..<9).map { $0 })
+extension MenuViewModel: ObjectDetectViewModelInput {
+    func didAppear() {
+        tabHosterInstance.tabBarStatus.send(.hide)
+    }
+
+    func didDisAppear() {
+        tabHosterInstance.tabBarStatus.send(.show)
+    }
+
+    func didTapItem() {
+        tabHosterInstance.tabBarStatus.send(.hide)
     }
 }
