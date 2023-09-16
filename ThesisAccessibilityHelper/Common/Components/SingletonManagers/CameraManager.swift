@@ -24,9 +24,9 @@ class CameraManager: NSObject, ObservableObject {
 
     static let shared = CameraManager()
 
-    let session = AVCaptureSession()
+    private let session = AVCaptureSession()
 
-    var bufferSize: CGSize = .zero
+    private var bufferSize: CGSize = .zero
 
     private let sessionQueue = DispatchQueue(label: "SessionQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
 
@@ -51,7 +51,7 @@ class CameraManager: NSObject, ObservableObject {
         }
     }
 
-    func addObservers() {
+    private func addObservers() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(orientationDidChangeHandler),
@@ -60,14 +60,14 @@ class CameraManager: NSObject, ObservableObject {
         )
     }
 
-    @objc func orientationDidChangeHandler() {
+    @objc private func orientationDidChangeHandler() {
         guard let connection = session.connections.last, connection.isVideoOrientationSupported else { return }
         let orientation = UIDevice.current.orientation
 
         connection.videoOrientation = AVCaptureVideoOrientation(rawValue: orientation.rawValue) ?? .portrait
     }
 
-    func configure() {
+    private func configure() {
         checkPermission()
 
         sessionQueue.async {
@@ -76,7 +76,7 @@ class CameraManager: NSObject, ObservableObject {
         }
     }
 
-    func checkPermission() {
+    private func checkPermission() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .notDetermined:
                 sessionQueue.suspend()
@@ -109,7 +109,7 @@ class CameraManager: NSObject, ObservableObject {
     }
 
     // swiftlint:disable force_unwrapping
-    func setupSession() {
+    private func setupSession() {
         guard status == .unconfigured else { return }
 
         var deviceInput: AVCaptureDeviceInput!
@@ -175,7 +175,7 @@ class CameraManager: NSObject, ObservableObject {
     }
     // swiftlint:enable force_unwrapping
 
-    func set(error: Error) {
+    private func set(error: Error) {
         guard let error = error as? CameraError else { return }
 
         DispatchQueue.main.async {
