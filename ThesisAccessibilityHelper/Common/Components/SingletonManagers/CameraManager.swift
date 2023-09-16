@@ -6,8 +6,9 @@
 //
 
 import AVFoundation
+import UIKit
 
-final class CameraManager: NSObject, ObservableObject {
+class CameraManager: NSObject, ObservableObject {
     // MARK: - Types
 
     enum Status {
@@ -38,12 +39,35 @@ final class CameraManager: NSObject, ObservableObject {
     private override init() {
         super.init()
 
+        addObservers()
         configure()
     }
 
     // MARK: - Functions
 
-    private func configure() {
+    func stopSession() {
+        if session.isRunning {
+            session.stopRunning()
+        }
+    }
+
+    func addObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(orientationDidChangeHandler),
+            name: UIDevice.orientationDidChangeNotification,
+            object: nil
+        )
+    }
+
+    @objc func orientationDidChangeHandler() {
+        guard let connection = session.connections.last, connection.isVideoOrientationSupported else { return }
+        let orientation = UIDevice.current.orientation
+
+        connection.videoOrientation = AVCaptureVideoOrientation(rawValue: orientation.rawValue) ?? .portrait
+    }
+
+    func configure() {
         checkPermission()
 
         sessionQueue.async {
@@ -52,7 +76,7 @@ final class CameraManager: NSObject, ObservableObject {
         }
     }
 
-    private func checkPermission() {
+    func checkPermission() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .notDetermined:
                 sessionQueue.suspend()
@@ -85,7 +109,7 @@ final class CameraManager: NSObject, ObservableObject {
     }
 
     // swiftlint:disable force_unwrapping
-    private func setupSession() {
+    func setupSession() {
         guard status == .unconfigured else { return }
 
         var deviceInput: AVCaptureDeviceInput!
@@ -125,6 +149,8 @@ final class CameraManager: NSObject, ObservableObject {
 
             let connection = videoOutput.connection(with: .video)
             connection?.isEnabled = true
+            connection?.videoOrientation = .portrait
+            connection?.isVideoMirrored = true
 
             do {
                 try device!.lockForConfiguration()
@@ -135,7 +161,7 @@ final class CameraManager: NSObject, ObservableObject {
 
                 device!.unlockForConfiguration()
             } catch {
-
+                print(error)
             }
 
         } else {
@@ -149,7 +175,7 @@ final class CameraManager: NSObject, ObservableObject {
     }
     // swiftlint:enable force_unwrapping
 
-    private func set(error: Error) {
+    func set(error: Error) {
         guard let error = error as? CameraError else { return }
 
         DispatchQueue.main.async {
