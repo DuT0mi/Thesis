@@ -6,6 +6,8 @@
 //
 
 import AVFoundation
+import Vision
+import UIKit
 
 final class FrameManager: NSObject, ObservableObject {
     // MARK: - Properties
@@ -28,15 +30,48 @@ final class FrameManager: NSObject, ObservableObject {
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 
 extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(
-    _ output: AVCaptureOutput,
-    didOutput sampleBuffer: CMSampleBuffer,
-    from connection: AVCaptureConnection
-    ) {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         if let buffer = sampleBuffer.imageBuffer {
             DispatchQueue.main.async {
                 self.current = buffer
             }
         }
+
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+            return
+        }
+
+        let exifOrientation = exifOrientationFromDeviceOrientation()
+
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: exifOrientation, options: [:])
+        do {
+            try imageRequestHandler.perform(CameraManager.shared.requests)
+        } catch {
+            print(error)
+        }
     }
+}
+
+// MARK: - FrameManager
+
+extension FrameManager {
+    func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
+        let curDeviceOrientation = UIDevice.current.orientation
+        let exifOrientation: CGImagePropertyOrientation
+
+        switch curDeviceOrientation {
+            case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
+                exifOrientation = .left
+            case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
+                exifOrientation = .upMirrored
+            case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
+                exifOrientation = .down
+            case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
+                exifOrientation = .up
+            default:
+                exifOrientation = .up
+        }
+
+        return exifOrientation
+        }
 }
