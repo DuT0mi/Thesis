@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct MenuView: View {
+    // MARK: - Properties
+
     var body: some View {
         NavigationView {
             BaseView {
                 VStack {
                     Group {
                         HStack(spacing: 20) {
-                            NavigationLink(destination: Circle1DetailView()) {
-                                MenuViewItem()
+                            NavigationLink(destination: ObjectDetectView()) {
+                                MenuViewItem(systemName: "camera")
                             }
                             NavigationLink(destination: Circle2DetailView()) {
                                 MenuViewItem()

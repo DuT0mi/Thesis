@@ -12,9 +12,9 @@ struct TabHosterView: View {
 
     @Namespace private var animation
 
-    @StateObject private var viewModel = TabHosterViewViewModel()
+    @StateObject private var viewModel = TabHosterViewViewModel.shared
 
-    @State private var activeTab: Tab = .home // TODO: -> VM
+    @State private var activeTab: Tab = .home
     @State private var tabShapePosition: CGPoint = .zero
 
     var body: some View {

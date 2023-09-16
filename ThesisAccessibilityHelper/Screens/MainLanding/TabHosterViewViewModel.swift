@@ -13,12 +13,15 @@ final class TabHosterViewViewModel: ObservableObject {
 
     @Published var shouldShowTabBar = true
 
+    static let shared = TabHosterViewViewModel()
+
     var tabBarStatus = PassthroughSubject<TabBarStatus, Never>()
+
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Initialization
 
-    init() {
+    private init() {
         subscribers()
     }
 
@@ -27,7 +30,7 @@ final class TabHosterViewViewModel: ObservableObject {
     private func subscribers() {
         self.tabBarStatus
             .map { (status) -> Bool in
-                status == .show ? true : false
+                status == .show
             }
             .sink { [weak self] receivedValue  in
                 self?.shouldShowTabBar = receivedValue
