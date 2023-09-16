@@ -28,16 +28,15 @@ final class FrameManager: NSObject, ObservableObject {
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 
 extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
-  func captureOutput(
+    func captureOutput(
     _ output: AVCaptureOutput,
     didOutput sampleBuffer: CMSampleBuffer,
     from connection: AVCaptureConnection
-  ) {
-    if let buffer = sampleBuffer.imageBuffer {
-      DispatchQueue.main.async {
-        self.current = buffer
-      }
+    ) {
+        if let buffer = sampleBuffer.imageBuffer {
+            DispatchQueue.main.async {
+                self.current = buffer
+            }
+        }
     }
-  }
 }
-

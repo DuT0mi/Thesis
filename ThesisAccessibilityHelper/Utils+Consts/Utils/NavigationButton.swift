@@ -2,24 +2,26 @@ import SwiftUI
 // https://stackoverflow.com/questions/58897453/how-to-perform-an-action-after-navigationlink-is-tapped
 
 struct NavigationButton<Destination: View, Label: View>: View {
+    var delay: TimeInterval = .zero
     var action: () -> Void = { }
     var destination: () -> Destination
     var label: () -> Label
 
-    @State private var isActive: Bool = false
+    @State private var isActive = false
 
     var body: some View {
         Button(action: {
-            self.action()
-            self.isActive.toggle()
+            DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + delay) {
+                self.action()
+                self.isActive.toggle()
+            }
         }) {
             self.label()
-              .background(
-                ScrollView { // Fixes a bug where the navigation bar may become hidden on the pushed view
-                    NavigationLink(destination: LazyDestination { self.destination() },
-                                                 isActive: self.$isActive) { EmptyView() }
-                }
-              )
+                .background(
+                    ScrollView { // Fixes a bug where the navigation bar may become hidden on the pushed view
+                        NavigationLink(destination: LazyDestination { self.destination() }, isActive: self.$isActive) { EmptyView() }
+                    }
+                )
         }
     }
 }
@@ -31,4 +33,3 @@ struct LazyDestination<Destination: View>: View {
         self.destination()
     }
 }
-

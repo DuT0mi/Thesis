@@ -106,7 +106,7 @@ final class CameraManager: NSObject, ObservableObject {
             return
         }
 
-        session.sessionPreset = .vga640x480
+        session.sessionPreset = .vga640x480 // model is 480 x 480
 
         if session.canAddInput(deviceInput) {
             session.addInput(deviceInput)

@@ -18,12 +18,12 @@ struct MenuView: View {
                 VStack {
                     Group {
                         HStack(spacing: 20) {
-                            NavigationButton {
+                            NavigationButton(delay: 0.5) {
                                 viewModel.didTapItem()
                             } destination: {
                                 ObjectDetectView()
                             } label: {
-                                MenuViewItem()
+                                MenuViewItem(systemName: "camera")
                             }
 
                             NavigationLink(destination: Circle2DetailView()) {

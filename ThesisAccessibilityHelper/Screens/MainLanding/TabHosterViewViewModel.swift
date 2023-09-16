@@ -29,6 +29,7 @@ final class TabHosterViewViewModel: ObservableObject {
 
     private func subscribers() {
         self.tabBarStatus
+            .receive(on: RunLoop.main)
             .map { (status) -> Bool in
                 status == .show
             }

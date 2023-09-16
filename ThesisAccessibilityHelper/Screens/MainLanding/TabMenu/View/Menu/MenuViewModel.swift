@@ -15,15 +15,7 @@ protocol MenuViewModelInput: BaseViewModelInput {
 final class MenuViewModel: ObservableObject {
     // MARK: - Properties
 
-    @Published private(set) var indexes: [Int]
-
     private let tabHosterInstance = TabHosterViewViewModel.shared
-
-    // MARK: - Initialization
-
-    init() {
-        _indexes = .init(wrappedValue: (1..<9).map { $0 })
-    }
 }
 
 // MARK: - ObjectDetectViewModelInput
