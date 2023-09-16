@@ -19,7 +19,7 @@ struct CameraFrameView: View {
     // MARK: - Properties
 
     var image: CGImage?
-    var imageOrientation: Image.Orientation = .upMirrored // TODO: Binding
+    var imageOrientation: Image.Orientation = .upMirrored
 
     var body: some View {
         if let image {
