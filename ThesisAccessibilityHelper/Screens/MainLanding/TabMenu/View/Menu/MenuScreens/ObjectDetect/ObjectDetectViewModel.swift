@@ -89,17 +89,18 @@ final class ObjectDetectViewModel: ObservableObject {
                 let boundingBox = boxObservation?.boundingBox ?? .zero
 
                 // Convert the rectangle from normalized coordinates to image coordinates.
-                return VNImageRectForNormalizedRect(boundingBox,
-                                                    Int(image.size.width),
-                                                    Int(image.size.height))
+                return VNImageRectForNormalizedRect(boundingBox, Int(image.size.width), Int(image.size.height))
             }
 
-            print("FOUND TEXT: \(topCandiateText) | AT RECT: \(boundingRects)")
+            print("FOUND TEXT: \(topCandiateText.localizedCapitalized) | AT RECT: \(boundingRects)")
 
         }
 
-        request.recognitionLanguages = ["hu_HU"]
+        request.recognitionLanguages = ["en-US"]
+        request.automaticallyDetectsLanguage = false
+        request.usesLanguageCorrection = true
         request.recognitionLevel = VNRequestTextRecognitionLevel.accurate
+        request.minimumTextHeight = 10
 
         do {
             try requestHandler.perform([request])
