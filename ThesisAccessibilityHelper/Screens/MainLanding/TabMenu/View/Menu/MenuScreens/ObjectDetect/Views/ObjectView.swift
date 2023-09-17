@@ -10,13 +10,7 @@ import SwiftUI
 struct ObjectView: View {
     // MARK: - Types
 
-    private struct Consts {
-        static let minimalDelay = 0.7
-    }
-
     // MARK: - Properties
-
-    @State private var showText = false
 
     var resultLabel: String
     var bufferSize: CGRect = .zero
@@ -24,18 +18,17 @@ struct ObjectView: View {
     var body: some View {
         if bufferSize != .zero {
             GeometryReader { geometryProxy in
-                VStack {
-                    if showText {
-                        Text(resultLabel)
-                            .position(x: bufferSize.midX, y: bufferSize.midY)
-                    }
+                ZStack {
+                    Text(resultLabel)
+                        .position(x: bufferSize.midY, y: bufferSize.minY - 10)
+                    Rectangle()
+                        .strokeBorder(lineWidth: 5.0)
+                        .foregroundColor(.white)
+                        .background(Color.yellow.opacity(0.2))
+                        .frame(width: bufferSize.width, height: bufferSize.height)
+                        .position(x: bufferSize.midX, y: bufferSize.midY)
                 }
                 .frame(width: geometryProxy.size.width, height: geometryProxy.size.height)
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + Consts.minimalDelay) {
-                        showText = true
-                    }
-                }
             }
         } else {
             EmptyView()
@@ -47,5 +40,7 @@ struct ObjectView: View {
 struct ObjectView_Previews: PreviewProvider {
     static var previews: some View {
         ObjectView(resultLabel: "Hello", bufferSize: .init(x: 10, y: 10, width: 200, height: 200))
+            .preferredColorScheme(.dark)
     }
 }
+
