@@ -24,7 +24,7 @@ final class SynthesizerManager {
     func speak(with toSay: String) {
         let utterance = AVSpeechUtterance(string: toSay)
         utterance.rate = AVSpeechUtteranceDefaultSpeechRate
-        utterance.voice = AVSpeechSynthesisVoice(language: "hu_HU") // TODO: Localization
+        utterance.voice = AVSpeechSynthesisVoice(language: AVSpeechSynthesisVoice.currentLanguageCode()) // TODO: Localization
         utterance.volume = 0.65
 
         speaker.speak(utterance)

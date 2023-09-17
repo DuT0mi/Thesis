@@ -244,8 +244,6 @@ final class CameraManager: NSObject, ObservableObject {
 
             resultLabel = topLabelObservation
             boundsSize = objectBounds
-
-            print("TEST | ID: \(topLabelObservation.identifier), CONFIDENCE: \(topLabelObservation.confidence), BOUNDS: \(boundsSize!)")
         }
     }
 }
