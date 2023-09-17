@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct ObjectView: View {
-    // MARK: - Types
-
     // MARK: - Properties
 
-    var resultLabel: String
-    var bufferSize: CGRect = .zero
+    var resultLabel: String?
+    var bufferSize: CGRect?
 
     var body: some View {
-        if bufferSize != .zero {
+        if let bufferSize, let resultLabel {
             GeometryReader { geometryProxy in
+                let nonNegativeX = max(0, bufferSize.minX)
+                let adjustedBufferSize = CGRect(x: nonNegativeX, y: bufferSize.minY, width: bufferSize.width, height: bufferSize.height)
+
                 ZStack {
                     Text(resultLabel)
-                        .position(x: bufferSize.midY, y: bufferSize.minY - 10)
+                        .position(x: adjustedBufferSize.midY, y: adjustedBufferSize.minY - 10)
                     Rectangle()
-                        .strokeBorder(lineWidth: 5.0)
+                        .strokeBorder(lineWidth: 1.0)
                         .foregroundColor(.white)
                         .background(Color.yellow.opacity(0.2))
-                        .frame(width: bufferSize.width, height: bufferSize.height)
-                        .position(x: bufferSize.midX, y: bufferSize.midY)
+                        .frame(width: adjustedBufferSize.width, height: adjustedBufferSize.height)
+                        .position(x: adjustedBufferSize.midX, y: adjustedBufferSize.midY)
                 }
                 .frame(width: geometryProxy.size.width, height: geometryProxy.size.height)
             }
@@ -43,4 +44,3 @@ struct ObjectView_Previews: PreviewProvider {
             .preferredColorScheme(.dark)
     }
 }
-

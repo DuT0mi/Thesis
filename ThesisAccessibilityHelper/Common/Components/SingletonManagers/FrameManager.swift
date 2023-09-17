@@ -14,6 +14,8 @@ final class FrameManager: NSObject, ObservableObject {
 
     @Published var current: CVPixelBuffer? // Received object from the camera
 
+    @Published var currentImage: UIImage?
+
     private let videoQueue = DispatchQueue(label: "VideoQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem) // Output
 
     static let shared = FrameManager()
@@ -41,9 +43,12 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
 
+        self.currentImage = self.convert(cmage: CIImage(cvImageBuffer: pixelBuffer))
+
         let exifOrientation = exifOrientationFromDeviceOrientation()
 
         let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: exifOrientation, options: [:])
+
         do {
             try imageRequestHandler.perform(CameraManager.shared.requests)
         } catch {
@@ -71,7 +76,14 @@ extension FrameManager {
             default:
                 exifOrientation = .up
         }
-
         return exifOrientation
-        }
+    }
+
+    // Convert CIImage to UIImage
+    func convert(cmage: CIImage) -> UIImage {
+         let context = CIContext(options: nil)
+         let cgImage = context.createCGImage(cmage, from: cmage.extent)!
+         let image = UIImage(cgImage: cgImage)
+         return image
+    }
 }

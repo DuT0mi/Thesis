@@ -23,11 +23,11 @@ struct CameraFrameView: View {
 
     var body: some View {
         if let image {
-            GeometryReader { geometryProxy in
+            ZStack {
                 Image(image, scale: Consts.Layout.imageScale, orientation: imageOrientation, label: accessabilityLabel)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: geometryProxy.size.width, height: geometryProxy.size.height, alignment: .center)
+                    .frame(width: AppConstants.AppDimension.width, height: AppConstants.AppDimension.height, alignment: .center)
                     .clipped()
             }
         } else {
