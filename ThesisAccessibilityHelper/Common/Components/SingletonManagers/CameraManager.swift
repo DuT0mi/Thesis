@@ -63,12 +63,12 @@ final class CameraManager: NSObject, ObservableObject {
     }
 
     private func addObservers() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(orientationDidChangeHandler),
-            name: UIDevice.orientationDidChangeNotification,
-            object: nil
-        )
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(orientationDidChangeHandler),
+//            name: UIDevice.orientationDidChangeNotification,
+//            object: nil
+//        )
 
         NotificationCenter.default.addObserver(
             self,
@@ -82,16 +82,12 @@ final class CameraManager: NSObject, ObservableObject {
         configure()
     }
 
-    @objc private func orientationDidChangeHandler() {
-        guard let connection = session.connections.last, connection.isVideoOrientationSupported else { return }
-        let orientation = UIDevice.current.orientation
-
-        connection.videoOrientation = AVCaptureVideoOrientation(rawValue: orientation.rawValue) ?? .portrait
-
-//        if boundsSize != nil {
-//            boundsSize = convertRectToPortraitOrientation(boundsSize!, currentOrientation: orientation)
-//        }
-    }
+//    @objc private func orientationDidChangeHandler() {
+//        guard let connection = session.connections.last, connection.isVideoOrientationSupported else { return }
+//        let orientation = UIDevice.current.orientation
+//
+//        connection.videoOrientation = AVCaptureVideoOrientation(rawValue: orientation.rawValue) ?? .portrait
+//    }
 
     private func configure() {
         checkPermission()
@@ -220,10 +216,12 @@ final class CameraManager: NSObject, ObservableObject {
 
         do {
             let visionModel = try VNCoreMLModel(for: .init(contentsOf: modelURL))
-            let objectRecognition = VNCoreMLRequest(model: visionModel) { request, error in
+            let objectRecognition = VNCoreMLRequest(model: visionModel) { request, capturedError in
                 DispatchQueue.main.async {
                     if let result = request.results {
                         self.handleResults(result)
+                    } else {
+                        error = (capturedError as? NSError)
                     }
                 }
             }
@@ -247,16 +245,8 @@ final class CameraManager: NSObject, ObservableObject {
             resultLabel = topLabelObservation
             boundsSize = objectBounds
 
-            print("TEST | ID: \(topLabelObservation.identifier), CONFIDENCE: \(topLabelObservation.confidence)")
+            print("TEST | ID: \(topLabelObservation.identifier), CONFIDENCE: \(topLabelObservation.confidence), BOUNDS: \(boundsSize!)")
         }
-    }
-
-    func convertRectToPortraitOrientation(_ rect: CGRect, currentOrientation: UIDeviceOrientation) -> CGRect {
-        if currentOrientation == .portrait || currentOrientation == .unknown {
-            return rect
-        }
-
-        return CGRect(x: rect.origin.y, y: rect.origin.x, width: rect.size.height, height: rect.size.width)
     }
 }
 
@@ -267,7 +257,6 @@ extension CameraManager: AVCaptureVideoDataOutputSampleBufferDelegate {
     func set(_ delegate: AVCaptureVideoDataOutputSampleBufferDelegate, queue: DispatchQueue) {
         sessionQueue.async {
             self.videoOutput.setSampleBufferDelegate(delegate, queue: queue)
-            print(#function)
         }
     }
 }
