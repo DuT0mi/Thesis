@@ -63,13 +63,6 @@ final class CameraManager: NSObject, ObservableObject {
     }
 
     private func addObservers() {
-//        NotificationCenter.default.addObserver(
-//            self,
-//            selector: #selector(orientationDidChangeHandler),
-//            name: UIDevice.orientationDidChangeNotification,
-//            object: nil
-//        )
-
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(visiounShouldConfigure),
@@ -81,13 +74,6 @@ final class CameraManager: NSObject, ObservableObject {
     @objc private func visiounShouldConfigure() {
         configure()
     }
-
-//    @objc private func orientationDidChangeHandler() {
-//        guard let connection = session.connections.last, connection.isVideoOrientationSupported else { return }
-//        let orientation = UIDevice.current.orientation
-//
-//        connection.videoOrientation = AVCaptureVideoOrientation(rawValue: orientation.rawValue) ?? .portrait
-//    }
 
     private func configure() {
         checkPermission()
