@@ -16,7 +16,10 @@ struct ObjectDetectView: View {
         ZStack {
             CameraFrameView(image: viewModel.frame)
                 .ignoresSafeArea()
-            ObjectView(resultLabel: viewModel.resultLabel?.identifier, bufferSize: viewModel.bufferSize)
+            ObjectView(
+                resultLabel: viewModel.capturedObject.capturedLabel,
+                bufferSize: viewModel.capturedObject.capturedObjectBounds
+            )
         }
         .onDisappear {
             viewModel.didDisAppear()

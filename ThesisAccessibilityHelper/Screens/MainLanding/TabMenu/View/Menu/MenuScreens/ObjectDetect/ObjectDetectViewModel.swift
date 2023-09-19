@@ -19,8 +19,10 @@ final class ObjectDetectViewModel: ObservableObject {
 
     @Published var frame: CGImage? // Holds the current image
     @Published var error: Error?
-    @Published var resultLabel: VNClassificationObservation?
-    @Published var bufferSize: CGRect?
+//    @Published var resultLabel: VNClassificationObservation?
+//    @Published var bufferSize: CGRect?
+    @Published var capturedObject: CameraManager.CameraResultModel
+    @Published var shouldUpdateView = false
 
     private let tabHosterInstance = TabHosterViewViewModel.shared
     private let frameManagerInstance = FrameManager.shared
@@ -28,7 +30,11 @@ final class ObjectDetectViewModel: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
+    // MARK: - Initialization
+
     init() {
+        _capturedObject = .init(initialValue: CameraManager.defaultCameraResultModel)
+
         subscriptions()
     }
 
@@ -40,28 +46,22 @@ final class ObjectDetectViewModel: ObservableObject {
             .compactMap { CGImage.create(from: $0) } // CVPixelBuffer -> CGImage
             .assign(to: &$frame)
 
-        frameManagerInstance.$currentImage
+        cameraManagerInstance.$capturedObject
             .receive(on: RunLoop.main)
-            .delay(for: .seconds(0.1), scheduler: RunLoop.main)
-            .sink { uiImage in
-                self.cropRectFromImage(image: uiImage, rect: self.bufferSize)
-            }
-            .store(in: &cancellables)
+            .assign(to: &$capturedObject)
+
+//        frameManagerInstance.$currentImage
+//            .receive(on: RunLoop.main)
+//            .delay(for: .seconds(0.1), scheduler: RunLoop.main)
+//            .sink { uiImage in
+//                self.cropRectFromImage(image: uiImage, rect: self.bufferSize)
+//            }
+//            .store(in: &cancellables)
 
         cameraManagerInstance.$error
             .receive(on: RunLoop.main)
             .map { $0 } // CameraError -> Error
             .assign(to: &$error)
-
-        cameraManagerInstance.$boundsSize
-            .receive(on: RunLoop.main)
-            .delay(for: .seconds(0.1), scheduler: RunLoop.main)
-            .assign(to: &$bufferSize)
-
-        cameraManagerInstance.$resultLabel
-            .receive(on: RunLoop.main)
-            .delay(for: .seconds(0.1), scheduler: RunLoop.main)
-            .assign(to: &$resultLabel)
     }
 
     private func cropRectFromImage(image: UIImage?, rect: CGRect?) {
