@@ -26,8 +26,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "setupVision()"
             landmarkType = "7">
             <Locations>
@@ -134,8 +134,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "handleResults(_:)"
             landmarkType = "7">
          </BreakpointContent>
