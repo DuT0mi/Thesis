@@ -15,6 +15,7 @@
 		1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3D12AB490A700A872F2 /* MenuView.swift */; };
 		1A5DF3D42AB4925500A872F2 /* MenuViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3D32AB4925500A872F2 /* MenuViewItem.swift */; };
 		1A5DF3D72AB4D45900A872F2 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3D62AB4D45900A872F2 /* MenuViewModel.swift */; };
+		1A9428622ABA28230042D9BB /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 1A9428612ABA28230042D9BB /* Documentation.docc */; };
 		1A9665CA2AACC6FC0087F964 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9665C92AACC6FC0087F964 /* BaseView.swift */; };
 		1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9665CC2AACC77A0087F964 /* BaseViewModel.swift */; };
 		1A96BE2F2AAB39C6003DE05B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A96BE2E2AAB39C6003DE05B /* AppConstants.swift */; };
@@ -40,6 +41,7 @@
 		1AB040AA2AB652F00037215E /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1AB040A92AB652F00037215E /* LICENSE.txt */; };
 		1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */; };
 		1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */; };
+		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
 		1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F272AACEE3E0097E085 /* TabBarItem.swift */; };
 		1AF13F2A2AACEE600097E085 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F292AACEE600097E085 /* Tab.swift */; };
 		1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F2B2AACEE780097E085 /* TabPosition.swift */; };
@@ -56,6 +58,7 @@
 		1A5DF3D12AB490A700A872F2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		1A5DF3D32AB4925500A872F2 /* MenuViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewItem.swift; sourceTree = "<group>"; };
 		1A5DF3D62AB4D45900A872F2 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		1A9428612ABA28230042D9BB /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; name = Documentation.docc; path = ThesisAccessibilityHelper/Documentation.docc; sourceTree = SOURCE_ROOT; };
 		1A9665C92AACC6FC0087F964 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		1A9665CC2AACC77A0087F964 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		1A96BE2E2AAB39C6003DE05B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 		1AB040A92AB652F00037215E /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesizerManager.swift; sourceTree = "<group>"; };
 		1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
+		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
 		1AF13F272AACEE3E0097E085 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		1AF13F292AACEE600097E085 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		1AF13F2B2AACEE780097E085 /* TabPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPosition.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */,
+				1A9428612ABA28230042D9BB /* Documentation.docc */,
 				1ABE4AF32AB2306D004DD0EE /* Resources */,
 				1A96BE302AAB3EE7003DE05B /* Common */,
 				1A96BE2D2AAB3959003DE05B /* Utils+Consts */,
@@ -330,6 +335,7 @@
 		1AB040982AB5CD580037215E /* SingletonManagers */ = {
 			isa = PBXGroup;
 			children = (
+				1ACC0EE12ABA0FE400113911 /* Base */,
 				1AB040992AB5CD6B0037215E /* CameraManager.swift */,
 				1AB0409D2AB5D95A0037215E /* FrameManager.swift */,
 				1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */,
@@ -377,6 +383,14 @@
 				1A9665C92AACC6FC0087F964 /* BaseView.swift */,
 			);
 			path = BaseView;
+			sourceTree = "<group>";
+		};
+		1ACC0EE12ABA0FE400113911 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		1AF13F252AACEDB90097E085 /* TabBar */ = {
@@ -553,6 +567,7 @@
 			files = (
 				1A9D1A842AB712F9008C30EC /* ViewModifier+GeoSize.swift in Sources */,
 				1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */,
+				1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */,
 				1A5DF3D42AB4925500A872F2 /* MenuViewItem.swift in Sources */,
 				1AA05F7B2AAAFA430084568F /* TabHosterView.swift in Sources */,
 				1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */,
@@ -563,6 +578,7 @@
 				1AB0409E2AB5D95A0037215E /* FrameManager.swift in Sources */,
 				1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
+				1A9428622ABA28230042D9BB /* Documentation.docc in Sources */,
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,
 				1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */,
 				1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */,

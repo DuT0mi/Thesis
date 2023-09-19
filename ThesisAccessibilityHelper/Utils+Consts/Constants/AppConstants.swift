@@ -12,6 +12,7 @@ final class AppConstants {
         #if os(iOS) || os(tvOS)
             static let width: CGFloat = UIScreen.main.bounds.width
             static let height: CGFloat = UIScreen.main.bounds.height
+            static let bounds: CGRect = UIScreen.main.bounds
         #elseif os(macOS)
             static var width: CGFloat = NSScreen.main?.visibleFrame.size.width ?? 0
             static var heigth: CGFloat = NSScreen.main?.visibleFrame.size.height ?? 0

@@ -6,15 +6,26 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ObjectView: View {
+    // MARK: - Types
+
+    private struct Consts {
+        struct Appearance {
+            static let timerInterval: TimeInterval = 0.5
+            static let timerTolerance: TimeInterval = 0.33
+            static let timerLimit: TimeInterval = 2.5
+        }
+    }
+
     // MARK: - Properties
 
-    var resultLabel: String?
-    var bufferSize: CGRect?
+    var resultLabel: String
+    var bufferSize: CGRect
 
     var body: some View {
-        if let bufferSize, let resultLabel {
+        if  !resultLabel.isEmpty, bufferSize.width != .zero, bufferSize.height != .zero {
             GeometryReader { geometryProxy in
                 let nonNegativeX = max(0, bufferSize.minX)
                 let adjustedBufferSize = CGRect(x: nonNegativeX, y: bufferSize.minY, width: bufferSize.width, height: bufferSize.height)

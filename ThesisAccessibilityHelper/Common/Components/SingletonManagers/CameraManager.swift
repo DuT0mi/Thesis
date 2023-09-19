@@ -9,15 +9,21 @@ import AVFoundation
 import UIKit
 import Vision
 
-final class CameraManager: NSObject, ObservableObject {
+final class CameraManager: BaseCameraManager {
     // MARK: - Types
-
-    enum Status {
-        case unconfigured
-        case configured
-        case unauthorized
-        case failed
+    
+    /// Represent a captured object
+    /// - Parameters:
+    ///   - capturedLabel: The captured object's label with the highes confidence
+    ///   - capturedObjectBounds: The captured object's position and size
+    struct CameraResultModel {
+        var capturedLabel: String
+        var capturedObjectBounds: CGRect
     }
+
+    static var defaultCameraResultModel: CameraResultModel = {
+        CameraResultModel(capturedLabel: "", capturedObjectBounds: .zero)
+    }()
 
     private struct Consts {
         static let model = (name: "YOLOv3Tiny", fileExtension: "mlmodelc")
@@ -25,100 +31,47 @@ final class CameraManager: NSObject, ObservableObject {
 
     // MARK: - Properties
 
-    @Published var error: CameraError?
+//    @Published var resultLabel: VNClassificationObservation?
+//    @Published var boundsSize: CGRect?
 
-    @Published var resultLabel: VNClassificationObservation?
-    @Published var boundsSize: CGRect?
+    @Published var capturedObject: CameraResultModel =  .init(capturedLabel: "", capturedObjectBounds: .zero) {
+        willSet {
+            objectWillChange.send()
+        }
+    }
 
     // Vision parts
     @Published var requests = [VNRequest]()
 
-    var bufferSize: CGSize = .zero
-
     static let shared = CameraManager()
 
-    private let session = AVCaptureSession()
-
-    private let sessionQueue = DispatchQueue(label: "SessionQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
-
-    private let videoOutput = AVCaptureVideoDataOutput()
-
-    private var status: Status = .unconfigured
+    private var bufferSize: CGSize = .zero
 
     // MARK: - Initialization
 
-    private override init() {
+    override init() {
         super.init()
 
         addObservers()
-        configure()
     }
 
-    // MARK: - Functions
+    // MARK: - BaseCameraManager functions
 
-    func stopSession() {
-        if session.isRunning {
-            session.stopRunning()
-        }
-    }
-
-    private func addObservers() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(visiounShouldConfigure),
-            name: Notification.Name("VISIONNOW"),
-            object: nil
-        )
-    }
-
-    @objc private func visiounShouldConfigure() {
-        configure()
-    }
-
-    private func configure() {
-        checkPermission()
+    override func configure() {
+        super.configure()
 
         sessionQueue.async {
             self.setupSession()
             self.setupVision()
-            self.session.startRunning()
-        }
-    }
-
-    private func checkPermission() {
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-            case .notDetermined:
-                sessionQueue.suspend()
-
-                AVCaptureDevice.requestAccess(for: .video) { didGet in
-                    guard didGet else {
-                        self.status = .unauthorized
-                        self.set(error: CameraError.deniedAuthorization)
-
-                        return
-                    }
-                    self.sessionQueue.resume()
-                }
-
-            case .authorized:
-                break
-
-            case .denied:
-                status = .unauthorized
-                set(error: CameraError.deniedAuthorization)
-
-            case .restricted:
-                status = .unauthorized
-                set(error: CameraError.restrictedAuthorization)
-
-            @unknown default:
-                status = .unauthorized
-                set(error: CameraError.unknownAuthorization)
+            self.startSession()
         }
     }
 
     // swiftlint:disable force_unwrapping
-    private func setupSession() {
+    /// ``BaseCameraManager`` functions,  next to the session initalization also configures the `bufferSize` to the actual size.
+    override func setupSession() {
+        super.setupSession()
+
         guard status == .unconfigured else { return }
 
         var deviceInput: AVCaptureDeviceInput!
@@ -184,12 +137,19 @@ final class CameraManager: NSObject, ObservableObject {
     }
     // swiftlint:enable force_unwrapping
 
-    private func set(error: Error) {
-        guard let error = error as? CameraError else { return }
+    // MARK: - Functions
 
-        DispatchQueue.main.async {
-            self.error = error
-        }
+    private func addObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(visiounShouldConfigure),
+            name: Notification.Name("VISIONNOW"),
+            object: nil
+        )
+    }
+
+    @objc private func visiounShouldConfigure() {
+        configure()
     }
 
     @discardableResult
@@ -205,7 +165,9 @@ final class CameraManager: NSObject, ObservableObject {
             let objectRecognition = VNCoreMLRequest(model: visionModel) { request, capturedError in
                 DispatchQueue.main.async {
                     if let result = request.results {
-                        self.handleResults(result)
+                        if result.count != .zero {
+                            self.handleResults(result)
+                        }
                     } else {
                         error = (capturedError as? NSError)
                     }
@@ -228,9 +190,15 @@ final class CameraManager: NSObject, ObservableObject {
             let topLabelObservation = objectObservation.labels[0]
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
 
-            resultLabel = topLabelObservation
-            boundsSize = objectBounds
+            capturedObject = .init(capturedLabel: topLabelObservation.identifier, capturedObjectBounds: objectBounds)
+
+//            resultLabel = topLabelObservation
+//            boundsSize = objectBounds
         }
+    }
+
+    private func update() {
+        objectWillChange.send()
     }
 }
 
