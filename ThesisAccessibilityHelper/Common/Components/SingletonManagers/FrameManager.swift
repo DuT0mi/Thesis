@@ -12,11 +12,11 @@ import UIKit
 final class FrameManager: NSObject, ObservableObject {
     // MARK: - Properties
 
-    @Published var current: CVPixelBuffer? // Received object from the camera
+    /// The current frame from the device
+    @Published var current: CVPixelBuffer?
 
-    @Published var currentImage: UIImage?
-
-    private let videoQueue = DispatchQueue(label: "VideoQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem) // Output
+    /// Output and its queue
+    private let videoQueue = DispatchQueue(label: "VideoQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
 
     static let shared = FrameManager()
 
@@ -43,8 +43,6 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
 
-        self.currentImage = self.convert(cmage: CIImage(cvImageBuffer: pixelBuffer))
-
         let exifOrientation = exifOrientationFromDeviceOrientation()
 
         let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: exifOrientation, options: [:])
@@ -60,6 +58,9 @@ extension FrameManager: AVCaptureVideoDataOutputSampleBufferDelegate {
 // MARK: - FrameManager
 
 extension FrameManager {
+    /// Returns the current orientation of the device
+    /// - Returns:
+    ///   - __CGImagePropertyOrientation__
     func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
         let curDeviceOrientation = UIDevice.current.orientation
         let exifOrientation: CGImagePropertyOrientation
@@ -77,13 +78,5 @@ extension FrameManager {
                 exifOrientation = .up
         }
         return exifOrientation
-    }
-
-    // Convert CIImage to UIImage
-    func convert(cmage: CIImage) -> UIImage {
-         let context = CIContext(options: nil)
-         let cgImage = context.createCGImage(cmage, from: cmage.extent)!
-         let image = UIImage(cgImage: cgImage)
-         return image
     }
 }

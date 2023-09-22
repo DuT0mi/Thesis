@@ -31,9 +31,6 @@ final class CameraManager: BaseCameraManager {
 
     // MARK: - Properties
 
-//    @Published var resultLabel: VNClassificationObservation?
-//    @Published var boundsSize: CGRect?
-
     @Published var capturedObject: CameraResultModel =  .init(capturedLabel: "", capturedObjectBounds: .zero) {
         willSet {
             objectWillChange.send()
@@ -191,9 +188,6 @@ final class CameraManager: BaseCameraManager {
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
 
             capturedObject = .init(capturedLabel: topLabelObservation.identifier, capturedObjectBounds: objectBounds)
-
-//            resultLabel = topLabelObservation
-//            boundsSize = objectBounds
         }
     }
 

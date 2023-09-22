@@ -14,19 +14,21 @@ import UIKit
 protocol ObjectDetectViewModelInput: BaseViewModelInput {
 }
 
+@MainActor
 final class ObjectDetectViewModel: ObservableObject {
     // MARK: - Properties
 
     @Published var frame: CGImage? // Holds the current image
     @Published var error: Error?
-//    @Published var resultLabel: VNClassificationObservation?
-//    @Published var bufferSize: CGRect?
+
     @Published var capturedObject: CameraManager.CameraResultModel
     @Published var shouldUpdateView = false
 
     private let tabHosterInstance = TabHosterViewViewModel.shared
     private let frameManagerInstance = FrameManager.shared
     private let cameraManagerInstance = CameraManager.shared
+    private let textRecognizerInstance = TextRecognizerManager.shared
+    private let speaker = SynthesizerManager.shared
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -48,15 +50,31 @@ final class ObjectDetectViewModel: ObservableObject {
 
         cameraManagerInstance.$capturedObject
             .receive(on: RunLoop.main)
-            .assign(to: &$capturedObject)
+            .sink { [weak self] object in
+                guard let frame = self?.frame,
+                      let image = self?.cropImage(
+                        UIImage(cgImage: frame),
+                        toRect: object.capturedObjectBounds,
+                        viewWidth: object.capturedObjectBounds.width,
+                        viewHeight: object.capturedObjectBounds.height
+                      )?.withHorizontallyFlippedOrientation() else { return }
 
-//        frameManagerInstance.$currentImage
-//            .receive(on: RunLoop.main)
-//            .delay(for: .seconds(0.1), scheduler: RunLoop.main)
-//            .sink { uiImage in
-//                self.cropRectFromImage(image: uiImage, rect: self.bufferSize)
-//            }
-//            .store(in: &cancellables)
+                self?.textRecognizerInstance.recognize(image) { [weak self] result in
+
+                    switch result {
+                        case .success(let text):
+                            guard !text.isEmpty else { return }
+                            self?.speaker.speak(with: "TALÁLT SZÖVEG \(text)")
+                        case .failure(let error):
+                            print("ERROR AT: \(#fileID) | \(#function) | ERROR: \(error)")
+
+                            return
+                    }
+                }
+                self?.capturedObject = object
+
+            }
+            .store(in: &cancellables)
 
         cameraManagerInstance.$error
             .receive(on: RunLoop.main)
@@ -64,61 +82,16 @@ final class ObjectDetectViewModel: ObservableObject {
             .assign(to: &$error)
     }
 
-    private func cropRectFromImage(image: UIImage?, rect: CGRect?) {
-        guard let image, let rect, let cropped = cropImage(image, toRect: rect), let cgImage = cropped.cgImage else { return }
+    private func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect, viewWidth: CGFloat, viewHeight: CGFloat) -> UIImage? {
+        let cropZone = CGRect(x: cropRect.origin.x, y: cropRect.origin.y, width: cropRect.size.width, height: cropRect.size.height)
 
-        let requestHandler = VNImageRequestHandler(cgImage: cgImage)
-
-        let request = VNRecognizeTextRequest { request, error in
-            guard let observations = request.results as? [VNRecognizedTextObservation], error == nil else {return}
-
-             let topCandiateText = observations.compactMap {
-                 $0.topCandidates(1).first?.string
-             }.joined(separator: ", ")
-
-            let boundingRects: [CGRect] = observations.compactMap { observation in
-
-                // Find the top observation.
-                guard let candidate = observation.topCandidates(1).first else { return .zero }
-
-                // Find the bounding-box observation for the string range.
-                let stringRange = candidate.string.startIndex..<candidate.string.endIndex
-                let boxObservation = try? candidate.boundingBox(for: stringRange)
-
-                // Get the normalized CGRect value.
-                let boundingBox = boxObservation?.boundingBox ?? .zero
-
-                // Convert the rectangle from normalized coordinates to image coordinates.
-                return VNImageRectForNormalizedRect(boundingBox, Int(image.size.width), Int(image.size.height))
-            }
-
-            print("FOUND TEXT: \(topCandiateText.localizedCapitalized) | AT RECT: \(boundingRects)")
-
+        guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to: cropZone)
+        else {
+            return nil
         }
 
-        request.recognitionLanguages = ["en-US"]
-        request.automaticallyDetectsLanguage = false
-        request.usesLanguageCorrection = true
-        request.recognitionLevel = VNRequestTextRecognitionLevel.accurate
-        request.minimumTextHeight = 10
-
-        do {
-            try requestHandler.perform([request])
-        } catch {
-            print(error)
-        }
-
-    }
-
-    private func cropImage(_ image: UIImage, toRect rect: CGRect) -> UIImage? {
-        let scale = image.scale
-        let rectInPixels = CGRect(x: rect.origin.x * scale, y: rect.origin.y * scale, width: rect.size.width * scale, height: rect.size.height * scale)
-
-        if let cgImage = image.cgImage?.cropping(to: rectInPixels) {
-            return UIImage(cgImage: cgImage, scale: scale, orientation: image.imageOrientation)
-        }
-
-        return nil
+        let croppedImage = UIImage(cgImage: cutImageRef)
+        return croppedImage
     }
 }
 

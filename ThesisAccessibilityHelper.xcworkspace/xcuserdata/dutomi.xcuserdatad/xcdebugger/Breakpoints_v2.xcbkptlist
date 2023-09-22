@@ -26,8 +26,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "setupVision()"
             landmarkType = "7">
             <Locations>
@@ -134,169 +134,9 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "handleResults(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F8425105-5029-49DC-B8D0-C550992E97F6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "cropRectFromImage(image:rect:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F8425105-5029-49DC-B8D0-C550992E97F6 - 24c5335b0ba3ad5b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.ObjectDetectViewModel.cropRectFromImage(image: Swift.Optional&lt;__C.UIImage&gt;, rect: Swift.Optional&lt;__C.CGRect&gt;) -&gt; ()"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "1116">
-               </Location>
-               <Location
-                  uuid = "F8425105-5029-49DC-B8D0-C550992E97F6 - 24c5335b0ba3ad5b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.ObjectDetectViewModel.cropRectFromImage(image: Swift.Optional&lt;__C.UIImage&gt;, rect: Swift.Optional&lt;__C.CGRect&gt;) -&gt; ()"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "1156">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "ABBB01D2-20F7-4C9B-9127-0196D20C4941"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "cropRectFromImage(image:rect:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "ABBB01D2-20F7-4C9B-9127-0196D20C4941 - 24c5335b0ba3af4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.ObjectDetectViewModel.cropRectFromImage(image: Swift.Optional&lt;__C.UIImage&gt;, rect: Swift.Optional&lt;__C.CGRect&gt;) -&gt; ()"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "960">
-               </Location>
-               <Location
-                  uuid = "ABBB01D2-20F7-4C9B-9127-0196D20C4941 - de3f5de8b7e78c34"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.VNRecognizedTextObservation) -&gt; Swift.Optional&lt;__C.CGRect&gt; in closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.ObjectDetectViewModel.cropRectFromImage(image: Swift.Optional&lt;__C.UIImage&gt;, rect: Swift.Optional&lt;__C.CGRect&gt;) -&gt; ()"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AE86F042-5DB1-4E0A-B7B0-4B7D81A3A91E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "cropRectFromImage(image:rect:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AE86F042-5DB1-4E0A-B7B0-4B7D81A3A91E - 24c5335b0ba3af4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.ObjectDetectViewModel.cropRectFromImage(image: Swift.Optional&lt;__C.UIImage&gt;, rect: Swift.Optional&lt;__C.CGRect&gt;) -&gt; ()"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "960">
-               </Location>
-               <Location
-                  uuid = "AE86F042-5DB1-4E0A-B7B0-4B7D81A3A91E - de3f5de8b7e78c34"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.VNRecognizedTextObservation) -&gt; Swift.Optional&lt;__C.CGRect&gt; in closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ThesisAccessibilityHelper.ObjectDetectViewModel.cropRectFromImage(image: Swift.Optional&lt;__C.UIImage&gt;, rect: Swift.Optional&lt;__C.CGRect&gt;) -&gt; ()"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AB3CC1B5-D184-4367-A1F5-07A45B086DD1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "cropRectFromImage(image:rect:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -310,8 +150,8 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "subscriptions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -326,8 +166,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "setupVision()"
             landmarkType = "7">
             <Locations>
@@ -374,8 +214,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "setupVision()"
             landmarkType = "7">
          </BreakpointContent>
@@ -390,58 +230,10 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "setupVision()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5DB3BE91-A000-4402-A751-ECBBAE167ACE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "5DB3BE91-A000-4402-A751-ECBBAE167ACE - af3e8b86ac283781"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.ignoresSafeArea(_: SwiftUI.SafeAreaRegions, edges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, ThesisAccessibilityHelper.ObjectView)&gt; in ThesisAccessibilityHelper.ObjectDetectView.body.getter : some"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "492">
-               </Location>
-               <Location
-                  uuid = "5DB3BE91-A000-4402-A751-ECBBAE167ACE - af3e8b86ac283781"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.ignoresSafeArea(_: SwiftUI.SafeAreaRegions, edges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, ThesisAccessibilityHelper.ObjectView)&gt; in ThesisAccessibilityHelper.ObjectDetectView.body.getter : some"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "508">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -454,26 +246,10 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "capturedObject"
             landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "999DF174-68E0-4634-9C85-0946BE3F92BA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "subscriptions()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -486,10 +262,42 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/Views/ObjectView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FA06D5F-7F24-491B-9769-2CBA7269E1BE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "cropImage(_:toRect:viewWidth:viewHeight:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5387F03D-37B7-4594-AF74-509841A41ED6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "cropImage(_:toRect:viewWidth:viewHeight:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
