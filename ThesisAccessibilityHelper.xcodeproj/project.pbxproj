@@ -442,6 +442,7 @@
 				1AA05F732AAAFA430084568F /* Resources */,
 				5C9B2FFFBB05E0377535E9BC /* [CP] Embed Pods Frameworks */,
 				1AA05F882AAB0C6E0084568F /* ShellScript */,
+				A8A59B3155DA9E128D3AAC9E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -556,6 +557,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8A59B3155DA9E128D3AAC9E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

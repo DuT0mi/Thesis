@@ -6,6 +6,9 @@
 
  	pod 'FirebaseAnalytics'
 	pod 'SwiftLint'
+  pod 'Firebase/Core'
+  pod 'GoogleMLKit/MLKitCore'
+  pod 'GoogleMLKit/TextRecognition'
 
 post_install do |installer|
       installer.pods_project.targets.each do |target|
