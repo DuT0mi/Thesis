@@ -22,12 +22,10 @@ final class ObjectDetectViewModel: ObservableObject {
     @Published var error: Error?
 
     @Published var capturedObject: CameraManager.CameraResultModel
-    @Published var shouldUpdateView = false
 
     private let tabHosterInstance = TabHosterViewViewModel.shared
     private let frameManagerInstance = FrameManager.shared
     private let cameraManagerInstance = CameraManager.shared
-    private let textRecognizerInstance = TextRecognizerManager.shared
     private let speaker = SynthesizerManager.shared
 
     private var cancellables = Set<AnyCancellable>()
@@ -42,6 +40,21 @@ final class ObjectDetectViewModel: ObservableObject {
 
     // MARK: - Functions
 
+    func stopSession() {
+        cameraManagerInstance.stopSession()
+    }
+
+    func resumeSession() {
+        cameraManagerInstance.startSession()
+    }
+
+    func speak(_ text: String, completion: (() -> Void)? = nil) {
+        speaker.speak(with: text) { didFinish in
+            guard didFinish else { return }
+            completion?()
+        }
+    }
+
     private func subscriptions() {
         frameManagerInstance.$current
             .receive(on: RunLoop.main)
@@ -50,48 +63,12 @@ final class ObjectDetectViewModel: ObservableObject {
 
         cameraManagerInstance.$capturedObject
             .receive(on: RunLoop.main)
-            .sink { [weak self] object in
-                guard let frame = self?.frame,
-                      let image = self?.cropImage(
-                        UIImage(cgImage: frame),
-                        toRect: object.capturedObjectBounds,
-                        viewWidth: object.capturedObjectBounds.width,
-                        viewHeight: object.capturedObjectBounds.height
-                      )?.withHorizontallyFlippedOrientation() else { return }
-
-                self?.textRecognizerInstance.recognize(image) { [weak self] result in
-
-                    switch result {
-                        case .success(let text):
-                            guard !text.isEmpty else { return }
-                            self?.speaker.speak(with: "TALÁLT SZÖVEG \(text)")
-                        case .failure(let error):
-                            print("ERROR AT: \(#fileID) | \(#function) | ERROR: \(error)")
-
-                            return
-                    }
-                }
-                self?.capturedObject = object
-
-            }
-            .store(in: &cancellables)
+            .assign(to: &$capturedObject)
 
         cameraManagerInstance.$error
             .receive(on: RunLoop.main)
             .map { $0 } // CameraError -> Error
             .assign(to: &$error)
-    }
-
-    private func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect, viewWidth: CGFloat, viewHeight: CGFloat) -> UIImage? {
-        let cropZone = CGRect(x: cropRect.origin.x, y: cropRect.origin.y, width: cropRect.size.width, height: cropRect.size.height)
-
-        guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to: cropZone)
-        else {
-            return nil
-        }
-
-        let croppedImage = UIImage(cgImage: cutImageRef)
-        return croppedImage
     }
 }
 

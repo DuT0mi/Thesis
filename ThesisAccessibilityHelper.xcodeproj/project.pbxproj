@@ -23,7 +23,6 @@
 		1A96BE3A2AAB48AD003DE05B /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A96BE392AAB48AD003DE05B /* Localized.swift */; };
 		1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A24AB2AACE21A0005EBA0 /* ViewModifier+Sheet.swift */; };
 		1A9D1A842AB712F9008C30EC /* ViewModifier+GeoSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9D1A832AB712F9008C30EC /* ViewModifier+GeoSize.swift */; };
-		1A9F691B2ABDE70700405199 /* TextRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9F691A2ABDE70700405199 /* TextRecognizerManager.swift */; };
 		1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */; };
 		1AA05F7B2AAAFA430084568F /* TabHosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA05F7A2AAAFA430084568F /* TabHosterView.swift */; };
 		1AA05F7D2AAAFA440084568F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F7C2AAAFA440084568F /* Assets.xcassets */; };
@@ -43,6 +42,7 @@
 		1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */; };
 		1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */; };
 		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
+		1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */; };
 		1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F272AACEE3E0097E085 /* TabBarItem.swift */; };
 		1AF13F2A2AACEE600097E085 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F292AACEE600097E085 /* Tab.swift */; };
 		1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F2B2AACEE780097E085 /* TabPosition.swift */; };
@@ -68,7 +68,6 @@
 		1A96BE392AAB48AD003DE05B /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		1A9A24AB2AACE21A0005EBA0 /* ViewModifier+Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModifier+Sheet.swift"; sourceTree = "<group>"; };
 		1A9D1A832AB712F9008C30EC /* ViewModifier+GeoSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModifier+GeoSize.swift"; sourceTree = "<group>"; };
-		1A9F691A2ABDE70700405199 /* TextRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerManager.swift; sourceTree = "<group>"; };
 		1AA05F752AAAFA430084568F /* ThesisAccessibilityHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThesisAccessibilityHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThesisAccessibilityHelperApp.swift; sourceTree = "<group>"; };
 		1AA05F7A2AAAFA430084568F /* TabHosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHosterView.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesizerManager.swift; sourceTree = "<group>"; };
 		1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
+		1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
 		1AF13F272AACEE3E0097E085 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		1AF13F292AACEE600097E085 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		1AF13F2B2AACEE780097E085 /* TabPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPosition.swift; sourceTree = "<group>"; };
@@ -341,7 +341,6 @@
 				1AB040992AB5CD6B0037215E /* CameraManager.swift */,
 				1AB0409D2AB5D95A0037215E /* FrameManager.swift */,
 				1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */,
-				1A9F691A2ABDE70700405199 /* TextRecognizerManager.swift */,
 			);
 			path = SingletonManagers;
 			sourceTree = "<group>";
@@ -365,6 +364,7 @@
 		1ABE4AF32AB2306D004DD0EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */,
 				1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */,
 			);
 			path = Resources;
@@ -595,6 +595,7 @@
 				1AB0409A2AB5CD6B0037215E /* CameraManager.swift in Sources */,
 				1AB0409C2AB5CFE70037215E /* Error+Camera.swift in Sources */,
 				1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */,
+				1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */,
 				1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */,
 				1AB0409E2AB5D95A0037215E /* FrameManager.swift in Sources */,
 				1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */,
@@ -607,7 +608,6 @@
 				1AB040972AB5CA470037215E /* ObjectDetectViewModel.swift in Sources */,
 				1AB040952AB5C51E0037215E /* CameraFrameView.swift in Sources */,
 				1A96BE3A2AAB48AD003DE05B /* Localized.swift in Sources */,
-				1A9F691B2ABDE70700405199 /* TextRecognizerManager.swift in Sources */,
 				1A9665CA2AACC6FC0087F964 /* BaseView.swift in Sources */,
 				1A96BE2F2AAB39C6003DE05B /* AppConstants.swift in Sources */,
 				1AF13F2A2AACEE600097E085 /* Tab.swift in Sources */,

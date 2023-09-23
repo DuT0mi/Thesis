@@ -52,7 +52,7 @@ class BaseCameraManager: NSObject, ObservableObject {
         session.stopRunning()
     }
 
-    /// Stops the `AVCaptureSession`
+    /// Stops the `AVCaptureSession` on the sessionQueue (at the subclass)
     func startSession() {
         guard !session.isRunning else { return }
 

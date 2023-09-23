@@ -26,8 +26,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "setupVision()"
             landmarkType = "7">
             <Locations>
@@ -134,8 +134,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "handleResults(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -150,8 +150,8 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "subscriptions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -166,8 +166,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "setupVision()"
             landmarkType = "7">
             <Locations>
@@ -214,8 +214,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "setupVision()"
             landmarkType = "7">
          </BreakpointContent>
@@ -230,8 +230,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "setupVision()"
             landmarkType = "7">
          </BreakpointContent>
@@ -246,8 +246,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/CameraManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "capturedObject"
             landmarkType = "24">
          </BreakpointContent>
@@ -271,33 +271,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9FA06D5F-7F24-491B-9769-2CBA7269E1BE"
+            uuid = "1D04A4ED-B0AE-4A80-80B7-6BD65009A0AF"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "cropImage(_:toRect:viewWidth:viewHeight:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "speak(_:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5387F03D-37B7-4594-AF74-509841A41ED6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "cropImage(_:toRect:viewWidth:viewHeight:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1D04A4ED-B0AE-4A80-80B7-6BD65009A0AF - ef3edff1b1449ec3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThesisAccessibilityHelper.ObjectDetectViewModel.speak(_: Swift.String, completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "1D04A4ED-B0AE-4A80-80B7-6BD65009A0AF - 7d3913021007338c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in ThesisAccessibilityHelper.ObjectDetectViewModel.speak(_: Swift.String, completion: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect/ObjectDetectViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
