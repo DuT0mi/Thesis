@@ -11,12 +11,12 @@ import Vision
 
 final class CameraManager: BaseCameraManager {
     // MARK: - Types
-    
+
     /// Represent a captured object
     /// - Parameters:
     ///   - capturedLabel: The captured object's label with the highes confidence
     ///   - capturedObjectBounds: The captured object's position and size
-    struct CameraResultModel {
+    struct CameraResultModel: Equatable {
         var capturedLabel: String
         var capturedObjectBounds: CGRect
     }
@@ -27,14 +27,12 @@ final class CameraManager: BaseCameraManager {
 
     private struct Consts {
         static let model = (name: "YOLOv3Tiny", fileExtension: "mlmodelc")
+        static let modelOptimalized = (name: "YOLOv3Int8LUT", fileExtension: "mlmodelc")
     }
 
     // MARK: - Properties
 
-//    @Published var resultLabel: VNClassificationObservation?
-//    @Published var boundsSize: CGRect?
-
-    @Published var capturedObject: CameraResultModel =  .init(capturedLabel: "", capturedObjectBounds: .zero) {
+    @Published var capturedObject: CameraResultModel = CameraManager.defaultCameraResultModel {
         willSet {
             objectWillChange.send()
         }
@@ -92,7 +90,7 @@ final class CameraManager: BaseCameraManager {
             return
         }
 
-        session.sessionPreset = .vga640x480 // model is 480 x 480
+        session.sessionPreset = .vga640x480 // model is 416 x 416
 
         if session.canAddInput(deviceInput) {
             session.addInput(deviceInput)
@@ -156,7 +154,7 @@ final class CameraManager: BaseCameraManager {
     private func setupVision() -> NSError? {
         var error: NSError?
 
-        guard let modelURL = Bundle.main.url(forResource: Consts.model.name, withExtension: Consts.model.fileExtension) else {
+        guard let modelURL = Bundle.main.url(forResource: Consts.modelOptimalized.name, withExtension: Consts.modelOptimalized.fileExtension) else {
             return NSError(domain: "\(#file)", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing!"])
         }
 
@@ -186,19 +184,31 @@ final class CameraManager: BaseCameraManager {
             guard let objectObservation = observation as? VNRecognizedObjectObservation else {
                 continue
             }
-            // Select only the label with the highest confidence.
+
             let topLabelObservation = objectObservation.labels[0]
+
+            guard topLabelObservation.confidence > Float(0.849999) else { continue } // TODO: On settings tab
+
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
 
             capturedObject = .init(capturedLabel: topLabelObservation.identifier, capturedObjectBounds: objectBounds)
-
-//            resultLabel = topLabelObservation
-//            boundsSize = objectBounds
         }
     }
 
     private func update() {
         objectWillChange.send()
+    }
+
+    private func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect, viewWidth: CGFloat, viewHeight: CGFloat) -> UIImage? {
+        let cropZone = CGRect(x: cropRect.origin.x, y: cropRect.origin.y, width: cropRect.size.width, height: cropRect.size.height)
+
+        guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to: cropZone)
+        else {
+            return nil
+        }
+
+        let croppedImage = UIImage(cgImage: cutImageRef)
+        return croppedImage
     }
 }
 

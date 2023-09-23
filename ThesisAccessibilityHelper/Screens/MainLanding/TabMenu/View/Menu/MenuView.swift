@@ -75,7 +75,7 @@ struct Circle2DetailView: View {
     var body: some View {
         Text("This is Circle 2's Detail View")
             .onAppear {
-                SynthesizerManager.shared.speak(with: "Szia")
+                SynthesizerManager.shared.speak(with: "Szia", completion: nil)
             }
     }
 }

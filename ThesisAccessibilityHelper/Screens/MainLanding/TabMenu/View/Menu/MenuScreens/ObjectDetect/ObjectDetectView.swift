@@ -12,6 +12,8 @@ struct ObjectDetectView: View {
 
     @StateObject private var viewModel = ObjectDetectViewModel()
 
+    @State private var showAlert = false
+
     var body: some View {
         ZStack {
             CameraFrameView(image: viewModel.frame)
@@ -21,6 +23,23 @@ struct ObjectDetectView: View {
                 bufferSize: viewModel.capturedObject.capturedObjectBounds
             )
         }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Mutasd"), primaryButton: .destructive(Text("Olvasd fel"), action: {
+                viewModel.speak(viewModel.capturedObject.capturedLabel) {
+                    showAlert = false
+                    viewModel.resumeSession()
+                }
+            }), secondaryButton: .cancel({
+                showAlert = false
+                viewModel.resumeSession()
+            }))
+        }
+        .onChange(of: viewModel.capturedObject, perform: { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                viewModel.stopSession()
+                showAlert = true
+            }
+        })
         .onDisappear {
             viewModel.didDisAppear()
         }
