@@ -43,6 +43,10 @@
 		1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */; };
 		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
 		1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */; };
+		1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */; };
+		1AD1E8662AC04B9000BCA580 /* TextRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */; };
+		1AD1E8682AC04D4A00BCA580 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */; };
+		1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */; };
 		1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F272AACEE3E0097E085 /* TabBarItem.swift */; };
 		1AF13F2A2AACEE600097E085 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F292AACEE600097E085 /* Tab.swift */; };
 		1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F2B2AACEE780097E085 /* TabPosition.swift */; };
@@ -89,6 +93,10 @@
 		1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
 		1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
+		1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentView.swift; sourceTree = "<group>"; };
+		1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerManager.swift; sourceTree = "<group>"; };
+		1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
+		1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentViewModel.swift; sourceTree = "<group>"; };
 		1AF13F272AACEE3E0097E085 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		1AF13F292AACEE600097E085 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		1AF13F2B2AACEE780097E085 /* TabPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPosition.swift; sourceTree = "<group>"; };
@@ -310,19 +318,20 @@
 		1AB0408D2AB5B41C0037215E /* MenuScreens */ = {
 			isa = PBXGroup;
 			children = (
-				1AB0408E2AB5BE760037215E /* ObjectDetect */,
+				1AD1E8612AC0461300BCA580 /* Scan+Speaker */,
+				1AB0408E2AB5BE760037215E /* ObjectDetect+TextRecognizer */,
 			);
 			path = MenuScreens;
 			sourceTree = "<group>";
 		};
-		1AB0408E2AB5BE760037215E /* ObjectDetect */ = {
+		1AB0408E2AB5BE760037215E /* ObjectDetect+TextRecognizer */ = {
 			isa = PBXGroup;
 			children = (
 				1AB040932AB5C5090037215E /* Views */,
 				1AB0408F2AB5BFC00037215E /* ObjectDetectView.swift */,
 				1AB040962AB5CA470037215E /* ObjectDetectViewModel.swift */,
 			);
-			path = ObjectDetect;
+			path = "ObjectDetect+TextRecognizer";
 			sourceTree = "<group>";
 		};
 		1AB040932AB5C5090037215E /* Views */ = {
@@ -341,6 +350,7 @@
 				1AB040992AB5CD6B0037215E /* CameraManager.swift */,
 				1AB0409D2AB5D95A0037215E /* FrameManager.swift */,
 				1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */,
+				1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */,
 			);
 			path = SingletonManagers;
 			sourceTree = "<group>";
@@ -394,6 +404,24 @@
 				1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		1AD1E8612AC0461300BCA580 /* Scan+Speaker */ = {
+			isa = PBXGroup;
+			children = (
+				1AD1E8642AC04AE200BCA580 /* View */,
+				1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */,
+				1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */,
+			);
+			path = "Scan+Speaker";
+			sourceTree = "<group>";
+		};
+		1AD1E8642AC04AE200BCA580 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1AF13F252AACEDB90097E085 /* TabBar */ = {
@@ -590,6 +618,7 @@
 				1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */,
 				1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */,
 				1A5DF3D42AB4925500A872F2 /* MenuViewItem.swift in Sources */,
+				1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */,
 				1AA05F7B2AAAFA430084568F /* TabHosterView.swift in Sources */,
 				1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */,
 				1AB0409A2AB5CD6B0037215E /* CameraManager.swift in Sources */,
@@ -604,6 +633,7 @@
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,
 				1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */,
 				1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */,
+				1AD1E8682AC04D4A00BCA580 /* DocumentPickerView.swift in Sources */,
 				1A5DF3CA2AB48ACC00A872F2 /* TabProfileLandingView.swift in Sources */,
 				1AB040972AB5CA470037215E /* ObjectDetectViewModel.swift in Sources */,
 				1AB040952AB5C51E0037215E /* CameraFrameView.swift in Sources */,
@@ -614,12 +644,14 @@
 				1AB040A02AB5DBB40037215E /* CGImage+create.swift in Sources */,
 				1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */,
 				1AB040A32AB5F4490037215E /* NavigationButton.swift in Sources */,
+				1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */,
 				1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */,
 				1A5DF3D72AB4D45900A872F2 /* MenuViewModel.swift in Sources */,
 				1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */,
 				1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */,
 				1A5DF3CC2AB48ADF00A872F2 /* TabMenuLandingView.swift in Sources */,
 				1A5A01232AADF6480060F528 /* TabHosterViewViewModel.swift in Sources */,
+				1AD1E8662AC04B9000BCA580 /* TextRecognizerManager.swift in Sources */,
 				1A5DF3CE2AB48B0300A872F2 /* TabHomeLandingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

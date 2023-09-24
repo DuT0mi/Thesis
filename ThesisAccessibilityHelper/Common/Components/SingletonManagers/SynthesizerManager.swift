@@ -30,9 +30,9 @@ final class SynthesizerManager: NSObject {
     func speak(with toSay: String, completion: ((Bool) -> Void)?) {
         let utterance = AVSpeechUtterance(string: toSay)
         utterance.rate = AVSpeechUtteranceDefaultSpeechRate
-        utterance.voice = AVSpeechSynthesisVoice(language: AVSpeechSynthesisVoice.currentLanguageCode() )
+        utterance.voice = AVSpeechSynthesisVoice(language: "hu_HU" /* AVSpeechSynthesisVoice.currentLanguageCode() */ )
         utterance.volume = 0.65
-  
+
         utterance.postUtteranceDelay = 0.1
 
         self.completion = completion
