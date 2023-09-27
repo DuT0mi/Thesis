@@ -23,7 +23,7 @@ struct MenuView: View {
                             } destination: {
                                 ObjectDetectView()
                             } label: {
-                                MenuViewItem(systemName: "camera")
+                                MenuViewItem(image: .menuCamera)
                             }
                         }
                         .padding()
@@ -34,7 +34,7 @@ struct MenuView: View {
                             }
 
                             NavigationLink(destination: ScanDocumentView()) {
-                                MenuViewItem()
+                                MenuViewItem(image: .menuDocument)
                             }
                         }
                         .padding()

@@ -20,7 +20,7 @@ final class TextRecognizer {
         }
     }
     private var requests = [VNRequest]()
-    private let textRecognitionQueue = DispatchQueue(label: "TextRecognitionQueue", qos: .userInitiated, attributes: [],autoreleaseFrequency: .workItem )
+    private let textRecognitionQueue = DispatchQueue(label: "TextRecognitionQueue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem )
     private var resultingText: String = ""
 
     // MARK: - Initialization
@@ -29,9 +29,8 @@ final class TextRecognizer {
 
     // MARK: - Functions
 
-
     private func setupVision() {
-        let textRecognitionRequest = VNRecognizeTextRequest { (request, error) in
+        let textRecognitionRequest = VNRecognizeTextRequest { (request, error) in // TODO: Publishing error
             guard let observations = request.results as? [VNRecognizedTextObservation] else {
                 print("Not found proper observations at: \(#file), \(#function), \(#column)")
                 return

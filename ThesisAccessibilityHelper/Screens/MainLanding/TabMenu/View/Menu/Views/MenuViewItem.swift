@@ -11,17 +11,27 @@ struct MenuViewItem: View {
     // MARK: - Properties
 
     var systemName: String = "house"
+    var image: ImageResource?
 
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color.gray.opacity(0.5))
+                .fill(Color.white)
                 .frame(width: 100)
                 .shadow(color: .white, radius: 10, x: .zero, y: .zero)
                 .overlay {
-                    Image(systemName: systemName)
-                        .resizable()
-                        .frame(width: 50, height: 50)
+                    if let image {
+                        Image(image)
+                            .resizable()
+                            .clipShape(Circle())
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                    } else {
+                        Image(systemName: systemName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                    }
                 }
         }
     }
@@ -35,10 +45,8 @@ struct MenuViewItem: View {
 struct MenuViewItem_Previews: PreviewProvider {
     static var previews: some View {
         BaseView {
-            MenuViewItem(systemName: "house")
+            MenuViewItem(image: ImageResource.menuCamera)
         }
         .ignoresSafeArea()
     }
 }
-
-

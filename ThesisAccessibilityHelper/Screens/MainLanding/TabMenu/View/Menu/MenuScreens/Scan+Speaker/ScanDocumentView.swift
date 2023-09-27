@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ScanDocumentView: View {
     // MARK: - Properties
+
     @StateObject private var viewModel = ScanDocumentViewModel()
 
     @State private var showLoading = false
