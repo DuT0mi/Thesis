@@ -9,7 +9,20 @@ import Foundation
 import AVFoundation
 
 final class SynthesizerManager: NSObject {
+    // MARK: - Types
+
+    struct AVSpeechUtteranceConfiguration {
+        var rate: Float = AVSpeechUtteranceDefaultSpeechRate
+        var voice: AVSpeechSynthesisVoice = AVSpeechSynthesisVoice(language: "hu_HU" /* AVSpeechSynthesisVoice.currentLanguageCode() */ )!
+        var volume: Float = 0.65
+        var postUtteranceDelay: TimeInterval = 0.1
+    }
+
     // MARK: - Properties
+
+    class var speakerConfiguration: AVSpeechUtteranceConfiguration {
+        return AVSpeechUtteranceConfiguration()
+    }
 
     static let shared = SynthesizerManager()
 
@@ -29,11 +42,11 @@ final class SynthesizerManager: NSObject {
 
     func speak(with toSay: String, completion: ((Bool) -> Void)?) {
         let utterance = AVSpeechUtterance(string: toSay)
-        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
-        utterance.voice = AVSpeechSynthesisVoice(language: "hu_HU" /* AVSpeechSynthesisVoice.currentLanguageCode() */ )
-        utterance.volume = 0.65
+        utterance.rate = SynthesizerManager.speakerConfiguration.rate
+        utterance.voice = SynthesizerManager.speakerConfiguration.voice
+        utterance.volume = SynthesizerManager.speakerConfiguration.volume
 
-        utterance.postUtteranceDelay = 0.1
+        utterance.postUtteranceDelay = SynthesizerManager.speakerConfiguration.postUtteranceDelay
 
         self.completion = completion
 
@@ -46,10 +59,10 @@ final class SynthesizerManager: NSObject {
         speaker.stopSpeaking(at: .immediate)
     }
 }
+// MARK: - AVSpeechSynthesizerDelegate
 
 extension SynthesizerManager: AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         completion?(true)
-        completion = nil
     }
 }

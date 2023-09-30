@@ -29,6 +29,7 @@
 		1AA05F802AAAFA440084568F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */; };
 		1AA05F872AAAFBF30084568F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */; };
 		1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */; };
+		1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */; };
 		1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0408F2AB5BFC00037215E /* ObjectDetectView.swift */; };
 		1AB040952AB5C51E0037215E /* CameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040942AB5C51E0037215E /* CameraFrameView.swift */; };
 		1AB040972AB5CA470037215E /* ObjectDetectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040962AB5CA470037215E /* ObjectDetectViewModel.swift */; };
@@ -92,6 +93,7 @@
 		1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongLoadingView.swift; sourceTree = "<group>"; };
+		1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Names.swift"; sourceTree = "<group>"; };
 		1AB0408F2AB5BFC00037215E /* ObjectDetectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectView.swift; sourceTree = "<group>"; };
 		1AB040942AB5C51E0037215E /* CameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFrameView.swift; sourceTree = "<group>"; };
 		1AB040962AB5CA470037215E /* ObjectDetectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectViewModel.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				1AB0409B2AB5CFE70037215E /* Error+Camera.swift */,
 				1AB0409F2AB5DBB40037215E /* CGImage+create.swift */,
 				1A9D1A832AB712F9008C30EC /* ViewModifier+GeoSize.swift */,
+				1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */,
 				1AB0409E2AB5D95A0037215E /* FrameManager.swift in Sources */,
 				1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */,
+				1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
 				1A9428622ABA28230042D9BB /* Documentation.docc in Sources */,
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,

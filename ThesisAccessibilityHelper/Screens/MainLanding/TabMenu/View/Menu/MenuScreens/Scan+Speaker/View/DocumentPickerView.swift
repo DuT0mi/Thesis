@@ -10,10 +10,14 @@ import UIKit
 import VisionKit
 
 struct DocumentPickerView: UIViewControllerRepresentable {
+    // MARK: - Type
+
+    typealias Model = TextRecognizer.RecognizedModel
+
     // MARK: - Properties
 
     let willStart: (() -> Void)?
-    let didFinish: ((String) -> Void)?
+    let didFinish: (([Model]) -> Void)?
 
     // MARK: - Functions
 
