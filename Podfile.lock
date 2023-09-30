@@ -124,11 +124,10 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.3.1)
-  - SwiftLint (0.52.4)
+  - SwiftLint (0.53.0)
 
 DEPENDENCIES:
   - Firebase/Core
-  - FirebaseAnalytics
   - GoogleMLKit/MLKitCore
   - GoogleMLKit/TextRecognition
   - SwiftLint
@@ -176,8 +175,8 @@ SPEC CHECKSUMS:
   MLKitVision: 8baa5f46ee3352614169b85250574fde38c36f49
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
-  SwiftLint: 1cc5cd61ba9bacb2194e340aeb47a2a37fda00b3
+  SwiftLint: 5ce4d6a8ff83f1b5fd5ad5dbf30965d35af65e44
 
-PODFILE CHECKSUM: 857aa50c54271bed0af7e3b19202794fc5385a33
+PODFILE CHECKSUM: 1646c27ae43b31d15a54f2d0986214280e38b1df
 
 COCOAPODS: 1.13.0

@@ -28,24 +28,7 @@ final class TextRecognizer {
     private init() {  }
 
     // MARK: - Functions
-
-    private func setupVision() {
-        let textRecognitionRequest = VNRecognizeTextRequest { (request, error) in // TODO: Publishing error
-            guard let observations = request.results as? [VNRecognizedTextObservation] else {
-                print("Not found proper observations at: \(#file), \(#function), \(#column)")
-                return
-            }
-
-            let maximumCandidates = 1
-            for observation in observations {
-                guard let candidate = observation.topCandidates(maximumCandidates).first else { continue }
-                self.resultingText += candidate.string + "\n"
-            }
-        }
-        textRecognitionRequest.recognitionLevel = .accurate
-        self.requests = [textRecognitionRequest]
-    }
-
+    
     func request(willStart: (() -> Void)?, didFinish: ((String) -> Void)?) {
         willStart?()
 
@@ -67,5 +50,22 @@ final class TextRecognizer {
                 didFinish?(self.resultingText)
             })
         }
+    }
+
+    private func setupVision() {
+        let textRecognitionRequest = VNRecognizeTextRequest { (request, error) in // TODO: Publishing error
+            guard let observations = request.results as? [VNRecognizedTextObservation] else {
+                print("Not found proper observations at: \(#file), \(#function), \(#column)")
+                return
+            }
+
+            let maximumCandidates = 1
+            for observation in observations {
+                guard let candidate = observation.topCandidates(maximumCandidates).first else { continue }
+                self.resultingText += candidate.string + "\n"
+            }
+        }
+        textRecognitionRequest.recognitionLevel = .accurate
+        self.requests = [textRecognitionRequest]
     }
 }

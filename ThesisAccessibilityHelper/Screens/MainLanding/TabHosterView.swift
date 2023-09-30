@@ -24,9 +24,6 @@ struct TabHosterView: View {
                     TabHomeLandingView()
                         .tag(Tab.home)
 
-                    TabMapLandingView()
-                        .tag(Tab.map)
-
                     TabMenuLandingView()
                         .tag(Tab.menu)
 

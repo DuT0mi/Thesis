@@ -9,7 +9,6 @@ import Foundation
 
 enum Tab: String, CaseIterable {
     case home = "Home"
-    case map = "Map"
     case menu = "Menu"
     case profile = "Profile"
 
@@ -17,8 +16,6 @@ enum Tab: String, CaseIterable {
         switch self {
             case .home:
                 return "house.and.flag"
-            case .map:
-                return "paperplane"
             case .menu:
                 return "book"
             case .profile:
