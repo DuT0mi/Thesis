@@ -30,7 +30,7 @@ struct MenuView: View {
 
                         HStack(spacing: 20) {
                             NavigationLink(destination: Circle5DetailView()) {
-                                MenuViewItem()
+                                MenuViewItem(image: .menuMap)
                             }
 
                             NavigationLink(destination: ScanDocumentView()) {
@@ -71,4 +71,8 @@ struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView()
     }
+}
+
+#Preview {
+    MenuView()
 }

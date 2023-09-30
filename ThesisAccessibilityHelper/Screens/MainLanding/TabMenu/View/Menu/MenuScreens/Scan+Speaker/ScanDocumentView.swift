@@ -12,36 +12,35 @@ struct ScanDocumentView: View {
 
     @StateObject private var viewModel = ScanDocumentViewModel()
 
-    @State private var showLoading = false
     @State private var showCamera = false
 
     var body: some View {
         BaseView {
             VStack {
-                Group {
-                    Button("Scan") {
-                        showCamera.toggle()
-                    }
-
-                    Button("Stop speaking") {
-                        viewModel.stop()
-                    }
-                    .opacity(viewModel.isSpeakerSpeaks ? 1 : 0)
+                Spacer()
+                Button("Scan") {
+                    showCamera.toggle()
                 }
-                .padding()
+
+                Spacer()
+                Button("Stop speaking") {
+                    viewModel.stop()
+                }
+#if !targetEnvironment(simulator)
+                .opacity(viewModel.isSpeakerSpeaks ? 1 : 0)
+#endif
+                Spacer()
             }
-            if showLoading || viewModel.isSpeakerSpeaks {
+            if viewModel.isSpeakerSpeaks {
                 ProgressView()
             }
 
         }
         .sheet(isPresented: $showCamera) {
             DocumentPickerView {
-                showLoading.toggle()
                 showCamera.toggle()
-            } didFinish: { recognizedText in
-                viewModel.speak(recognizedText)
-                showLoading.toggle()
+            } didFinish: { recognizedModel in
+                recognizedModel.forEach { viewModel.speak($0.resultingText)}
             }
             .sheetStyle(style: .large, dismissable: true, showIndicator: true)
 

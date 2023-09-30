@@ -48,13 +48,6 @@ final class ObjectDetectViewModel: ObservableObject {
         cameraManagerInstance.startSession()
     }
 
-    func speak(_ text: String, completion: (() -> Void)? = nil) {
-        speaker.speak(with: text) { didFinish in
-            guard didFinish else { return }
-            completion?()
-        }
-    }
-
     private func subscriptions() {
         frameManagerInstance.$current
             .receive(on: RunLoop.main)

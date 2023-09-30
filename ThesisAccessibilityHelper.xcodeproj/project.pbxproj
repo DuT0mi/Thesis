@@ -29,6 +29,7 @@
 		1AA05F802AAAFA440084568F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */; };
 		1AA05F872AAAFBF30084568F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */; };
 		1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */; };
+		1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */; };
 		1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0408F2AB5BFC00037215E /* ObjectDetectView.swift */; };
 		1AB040952AB5C51E0037215E /* CameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040942AB5C51E0037215E /* CameraFrameView.swift */; };
 		1AB040972AB5CA470037215E /* ObjectDetectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040962AB5CA470037215E /* ObjectDetectViewModel.swift */; };
@@ -51,8 +52,21 @@
 		1AF13F2A2AACEE600097E085 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F292AACEE600097E085 /* Tab.swift */; };
 		1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F2B2AACEE780097E085 /* TabPosition.swift */; };
 		1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F2D2AACEE890097E085 /* TabShape.swift */; };
-		58CB5F85CE618AF4CF86BF2C /* Pods_ThesisAccessibilityHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD499F1BFD2F4609E9CC0129 /* Pods_ThesisAccessibilityHelper.framework */; };
+		87CB36817E78509BB86EC0C9 /* Pods_ThesisAccessibilityHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAED4A6B634EE0706709C2EE /* Pods_ThesisAccessibilityHelper.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1AAAE4912AC8110F003704E5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A5A01222AADF6480060F528 /* TabHosterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHosterViewViewModel.swift; sourceTree = "<group>"; };
@@ -79,6 +93,7 @@
 		1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongLoadingView.swift; sourceTree = "<group>"; };
+		1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Names.swift"; sourceTree = "<group>"; };
 		1AB0408F2AB5BFC00037215E /* ObjectDetectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectView.swift; sourceTree = "<group>"; };
 		1AB040942AB5C51E0037215E /* CameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFrameView.swift; sourceTree = "<group>"; };
 		1AB040962AB5CA470037215E /* ObjectDetectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectViewModel.swift; sourceTree = "<group>"; };
@@ -101,9 +116,9 @@
 		1AF13F292AACEE600097E085 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		1AF13F2B2AACEE780097E085 /* TabPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPosition.swift; sourceTree = "<group>"; };
 		1AF13F2D2AACEE890097E085 /* TabShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabShape.swift; sourceTree = "<group>"; };
-		72A052398BF7A2748003A60C /* Pods-ThesisAccessibilityHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisAccessibilityHelper.release.xcconfig"; path = "Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper.release.xcconfig"; sourceTree = "<group>"; };
-		72B228165FA3EA003D4F0CCB /* Pods-ThesisAccessibilityHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisAccessibilityHelper.debug.xcconfig"; path = "Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper.debug.xcconfig"; sourceTree = "<group>"; };
-		DD499F1BFD2F4609E9CC0129 /* Pods_ThesisAccessibilityHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThesisAccessibilityHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B819D430D96CBADA168C66AE /* Pods-ThesisAccessibilityHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisAccessibilityHelper.debug.xcconfig"; path = "Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper.debug.xcconfig"; sourceTree = "<group>"; };
+		BAED4A6B634EE0706709C2EE /* Pods_ThesisAccessibilityHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThesisAccessibilityHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A76833C1796737D9DAB8FE /* Pods-ThesisAccessibilityHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThesisAccessibilityHelper.release.xcconfig"; path = "Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58CB5F85CE618AF4CF86BF2C /* Pods_ThesisAccessibilityHelper.framework in Frameworks */,
+				87CB36817E78509BB86EC0C9 /* Pods_ThesisAccessibilityHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +276,7 @@
 				1AB0409B2AB5CFE70037215E /* Error+Camera.swift */,
 				1AB0409F2AB5DBB40037215E /* CGImage+create.swift */,
 				1A9D1A832AB712F9008C30EC /* ViewModifier+GeoSize.swift */,
+				1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -271,7 +287,7 @@
 				1AA05F772AAAFA430084568F /* ThesisAccessibilityHelper */,
 				1AA05F762AAAFA430084568F /* Products */,
 				E62254023F329070E6DD3982 /* Pods */,
-				DC7DD037F0DACB8656998225 /* Frameworks */,
+				4ECFBB1CD13C1A8FBD431C90 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -443,10 +459,10 @@
 			path = TabBarHelper;
 			sourceTree = "<group>";
 		};
-		DC7DD037F0DACB8656998225 /* Frameworks */ = {
+		4ECFBB1CD13C1A8FBD431C90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD499F1BFD2F4609E9CC0129 /* Pods_ThesisAccessibilityHelper.framework */,
+				BAED4A6B634EE0706709C2EE /* Pods_ThesisAccessibilityHelper.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -454,8 +470,8 @@
 		E62254023F329070E6DD3982 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				72B228165FA3EA003D4F0CCB /* Pods-ThesisAccessibilityHelper.debug.xcconfig */,
-				72A052398BF7A2748003A60C /* Pods-ThesisAccessibilityHelper.release.xcconfig */,
+				B819D430D96CBADA168C66AE /* Pods-ThesisAccessibilityHelper.debug.xcconfig */,
+				E7A76833C1796737D9DAB8FE /* Pods-ThesisAccessibilityHelper.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -467,13 +483,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1AA05F832AAAFA440084568F /* Build configuration list for PBXNativeTarget "ThesisAccessibilityHelper" */;
 			buildPhases = (
-				558B385FD09A4E2ABE6F7724 /* [CP] Check Pods Manifest.lock */,
+				F08B34DB1F03E6F612B2188C /* [CP] Check Pods Manifest.lock */,
 				1AA05F712AAAFA430084568F /* Sources */,
 				1AA05F722AAAFA430084568F /* Frameworks */,
 				1AA05F732AAAFA430084568F /* Resources */,
-				5C9B2FFFBB05E0377535E9BC /* [CP] Embed Pods Frameworks */,
 				1AA05F882AAB0C6E0084568F /* ShellScript */,
-				A8A59B3155DA9E128D3AAC9E /* [CP] Copy Pods Resources */,
+				1AAAE4912AC8110F003704E5 /* Embed Frameworks */,
+				D33B70CF1589F2E5C8E18751 /* [CP] Embed Pods Frameworks */,
+				469E4CA387C47560019F1165 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -551,7 +568,41 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    \"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"${PROJECT_DIR}/.swiftlint.yml\"\nelse\n    echo \"warning: SwiftLint not installed, run: pod install\"\nfi\n\n";
 		};
-		558B385FD09A4E2ABE6F7724 /* [CP] Check Pods Manifest.lock */ = {
+		469E4CA387C47560019F1165 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D33B70CF1589F2E5C8E18751 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F08B34DB1F03E6F612B2188C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -571,40 +622,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5C9B2FFFBB05E0377535E9BC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A8A59B3155DA9E128D3AAC9E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThesisAccessibilityHelper/Pods-ThesisAccessibilityHelper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -628,6 +645,7 @@
 				1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */,
 				1AB0409E2AB5D95A0037215E /* FrameManager.swift in Sources */,
 				1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */,
+				1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
 				1A9428622ABA28230042D9BB /* Documentation.docc in Sources */,
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,
@@ -789,7 +807,7 @@
 		};
 		1AA05F842AAAFA440084568F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72B228165FA3EA003D4F0CCB /* Pods-ThesisAccessibilityHelper.debug.xcconfig */;
+			baseConfigurationReference = B819D430D96CBADA168C66AE /* Pods-ThesisAccessibilityHelper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -798,7 +816,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ThesisAccessibilityHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = N3LA7VX648;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera pls";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Lib pls";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -812,6 +832,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = DuT0mi.ThesisAccessibilityHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -822,7 +843,7 @@
 		};
 		1AA05F852AAAFA440084568F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72A052398BF7A2748003A60C /* Pods-ThesisAccessibilityHelper.release.xcconfig */;
+			baseConfigurationReference = E7A76833C1796737D9DAB8FE /* Pods-ThesisAccessibilityHelper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -831,7 +852,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ThesisAccessibilityHelper/Preview Content\"";
 				DEVELOPMENT_TEAM = N3LA7VX648;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera pls";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Lib pls";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -845,6 +868,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = DuT0mi.ThesisAccessibilityHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
