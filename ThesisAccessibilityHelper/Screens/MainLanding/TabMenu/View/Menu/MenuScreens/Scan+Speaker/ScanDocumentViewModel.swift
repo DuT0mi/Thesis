@@ -35,4 +35,6 @@ final class ScanDocumentViewModel: ObservableObject {
         speaker.stop()
         isSpeakerSpeaks.toggle()
     }
+
+    // MARK: - Intent(s)
 }

@@ -1,11 +1,9 @@
  source 'https://github.com/CocoaPods/Specs.git'
- platform :ios, '16.4' 
+ platform :ios, '17.0' 
 
  target 'ThesisAccessibilityHelper' do
  	use_frameworks!
 
-	pod 'SwiftLint'
-  	pod 'Firebase/Core'
-  	pod 'GoogleMLKit/MLKitCore'
-  	pod 'GoogleMLKit/TextRecognition'
+    pod 'SwiftLint'
+  	pod 'Firebase'
  end

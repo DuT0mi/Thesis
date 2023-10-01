@@ -33,9 +33,9 @@ struct BaseView<Content>: View where Content: View {
 
         init(
             colors: [Color] = [
-                .blue.opacity(AppConstants.AppColor.opacityDefaultLow),
-                .gray.opacity(AppConstants.AppColor.opacityDefaultMedium),
-                .orange.opacity(AppConstants.AppColor.opacityDefaultLow)
+                .white.opacity(AppConstants.AppColor.opacityDefaultLow),
+                .white.opacity(AppConstants.AppColor.opacityDefaultMedium),
+                .gray.opacity(AppConstants.AppColor.opacityDefaultLow)
             ],
             colorsOpacity: CGFloat = AppConstants.AppColor.opacityDefaultMedium,
             gradientStart: UnitPoint = .center,

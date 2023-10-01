@@ -384,7 +384,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "40080D39-50CE-4B82-9BAF-14FE6A32642D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/TextRecognizerManager.swift"
