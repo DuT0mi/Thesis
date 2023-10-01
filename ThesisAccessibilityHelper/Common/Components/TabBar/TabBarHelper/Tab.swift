@@ -19,7 +19,7 @@ enum Tab: String, CaseIterable {
             case .menu:
                 return "book"
             case .profile:
-                return "person.crop.artframe"
+                return "gear"
         }
     }
 

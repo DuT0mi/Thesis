@@ -8,7 +8,21 @@
 import SwiftUI
 
 struct MenuViewItem: View {
+    // MARK: - Consts
+
+    private struct Consts {
+        struct Color {
+            static let gradient = LinearGradient(colors: [.white, .gray], startPoint: .topTrailing, endPoint: .bottomLeading)
+        }
+
+        struct Layout {
+            static let frame: CGFloat = 100
+            static let shadowRadius: CGFloat = 10
+        }
+    }
+
     // MARK: - Properties
+    @State private var isHighlighted = false
 
     var systemName: String = "house"
     var image: ImageResource?
@@ -16,21 +30,21 @@ struct MenuViewItem: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color.white)
-                .frame(width: 100)
-                .shadow(color: .white, radius: 10, x: .zero, y: .zero)
+                .fill(Consts.Color.gradient )
+                .frame(width: Consts.Layout.frame)
+                .shadow(color: .white, radius: Consts.Layout.shadowRadius, x: .zero, y: .zero)
                 .overlay {
                     if let image {
                         Image(image)
                             .resizable()
                             .clipShape(Circle())
                             .scaledToFit()
-                            .frame(width: 100, height: 100)
+                            .frame(width: Consts.Layout.frame, height: Consts.Layout.frame)
                     } else {
                         Image(systemName: systemName)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 50, height: 50)
+                            .frame(width: Consts.Layout.frame / 2, height: Consts.Layout.frame / 2)
                     }
                 }
         }

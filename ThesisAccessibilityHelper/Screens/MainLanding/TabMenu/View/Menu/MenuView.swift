@@ -41,7 +41,7 @@ struct MenuView: View {
 
                         HStack(spacing: 20) {
                             NavigationLink(destination: Circle7DetailView()) {
-                                MenuViewItem()
+                                MenuViewItem(systemName: "externaldrive.badge.person.crop")
                             }
                         }
                         .padding()
