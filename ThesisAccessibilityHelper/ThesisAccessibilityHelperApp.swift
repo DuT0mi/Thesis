@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct ThesisAccessibilityHelperApp: App {
+    // MARK: - Properties
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     var body: some Scene {
         WindowGroup {
             TabHosterView()

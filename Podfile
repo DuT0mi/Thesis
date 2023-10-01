@@ -4,8 +4,6 @@
  target 'ThesisAccessibilityHelper' do
  	use_frameworks!
 
-	pod 'SwiftLint'
-  	pod 'Firebase/Core'
-  	pod 'GoogleMLKit/MLKitCore'
-  	pod 'GoogleMLKit/TextRecognition'
+    pod 'SwiftLint'
+  	pod 'Firebase'
  end
