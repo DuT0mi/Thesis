@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ScanDocumentView: View {
+    // MARK: - Types
+
+    private struct Consts {
+        static let showCaseLight = Color.yellow
+        static let showCaseDark = Color.yellow
+        static let imageTintLight = Color.black
+        static let imageTintDark = Color.white
+    }
+
     // MARK: - Properties
 
+    @Environment(\.colorScheme) private var colorScheme
     @StateObject private var viewModel = ScanDocumentViewModel()
     @State private var opacityOfShowCase: Double = .zero
     @State private var didTapHint = false {
@@ -38,7 +48,10 @@ struct ScanDocumentView: View {
             DocumentPickerView {
                 showCamera.toggle()
             } didFinish: { recognizedModel in
-                recognizedModel.forEach { viewModel.speak($0.resultingText)}
+                recognizedModel.forEach {
+                    viewModel.appendElement($0)
+                } // TODO: Fx animation
+                viewModel.start()
             }
             .sheetStyle(style: .mixed, dismissable: true, showIndicator: true)
 
@@ -59,17 +72,18 @@ struct ScanDocumentView: View {
             }
 
             ToolbarItem(placement: .topBarTrailing) {
-                Image(systemName: "doc.viewfinder")
-                    .bold()
-                    .onTapGesture {
-                        showCamera.toggle()
-                    }
-                    .overlay {
-                        Circle()
-                            .fill(Color.red.opacity(0.2))
-                            .frame(width: 35, height: 35)
-                            .opacity(self.opacityOfShowCase)
-                    }
+                ZStack {
+                    Circle()
+                        .fill(colorScheme == .dark ? Consts.showCaseDark : Consts.showCaseLight)
+                        .frame(width: 35, height: 35)
+                        .opacity(self.opacityOfShowCase)
+                    Image(systemName: "doc.viewfinder")
+                        .tint(colorScheme == .dark ? Consts.imageTintDark : Consts.imageTintLight)
+                        .bold()
+                        .onTapGesture {
+                            showCamera.toggle()
+                        }
+                }
             }
         }
         .ignoresSafeArea()
