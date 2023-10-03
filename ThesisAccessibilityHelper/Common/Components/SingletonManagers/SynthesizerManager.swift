@@ -28,8 +28,6 @@ final class SynthesizerManager: NSObject {
 
     private let speaker = AVSpeechSynthesizer()
 
-    private var completion: ((Bool) -> Void)?
-
     // MARK: - Initialization
 
     private override init() {
@@ -40,15 +38,13 @@ final class SynthesizerManager: NSObject {
 
     // MARK: - Functions
 
-    func speak(with toSay: String, completion: ((Bool) -> Void)?) {
+    func speak(with toSay: String) {
         let utterance = AVSpeechUtterance(string: toSay)
         utterance.rate = SynthesizerManager.speakerConfiguration.rate
         utterance.voice = SynthesizerManager.speakerConfiguration.voice
         utterance.volume = SynthesizerManager.speakerConfiguration.volume
 
         utterance.postUtteranceDelay = SynthesizerManager.speakerConfiguration.postUtteranceDelay
-
-        self.completion = completion
 
         speaker.speak(utterance)
     }
@@ -63,6 +59,6 @@ final class SynthesizerManager: NSObject {
 
 extension SynthesizerManager: AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        completion?(true)
+        NotificationCenter.default.post(name: .speakerStoppedSpeaking, object: nil)
     }
 }

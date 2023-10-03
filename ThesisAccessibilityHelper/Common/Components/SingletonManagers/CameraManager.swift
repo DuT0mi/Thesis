@@ -154,7 +154,7 @@ final class CameraManager: BaseCameraManager {
     private func setupVision() -> NSError? {
         var error: NSError?
 
-        guard let modelURL = Bundle.main.url(forResource: Consts.modelOptimalized.name, withExtension: Consts.modelOptimalized.fileExtension) else {
+        guard let modelURL = Bundle.main.url(forResource: Consts.model.name, withExtension: Consts.model.fileExtension) else {
             return NSError(domain: "\(#file)", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing!"])
         }
 
