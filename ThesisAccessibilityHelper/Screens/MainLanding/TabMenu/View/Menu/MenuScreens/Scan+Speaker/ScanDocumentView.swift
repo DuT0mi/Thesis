@@ -20,7 +20,10 @@ struct ScanDocumentView: View {
     // MARK: - Properties
 
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.managedObjectContext) private var managedObjectContext
+
     @StateObject private var viewModel = ScanDocumentViewModel()
+
     @State private var opacityOfShowCase: Double = .zero
     @State private var didTapHint = false {
         didSet {
@@ -33,24 +36,42 @@ struct ScanDocumentView: View {
 
     var body: some View {
         BaseView {
-            ZStack {
-                if !viewModel.isSpeakerSpeaks {
+            if !viewModel.isSpeakerSpeaks {
+                VStack {
                     HintView()
                         .onTapGesture {
                             didTapHint = true
                         }
-                } else {
-                    ProgressView()
+                    if !viewModel.isLoading, !viewModel.models.isEmpty {
+                        Text("Van")
+                    } else {
+                        ContentUnavailableView {
+                            Label("You haven't scanned yet", systemImage: "camera.metering.unknown")
+                        } description: {
+                            Text("Try it out!")
+                        } actions: {
+                            Button("Scan", systemImage: "camera.metering.unknown") {
+                                self.showCamera.toggle()
+                            }
+                            .buttonBorderShape(.capsule)
+                            .buttonStyle(.borderedProminent)
+                            .tint(Color.white)
+                            .foregroundStyle(.black)
+                        }
+                        .frame(width: 250, height: 250)
+
+                    }
                 }
+            } else {
+                ProgressView()
             }
+
         }
         .sheet(isPresented: $showCamera) {
             DocumentPickerView {
                 showCamera.toggle()
             } didFinish: { recognizedModel in
-                recognizedModel.forEach {
-                    viewModel.appendElement($0)
-                } // TODO: Fx animation
+                viewModel.appendElements(recognizedModel, on: managedObjectContext)
                 viewModel.start()
             }
             .sheetStyle(style: .mixed, dismissable: true, showIndicator: true)

@@ -7,9 +7,9 @@
 
 import Combine
 import Foundation
+import CoreData
 
-@MainActor
-final class ScanDocumentViewModel: ObservableObject {
+final class ScanDocumentViewModel: BaseViewModel {
     // MARK: - Types
 
     typealias Model = TextRecognizer.RecognizedModel
@@ -17,14 +17,17 @@ final class ScanDocumentViewModel: ObservableObject {
     // MARK: - Properties
 
     @Published var isSpeakerSpeaks = false
+    @Published var isLoading = false
 
     private let speaker = SynthesizerManager.shared
 
-    private lazy var models = [Model]()
+    private(set) lazy var models = [Model]()
 
     // MARK: - Initialization
 
-    init() {
+    override init() {
+        super.init()
+
         addObservers()
     }
 
@@ -35,12 +38,14 @@ final class ScanDocumentViewModel: ObservableObject {
         isSpeakerSpeaks.toggle()
     }
 
+    @MainActor
     func start() {
         isSpeakerSpeaks = true
 
         self.speak(models.map { $0.resultingText}.joined())
     }
 
+    @MainActor
     private func speak(_ text: String) {
         let scanText = "Szkennelt objektum szöveg tartalma: \(text)"
 
@@ -57,7 +62,14 @@ final class ScanDocumentViewModel: ObservableObject {
 
     // MARK: - Intent(s)
 
-    func appendElement(_ element: Model) {
-        models.append(element)
+    func appendElements(_ elements: [Model], on context: NSManagedObjectContext) {
+        isLoading.toggle()
+
+        elements.forEach {
+            models.append($0)
+            CoreDataController().saveData(context: context, $0)
+        }
+
+        isLoading.toggle()
     }
 }
