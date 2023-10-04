@@ -8,7 +8,7 @@
 import CoreData
 import UIKit
 
-final class CoreDataController {
+final class CoreDataController: ObservableObject {
     // MARK: - Types
 
     private struct Consts {
@@ -22,7 +22,7 @@ final class CoreDataController {
 
     // MARK: - Properties
 
-    private let container = NSPersistentContainer(name: Consts.Name.coreDataEntity)
+    let container = NSPersistentContainer(name: Consts.Name.coreDataEntity)
 
     // MARK: - Initialization
 

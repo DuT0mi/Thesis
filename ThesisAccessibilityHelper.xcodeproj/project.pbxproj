@@ -60,6 +60,8 @@
 		1AA05F872AAAFBF30084568F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */; };
 		1AA539A92ACDD7AF00E8E0DC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA539A82ACDD7AF00E8E0DC /* CoreDataController.swift */; };
 		1AA539AD2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1AA539AB2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld */; };
+		1AA539B32ACE018700E8E0DC /* ViewModifier+Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA539B22ACE018700E8E0DC /* ViewModifier+Flip.swift */; };
+		1AA539B52ACE01E900E8E0DC /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA539B42ACE01E900E8E0DC /* AlbumView.swift */; };
 		1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */; };
 		1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */; };
 		1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0408F2AB5BFC00037215E /* ObjectDetectView.swift */; };
@@ -130,6 +132,8 @@
 		1AA539A82ACDD7AF00E8E0DC /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		1AA539AC2ACDD80F00E8E0DC /* ResultModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResultModel.xcdatamodel; sourceTree = "<group>"; };
 		1AA539AF2ACDE26300E8E0DC /* ResultModel_1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResultModel_1.0.xcdatamodel; sourceTree = "<group>"; };
+		1AA539B22ACE018700E8E0DC /* ViewModifier+Flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModifier+Flip.swift"; sourceTree = "<group>"; };
+		1AA539B42ACE01E900E8E0DC /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongLoadingView.swift; sourceTree = "<group>"; };
 		1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Names.swift"; sourceTree = "<group>"; };
 		1AB0408F2AB5BFC00037215E /* ObjectDetectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectView.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 				1AB0409F2AB5DBB40037215E /* CGImage+create.swift */,
 				1A9D1A832AB712F9008C30EC /* ViewModifier+GeoSize.swift */,
 				1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */,
+				1AA539B22ACE018700E8E0DC /* ViewModifier+Flip.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 		1AA539AE2ACDDAE500E8E0DC /* Album */ = {
 			isa = PBXGroup;
 			children = (
+				1AA539B42ACE01E900E8E0DC /* AlbumView.swift */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -741,6 +747,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AA539B32ACE018700E8E0DC /* ViewModifier+Flip.swift in Sources */,
 				1A9D1A842AB712F9008C30EC /* ViewModifier+GeoSize.swift in Sources */,
 				1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */,
 				1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */,
@@ -764,6 +771,7 @@
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,
 				1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */,
 				1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */,
+				1AA539B52ACE01E900E8E0DC /* AlbumView.swift in Sources */,
 				1AD1E8682AC04D4A00BCA580 /* DocumentPickerView.swift in Sources */,
 				1A5DF3CA2AB48ACC00A872F2 /* TabProfileLandingView.swift in Sources */,
 				1AB040972AB5CA470037215E /* ObjectDetectViewModel.swift in Sources */,

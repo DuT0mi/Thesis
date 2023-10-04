@@ -43,7 +43,9 @@ struct ScanDocumentView: View {
                             didTapHint = true
                         }
                     if !viewModel.isLoading, !viewModel.models.isEmpty {
-                        Text("Van")
+                        ImagesCarousel(images: mockImages())
+                            .frame(width: 250, height: 250)
+                            .padding(.top)
                     } else {
                         ContentUnavailableView {
                             Label("You haven't scanned yet", systemImage: "camera.metering.unknown")
@@ -121,6 +123,16 @@ struct ScanDocumentView: View {
                 self.opacityOfShowCase = .zero
             }
         }
+    }
+
+    private func mockImages() -> [Image] {
+        [
+            Image(.mockImage0),
+            Image(.mockImage1),
+            Image(.mockImage2),
+            Image(.mockImage3),
+            Image(.mockImage4)
+        ]
     }
 }
 
