@@ -31,6 +31,12 @@ final class AppConstants {
             }
         }
     }
+
+    struct Mock {
+        struct Image {
+            static let link = "https://picsum.photos/200/300"
+        }
+    }
 }
 
 extension AppConstants {
