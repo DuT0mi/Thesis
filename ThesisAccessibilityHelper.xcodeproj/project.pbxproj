@@ -58,6 +58,8 @@
 		1AA05F7D2AAAFA440084568F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F7C2AAAFA440084568F /* Assets.xcassets */; };
 		1AA05F802AAAFA440084568F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */; };
 		1AA05F872AAAFBF30084568F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */; };
+		1AA539A92ACDD7AF00E8E0DC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA539A82ACDD7AF00E8E0DC /* CoreDataController.swift */; };
+		1AA539AD2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1AA539AB2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld */; };
 		1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */; };
 		1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */; };
 		1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0408F2AB5BFC00037215E /* ObjectDetectView.swift */; };
@@ -125,6 +127,9 @@
 		1AA05F7C2AAAFA440084568F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AA05F7F2AAAFA440084568F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1AA05F862AAAFBF30084568F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1AA539A82ACDD7AF00E8E0DC /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		1AA539AC2ACDD80F00E8E0DC /* ResultModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResultModel.xcdatamodel; sourceTree = "<group>"; };
+		1AA539AF2ACDE26300E8E0DC /* ResultModel_1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResultModel_1.0.xcdatamodel; sourceTree = "<group>"; };
 		1AAA6C5E2AACCD6300F1CA85 /* LongLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongLoadingView.swift; sourceTree = "<group>"; };
 		1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Names.swift"; sourceTree = "<group>"; };
 		1AB0408F2AB5BFC00037215E /* ObjectDetectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectView.swift; sourceTree = "<group>"; };
@@ -366,6 +371,7 @@
 			children = (
 				1A915DA02AC9A0E3009FE4BE /* AppDelegate.swift */,
 				1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */,
+				1AA539A72ACDD79B00E8E0DC /* LocalStorage */,
 				1A9428612ABA28230042D9BB /* Documentation.docc */,
 				1ABE4AF32AB2306D004DD0EE /* Resources */,
 				1A96BE302AAB3EE7003DE05B /* Common */,
@@ -386,6 +392,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1AA539A72ACDD79B00E8E0DC /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				1AA539AA2ACDD7C700E8E0DC /* Model */,
+				1AA539A82ACDD7AF00E8E0DC /* CoreDataController.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		1AA539AA2ACDD7C700E8E0DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1AA539AB2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1AA539AE2ACDDAE500E8E0DC /* Album */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
 		1AAA6C5D2AACCD5500F1CA85 /* StateViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,7 +427,7 @@
 		1AB0408D2AB5B41C0037215E /* MenuScreens */ = {
 			isa = PBXGroup;
 			children = (
-				1AEC65D92AC9AFF200DEB3A8 /* ImageStorage */,
+				1AA539AE2ACDDAE500E8E0DC /* Album */,
 				1AD1E8612AC0461300BCA580 /* Scan+Speaker */,
 				1AB0408E2AB5BE760037215E /* ObjectDetect+TextRecognizer */,
 			);
@@ -504,13 +534,6 @@
 				1AEC65DC2AC9C27600DEB3A8 /* ImagesCarousel.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		1AEC65D92AC9AFF200DEB3A8 /* ImageStorage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ImageStorage;
 			sourceTree = "<group>";
 		};
 		1AF13F252AACEDB90097E085 /* TabBar */ = {
@@ -724,6 +747,7 @@
 				1A5DF3D42AB4925500A872F2 /* MenuViewItem.swift in Sources */,
 				1A915DA12AC9A0E3009FE4BE /* AppDelegate.swift in Sources */,
 				1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */,
+				1AA539A92ACDD7AF00E8E0DC /* CoreDataController.swift in Sources */,
 				1AA05F7B2AAAFA430084568F /* TabHosterView.swift in Sources */,
 				1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */,
 				1AB0409A2AB5CD6B0037215E /* CameraManager.swift in Sources */,
@@ -736,6 +760,7 @@
 				1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
 				1A9428622ABA28230042D9BB /* Documentation.docc in Sources */,
+				1AA539AD2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld in Sources */,
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,
 				1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */,
 				1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */,
@@ -1140,6 +1165,20 @@
 			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		1AA539AB2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1AA539AF2ACDE26300E8E0DC /* ResultModel_1.0.xcdatamodel */,
+				1AA539AC2ACDD80F00E8E0DC /* ResultModel.xcdatamodel */,
+			);
+			currentVersion = 1AA539AF2ACDE26300E8E0DC /* ResultModel_1.0.xcdatamodel */;
+			path = ResultModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1AA05F6D2AAAFA430084568F /* Project object */;
 }
