@@ -12,7 +12,7 @@ struct ThesisAccessibilityHelperApp: App {
     // MARK: - Properties
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @StateObject private var dataController: CoreDataController = CoreDataController()
+    @StateObject private var dataController = CoreDataController()
 
     var body: some Scene {
         WindowGroup {
