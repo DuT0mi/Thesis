@@ -8,8 +8,12 @@
 import Combine
 import Foundation
 import CoreData
+import SwiftUI
 
-final class ScanDocumentViewModel: BaseViewModel {
+protocol ScanDocumentViewModelInput: BaseViewModelInput {
+}
+
+final class ScanDocumentViewModel: ObservableObject {
     // MARK: - Types
 
     typealias Model = TextRecognizer.RecognizedModel
@@ -23,11 +27,11 @@ final class ScanDocumentViewModel: BaseViewModel {
 
     private(set) lazy var models = [Model]()
 
+    private var cachedContext: NSManagedObjectContext?
+
     // MARK: - Initialization
 
-    override init() {
-        super.init()
-
+    init() {
         addObservers()
     }
 
@@ -65,11 +69,36 @@ final class ScanDocumentViewModel: BaseViewModel {
     func appendElements(_ elements: [Model], on context: NSManagedObjectContext) {
         isLoading.toggle()
 
+        self.cachedContext = context
+
         elements.forEach {
             models.append($0)
             CoreDataController().saveData(context: context, $0)
         }
 
         isLoading.toggle()
+    }
+
+    func mockImages() -> [Image] {
+        [
+            Image(.mockImage0),
+            Image(.mockImage1),
+            Image(.mockImage2),
+            Image(.mockImage3),
+            Image(.mockImage4)
+        ]
+    }
+}
+
+// MARK: - ScanDocumentViewModelInput
+
+extension ScanDocumentViewModel: ScanDocumentViewModelInput {
+    func didAppear() {
+    }
+
+    func didDisAppear() {
+        guard let cachedContext else { return }
+
+        CoreDataController().reset(context: cachedContext)
     }
 }

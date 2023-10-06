@@ -58,15 +58,7 @@ final class CoreDataController: ObservableObject {
         }
     }
 
-    private func setupContainers() {
-        container.loadPersistentStores { description, error in
-            precondition(error == nil)
-
-            print("LOG | LOADED SUCCESSFULLY | DESCRIPTION: \(description)") // TODO: Logger
-        }
-    }
-
-    private func reset(context: NSManagedObjectContext) {
+    func reset(context: NSManagedObjectContext) {
         let fetchRequest: NSFetchRequest<LocalData> = LocalData.fetchRequest()
 
         do {
@@ -80,6 +72,14 @@ final class CoreDataController: ObservableObject {
 
         } catch {
             print("LOG | ERROR: \(error)")
+        }
+    }
+
+    private func setupContainers() {
+        container.loadPersistentStores { description, error in
+            precondition(error == nil)
+
+            print("LOG | LOADED SUCCESSFULLY | DESCRIPTION: \(description)") // TODO: Logger
         }
     }
 }

@@ -21,6 +21,7 @@ struct ScanDocumentView: View {
 
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.managedObjectContext) private var managedObjectContext
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.imageId)]) var coreDataElements: FetchedResults<LocalData>
 
     @StateObject private var viewModel = ScanDocumentViewModel()
 
@@ -43,9 +44,17 @@ struct ScanDocumentView: View {
                             didTapHint = true
                         }
                     if !viewModel.isLoading, !viewModel.models.isEmpty {
-                        ImagesCarousel(images: mockImages())
+                        #if targetEnvironment(simulator)
+                        ImagesCarousel(images: viewModel.mockImages())
                             .frame(width: 250, height: 250)
                             .padding(.top)
+                        #else
+                        if coreDataElements.count != .zero {
+                            ImagesCarousel(images: image(from: coreDataElements))
+                                .frame(width: 250, height: 250)
+                                .padding(.top)
+                        }
+                        #endif
                     } else {
                         ContentUnavailableView {
                             Label("You haven't scanned yet", systemImage: "camera.metering.unknown")
@@ -110,6 +119,9 @@ struct ScanDocumentView: View {
             }
         }
         .ignoresSafeArea()
+        .onDisappear {
+            viewModel.didDisAppear()
+        }
     }
 
     // MARK: - Functions
@@ -125,16 +137,19 @@ struct ScanDocumentView: View {
         }
     }
 
-    private func mockImages() -> [Image] {
-        [
-            Image(.mockImage0),
-            Image(.mockImage1),
-            Image(.mockImage2),
-            Image(.mockImage3),
-            Image(.mockImage4)
-        ]
+    private func image(from localDataElements: FetchedResults<LocalData>) -> [Image] {
+        var images = [Image]()
+
+        localDataElements.forEach { data in
+            guard let uiImageData = data.imageData, let uiImage = UIImage(data: uiImageData) else { return }
+            images.append(Image(uiImage: uiImage))
+        }
+
+        return images
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     NavigationStack {

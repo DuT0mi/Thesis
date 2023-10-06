@@ -13,7 +13,7 @@ final class SynthesizerManager: NSObject {
 
     struct AVSpeechUtteranceConfiguration {
         var rate: Float = AVSpeechUtteranceDefaultSpeechRate
-        var voice: AVSpeechSynthesisVoice = AVSpeechSynthesisVoice(language: "hu_HU" /* AVSpeechSynthesisVoice.currentLanguageCode() */ )!
+        var voice = AVSpeechSynthesisVoice(language: "hu_HU" /* AVSpeechSynthesisVoice.currentLanguageCode() */ )!
         var volume: Float = 0.65
         var postUtteranceDelay: TimeInterval = 0.1
     }

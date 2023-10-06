@@ -39,7 +39,7 @@ final class TextRecognizer {
             self = RecognizedModel.defaultConfiguration
         }
     }
-    
+
     private struct Consts {
         struct Model {
             static let atPageDefaultValue = -1
