@@ -43,17 +43,15 @@ struct ScanDocumentView: View {
                         .onTapGesture {
                             didTapHint = true
                         }
-                    if !viewModel.isLoading, !viewModel.models.isEmpty {
+                    if !viewModel.isLoading, !viewModel.models.isEmpty, coreDataElements.count != .zero {
                         #if targetEnvironment(simulator)
                         ImagesCarousel(images: viewModel.mockImages())
                             .frame(width: 250, height: 250)
                             .padding(.top)
                         #else
-                        if coreDataElements.count != .zero {
-                            ImagesCarousel(images: image(from: coreDataElements))
-                                .frame(width: 250, height: 250)
-                                .padding(.top)
-                        }
+                        ImagesCarousel(images: image(from: coreDataElements))
+                            .frame(width: 250, height: 250)
+                            .padding(.top)
                         #endif
                     } else {
                         ContentUnavailableView {
@@ -97,9 +95,7 @@ struct ScanDocumentView: View {
                             viewModel.stop()
                         }
                         .padding(.trailing)
-#if !targetEnvironment(simulator)
                         .opacity(viewModel.isSpeakerSpeaks ? 1 : 0)
-#endif
                 }
             }
 
