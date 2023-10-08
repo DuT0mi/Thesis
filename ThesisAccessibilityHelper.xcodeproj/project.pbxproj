@@ -376,7 +376,8 @@
 			children = (
 				1A915DA02AC9A0E3009FE4BE /* AppDelegate.swift */,
 				1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */,
-				1AA539A72ACDD79B00E8E0DC /* LocalStorage */,
+				1AC6047D2AD2CAA200BBE914 /* LocalStoragePerm */,
+				1AA539A72ACDD79B00E8E0DC /* LocalStorageTemp */,
 				1A9428612ABA28230042D9BB /* Documentation.docc */,
 				1ABE4AF32AB2306D004DD0EE /* Resources */,
 				1A96BE302AAB3EE7003DE05B /* Common */,
@@ -397,13 +398,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1AA539A72ACDD79B00E8E0DC /* LocalStorage */ = {
+		1AA539A72ACDD79B00E8E0DC /* LocalStorageTemp */ = {
 			isa = PBXGroup;
 			children = (
 				1AA539AA2ACDD7C700E8E0DC /* Model */,
 				1AA539A82ACDD7AF00E8E0DC /* CoreDataController.swift */,
 			);
-			path = LocalStorage;
+			path = LocalStorageTemp;
 			sourceTree = "<group>";
 		};
 		1AA539AA2ACDD7C700E8E0DC /* Model */ = {
@@ -512,6 +513,13 @@
 				1A9665C92AACC6FC0087F964 /* BaseView.swift */,
 			);
 			path = BaseView;
+			sourceTree = "<group>";
+		};
+		1AC6047D2AD2CAA200BBE914 /* LocalStoragePerm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LocalStoragePerm;
 			sourceTree = "<group>";
 		};
 		1ACC0EE12ABA0FE400113911 /* Base */ = {
