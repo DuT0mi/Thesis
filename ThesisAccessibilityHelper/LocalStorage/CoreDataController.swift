@@ -15,6 +15,7 @@ final class CoreDataController: ObservableObject {
         struct Name {
             static let coreDataEntity = "ResultModel"
             static let innerEntitiyName = "LocalData"
+            static let permEntityName = "TempData"
         }
     }
 
@@ -58,8 +59,41 @@ final class CoreDataController: ObservableObject {
         }
     }
 
+    func saveTempData(context: NSManagedObjectContext, _ refModel: TextRecognizerModel) {
+        guard let cgImage = refModel.cgImage, let data = UIImage(cgImage: cgImage).pngData() else { return }
+
+        context.perform {
+            let model = TempData(context: context)
+
+            model.imageData = data
+            model.detectedText = refModel.resultingText
+            model.resultID = UUID(uuidString: refModel.resultingText)
+
+            print("LOG | NEW MODEL HAS ADDED: \(model)")
+
+            self.saveContext(context: context)
+        }
+    }
+
     func reset(context: NSManagedObjectContext) {
         let fetchRequest: NSFetchRequest<LocalData> = LocalData.fetchRequest()
+
+        do {
+            let items = try context.fetch(fetchRequest)
+
+            for item in items {
+                context.delete(item)
+            }
+
+            self.saveContext(context: context)
+
+        } catch {
+            print("LOG | ERROR: \(error)")
+        }
+    }
+
+    func resetTemp(context: NSManagedObjectContext) {
+        let fetchRequest: NSFetchRequest<TempData> = TempData.fetchRequest()
 
         do {
             let items = try context.fetch(fetchRequest)

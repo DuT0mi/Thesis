@@ -23,9 +23,9 @@ final class ScanDocumentViewModel: ObservableObject {
     @Published var isSpeakerSpeaks = false
     @Published var isLoading = false
 
-    private let speaker = SynthesizerManager.shared
-
     private(set) lazy var models = [Model]()
+
+    private let speaker = SynthesizerManager.shared
 
     private var cachedContext: NSManagedObjectContext?
 
@@ -79,7 +79,7 @@ final class ScanDocumentViewModel: ObservableObject {
         isLoading.toggle()
     }
 
-    func mockImages() -> [Image] {
+    private func mockImages() -> [Image] {
         [
             Image(.mockImage0),
             Image(.mockImage1),
@@ -100,5 +100,7 @@ extension ScanDocumentViewModel: ScanDocumentViewModelInput {
         guard let cachedContext else { return }
 
         CoreDataController().reset(context: cachedContext)
+
+        models.forEach { CoreDataController().saveTempData(context: cachedContext, $0) }
     }
 }

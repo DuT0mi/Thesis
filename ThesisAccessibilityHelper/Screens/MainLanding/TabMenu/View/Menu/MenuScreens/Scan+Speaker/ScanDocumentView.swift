@@ -34,6 +34,10 @@ struct ScanDocumentView: View {
     }
 
     @State private var showCamera = false
+    @State private var flipped = false
+
+    var front: Angle { flipped ? .degrees(180) : .degrees(0) }
+    var back: Angle { flipped ? .degrees(0) : .degrees(-180) }
 
     var body: some View {
         BaseView {
@@ -43,18 +47,25 @@ struct ScanDocumentView: View {
                         .onTapGesture {
                             didTapHint = true
                         }
-                    if !viewModel.isLoading, !viewModel.models.isEmpty {
-                        #if targetEnvironment(simulator)
-                        ImagesCarousel(images: viewModel.mockImages())
+                    if !viewModel.isLoading, !viewModel.models.isEmpty, coreDataElements.count != .zero {
+                        Button {
+                            withAnimation(.bouncy) {  flipped.toggle()  }
+                        } label: {
+                            ZStack {
+                                #if targetEnvironment(simulator)
+                                ImagesCarousel(images: viewModel.mockImages())
+                                    .frame(width: 250, height: 250)
+                                    .padding(.top)
+                                #else
+                                ImagesCarousel(images: [Image(.mockImage0)]) // TODO: Make a model from the 'Images'
+                                    .horizontalFlip(back, visible: flipped)
+                                ImagesCarousel(images: image(from: coreDataElements))
+                                    .horizontalFlip(front, visible: !flipped)
+                                #endif
+                            }
                             .frame(width: 250, height: 250)
                             .padding(.top)
-                        #else
-                        if coreDataElements.count != .zero {
-                            ImagesCarousel(images: image(from: coreDataElements))
-                                .frame(width: 250, height: 250)
-                                .padding(.top)
                         }
-                        #endif
                     } else {
                         ContentUnavailableView {
                             Label("You haven't scanned yet", systemImage: "camera.metering.unknown")
@@ -97,9 +108,7 @@ struct ScanDocumentView: View {
                             viewModel.stop()
                         }
                         .padding(.trailing)
-#if !targetEnvironment(simulator)
                         .opacity(viewModel.isSpeakerSpeaks ? 1 : 0)
-#endif
                 }
             }
 

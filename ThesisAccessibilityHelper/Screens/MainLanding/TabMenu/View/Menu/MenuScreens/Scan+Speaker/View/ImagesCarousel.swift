@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ImagesCarousel: View {
     // MARK: - Properties
-    
+
     @Environment(\.verticalSizeClass) private var verticalSizeClass
-    
+
     var images: [Image]
 
     var body: some View {
@@ -37,5 +37,5 @@ struct ImagesCarousel: View {
 }
 
 #Preview {
-    ImagesCarousel(images: [])
+    ImagesCarousel(images: [Image(.mockImage0)])
 }
