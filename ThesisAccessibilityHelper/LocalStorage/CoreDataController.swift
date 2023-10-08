@@ -51,7 +51,7 @@ final class CoreDataController: ObservableObject {
 
             model.imageData = data
             model.imageText = refModel.resultingText
-            model.imageId = UUID(uuidString: refModel.resultingText)
+            model.imageId = UUID()
 
             print("LOG | NEW MODEL HAS ADDED: \(model)")
 
@@ -67,7 +67,7 @@ final class CoreDataController: ObservableObject {
 
             model.imageData = data
             model.detectedText = refModel.resultingText
-            model.resultID = UUID(uuidString: refModel.resultingText)
+            model.resultID = UUID()
 
             print("LOG | NEW MODEL HAS ADDED: \(model)")
 

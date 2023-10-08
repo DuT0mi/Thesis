@@ -79,7 +79,7 @@ final class ScanDocumentViewModel: ObservableObject {
         isLoading.toggle()
     }
 
-    private func mockImages() -> [Image] {
+    func mockImages() -> [Image] {
         [
             Image(.mockImage0),
             Image(.mockImage1),

@@ -76,6 +76,7 @@
 		1AB040AA2AB652F00037215E /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1AB040A92AB652F00037215E /* LICENSE.txt */; };
 		1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */; };
 		1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */; };
+		1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */; };
 		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
 		1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */; };
 		1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */; };
@@ -149,6 +150,7 @@
 		1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesizerManager.swift; sourceTree = "<group>"; };
 		1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		1AC604832AD2CC0B00BBE914 /* ResultModel_1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResultModel_1.1.xcdatamodel; sourceTree = "<group>"; };
+		1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
 		1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
 		1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentView.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				1AA539B42ACE01E900E8E0DC /* AlbumView.swift */,
+				1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */,
 				1AB0409A2AB5CD6B0037215E /* CameraManager.swift in Sources */,
 				1AB0409C2AB5CFE70037215E /* Error+Camera.swift in Sources */,
+				1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */,
 				1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */,
 				1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */,
 				1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */,
