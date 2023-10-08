@@ -15,7 +15,7 @@ struct AlbumView: View {
 
     @StateObject private var viewModel = AlbumViewModel()
 
-    private let columns = Array(repeating: GridItem(.flexible()), count: 3)
+    private let columns = Array(repeating: GridItem(), count: 3)
 
     var body: some View {
         BaseView {
@@ -28,10 +28,22 @@ struct AlbumView: View {
                                     .resizable()
                                     .aspectRatio(1.0, contentMode: .fit)
                                     .frame(width: 100)
+                                    .clipShape(.rect(cornerRadius: 12))
                             }
                         } else {
                             ProgressView()
                         }
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                    } label: {
+                        Image(systemName: "rectangle.and.text.magnifyingglass")
+                    }
+                    .contextMenu {
+                        contextMenu
                     }
                 }
             }
@@ -41,6 +53,18 @@ struct AlbumView: View {
         }
         .ignoresSafeArea()
     }
+
+    @ViewBuilder
+    private var contextMenu: some View {
+        Menu {
+            AnimatedActionButton(title: "Find similary images", systemImage: "text.viewfinder") {
+            }
+        } label: {
+            Text("Options")
+        }
+    }
+
+    // MARK: - Functions
 }
 
 #Preview {
