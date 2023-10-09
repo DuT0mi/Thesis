@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct ImagesCarousel: View {
     // MARK: - Properties
 
+    @ObservedObject private var observedViewModel: ScanDocumentViewModel = Resolver.resolve()
     @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     var images: [Image]
