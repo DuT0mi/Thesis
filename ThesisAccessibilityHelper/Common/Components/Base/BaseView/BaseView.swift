@@ -73,6 +73,7 @@ struct BaseView<Content>: View where Content: View {
     var body: some View {
         ZStack {
             LinearGradient(colors: configuration.colors, startPoint: configuration.gradientStart, endPoint: configuration.gradientEnd)
+                .ignoresSafeArea()
             content
         }
     }

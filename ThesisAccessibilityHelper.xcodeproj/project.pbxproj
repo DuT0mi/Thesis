@@ -81,6 +81,7 @@
 		1AC937402AD47D1700851576 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 1AC9373F2AD47D1700851576 /* Resolver */; };
 		1AC937452AD47D2E00851576 /* App+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC937442AD47D2E00851576 /* App+DI.swift */; };
 		1AC937472AD47DEE00851576 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 1AC937462AD47DEE00851576 /* Resolver */; };
+		1AC9374E2AD4845200851576 /* CarouselItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9374D2AD4845200851576 /* CarouselItemView.swift */; };
 		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
 		1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */; };
 		1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */; };
@@ -157,6 +158,7 @@
 		1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AnimatedActionButton.swift"; sourceTree = "<group>"; };
 		1AC937442AD47D2E00851576 /* App+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+DI.swift"; sourceTree = "<group>"; };
+		1AC9374D2AD4845200851576 /* CarouselItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemView.swift; sourceTree = "<group>"; };
 		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
 		1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
 		1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentView.swift; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */,
 				1AEC65DA2AC9B0CC00DEB3A8 /* HintView.swift */,
 				1AEC65DC2AC9C27600DEB3A8 /* ImagesCarousel.swift */,
+				1AC9374D2AD4845200851576 /* CarouselItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AC937452AD47D2E00851576 /* App+DI.swift in Sources */,
+				1AC9374E2AD4845200851576 /* CarouselItemView.swift in Sources */,
 				1AA539B32ACE018700E8E0DC /* ViewModifier+Flip.swift in Sources */,
 				1A9D1A842AB712F9008C30EC /* ViewModifier+GeoSize.swift in Sources */,
 				1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */,
