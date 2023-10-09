@@ -15,6 +15,12 @@ struct ScanDocumentView: View {
         static let showCaseDark = Color.yellow
         static let imageTintLight = Color.black
         static let imageTintDark = Color.white
+
+        struct Layout {
+            static let contentFrameSize: CGFloat = 250
+
+            static let toolbarItemFrameSize: CGFloat = 35 // min 28x28 <- Human Interface G.
+        }
     }
 
     // MARK: - Properties
@@ -34,10 +40,6 @@ struct ScanDocumentView: View {
     }
 
     @State private var showCamera = false
-    @State private var flipped = false
-
-    var front: Angle { flipped ? .degrees(180) : .degrees(0) }
-    var back: Angle { flipped ? .degrees(0) : .degrees(-180) }
 
     var body: some View {
         BaseView {
@@ -48,21 +50,9 @@ struct ScanDocumentView: View {
                             didTapHint = true
                         }
                     if !viewModel.isLoading, !viewModel.models.isEmpty, coreDataElements.count != .zero {
-                        Button {
-                            withAnimation(.bouncy) {  flipped.toggle()  }
-                        } label: {
-                            ZStack {
-                                #if targetEnvironment(simulator)
-                                ImagesCarousel(models: [])
-                                    .frame(width: 250, height: 250)
-                                    .padding(.top)
-                                #else
-                                ImagesCarousel(models: viewModel.modelMapper(from: coreDataElements))
-                                #endif
-                            }
-                            .frame(width: 250, height: 250)
+                        ImagesCarousel(models: viewModel.modelMapper(from: coreDataElements))
+                            .frame(width: Consts.Layout.contentFrameSize, height: Consts.Layout.contentFrameSize)
                             .padding(.top)
-                        }
                     } else {
                         ContentUnavailableView {
                             Label("You haven't scanned yet", systemImage: "camera.metering.unknown")
@@ -77,7 +67,7 @@ struct ScanDocumentView: View {
                             .tint(Color.white)
                             .foregroundStyle(.black)
                         }
-                        .frame(width: 250, height: 250)
+                        .frame(width: Consts.Layout.contentFrameSize, height: Consts.Layout.contentFrameSize)
 
                     }
                 }
@@ -113,7 +103,7 @@ struct ScanDocumentView: View {
                 ZStack {
                     Circle()
                         .fill(colorScheme == .dark ? Consts.showCaseDark : Consts.showCaseLight)
-                        .frame(width: 35, height: 35)
+                        .frame(width: Consts.Layout.toolbarItemFrameSize, height: Consts.Layout.toolbarItemFrameSize)
                         .opacity(self.opacityOfShowCase)
                     Image(systemName: "doc.viewfinder")
                         .tint(colorScheme == .dark ? Consts.imageTintDark : Consts.imageTintLight)

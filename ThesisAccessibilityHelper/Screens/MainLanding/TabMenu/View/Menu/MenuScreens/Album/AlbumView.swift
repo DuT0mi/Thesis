@@ -8,6 +8,18 @@
 import SwiftUI
 
 struct AlbumView: View {
+    // MARK: - Types
+
+    private struct Consts {
+        struct Layout {
+            static let columns = 3
+
+            static let imageAspectRatio: CGFloat = 1
+            static let imageFrameWidth: CGFloat = 100
+            static let imageClipShapeCornerRadius: CGFloat = 12
+        }
+    }
+
     // MARK: - Properties
 
     @Environment(\.managedObjectContext) private var managedObjectContext
@@ -15,7 +27,7 @@ struct AlbumView: View {
 
     @StateObject private var viewModel = AlbumViewModel()
 
-    private let columns = Array(repeating: GridItem(), count: 3)
+    private let columns = Array(repeating: GridItem(), count: Consts.Layout.columns)
 
     var body: some View {
         BaseView {
@@ -25,9 +37,9 @@ struct AlbumView: View {
                         ForEach(coreDataElements, id: \.resultID) { tempData in
                             Image(uiImage: UIImage(data: tempData.imageData!)!)
                                 .resizable()
-                                .aspectRatio(1.0, contentMode: .fit)
-                                .frame(width: 100)
-                                .clipShape(.rect(cornerRadius: 12))
+                                .aspectRatio(Consts.Layout.imageAspectRatio, contentMode: .fit)
+                                .frame(width: Consts.Layout.imageFrameWidth)
+                                .clipShape(.rect(cornerRadius: Consts.Layout.imageClipShapeCornerRadius))
                         }
                     } else {
                         ProgressView()
@@ -46,7 +58,6 @@ struct AlbumView: View {
                 }
             }
         }
-//        .ignoresSafeArea()
     }
 
     @ViewBuilder

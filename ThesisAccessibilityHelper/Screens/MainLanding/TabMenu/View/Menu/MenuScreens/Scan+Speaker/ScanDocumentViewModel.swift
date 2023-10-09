@@ -54,7 +54,7 @@ final class ScanDocumentViewModel: ObservableObject {
 
         self.speak(models.map { $0.resultingText}.joined())
     }
-    
+
     @MainActor
     func modelMapper(from localDataElements: FetchedResults<LocalData>) -> [ScanDocumentViewModel.CaoruselModel] {
         localDataElements
@@ -68,6 +68,8 @@ final class ScanDocumentViewModel: ObservableObject {
 
     @MainActor
     private func speak(_ text: String) {
+        guard !text.isEmpty else { return }
+
         let scanText = "Szkennelt objektum szöveg tartalma: \(text)"
 
         speaker.speak(with: scanText)
@@ -89,6 +91,7 @@ final class ScanDocumentViewModel: ObservableObject {
         self.cachedContext = context
 
         elements.forEach {
+            guard !$0.resultingText.isEmpty && $0.cgImage != nil else { return }; #warning("Show error")
             models.append($0)
             CoreDataController().saveData(context: context, $0)
         }

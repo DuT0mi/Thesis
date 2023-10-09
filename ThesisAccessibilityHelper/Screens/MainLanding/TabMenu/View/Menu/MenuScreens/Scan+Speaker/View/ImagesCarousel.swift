@@ -9,6 +9,15 @@ import SwiftUI
 import Resolver
 
 struct ImagesCarousel: View {
+    // MARK: - Types
+
+    private struct Consts {
+        struct Layout {
+            static let frameSpacing: CGFloat = 16
+            static let contentOffsetY: CGFloat = 50
+        }
+    }
+
     // MARK: - Properties
 
     @ObservedObject private var observedViewModel: ScanDocumentViewModel = Resolver.resolve()
@@ -36,12 +45,12 @@ struct ImagesCarousel: View {
                                     .horizontalFlip(back, visible: flipped)
                             }
                         }
-                        .containerRelativeFrame(.horizontal, count: verticalSizeClass == .regular ? 1 : 2, spacing: 16)
+                        .containerRelativeFrame(.horizontal, count: verticalSizeClass == .regular ? 1 : 2, spacing: Consts.Layout.frameSpacing)
                         .scrollTransition { content, phase in
                             content
                                 .opacity(phase.isIdentity ? 1 : .zero)
                                 .scaleEffect(x: phase.isIdentity ? 1 : 0.2, y: phase.isIdentity ? 1 : 0.2)
-                                .offset(y: phase.isIdentity ? 0 : 50)
+                                .offset(y: phase.isIdentity ? CGFloat.zero : Consts.Layout.contentOffsetY)
                         }
                     }
                     .scrollTargetLayout()
