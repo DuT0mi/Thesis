@@ -10,6 +10,18 @@ import SwiftUI
 struct CarouselItemView: View {
     // MARK: - Types
 
+    private struct Consts {
+        struct Layout {
+            static let cornerRadius: CGFloat = 15
+
+            static let buttonCornerRadius: CGFloat = 12
+        }
+
+        struct Appearance {
+            static let grayOpacity: CGFloat = 0.6
+        }
+    }
+
     enum ItemType {
         case back
         case front
@@ -29,20 +41,20 @@ struct CarouselItemView: View {
                     backView
             }
         }
-        .clipShape(RoundedRectangle(cornerRadius: 15))
+        .clipShape(RoundedRectangle(cornerRadius: Consts.Layout.cornerRadius))
     }
 
     private var frontView: some View {
         model.image
             .resizable()
             .clipped()
-            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .clipShape(RoundedRectangle(cornerRadius: Consts.Layout.cornerRadius))
     }
 
     private var backView: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 15)
-                .fill(Color.black.opacity(0.6))
+            RoundedRectangle(cornerRadius: Consts.Layout.cornerRadius)
+                .fill(Color.black.opacity(Consts.Appearance.grayOpacity))
             ScrollView {
                 LazyVStack {
                     Text(model.detectedText)
@@ -53,7 +65,7 @@ struct CarouselItemView: View {
                         print("DID TAP ID: \(model.id)")
                     }
                     .buttonStyle(.bordered)
-                    .buttonBorderShape(.roundedRectangle(radius: 12))
+                    .buttonBorderShape(.roundedRectangle(radius: Consts.Layout.buttonCornerRadius))
                 }
                 .tint(.red)
             }
