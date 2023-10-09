@@ -19,39 +19,34 @@ struct AlbumView: View {
 
     var body: some View {
         BaseView {
-            NavigationStack {
-                ScrollView(.vertical) {
-                    LazyVGrid(columns: columns) {
-                        if !coreDataElements.isEmpty {
-                            ForEach(coreDataElements, id: \.resultID) { tempData in
-                                Image(uiImage: UIImage(data: tempData.imageData!)!)
-                                    .resizable()
-                                    .aspectRatio(1.0, contentMode: .fit)
-                                    .frame(width: 100)
-                                    .clipShape(.rect(cornerRadius: 12))
-                            }
-                        } else {
-                            ProgressView()
+            ScrollView(.vertical) {
+                LazyVGrid(columns: columns) {
+                    if !coreDataElements.isEmpty {
+                        ForEach(coreDataElements, id: \.resultID) { tempData in
+                            Image(uiImage: UIImage(data: tempData.imageData!)!)
+                                .resizable()
+                                .aspectRatio(1.0, contentMode: .fit)
+                                .frame(width: 100)
+                                .clipShape(.rect(cornerRadius: 12))
                         }
-                    }
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                    } label: {
-                        Image(systemName: "rectangle.and.text.magnifyingglass")
-                    }
-                    .contextMenu {
-                        contextMenu
+                    } else {
+                        ProgressView()
                     }
                 }
             }
         }
-        .onAppear {
-//            viewModel.didAppear()
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                } label: {
+                    Image(systemName: "rectangle.and.text.magnifyingglass")
+                }
+                .contextMenu {
+                    contextMenu
+                }
+            }
         }
-        .ignoresSafeArea()
+//        .ignoresSafeArea()
     }
 
     @ViewBuilder

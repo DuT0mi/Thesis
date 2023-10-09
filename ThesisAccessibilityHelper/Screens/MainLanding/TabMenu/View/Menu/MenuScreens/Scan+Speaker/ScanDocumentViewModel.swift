@@ -18,6 +18,12 @@ final class ScanDocumentViewModel: ObservableObject {
 
     typealias Model = TextRecognizer.RecognizedModel
 
+    struct CaoruselModel: Identifiable {
+        var image: Image
+        var detectedText: String
+        var id: String
+    }
+
     // MARK: - Properties
 
     @Published var isSpeakerSpeaks = false
@@ -47,6 +53,17 @@ final class ScanDocumentViewModel: ObservableObject {
         isSpeakerSpeaks = true
 
         self.speak(models.map { $0.resultingText}.joined())
+    }
+    
+    @MainActor
+    func modelMapper(from localDataElements: FetchedResults<LocalData>) -> [ScanDocumentViewModel.CaoruselModel] {
+        localDataElements
+            .filter { $0.imageData != nil && $0.imageText != nil && $0.imageId != nil }
+            .map { ScanDocumentViewModel.CaoruselModel(
+                image: Image(uiImage: UIImage(data: $0.imageData!)!),
+                detectedText: $0.imageText!,
+                id: $0.imageId!.uuidString)
+            }
     }
 
     @MainActor

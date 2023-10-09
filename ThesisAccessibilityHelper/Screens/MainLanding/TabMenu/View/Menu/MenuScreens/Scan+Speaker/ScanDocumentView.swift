@@ -53,14 +53,11 @@ struct ScanDocumentView: View {
                         } label: {
                             ZStack {
                                 #if targetEnvironment(simulator)
-                                ImagesCarousel(images: viewModel.mockImages())
+                                ImagesCarousel(models: [])
                                     .frame(width: 250, height: 250)
                                     .padding(.top)
                                 #else
-                                ImagesCarousel(images: [Image(.mockImage0)]) // TODO: Make a model from the 'Images'
-                                    .horizontalFlip(back, visible: flipped)
-                                ImagesCarousel(images: image(from: coreDataElements))
-                                    .horizontalFlip(front, visible: !flipped)
+                                ImagesCarousel(models: viewModel.modelMapper(from: coreDataElements))
                                 #endif
                             }
                             .frame(width: 250, height: 250)
@@ -144,17 +141,6 @@ struct ScanDocumentView: View {
                 self.opacityOfShowCase = .zero
             }
         }
-    }
-
-    private func image(from localDataElements: FetchedResults<LocalData>) -> [Image] {
-        var images = [Image]()
-
-        localDataElements.forEach { data in
-            guard let uiImageData = data.imageData, let uiImage = UIImage(data: uiImageData) else { return }
-            images.append(Image(uiImage: uiImage))
-        }
-
-        return images
     }
 }
 
