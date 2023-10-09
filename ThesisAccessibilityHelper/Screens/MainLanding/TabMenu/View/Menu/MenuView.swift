@@ -29,7 +29,7 @@ struct MenuView: View {
                         .padding()
 
                         HStack(spacing: 20) {
-                            NavigationLink(destination: Circle5DetailView()) {
+                            NavigationLink(destination: TabMapLandingView()) {
                                 MenuViewItem(image: .menuMap)
                             }
 
@@ -52,24 +52,6 @@ struct MenuView: View {
             }
             .ignoresSafeArea()
         }
-    }
-}
-
-struct Circle5DetailView: View {
-    var body: some View {
-        Text("This is Circle 5's Detail View")
-    }
-}
-
-struct Circle7DetailView: View {
-    var body: some View {
-        Text("This is Circle 7's Detail View")
-    }
-}
-
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView()
     }
 }
 

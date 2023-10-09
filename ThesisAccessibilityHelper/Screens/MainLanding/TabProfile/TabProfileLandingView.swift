@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct TabProfileLandingView: View {
+    // MARK: - Properties
+
     var body: some View {
-        Text("Profile Landing")
+        BaseView {
+            Text("Profile Landing")
+        }
+        .ignoresSafeArea()
     }
 }
 
