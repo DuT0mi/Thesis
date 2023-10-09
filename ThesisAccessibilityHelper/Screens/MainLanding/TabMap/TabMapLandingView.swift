@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct TabMapLandingView: View {
+    // MARK: - Properties
+
     var body: some View {
-        Text("Map Landing")
+        BaseView {
+            Text("Map Landing")
+        }
+        .ignoresSafeArea()
     }
 }
 
