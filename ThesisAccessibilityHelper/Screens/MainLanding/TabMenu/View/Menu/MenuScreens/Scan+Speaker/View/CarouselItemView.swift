@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct CarouselItemView: View {
     // MARK: - Types
@@ -29,6 +30,13 @@ struct CarouselItemView: View {
 
     // MARK: - Properties
 
+    @ObservedObject private var scanViewModel: ScanDocumentViewModel = Resolver.resolve()
+    @Environment(\.managedObjectContext) private var managedObjectContext
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.resultID)]) private var coreDataElements: FetchedResults<TempData>
+
+    @State private var showBottomSheet = false
+    @Binding var bottomSheetIsLoading: Bool
+
     var model: ScanDocumentViewModel.CaoruselModel
     var type: ItemType = .back
 
@@ -41,6 +49,10 @@ struct CarouselItemView: View {
                     backView
             }
         }
+        .sheet(isPresented: $showBottomSheet, content: {
+            FoundImagesView(showBottomSheet: $showBottomSheet, bottomSheetIsLoading: $bottomSheetIsLoading)
+                .sheetStyle(style: .large, dismissable: false, showIndicator: true)
+        })
         .clipShape(RoundedRectangle(cornerRadius: Consts.Layout.cornerRadius))
     }
 
@@ -61,8 +73,11 @@ struct CarouselItemView: View {
                         .lineLimit(nil)
                         .font(.caption2)
                     Spacer()
-                    Button("Show") {
-                        print("DID TAP ID: \(model.id)")
+                    Button("Find similar") {
+                        showBottomSheet.toggle()
+                        bottomSheetIsLoading = true
+
+                        scanViewModel.findSimilarImages(localDataBase: coreDataElements, search: model)
                     }
                     .buttonStyle(.bordered)
                     .buttonBorderShape(.roundedRectangle(radius: Consts.Layout.buttonCornerRadius))
@@ -74,5 +89,5 @@ struct CarouselItemView: View {
 }
 
 #Preview {
-    CarouselItemView(model: .init(image: Image(systemName: "house"), detectedText: "House", id: "House".lowercased()))
+    CarouselItemView(bottomSheetIsLoading: .constant(false), model: .init(image: Image(systemName: "house"), imageData: Data(), detectedText: "House", id: "House".lowercased()))
 }
