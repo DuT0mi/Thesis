@@ -13,5 +13,10 @@ extension Resolver: ResolverRegistering {
             ScanDocumentViewModel()
         }
         .scope(.application)
+
+        register {
+            ImageAnalyzer.shared
+        }
+        .scope(.application)
     }
 }

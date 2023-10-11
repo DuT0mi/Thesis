@@ -40,6 +40,7 @@ struct ScanDocumentView: View {
     }
 
     @State private var showCamera = false
+    @State private var showAlert = false
 
     var body: some View {
         BaseView {
@@ -49,10 +50,19 @@ struct ScanDocumentView: View {
                         .onTapGesture {
                             didTapHint = true
                         }
+                        .padding(.top, 20)
                     if !viewModel.isLoading, !viewModel.models.isEmpty, coreDataElements.count != .zero {
                         ImagesCarousel(models: viewModel.modelMapper(from: coreDataElements))
                             .frame(width: Consts.Layout.contentFrameSize, height: Consts.Layout.contentFrameSize)
                             .padding(.top)
+                    } else if !viewModel.isLoading, viewModel.models.isEmpty, coreDataElements.count != .zero {
+                        Label("Korábbi képeid, amelyek műveletre várnak.", image: "exclamationmark.bubble.fill")
+                            .tint(Color.red)
+                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                        ImagesCarousel(models: viewModel.modelMapper(from: coreDataElements))
+                            .frame(width: Consts.Layout.contentFrameSize, height: Consts.Layout.contentFrameSize )
+                            .padding(.top)
+
                     } else {
                         ContentUnavailableView {
                             Label("You haven't scanned yet", systemImage: "camera.metering.unknown")
@@ -98,6 +108,16 @@ struct ScanDocumentView: View {
                         .opacity(viewModel.isSpeakerSpeaks ? 1 : 0)
                 }
             }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                Image(systemName: "trash.fill")
+                    .bold()
+                    .onTapGesture {
+                        showAlert.toggle()
+                    }
+                    .padding(.horizontal)
+                    .opacity(coreDataElements.isEmpty ? .zero : 1)
+            }
 
             ToolbarItem(placement: .topBarTrailing) {
                 ZStack {
@@ -117,6 +137,17 @@ struct ScanDocumentView: View {
         .ignoresSafeArea()
         .onDisappear {
             viewModel.didDisAppear()
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Törlöd a szkennelt képeket?"),
+                message: Text("Ez a művelet nem visszafordítható, de nem kerülnek mentésre a képeid."),
+                primaryButton: .cancel(Text("Mégsem")) {
+                },
+                secondaryButton: .destructive(Text("Igen")) {
+                    viewModel.resetLocalDB(context: managedObjectContext)
+                }
+            )
         }
     }
 

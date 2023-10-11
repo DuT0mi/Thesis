@@ -24,6 +24,7 @@ struct ImagesCarousel: View {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
 
     @State private var flipped = false
+    @State private var bottomSheetIsLoading = false
 
     private var front: Angle { flipped ? .degrees(180) : .degrees(0) }
     private var back: Angle { flipped ? .degrees(0) : .degrees(-180) }
@@ -34,14 +35,17 @@ struct ImagesCarousel: View {
         ScrollView(.horizontal) {
             LazyHStack {
                 if !models.isEmpty {
+                    if bottomSheetIsLoading {
+                        ProgressView()
+                    }
                     ForEach(models, id: \.id) { model in
                         Button {
                             withAnimation(.spring(.smooth)) { flipped.toggle() }
                         } label: {
                             ZStack {
-                                CarouselItemView(model: model, type: .front)
+                                CarouselItemView(bottomSheetIsLoading: .constant(false), model: model, type: .front)
                                     .horizontalFlip(front, visible: !flipped)
-                                CarouselItemView(model: model, type: .back)
+                                CarouselItemView(bottomSheetIsLoading: $bottomSheetIsLoading, model: model, type: .back)
                                     .horizontalFlip(back, visible: flipped)
                             }
                         }
