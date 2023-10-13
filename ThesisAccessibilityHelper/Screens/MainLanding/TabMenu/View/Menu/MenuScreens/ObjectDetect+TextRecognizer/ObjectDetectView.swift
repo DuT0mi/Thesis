@@ -20,11 +20,17 @@ struct ObjectDetectView: View {
     // MARK: - Properties
 
     @StateObject private var viewModel = ObjectDetectViewModel()
+    @Environment(\.displayScale) private var displayScale
 
     @State private var presentBottomSheet = false
+    @State private var savedImage: UIImage?
+    @State private var isLoading = false
 
     var body: some View {
         ZStack {
+            if isLoading {
+                ProgressView()
+            }
             CameraFrameView(image: viewModel.frame)
                 .ignoresSafeArea()
             ObjectView(
@@ -35,20 +41,32 @@ struct ObjectDetectView: View {
             print("GESTURE | EVENT PERFORMS")
         }, onPressingChanged: { pressDidChange in
             if !pressDidChange {
-                presentBottomSheet = true
-                viewModel.showHaptic(type: .notification, notificationStyle: .warning)
-                viewModel.stopSession()
+                isLoading.toggle()
+                savedImage = self.snapshot()
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    presentBottomSheet = true
+                    isLoading.toggle()
+                    viewModel.showHaptic(type: .notification, notificationStyle: .warning)
+                    viewModel.stopSession()
+                }
             }
         })
         .sheet(isPresented: $presentBottomSheet, onDismiss: {
             presentBottomSheet = false
             viewModel.resumeSession()
         }, content: {
-            ImageFinderBottomSheetView()
-                .sheetStyle(style: .mixed, dismissable: true, showIndicator: true)
+            ImageFinderBottomSheetView(
+                image: Image(uiImage: savedImage ?? UIImage(resource: .menuDocument)), // TODO: Loading image
+                model: .init(frame: viewModel.frame, cameraModel: viewModel.capturedObject)
+            )
+            .sheetStyle(style: .large, dismissable: true, showIndicator: true)
         })
         .onDisappear {
-            viewModel.didDisAppear()
+            // Required because of the .snapshot() modifier will disappearing the view itself
+            if !isLoading {
+                viewModel.didDisAppear()
+            }
         }
         .onAppear {
             viewModel.didAppear()
@@ -61,3 +79,4 @@ struct ObjectDetectView_Previews: PreviewProvider {
         ObjectDetectView()
     }
 }
+

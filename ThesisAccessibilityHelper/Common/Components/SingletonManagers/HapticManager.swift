@@ -12,7 +12,7 @@ class HapticManager {
     // MARK: - Properties
 
     static let shared = HapticManager()
-    
+ 
     // MARK: - Initialization
 
     private init() {  }
@@ -24,7 +24,6 @@ class HapticManager {
         generator.prepare()
         generator.notificationOccurred(type)
     }
-
 
     func impactGenerator(style: UIImpactFeedbackGenerator.FeedbackStyle) {
         let generator = UIImpactFeedbackGenerator(style: style)

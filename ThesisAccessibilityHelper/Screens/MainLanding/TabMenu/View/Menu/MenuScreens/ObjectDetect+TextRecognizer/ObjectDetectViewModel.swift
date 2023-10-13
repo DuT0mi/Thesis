@@ -32,7 +32,7 @@ final class ObjectDetectViewModel: ObservableObject {
     @Published var capturedObject: CameraManager.CameraResultModel
 
     // TODO: DI
-    
+
     private let hapticManager = HapticManager.shared
     private let tabHosterInstance = TabHosterViewViewModel.shared
     private let frameManagerInstance = FrameManager.shared

@@ -37,7 +37,7 @@
             <Locations>
                <Location
                   uuid = "EE095052-C4D5-4829-88CA-D2BF47E671DE - 658525914c789ebb"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ThesisAccessibilityHelper.ScanDocumentViewModel.findSimilarImages(SwiftUI.FetchedResults&lt;ThesisAccessibilityHelper.TempData&gt;) -&gt; ()"
@@ -52,7 +52,7 @@
                </Location>
                <Location
                   uuid = "EE095052-C4D5-4829-88CA-D2BF47E671DE - 58162ccfd2ee6ffb"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ThesisAccessibilityHelper.ScanDocumentViewModel.findSimilarImages(localDataBase: SwiftUI.FetchedResults&lt;ThesisAccessibilityHelper.TempData&gt;, search: ThesisAccessibilityHelper.ScanDocumentViewModel.CaoruselModel) -&gt; ()"
@@ -98,6 +98,53 @@
             endingLineNumber = "107"
             landmarkName = "findSimilarImages(localDataBase:search:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
+         <BreakpointContent
+            uuid = "B7A9B93A-2D76-4EA0-9D68-B752693D3C4E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            uuid = "C52CE51E-791A-42B7-864E-AE4A8A09C988"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.IDETestFailureBreakpoint">
+         <BreakpointContent
+            uuid = "94B6E7A2-B6A5-4764-9622-D549F1BD66E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            breakpointStackSelectionBehavior = "1">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "170CC5B0-FDFE-46E3-ADE5-A53EE9BF135A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect+TextRecognizer/ObjectDetectView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
