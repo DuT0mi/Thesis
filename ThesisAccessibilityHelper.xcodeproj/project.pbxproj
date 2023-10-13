@@ -90,6 +90,8 @@
 		1AD1E8662AC04B9000BCA580 /* TextRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */; };
 		1AD1E8682AC04D4A00BCA580 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */; };
 		1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */; };
+		1AE53F1E2AD9C0DA00665594 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */; };
+		1AE53F202AD9C69000665594 /* ImageFinderBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F1F2AD9C69000665594 /* ImageFinderBottomSheetView.swift */; };
 		1AEC65DB2AC9B0CC00DEB3A8 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC65DA2AC9B0CC00DEB3A8 /* HintView.swift */; };
 		1AEC65DD2AC9C27700DEB3A8 /* ImagesCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC65DC2AC9C27600DEB3A8 /* ImagesCarousel.swift */; };
 		1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F272AACEE3E0097E085 /* TabBarItem.swift */; };
@@ -169,6 +171,8 @@
 		1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerManager.swift; sourceTree = "<group>"; };
 		1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
 		1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentViewModel.swift; sourceTree = "<group>"; };
+		1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		1AE53F1F2AD9C69000665594 /* ImageFinderBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFinderBottomSheetView.swift; sourceTree = "<group>"; };
 		1AEC65DA2AC9B0CC00DEB3A8 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		1AEC65DC2AC9C27600DEB3A8 /* ImagesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCarousel.swift; sourceTree = "<group>"; };
 		1AF13F272AACEE3E0097E085 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
@@ -475,6 +479,7 @@
 			children = (
 				1AB040942AB5C51E0037215E /* CameraFrameView.swift */,
 				1AB040A42AB63E5B0037215E /* ObjectView.swift */,
+				1AE53F1F2AD9C69000665594 /* ImageFinderBottomSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 				1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */,
 				1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */,
 				1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */,
+				1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */,
 			);
 			path = SingletonManagers;
 			sourceTree = "<group>";
@@ -797,6 +803,7 @@
 				1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */,
 				1AB0409C2AB5CFE70037215E /* Error+Camera.swift in Sources */,
 				1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */,
+				1AE53F1E2AD9C0DA00665594 /* HapticManager.swift in Sources */,
 				1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */,
 				1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */,
 				1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */,
@@ -829,6 +836,7 @@
 				1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */,
 				1A5DF3D72AB4D45900A872F2 /* MenuViewModel.swift in Sources */,
 				1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */,
+				1AE53F202AD9C69000665594 /* ImageFinderBottomSheetView.swift in Sources */,
 				1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */,
 				1A5DF3CC2AB48ADF00A872F2 /* TabMenuLandingView.swift in Sources */,
 				1A5A01232AADF6480060F528 /* TabHosterViewViewModel.swift in Sources */,

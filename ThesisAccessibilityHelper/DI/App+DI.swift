@@ -18,5 +18,10 @@ extension Resolver: ResolverRegistering {
             ImageAnalyzer.shared
         }
         .scope(.application)
+
+        register {
+            HapticManager.shared
+        }
+        .scope(.application)
     }
 }

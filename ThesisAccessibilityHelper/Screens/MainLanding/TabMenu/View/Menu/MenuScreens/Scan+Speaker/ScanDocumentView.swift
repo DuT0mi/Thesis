@@ -19,7 +19,13 @@ struct ScanDocumentView: View {
         struct Layout {
             static let contentFrameSize: CGFloat = 250
 
-            static let toolbarItemFrameSize: CGFloat = 35 // min 28x28 <- Human Interface G.
+            static let toolbarItemFrameSize: CGFloat = 35 // min 28x28 <- HIG
+
+            static let padding: CGFloat = 20
+        }
+
+        struct Appearance {
+            static let imageFont: CGFloat = 20
         }
     }
 
@@ -50,7 +56,7 @@ struct ScanDocumentView: View {
                         .onTapGesture {
                             didTapHint = true
                         }
-                        .padding(.top, 20)
+                        .padding(.top, Consts.Layout.padding)
                     if !viewModel.isLoading, !viewModel.models.isEmpty, coreDataElements.count != .zero {
                         ImagesCarousel(models: viewModel.modelMapper(from: coreDataElements))
                             .frame(width: Consts.Layout.contentFrameSize, height: Consts.Layout.contentFrameSize)
@@ -58,7 +64,7 @@ struct ScanDocumentView: View {
                     } else if !viewModel.isLoading, viewModel.models.isEmpty, coreDataElements.count != .zero {
                         Label("Korábbi képeid, amelyek műveletre várnak.", image: "exclamationmark.bubble.fill")
                             .tint(Color.red)
-                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                            .font(.system(size: Consts.Appearance.imageFont, weight: .bold, design: .rounded))
                         ImagesCarousel(models: viewModel.modelMapper(from: coreDataElements))
                             .frame(width: Consts.Layout.contentFrameSize, height: Consts.Layout.contentFrameSize )
                             .padding(.top)

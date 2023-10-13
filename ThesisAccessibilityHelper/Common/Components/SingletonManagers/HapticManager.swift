@@ -6,3 +6,30 @@
 //
 
 import Foundation
+import UIKit
+
+class HapticManager {
+    // MARK: - Properties
+
+    static let shared = HapticManager()
+    
+    // MARK: - Initialization
+
+    private init() {  }
+
+    // MARK: - Functions
+
+    func notificationGenerator(type: UINotificationFeedbackGenerator.FeedbackType) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.prepare()
+        generator.notificationOccurred(type)
+    }
+
+
+    func impactGenerator(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let generator = UIImpactFeedbackGenerator(style: style)
+        generator.prepare()
+        generator.impactOccurred()
+    }
+
+}

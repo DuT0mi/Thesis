@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct ObjectDetectView: View {
+    // MARK: - Types
+
+    private struct Consts {
+        struct EventHandle {
+            static let minimumTapDuration: Double = 2.0
+            static let maximumDistance: CGFloat = 30
+        }
+    }
+
     // MARK: - Properties
 
     @StateObject private var viewModel = ObjectDetectViewModel()
 
-    @State private var showAlert = false
+    @State private var presentBottomSheet = false
 
     var body: some View {
         ZStack {
@@ -22,22 +31,22 @@ struct ObjectDetectView: View {
                 resultLabel: viewModel.capturedObject.capturedLabel,
                 bufferSize: viewModel.capturedObject.capturedObjectBounds
             )
-        }
-//        .alert(isPresented: $showAlert) {
-//            Alert(title: Text("Mutasd"), primaryButton: .destructive(Text("Olvasd fel"), action: {
-//                viewModel.speak(viewModel.capturedObject.capturedLabel) {
-//                    showAlert = false
-//                    viewModel.resumeSession()
-//                }
-//            }), secondaryButton: .cancel({
-//                showAlert = false
-//                viewModel.resumeSession()
-//            }))
-//        }
-//        .onChange(of: viewModel.capturedObject, perform: { _ in
-//            viewModel.stopSession()
-//            showAlert = true
-//        })
+        }.onLongPressGesture(minimumDuration: Consts.EventHandle.minimumTapDuration, maximumDistance: Consts.EventHandle.maximumDistance, perform: {
+            print("GESTURE | EVENT PERFORMS")
+        }, onPressingChanged: { pressDidChange in
+            if !pressDidChange {
+                presentBottomSheet = true
+                viewModel.showHaptic(type: .notification, notificationStyle: .warning)
+                viewModel.stopSession()
+            }
+        })
+        .sheet(isPresented: $presentBottomSheet, onDismiss: {
+            presentBottomSheet = false
+            viewModel.resumeSession()
+        }, content: {
+            ImageFinderBottomSheetView()
+                .sheetStyle(style: .mixed, dismissable: true, showIndicator: true)
+        })
         .onDisappear {
             viewModel.didDisAppear()
         }
