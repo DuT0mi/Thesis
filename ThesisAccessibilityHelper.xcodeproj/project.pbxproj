@@ -82,6 +82,8 @@
 		1AC937452AD47D2E00851576 /* App+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC937442AD47D2E00851576 /* App+DI.swift */; };
 		1AC937472AD47DEE00851576 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 1AC937462AD47DEE00851576 /* Resolver */; };
 		1AC9374E2AD4845200851576 /* CarouselItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9374D2AD4845200851576 /* CarouselItemView.swift */; };
+		1AC96B102ADAAC99000AE55E /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC96B0F2ADAAC99000AE55E /* PanelView.swift */; };
+		1AC96B122ADAB25E000AE55E /* ImageCoordinatePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */; };
 		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
 		1ACC9DF82AD7184F00A58531 /* ImageAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */; };
 		1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF92AD729E300A58531 /* FoundImages.swift */; };
@@ -165,6 +167,8 @@
 		1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AnimatedActionButton.swift"; sourceTree = "<group>"; };
 		1AC937442AD47D2E00851576 /* App+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+DI.swift"; sourceTree = "<group>"; };
 		1AC9374D2AD4845200851576 /* CarouselItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemView.swift; sourceTree = "<group>"; };
+		1AC96B0F2ADAAC99000AE55E /* PanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
+		1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoordinatePointView.swift; sourceTree = "<group>"; };
 		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
 		1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalyzer.swift; sourceTree = "<group>"; };
 		1ACC9DF92AD729E300A58531 /* FoundImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundImages.swift; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 		1A96BE312AAB3EF5003DE05B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1AC96B0E2ADAAC91000AE55E /* UI */,
 				1AB040982AB5CD580037215E /* SingletonManagers */,
 				1AF13F252AACEDB90097E085 /* TabBar */,
 				1AC500442AACC6D7007D0167 /* Base */,
@@ -553,6 +558,15 @@
 				1AC937442AD47D2E00851576 /* App+DI.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		1AC96B0E2ADAAC91000AE55E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1AC96B0F2ADAAC99000AE55E /* PanelView.swift */,
+				1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		1ACC0EE12ABA0FE400113911 /* Base */ = {
@@ -808,6 +822,7 @@
 				1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */,
 				1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */,
 				1A5DF3D42AB4925500A872F2 /* MenuViewItem.swift in Sources */,
+				1AC96B102ADAAC99000AE55E /* PanelView.swift in Sources */,
 				1A915DA12AC9A0E3009FE4BE /* AppDelegate.swift in Sources */,
 				1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */,
 				1AA539A92ACDD7AF00E8E0DC /* CoreDataController.swift in Sources */,
@@ -829,6 +844,7 @@
 				1A9428622ABA28230042D9BB /* Documentation.docc in Sources */,
 				1AA539AD2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld in Sources */,
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,
+				1AC96B122ADAB25E000AE55E /* ImageCoordinatePointView.swift in Sources */,
 				1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */,
 				1ACC9DF82AD7184F00A58531 /* ImageAnalyzer.swift in Sources */,
 				1AE53F222AD9E86B00665594 /* View+snapshot.swift in Sources */,

@@ -17,4 +17,3 @@ struct ImageFinderBottomSheetModel {
     var frame: CGImage?
     var cameraModel: CameraManager.CameraResultModel
 }
-

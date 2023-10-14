@@ -13,7 +13,7 @@ struct HintView: View {
     private struct Consts {
         struct Layout {
             static let lineWidth: CGFloat = 5
-            static let dash: [CGFloat] = [10,15]
+            static let dash: [CGFloat] = [10, 15]
             static let dashPhase: CGFloat = 40
 
             static let imageWidthFactor: CGFloat = 0.9

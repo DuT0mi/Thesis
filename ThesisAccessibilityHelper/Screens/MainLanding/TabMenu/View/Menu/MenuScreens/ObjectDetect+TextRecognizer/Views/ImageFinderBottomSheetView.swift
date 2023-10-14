@@ -9,12 +9,21 @@ import SwiftUI
 import Resolver
 
 struct ImageFinderBottomSheetView: View {
+    // MARK: - Types
+
+    private struct Consts {
+        struct Layout {
+            static let lineWidth: CGFloat = 7
+            static let dash: [CGFloat] = [10, 15]
+            static let dashPhase: CGFloat = 40
+        }
+    }
+
     // MARK: - Properties
 
     @ObservedObject private var scanViewModel: ScanDocumentViewModel = Resolver.resolve()
     @Environment(\.dismiss) private var dismiss
     @State private var currentImageSize: CGSize = .zero
-    @State private var scaleFactor: CGSize = .zero
     @State private var shouldScale = false
 
     var image: Image?
@@ -27,21 +36,59 @@ struct ImageFinderBottomSheetView: View {
                     Spacer()
                     toolBarItem
                 }
+                PanelView(text: "Talált objektum: \(model.cameraModel.capturedLabel)")
+                    .frame(height: 75)
+                    .padding(.horizontal)
                 ScrollView {
-                    LazyVStack {
-                        if let image {
-                            image
-                                .resizable()
-                                .frame(width: currentImageSize.width * 0.4, height: currentImageSize.height * 0.4)
-                                .clipShape(.rect(cornerRadius: currentImageSize.height * 0.3 * 0.1))
-                                .scaleEffect(x: shouldScale ? 0.8 : 0.4, y: shouldScale ? 0.8 : 0.4)
-                                .onTapGesture {
-                                    withAnimation(.easeInOut(duration: 1.0)) {
-                                        shouldScale.toggle()
+                    ZStack {
+                        LazyVStack {
+                            if let image {
+                                image
+                                    .resizable()
+                                    .frame(width: currentImageSize.width * 0.8, height: currentImageSize.height * 0.8)
+                                    .clipShape(.rect(cornerRadius: currentImageSize.height * 0.4 * 0.1))
+                                    .scaleEffect(x: shouldScale ? 0.9 : 0.8, y: shouldScale ? 0.9 : 0.8)
+                                    .onTapGesture {
+                                        withAnimation(.easeInOut(duration: 1.0)) {
+                                            shouldScale.toggle()
+                                        }
                                     }
-                                }
-                        } else {
-                            ProgressView() // TODO: Custom Error
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: currentImageSize.height * 0.4 * 0.1)
+                                            .strokeBorder(.black, style: .init(
+                                                lineWidth: Consts.Layout.lineWidth,
+                                                lineCap: .square,
+                                                lineJoin: .miter,
+                                                miterLimit: .infinity,
+                                                dash: Consts.Layout.dash,
+                                                dashPhase: Consts.Layout.dashPhase)
+                                            )
+                                            .frame(width: currentImageSize.width * 0.74, height: currentImageSize.height * 0.74)
+                                            .opacity(shouldScale ? 1 : .zero)
+                                    }
+                                    .overlay(alignment: .topLeading) {
+                                        ImageCoordinatePointView(text: "(0,0)")
+                                            .opacity(shouldScale ? 1 : .zero)
+                                            .offset(x: currentImageSize.height * 0.3 * 0.05, y: currentImageSize.height * 0.4 * 0.05)
+                                    }
+                                    .overlay(alignment: .topTrailing) {
+                                        ImageCoordinatePointView(text: "(\(String(format: "%0.2f", currentImageSize.width)),0)")
+                                            .opacity(shouldScale ? 1 : .zero)
+                                            .offset(x: -currentImageSize.height * 0.3 * 0.05, y: currentImageSize.height * 0.4 * 0.05)
+                                    }
+                                    .overlay(alignment: .bottomLeading) {
+                                        ImageCoordinatePointView(text: "(0,\(String(format: "%0.2f", currentImageSize.height)))")
+                                            .opacity(shouldScale ? 1 : .zero)
+                                            .offset(x: currentImageSize.height * 0.3 * 0.05, y: -currentImageSize.height * 0.4 * 0.05)
+                                    }
+                                    .overlay(alignment: .bottomTrailing) {
+                                        ImageCoordinatePointView(text: "(\(String(format: "%0.2f", currentImageSize.width)),\(String(format: "%0.2f", currentImageSize.height)))")
+                                            .opacity(shouldScale ? 1 : .zero)
+                                            .offset(x: -currentImageSize.height * 0.3 * 0.05, y: -currentImageSize.height * 0.4 * 0.05)
+                                    }
+                            } else {
+                                ProgressView() // TODO: Custom Error
+                            }
                         }
                     }
                 }
@@ -50,6 +97,12 @@ struct ImageFinderBottomSheetView: View {
         .onAppear {
             guard let frame = model.frame else { return }
             currentImageSize = .init(width: frame.width, height: frame.height)
+            shouldScale.toggle()
+
+            print("MINX \(model.cameraModel.capturedObjectBounds.minX)")
+            print("MAXX \(model.cameraModel.capturedObjectBounds.maxX)")
+            print("MINY \(model.cameraModel.capturedObjectBounds.minY)")
+            print("MAXY \(model.cameraModel.capturedObjectBounds.maxY)")
         }
         .ignoresSafeArea()
     }
@@ -64,7 +117,6 @@ struct ImageFinderBottomSheetView: View {
                 dismiss.callAsFunction()
             }
     }
-
     // MARK: - Functions
 }
 
