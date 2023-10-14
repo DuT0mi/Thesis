@@ -82,6 +82,8 @@
 		1AC937452AD47D2E00851576 /* App+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC937442AD47D2E00851576 /* App+DI.swift */; };
 		1AC937472AD47DEE00851576 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 1AC937462AD47DEE00851576 /* Resolver */; };
 		1AC9374E2AD4845200851576 /* CarouselItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9374D2AD4845200851576 /* CarouselItemView.swift */; };
+		1AC96B102ADAAC99000AE55E /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC96B0F2ADAAC99000AE55E /* PanelView.swift */; };
+		1AC96B122ADAB25E000AE55E /* ImageCoordinatePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */; };
 		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
 		1ACC9DF82AD7184F00A58531 /* ImageAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */; };
 		1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF92AD729E300A58531 /* FoundImages.swift */; };
@@ -90,6 +92,10 @@
 		1AD1E8662AC04B9000BCA580 /* TextRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */; };
 		1AD1E8682AC04D4A00BCA580 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */; };
 		1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */; };
+		1AE53F1E2AD9C0DA00665594 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */; };
+		1AE53F202AD9C69000665594 /* ImageFinderBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F1F2AD9C69000665594 /* ImageFinderBottomSheetView.swift */; };
+		1AE53F222AD9E86B00665594 /* View+snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F212AD9E86B00665594 /* View+snapshot.swift */; };
+		1AE53F252AD9EF4A00665594 /* ImageFinderBottomSheetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F242AD9EF4A00665594 /* ImageFinderBottomSheetModel.swift */; };
 		1AEC65DB2AC9B0CC00DEB3A8 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC65DA2AC9B0CC00DEB3A8 /* HintView.swift */; };
 		1AEC65DD2AC9C27700DEB3A8 /* ImagesCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC65DC2AC9C27600DEB3A8 /* ImagesCarousel.swift */; };
 		1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF13F272AACEE3E0097E085 /* TabBarItem.swift */; };
@@ -161,6 +167,8 @@
 		1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AnimatedActionButton.swift"; sourceTree = "<group>"; };
 		1AC937442AD47D2E00851576 /* App+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+DI.swift"; sourceTree = "<group>"; };
 		1AC9374D2AD4845200851576 /* CarouselItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemView.swift; sourceTree = "<group>"; };
+		1AC96B0F2ADAAC99000AE55E /* PanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
+		1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoordinatePointView.swift; sourceTree = "<group>"; };
 		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
 		1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalyzer.swift; sourceTree = "<group>"; };
 		1ACC9DF92AD729E300A58531 /* FoundImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundImages.swift; sourceTree = "<group>"; };
@@ -169,6 +177,10 @@
 		1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerManager.swift; sourceTree = "<group>"; };
 		1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
 		1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentViewModel.swift; sourceTree = "<group>"; };
+		1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		1AE53F1F2AD9C69000665594 /* ImageFinderBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFinderBottomSheetView.swift; sourceTree = "<group>"; };
+		1AE53F212AD9E86B00665594 /* View+snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+snapshot.swift"; sourceTree = "<group>"; };
+		1AE53F242AD9EF4A00665594 /* ImageFinderBottomSheetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFinderBottomSheetModel.swift; sourceTree = "<group>"; };
 		1AEC65DA2AC9B0CC00DEB3A8 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		1AEC65DC2AC9C27600DEB3A8 /* ImagesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCarousel.swift; sourceTree = "<group>"; };
 		1AF13F272AACEE3E0097E085 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
@@ -333,6 +345,7 @@
 		1A96BE312AAB3EF5003DE05B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1AC96B0E2ADAAC91000AE55E /* UI */,
 				1AB040982AB5CD580037215E /* SingletonManagers */,
 				1AF13F252AACEDB90097E085 /* TabBar */,
 				1AC500442AACC6D7007D0167 /* Base */,
@@ -367,6 +380,7 @@
 				1AAAE4922AC84001003704E5 /* NotificationName+Names.swift */,
 				1AA539B22ACE018700E8E0DC /* ViewModifier+Flip.swift */,
 				1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */,
+				1AE53F212AD9E86B00665594 /* View+snapshot.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -463,6 +477,7 @@
 		1AB0408E2AB5BE760037215E /* ObjectDetect+TextRecognizer */ = {
 			isa = PBXGroup;
 			children = (
+				1AE53F232AD9EF3E00665594 /* Model */,
 				1AB040932AB5C5090037215E /* Views */,
 				1AB0408F2AB5BFC00037215E /* ObjectDetectView.swift */,
 				1AB040962AB5CA470037215E /* ObjectDetectViewModel.swift */,
@@ -475,6 +490,7 @@
 			children = (
 				1AB040942AB5C51E0037215E /* CameraFrameView.swift */,
 				1AB040A42AB63E5B0037215E /* ObjectView.swift */,
+				1AE53F1F2AD9C69000665594 /* ImageFinderBottomSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -488,6 +504,7 @@
 				1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */,
 				1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */,
 				1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */,
+				1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */,
 			);
 			path = SingletonManagers;
 			sourceTree = "<group>";
@@ -543,6 +560,15 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		1AC96B0E2ADAAC91000AE55E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1AC96B0F2ADAAC99000AE55E /* PanelView.swift */,
+				1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		1ACC0EE12ABA0FE400113911 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +597,14 @@
 				1ACC9DF92AD729E300A58531 /* FoundImages.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1AE53F232AD9EF3E00665594 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1AE53F242AD9EF4A00665594 /* ImageFinderBottomSheetModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1AF13F252AACEDB90097E085 /* TabBar */ = {
@@ -788,6 +822,7 @@
 				1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */,
 				1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */,
 				1A5DF3D42AB4925500A872F2 /* MenuViewItem.swift in Sources */,
+				1AC96B102ADAAC99000AE55E /* PanelView.swift in Sources */,
 				1A915DA12AC9A0E3009FE4BE /* AppDelegate.swift in Sources */,
 				1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */,
 				1AA539A92ACDD7AF00E8E0DC /* CoreDataController.swift in Sources */,
@@ -797,6 +832,7 @@
 				1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */,
 				1AB0409C2AB5CFE70037215E /* Error+Camera.swift in Sources */,
 				1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */,
+				1AE53F1E2AD9C0DA00665594 /* HapticManager.swift in Sources */,
 				1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */,
 				1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */,
 				1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */,
@@ -808,8 +844,10 @@
 				1A9428622ABA28230042D9BB /* Documentation.docc in Sources */,
 				1AA539AD2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld in Sources */,
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,
+				1AC96B122ADAB25E000AE55E /* ImageCoordinatePointView.swift in Sources */,
 				1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */,
 				1ACC9DF82AD7184F00A58531 /* ImageAnalyzer.swift in Sources */,
+				1AE53F222AD9E86B00665594 /* View+snapshot.swift in Sources */,
 				1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */,
 				1AA539B52ACE01E900E8E0DC /* AlbumView.swift in Sources */,
 				1AD1E8682AC04D4A00BCA580 /* DocumentPickerView.swift in Sources */,
@@ -819,6 +857,7 @@
 				1AEC65DB2AC9B0CC00DEB3A8 /* HintView.swift in Sources */,
 				1A96BE3A2AAB48AD003DE05B /* Localized.swift in Sources */,
 				1A9665CA2AACC6FC0087F964 /* BaseView.swift in Sources */,
+				1AE53F252AD9EF4A00665594 /* ImageFinderBottomSheetModel.swift in Sources */,
 				1A96BE2F2AAB39C6003DE05B /* AppConstants.swift in Sources */,
 				1AF13F2A2AACEE600097E085 /* Tab.swift in Sources */,
 				1AB040A02AB5DBB40037215E /* CGImage+create.swift in Sources */,
@@ -829,6 +868,7 @@
 				1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */,
 				1A5DF3D72AB4D45900A872F2 /* MenuViewModel.swift in Sources */,
 				1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */,
+				1AE53F202AD9C69000665594 /* ImageFinderBottomSheetView.swift in Sources */,
 				1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */,
 				1A5DF3CC2AB48ADF00A872F2 /* TabMenuLandingView.swift in Sources */,
 				1A5A01232AADF6480060F528 /* TabHosterViewViewModel.swift in Sources */,

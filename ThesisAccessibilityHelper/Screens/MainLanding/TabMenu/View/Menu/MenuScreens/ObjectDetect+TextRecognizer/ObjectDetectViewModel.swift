@@ -16,13 +16,24 @@ protocol ObjectDetectViewModelInput: BaseViewModelInput {
 
 @MainActor
 final class ObjectDetectViewModel: ObservableObject {
+    // MARK: - Types
+
+    enum HapticType {
+        case impact
+        case notification
+    }
+
     // MARK: - Properties
 
-    @Published var frame: CGImage? // Holds the current image
+    /// Holds the current Image as `CGImage`
+    @Published var frame: CGImage?
     @Published var error: Error?
 
     @Published var capturedObject: CameraManager.CameraResultModel
 
+    // TODO: DI
+
+    private let hapticManager = HapticManager.shared
     private let tabHosterInstance = TabHosterViewViewModel.shared
     private let frameManagerInstance = FrameManager.shared
     private let cameraManagerInstance = CameraManager.shared
@@ -46,6 +57,15 @@ final class ObjectDetectViewModel: ObservableObject {
 
     func resumeSession() {
         cameraManagerInstance.startSession()
+    }
+
+    func showHaptic(type: HapticType, impactStyle: UIImpactFeedbackGenerator.FeedbackStyle = .heavy, notificationStyle: UINotificationFeedbackGenerator.FeedbackType = .success) {
+        switch type {
+            case .impact:
+                hapticManager.impactGenerator(style: impactStyle)
+            case .notification:
+                hapticManager.notificationGenerator(type: notificationStyle)
+        }
     }
 
     private func subscriptions() {
