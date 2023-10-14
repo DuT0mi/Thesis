@@ -141,7 +141,7 @@ final class CameraManager: BaseCameraManager {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(visiounShouldConfigure),
-            name: Notification.Name("VISIONNOW"),
+            name: .visionWillAppear,
             object: nil
         )
     }

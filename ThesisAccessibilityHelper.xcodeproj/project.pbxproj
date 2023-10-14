@@ -75,6 +75,8 @@
 		1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040A42AB63E5B0037215E /* ObjectView.swift */; };
 		1AB040AA2AB652F00037215E /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1AB040A92AB652F00037215E /* LICENSE.txt */; };
 		1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */; };
+		1AB9B7D72ADB07570046F048 /* SortedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9B7D62ADB07570046F048 /* SortedModel.swift */; };
+		1AB9B7D92ADB07CA0046F048 /* CarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9B7D82ADB07CA0046F048 /* CarouselModel.swift */; };
 		1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */; };
 		1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */; };
 		1AC604872AD2EF6E00BBE914 /* View+AnimatedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */; };
@@ -161,6 +163,8 @@
 		1AB040A42AB63E5B0037215E /* ObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectView.swift; sourceTree = "<group>"; };
 		1AB040A92AB652F00037215E /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		1AB040AB2AB6548D0037215E /* SynthesizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesizerManager.swift; sourceTree = "<group>"; };
+		1AB9B7D62ADB07570046F048 /* SortedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedModel.swift; sourceTree = "<group>"; };
+		1AB9B7D82ADB07CA0046F048 /* CarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselModel.swift; sourceTree = "<group>"; };
 		1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		1AC604832AD2CC0B00BBE914 /* ResultModel_1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResultModel_1.1.xcdatamodel; sourceTree = "<group>"; };
 		1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
@@ -525,6 +529,15 @@
 			path = License;
 			sourceTree = "<group>";
 		};
+		1AB9B7D52ADB074A0046F048 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1AB9B7D62ADB07570046F048 /* SortedModel.swift */,
+				1AB9B7D82ADB07CA0046F048 /* CarouselModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1ABE4AF32AB2306D004DD0EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +593,7 @@
 		1AD1E8612AC0461300BCA580 /* Scan+Speaker */ = {
 			isa = PBXGroup;
 			children = (
+				1AB9B7D52ADB074A0046F048 /* Model */,
 				1AD1E8642AC04AE200BCA580 /* View */,
 				1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */,
 				1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */,
@@ -817,6 +831,7 @@
 			files = (
 				1AC937452AD47D2E00851576 /* App+DI.swift in Sources */,
 				1AC9374E2AD4845200851576 /* CarouselItemView.swift in Sources */,
+				1AB9B7D72ADB07570046F048 /* SortedModel.swift in Sources */,
 				1AA539B32ACE018700E8E0DC /* ViewModifier+Flip.swift in Sources */,
 				1A9D1A842AB712F9008C30EC /* ViewModifier+GeoSize.swift in Sources */,
 				1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */,
@@ -838,6 +853,7 @@
 				1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */,
 				1AB0409E2AB5D95A0037215E /* FrameManager.swift in Sources */,
 				1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */,
+				1AB9B7D92ADB07CA0046F048 /* CarouselModel.swift in Sources */,
 				1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
 				1AC604872AD2EF6E00BBE914 /* View+AnimatedActionButton.swift in Sources */,

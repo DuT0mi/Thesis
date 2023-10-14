@@ -22,11 +22,11 @@ final class ImageAnalyzer {
     // MARK: - Functions
 
     func processImages(
-        original: ScanDocumentViewModel.CaoruselModel,
-        contestants: [ScanDocumentViewModel.CaoruselModel],
-        completion: @escaping (Result<[(model: ScanDocumentViewModel.CaoruselModel, index: Int, featureprintDistance: Float)], URLError>) -> Void)
+        original: CarouselModel,
+        contestants: [CarouselModel],
+        completion: @escaping (Result<[(model: CarouselModel, index: Int, featureprintDistance: Float)], URLError>) -> Void)
     {
-        var ranks = [(model: ScanDocumentViewModel.CaoruselModel, index: Int, featureprintDistance: Float)]()
+        var ranks = [(model: CarouselModel, index: Int, featureprintDistance: Float)]()
 
         guard let originalFPO = featureprintObservationForImage(data: original.imageData) else {
             print("TODO | ERROR | AT: \(#function)")

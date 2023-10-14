@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct AnimatedActionButton: View {
-    var title: String? = nil
-    var systemImage: String? = nil
+    var title: String?
+    var systemImage: String?
     let action: () -> Void
 
     var body: some View {

@@ -29,7 +29,7 @@ struct ImagesCarousel: View {
     private var front: Angle { flipped ? .degrees(180) : .degrees(0) }
     private var back: Angle { flipped ? .degrees(0) : .degrees(-180) }
 
-    var models: [ScanDocumentViewModel.CaoruselModel]
+    var models: [CarouselModel]
 
     var body: some View {
         ScrollView(.horizontal) {
