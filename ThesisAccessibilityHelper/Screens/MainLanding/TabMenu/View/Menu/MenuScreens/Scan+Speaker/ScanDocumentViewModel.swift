@@ -28,12 +28,11 @@ final class ScanDocumentViewModel: ObservableObject {
     @Published var isSearching = false
 
     @LazyInjected private var analyzer: ImageAnalyzer
+    @Injected private var speaker: SynthesizerManager
 
     private(set) lazy var models = [Model]()
 
     private(set) var sortedModels = [SortedModel]()
-
-    private let speaker = SynthesizerManager.shared
 
     private var cachedContext: NSManagedObjectContext?
 

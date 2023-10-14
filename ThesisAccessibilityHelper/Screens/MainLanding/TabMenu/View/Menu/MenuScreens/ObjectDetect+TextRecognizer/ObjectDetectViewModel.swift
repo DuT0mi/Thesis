@@ -10,6 +10,7 @@ import CoreImage
 import Vision
 import Combine
 import UIKit
+import Resolver
 
 protocol ObjectDetectViewModelInput: BaseViewModelInput {
 }
@@ -31,13 +32,11 @@ final class ObjectDetectViewModel: ObservableObject {
 
     @Published var capturedObject: CameraManager.CameraResultModel
 
-    // TODO: DI
-
-    private let hapticManager = HapticManager.shared
-    private let tabHosterInstance = TabHosterViewViewModel.shared
-    private let frameManagerInstance = FrameManager.shared
-    private let cameraManagerInstance = CameraManager.shared
-    private let speaker = SynthesizerManager.shared
+    @Injected private var hapticManager: HapticManager
+    @Injected private var tabHosterInstance: TabHosterViewViewModel
+    @Injected private var frameManagerInstance: FrameManager
+    @Injected private var cameraManagerInstance: CameraManager
+    @Injected private var speaker: SynthesizerManager
 
     private var cancellables = Set<AnyCancellable>()
 

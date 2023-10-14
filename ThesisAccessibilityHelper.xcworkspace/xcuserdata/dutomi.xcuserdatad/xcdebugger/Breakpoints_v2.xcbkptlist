@@ -14,8 +14,8 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/Scan+Speaker/ScanDocumentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "findSimilarImages(localDataBase:search:)"
             landmarkType = "7">
             <Locations>
@@ -78,8 +78,8 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/Scan+Speaker/ScanDocumentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "findSimilarImages(localDataBase:search:)"
             landmarkType = "7">
          </BreakpointContent>
