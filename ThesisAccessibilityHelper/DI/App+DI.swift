@@ -23,5 +23,25 @@ extension Resolver: ResolverRegistering {
             HapticManager.shared
         }
         .scope(.application)
+
+        register {
+            TabHosterViewViewModel.shared
+        }
+        .scope(.application)
+
+        register {
+            FrameManager.shared
+        }
+        .scope(.application)
+
+        register {
+            CameraManager.shared
+        }
+        .scope(.application)
+
+        register {
+            SynthesizerManager.shared
+        }
+        .scope(.application)
     }
 }

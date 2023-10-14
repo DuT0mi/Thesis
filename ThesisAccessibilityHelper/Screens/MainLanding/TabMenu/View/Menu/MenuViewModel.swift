@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Resolver
 
 protocol MenuViewModelInput: BaseViewModelInput {
     func didTapItem()
@@ -15,7 +16,7 @@ protocol MenuViewModelInput: BaseViewModelInput {
 final class MenuViewModel: ObservableObject {
     // MARK: - Properties
 
-    private let tabHosterInstance = TabHosterViewViewModel.shared
+    @Injected private var tabHosterInstance: TabHosterViewViewModel
 }
 
 // MARK: - ObjectDetectViewModelInput

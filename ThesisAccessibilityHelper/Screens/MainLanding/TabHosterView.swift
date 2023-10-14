@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct TabHosterView: View {
     // MARK: - Properties
 
     @Namespace private var animation
 
-    @StateObject private var viewModel = TabHosterViewViewModel.shared
+    @StateObject private var viewModel: TabHosterViewViewModel = Resolver.resolve()
 
     @State private var activeTab: Tab = .home
     @State private var tabShapePosition: CGPoint = .zero
