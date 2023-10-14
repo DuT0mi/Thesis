@@ -12,7 +12,7 @@ class HapticManager {
     // MARK: - Properties
 
     static let shared = HapticManager()
- 
+
     // MARK: - Initialization
 
     private init() {  }

@@ -14,42 +14,12 @@ import Resolver
 protocol ScanDocumentViewModelInput: BaseViewModelInput {
 }
 
-//swiftlint:disable force_unwrapping
+// swiftlint:disable force_unwrapping
 
 final class ScanDocumentViewModel: ObservableObject {
     // MARK: - Types
 
     typealias Model = TextRecognizer.RecognizedModel
-
-    struct CaoruselModel: Identifiable {
-        var image: Image
-        var imageData: Data
-        var detectedText: String
-        var id: String
-    }
-
-    struct SortedModel: Identifiable, Hashable {
-        var id = UUID()
-        
-        var carouselModel: CaoruselModel
-        var index: Int
-        var featureprintDistance: Float
-
-        static func == (lhs: ScanDocumentViewModel.SortedModel, rhs: ScanDocumentViewModel.SortedModel) -> Bool {
-            lhs.featureprintDistance == rhs.featureprintDistance &&
-            lhs.index == rhs.index &&
-            lhs.carouselModel.id == rhs.carouselModel.id &&
-            lhs.carouselModel.image == rhs.carouselModel.image &&
-            lhs.carouselModel.imageData == rhs.carouselModel.imageData &&
-            lhs.carouselModel.detectedText == rhs.carouselModel.detectedText
-
-        }
-
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(index)
-            hasher.combine(featureprintDistance)
-        }
-    }
 
     // MARK: - Properties
 
@@ -88,19 +58,19 @@ final class ScanDocumentViewModel: ObservableObject {
     }
 
     @MainActor
-    func modelMapper(from localDataElements: FetchedResults<LocalData>) -> [ScanDocumentViewModel.CaoruselModel] {
+    func modelMapper(from localDataElements: FetchedResults<LocalData>) -> [CarouselModel] {
         localDataElements
             .filter { $0.imageData != nil && $0.imageText != nil && $0.imageId != nil }
-            .map { ScanDocumentViewModel.CaoruselModel(
+            .map { CarouselModel(
+                id: $0.imageId!.uuidString,
                 image: Image(uiImage: UIImage(data: $0.imageData!)!),
                 imageData: $0.imageData!,
-                detectedText: $0.imageText!,
-                id: $0.imageId!.uuidString)
+                detectedText: $0.imageText!)
             }
     }
 
     func findSimilarImages(
-        localDataBase coreDataElements: FetchedResults<TempData>, search forItem: CaoruselModel) {
+        localDataBase coreDataElements: FetchedResults<TempData>, search forItem: CarouselModel) {
         isSearching.toggle()
         analyzer.processImages(original: forItem, contestants: modelMapper(from: coreDataElements)) { [weak self] result in
             defer { self?.isSearching.toggle() }
@@ -136,14 +106,14 @@ final class ScanDocumentViewModel: ObservableObject {
         isSpeakerSpeaks = false
     }
 
-    private func modelMapper(from localDataElements: FetchedResults<TempData>) -> [ScanDocumentViewModel.CaoruselModel] {
+    private func modelMapper(from localDataElements: FetchedResults<TempData>) -> [CarouselModel] {
         localDataElements
             .filter { $0.imageData != nil && $0.detectedText != nil && $0.resultID != nil }
-            .map { ScanDocumentViewModel.CaoruselModel(
+            .map { CarouselModel(
+                id: $0.resultID!.uuidString,
                 image: Image(uiImage: UIImage(data: $0.imageData!)!),
                 imageData: $0.imageData!,
-                detectedText: $0.detectedText!,
-                id: $0.resultID!.uuidString)
+                detectedText: $0.detectedText!)
             }
     }
 
@@ -183,7 +153,7 @@ extension ScanDocumentViewModel: ScanDocumentViewModelInput {
     func didDisAppear() {
         guard let cachedContext else { return }
 
-         resetLocalDB(context: cachedContext) // Saving just the `TempData`
+        resetLocalDB(context: cachedContext)
 
         models.forEach { CoreDataController().saveTempData(context: cachedContext, $0) }
     }

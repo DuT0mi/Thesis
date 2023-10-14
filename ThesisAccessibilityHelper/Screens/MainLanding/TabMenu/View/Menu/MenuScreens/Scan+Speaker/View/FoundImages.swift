@@ -26,7 +26,7 @@ struct FoundImagesView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @ObservedObject private var mainViewModel: ScanDocumentViewModel = Resolver.resolve()
 
-    @State private var sortedModels: [ScanDocumentViewModel.SortedModel] = []
+    @State private var sortedModels: [SortedModel] = []
     @Binding var showBottomSheet: Bool
     @Binding var bottomSheetIsLoading: Bool
 
@@ -60,7 +60,7 @@ struct FoundImagesView: View {
                                             }
                                     }
                                 }
-                                .containerRelativeFrame(.vertical, count: horizontalSizeClass == .compact ? 1: 2, spacing: Consts.Layout.frameSpacing)
+                                .containerRelativeFrame(.vertical, count: horizontalSizeClass == .compact ? 1 : 2, spacing: Consts.Layout.frameSpacing)
                                 .scrollTransition { content, phase in
                                     content
                                         .opacity(phase.isIdentity ? 1 : .zero)

@@ -37,7 +37,7 @@ struct CarouselItemView: View {
     @State private var showBottomSheet = false
     @Binding var bottomSheetIsLoading: Bool
 
-    var model: ScanDocumentViewModel.CaoruselModel
+    var model: CarouselModel
     var type: ItemType = .back
 
     var body: some View {
@@ -89,5 +89,5 @@ struct CarouselItemView: View {
 }
 
 #Preview {
-    CarouselItemView(bottomSheetIsLoading: .constant(false), model: .init(image: Image(systemName: "house"), imageData: Data(), detectedText: "House", id: "House".lowercased()))
+    CarouselItemView(bottomSheetIsLoading: .constant(false), model: .init(id: "House".lowercased(), image: Image(systemName: ""), imageData: Data(), detectedText: ""))
 }

@@ -79,4 +79,3 @@ struct ObjectDetectView_Previews: PreviewProvider {
         ObjectDetectView()
     }
 }
-

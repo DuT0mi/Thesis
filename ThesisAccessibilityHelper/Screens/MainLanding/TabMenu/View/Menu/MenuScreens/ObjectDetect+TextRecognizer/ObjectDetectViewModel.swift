@@ -89,7 +89,7 @@ final class ObjectDetectViewModel: ObservableObject {
 
 extension ObjectDetectViewModel: ObjectDetectViewModelInput {
     func didAppear() {
-        let noti = Notification(name: Notification.Name("VISIONNOW")) // TODO: extend noti name
+        let noti = Notification(name: .visionWillAppear)
         NotificationCenter.default.post(noti)
     }
 

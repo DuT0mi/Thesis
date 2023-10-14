@@ -27,6 +27,11 @@ struct ScanDocumentView: View {
         struct Appearance {
             static let imageFont: CGFloat = 20
         }
+
+        struct Animation {
+            static let baseTime: TimeInterval = 2.0
+            static let extraTime: TimeInterval = 1.5
+        }
     }
 
     // MARK: - Properties
@@ -114,7 +119,7 @@ struct ScanDocumentView: View {
                         .opacity(viewModel.isSpeakerSpeaks ? 1 : 0)
                 }
             }
-            
+
             ToolbarItem(placement: .topBarTrailing) {
                 Image(systemName: "trash.fill")
                     .bold()
@@ -160,11 +165,11 @@ struct ScanDocumentView: View {
     // MARK: - Functions
 
     private func updateHintFlag() {
-        withAnimation(.easeInOut(duration: 2.0)) {
+        withAnimation(.easeInOut(duration: Consts.Animation.baseTime )) {
             self.opacityOfShowCase = self.opacityOfShowCase == .zero ? 1 : .zero
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0 + 1.5) {
-            withAnimation(.interpolatingSpring(duration: 0.7)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Consts.Animation.baseTime + Consts.Animation.extraTime) {
+            withAnimation(.interpolatingSpring(duration: Consts.Animation.extraTime * 0.5 )) {
                 self.opacityOfShowCase = .zero
             }
         }
