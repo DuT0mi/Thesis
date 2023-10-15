@@ -19,7 +19,8 @@ struct MenuView: View {
                     Group {
                         HStack(spacing: 20) {
                             NavigationButton(delay: 1.0) {
-                                viewModel.didTapItem()
+                                viewModel.hideTabBar()
+                                viewModel.didTapMenuItem(on: .objectDetect)
                             } destination: {
                                 ObjectDetectView()
                             } label: {
@@ -29,23 +30,38 @@ struct MenuView: View {
                         .padding()
 
                         HStack(spacing: 20) {
-                            NavigationLink(destination: TabMapLandingView()) {
+                            NavigationButton {
+                                viewModel.didTapMenuItem(on: .map)
+                            } destination: {
+                                TabMapLandingView()
+                            } label: {
                                 MenuViewItem(image: .menuMap)
                             }
 
-                            NavigationLink(destination: ScanDocumentView()) {
+                            NavigationButton {
+                                viewModel.didTapMenuItem(on: .scan)
+                            } destination: {
+                                ScanDocumentView()
+                            } label: {
                                 MenuViewItem(image: .menuDocument)
                             }
                         }
                         .padding()
 
                         HStack(spacing: 20) {
-                            NavigationLink(destination: AlbumView()) {
+                            NavigationButton {
+                                viewModel.didTapMenuItem(on: .storage)
+                            } destination: {
+                                AlbumView()
+                            } label: {
                                 MenuViewItem(systemName: "externaldrive.badge.person.crop")
                             }
                         }
                         .padding()
                     }
+                }
+                .onAppear {
+                    viewModel.didTapMenuItem(on: .`self`)
                 }
                 .navigationTitle("Circle Menu")
                 .navigationBarTitleDisplayMode(.inline)

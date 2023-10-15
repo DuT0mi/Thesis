@@ -10,11 +10,33 @@ import SwiftUI
 struct TabProfileLandingView: View {
     // MARK: - Properties
 
+    @StateObject private var viewModel = TabProfileLandingViewModel()
+    @State private var interactiveMode = false
+
     var body: some View {
         BaseView {
-            Text("Profile Landing")
+            VStack {
+                Form {
+                    settingsSection
+                }
+                .formStyle(.grouped)
+            }
         }
-        .ignoresSafeArea()
+        .task {
+            interactiveMode = viewModel.interactiveMode
+        }
+    }
+
+    private var settingsSection: some View {
+        Section {
+            Toggle("Interactive mode", isOn: $interactiveMode)
+                .onChange(of: interactiveMode) { _, newValue in
+                    viewModel.setInteractiveMode(newValue)
+                }
+        } header: {
+            Text("Settings")
+        }
+
     }
 }
 
