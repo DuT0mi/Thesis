@@ -19,6 +19,7 @@ final class TabProfileLandingViewModel: ObservableObject {
 
     @AppStorage("interactiveMode") var interactiveMode = false
     @AppStorage("objectDetectRefreshData") var objectDetectRefreshData: Int = Consts.defaultRefreshTime
+    @AppStorage("objectDetectLanguage") var objectDetectLanguage = TabProfileLandingView.CountryCode.hun.rawValue
 
     // MARK: - Intent(s)
 
@@ -28,5 +29,10 @@ final class TabProfileLandingViewModel: ObservableObject {
 
     func setRefreshTime(_ newValue: Int) {
         objectDetectRefreshData = newValue
+    }
+
+    func setCountryCode(_ newValue: TabProfileLandingView.CountryCode) {
+        objectDetectLanguage = newValue.rawValue
+        // TODO: Object detect dict
     }
 }
