@@ -23,7 +23,7 @@ struct TabProfileLandingView: View {
             }
         }
         .task {
-            interactiveMode = viewModel.interactiveMode
+            await loadData()
         }
     }
 
@@ -37,6 +37,12 @@ struct TabProfileLandingView: View {
             Text("Settings")
         }
 
+    }
+
+    // MARK: - Functions
+
+    private func loadData() async {
+        interactiveMode = viewModel.interactiveMode
     }
 }
 

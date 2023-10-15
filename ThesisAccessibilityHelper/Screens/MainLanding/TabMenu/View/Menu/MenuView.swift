@@ -54,7 +54,7 @@ struct MenuView: View {
                             } destination: {
                                 AlbumView()
                             } label: {
-                                MenuViewItem(systemName: "externaldrive.badge.person.crop")
+                                MenuViewItem(image: .menuStorage)
                             }
                         }
                         .padding()

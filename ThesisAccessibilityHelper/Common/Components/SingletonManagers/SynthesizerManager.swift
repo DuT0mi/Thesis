@@ -54,6 +54,13 @@ final class SynthesizerManager: NSObject {
 
         speaker.stopSpeaking(at: .immediate)
     }
+    
+    /// For sounds see: `https://github.com/TUNER88/iOSSystemSoundsLibrary`
+    /// - Parameters:
+    ///   - inSystemSoundID: The ID, in this app use ...
+    func playSystemSound(_ inSystemSoundID: SystemSoundID) {
+        AudioServicesPlaySystemSound(inSystemSoundID)// TODO: Doc for covention
+    }
 }
 // MARK: - AVSpeechSynthesizerDelegate
 
