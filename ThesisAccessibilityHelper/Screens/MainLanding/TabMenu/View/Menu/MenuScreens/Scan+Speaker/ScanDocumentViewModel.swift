@@ -33,7 +33,7 @@ final class ScanDocumentViewModel: ObservableObject {
     }
 
     enum InfoType: String {
-        case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a kereséshez, lefele ha az egész talált képből szeretnéd a keresést."
+        case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a talált objektum kereséséhez, lefele ha az egész talált képből szeretnéd a keresést."
         case error = "Nincs talált objektum az aktuális neurális hálózati modell alapján. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra."
     }
 
@@ -65,17 +65,28 @@ final class ScanDocumentViewModel: ObservableObject {
 
     // MARK: - Functions
 
+    func customSpeak(_ text: String) {
+        guard !text.isEmpty else { return }
+        isSpeakerSpeaks.toggle()
+
+        speaker.speak(with: text)
+
+        isSpeakerSpeaks.toggle()
+    }
+
     func stop() {
         speaker.stop()
         isSpeakerSpeaks.toggle()
     }
 
     func showInfo(_ type: InfoType = .info) {
+        isSpeakerSpeaks.toggle()
         speaker.speak(with: type.rawValue)
+        isSpeakerSpeaks.toggle()
     }
 
     func didTapVolumeButton(direction type: VolumeButtonType, model: ImageFinderBottomSheetModel) {
-        guard !model.cameraModel.capturedLabel.isEmpty, !model.cameraModel.capturedObjectBounds.equalTo(.zero) else {
+        guard !model.cameraModel.capturedLabel.isEmpty else {
             self.playSound(.error)
             self.showInfo(.error)
 
@@ -90,14 +101,6 @@ final class ScanDocumentViewModel: ObservableObject {
                 volumeButtonDownHandler()
                 debugPrint(String(describing: type))
         }
-    }
-
-    private func volumeButtonUpHandler() {
-        
-    }
-
-    private func volumeButtonDownHandler() {
-
     }
 
     func playSound(_ type: SystemSoundType) {
@@ -168,6 +171,12 @@ final class ScanDocumentViewModel: ObservableObject {
                 imageData: $0.imageData!,
                 detectedText: $0.detectedText!)
             }
+    }
+
+    private func volumeButtonUpHandler() { // TODO: From the selected
+    }
+
+    private func volumeButtonDownHandler() { // TODO: From all
     }
 
     // MARK: - Intent(s)

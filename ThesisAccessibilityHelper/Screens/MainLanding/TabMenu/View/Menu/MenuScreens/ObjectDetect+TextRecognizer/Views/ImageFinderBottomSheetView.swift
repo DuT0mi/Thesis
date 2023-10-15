@@ -42,6 +42,16 @@ struct ImageFinderBottomSheetView: View {
                 PanelView(text: "Talált objektum: \(model.cameraModel.capturedLabel)")
                     .frame(height: 75)
                     .padding(.horizontal)
+                    .onTapGesture(count: 2) {
+                        guard !model.cameraModel.capturedLabel.isEmpty else { return }
+                        scanViewModel.customSpeak("""
+                                                  Talált objektum \(model.cameraModel.capturedLabel), a következő pozicióban a referencia koordináta rendszerhez képest:
+                                                  X irányban: \(model.cameraModel.capturedObjectBounds.minX < 0 ? Int(-1 * model.cameraModel.capturedObjectBounds.minX) : Int(model.cameraModel.capturedObjectBounds.minX))-től \(Int(model.cameraModel.capturedObjectBounds.maxX))-ig.
+                                                  Y irányban: \(Int(model.cameraModel.capturedObjectBounds.minY))-tól \(Int(model.cameraModel.capturedObjectBounds.maxY))-ig
+                                                  vagyis nagyjából \(findPosition()) van.
+                                                  """
+                        )
+                    }
                 ScrollView {
                     ZStack {
                         LazyVStack {
@@ -122,16 +132,12 @@ struct ImageFinderBottomSheetView: View {
             if scanViewModel.isInteractive {
                 scanViewModel.showInfo()
             }
-
-            print("MINX \(model.cameraModel.capturedObjectBounds.minX)")
-            print("MAXX \(model.cameraModel.capturedObjectBounds.maxX)")
-            print("MINY \(model.cameraModel.capturedObjectBounds.minY)")
-            print("MAXY \(model.cameraModel.capturedObjectBounds.maxY)")
         }
         .onDisappear {
             if scanViewModel.isInteractive {
                 scanViewModel.stop()
             }
+            volumeHandler.stopHandler()
         }
         .ignoresSafeArea()
     }
@@ -156,6 +162,36 @@ struct ImageFinderBottomSheetView: View {
             .onTapGesture {
                 scanViewModel.showInfo()
             }
+    }
+
+    private func findPosition() -> String {
+        let refFrame = CGRect(x: 0, y: 0, width: AppConstants.AppDimension.width, height: AppConstants.AppDimension.height)
+        let objectFrame = model.cameraModel.capturedObjectBounds
+
+        let firstXColumn = refFrame.minY...refFrame.height / 3
+        let secondXColumn = refFrame.height / 3...refFrame.height / 3 * 2
+        let thirdXColumn = refFrame.height / 3 * 2...refFrame.maxY
+
+        let refMid = refFrame.midX
+
+        let oRefAvgX = objectFrame.midY
+
+        if firstXColumn ~= oRefAvgX {
+            if oRefAvgX > refMid {
+                return "bal felül"
+            } else {
+                return "jobb felül"
+            }
+        } else if secondXColumn ~= oRefAvgX {
+            return "középen"
+        } else {
+            if oRefAvgX > refMid {
+                return "bal alul"
+            } else {
+                return "jobb alul"
+            }
+        }
+
     }
 
     // MARK: - Functions

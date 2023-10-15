@@ -82,7 +82,7 @@ struct ObjectDetectView: View {
     // MARK: - Functions
 
     private func checkIfModelHasChanged(_ time: TimeInterval = 20.0, model newValue: CameraManager.CameraResultModel) {
-        guard time != Consts.EventHandle.defaultRefreshDate else { return }
+        guard time != TimeInterval(Consts.EventHandle.defaultRefreshDate) else { return }
 
         DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + time) {
             if newValue.capturedLabel.elementsEqual(previousModel.capturedLabel) || newValue.capturedObjectBounds.equalTo(previousModel.capturedObjectBounds) {
