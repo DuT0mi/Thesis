@@ -230,7 +230,10 @@ struct ImageFinderBottomSheetView: View {
     }
 
     private func distanceToPercent(_ distance: Float) -> Float {
-        return (distance > 1.00001) ? (1 - distance) * -100 : (1 - distance) * 100
+        let percent =  (distance > 1.00001) ? (1 - distance) * -100 : (1 - distance) * 100
+        let percentFixed = percent < 10 ? percent * 10 : percent
+
+        return percentFixed
     }
 
     // MARK: - Functions

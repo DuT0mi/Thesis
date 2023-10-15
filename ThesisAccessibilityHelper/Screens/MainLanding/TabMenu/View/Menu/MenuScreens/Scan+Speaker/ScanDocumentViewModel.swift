@@ -30,11 +30,12 @@ final class ScanDocumentViewModel: ObservableObject {
     enum SystemSoundType: Int {
         case success = 1150
         case error = 1153
+        case confirm = 1111
     }
 
     enum InfoType: String {
         case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a talált objektum kereséséhez, lefele ha az egész talált képből szeretnéd a keresést."
-        case error = "Nincs talált objektum az aktuális neurális hálózati modell alapján. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra."
+        case error = "Nincs talált objektum. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra vagy a lefele gombbal próbálkozz az egész képben való kereséshez."
     }
 
     // MARK: - Properties
@@ -87,7 +88,14 @@ final class ScanDocumentViewModel: ObservableObject {
     }
 
     func didTapVolumeButton(direction type: VolumeButtonType, model: ImageFinderBottomSheetModel, context contestants: FetchedResults<TempData>) {
-        guard !model.cameraModel.capturedLabel.isEmpty, let cgImg = model.frame else {
+        guard let cgImg = model.frame else {
+            self.playSound(.error)
+            self.showInfo(.error)
+
+            return
+        }
+
+        if type == .up, model.cameraModel.capturedLabel.isEmpty {
             self.playSound(.error)
             self.showInfo(.error)
 
@@ -97,7 +105,7 @@ final class ScanDocumentViewModel: ObservableObject {
         let carouselModel = CarouselModel(
             id: UUID().uuidString,
             image: Image(cgImg, scale: 1.0, orientation: .upMirrored, label: Text("AccessabilityCGImg")),
-            imageData: UIImage(cgImage: cgImg).pngData() ?? Data(count: .min),
+            imageData: UIImage(cgImage: cgImg, scale: 1.0, orientation: .upMirrored).pngData() ?? Data(count: .min),
             detectedText: model.cameraModel.capturedLabel
         )
 
@@ -106,7 +114,7 @@ final class ScanDocumentViewModel: ObservableObject {
                 volumeButtonUpHandler(contestants, for: carouselModel, cropTo: model.cameraModel.capturedObjectBounds)
                 debugPrint(String(describing: type))
             case .down:
-                volumeButtonDownHandler(contestants, for: carouselModel, cropTo: model.cameraModel.capturedObjectBounds)
+                volumeButtonDownHandler(contestants, for: carouselModel)
                 debugPrint(String(describing: type))
         }
     }
@@ -192,12 +200,25 @@ final class ScanDocumentViewModel: ObservableObject {
 
         if !sortedModels.isEmpty {
             hapticManager.notificationGenerator(type: .success)
+            playSound(.confirm)
+        }  else {
+            hapticManager.notificationGenerator(type: .error)
+            playSound(.error)
         }
     }
 
-    private func volumeButtonDownHandler(_ contestants: FetchedResults<TempData>, for item: CarouselModel, cropTo rect: CGRect) { // TODO: From all
+    private func volumeButtonDownHandler(_ contestants: FetchedResults<TempData>, for item: CarouselModel) {
+        findSimilarImages(localDataBase: contestants, search: item)
+
+        if !sortedModels.isEmpty {
+            hapticManager.notificationGenerator(type: .success)
+            playSound(.confirm)
+        } else {
+            hapticManager.notificationGenerator(type: .error)
+            playSound(.error)
+        }
     }
-    
+
     private func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect) -> UIImage? {
         let cropZone = CGRect(x: cropRect.origin.x, y: cropRect.origin.y, width: cropRect.size.width, height: cropRect.size.height)
 

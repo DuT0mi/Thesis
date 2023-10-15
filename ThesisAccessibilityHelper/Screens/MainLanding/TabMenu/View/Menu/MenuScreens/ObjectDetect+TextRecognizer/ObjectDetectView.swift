@@ -84,7 +84,7 @@ struct ObjectDetectView: View {
     private func checkIfModelHasChanged(_ time: TimeInterval = 20.0, model newValue: CameraManager.CameraResultModel) {
         guard time != TimeInterval(Consts.EventHandle.defaultRefreshDate) else { return }
 
-        DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + time) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + time) {
             if newValue.capturedLabel.elementsEqual(previousModel.capturedLabel) || newValue.capturedObjectBounds.equalTo(previousModel.capturedObjectBounds) {
                 self.viewModel.resetModelToForceUpdateView()
             }
