@@ -43,5 +43,10 @@ extension Resolver: ResolverRegistering {
             SynthesizerManager.shared
         }
         .scope(.application)
+
+        register {
+            TabProfileLandingViewModel()
+        }
+        .scope(.application)
     }
 }
