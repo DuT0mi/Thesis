@@ -116,6 +116,15 @@
         "revision" : "3c54ab05249f59f2c6641dd2920b8358ea9ed127",
         "version" : "1.24.0"
       }
+    },
+    {
+      "identity" : "volumebuttonhandler",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CipherBitCorp/VolumeButtonHandler",
+      "state" : {
+        "branch" : "main",
+        "revision" : "22943ee6f2d510f7ec46caacb13f12dc7a094664"
+      }
     }
   ],
   "version" : 2

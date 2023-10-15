@@ -25,7 +25,7 @@ struct ObjectView: View {
     var bufferSize: CGRect
 
     var body: some View {
-        if  !resultLabel.isEmpty, bufferSize.width != .zero, bufferSize.height != .zero {
+        if bufferSize.width != .zero, bufferSize.height != .zero {
             GeometryReader { geometryProxy in
                 let nonNegativeX = max(0, bufferSize.minX)
                 let adjustedBufferSize = CGRect(x: nonNegativeX, y: bufferSize.minY, width: bufferSize.width, height: bufferSize.height)
