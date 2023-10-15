@@ -24,6 +24,7 @@ struct ImageFinderBottomSheetView: View {
 
     @ObservedObject private var scanViewModel: ScanDocumentViewModel = Resolver.resolve()
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.managedObjectContext) private var managedObjectContext
     @State private var volumeHandler = VolumeButtonHandler()
     @State private var currentImageSize: CGSize = .zero
     @State private var shouldScale = false
@@ -138,6 +139,7 @@ struct ImageFinderBottomSheetView: View {
                 scanViewModel.stop()
             }
             volumeHandler.stopHandler()
+            scanViewModel.stop()
         }
         .ignoresSafeArea()
     }
