@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Resolver
+import VolumeButtonHandler
 
 struct ImageFinderBottomSheetView: View {
     // MARK: - Types
@@ -23,6 +24,7 @@ struct ImageFinderBottomSheetView: View {
 
     @ObservedObject private var scanViewModel: ScanDocumentViewModel = Resolver.resolve()
     @Environment(\.dismiss) private var dismiss
+    @State private var volumeHandler = VolumeButtonHandler()
     @State private var currentImageSize: CGSize = .zero
     @State private var shouldScale = false
 
@@ -33,6 +35,7 @@ struct ImageFinderBottomSheetView: View {
         BaseView {
             VStackLayout {
                 HStack {
+                    toolBarItemLeading
                     Spacer()
                     toolBarItem
                 }
@@ -42,6 +45,12 @@ struct ImageFinderBottomSheetView: View {
                 ScrollView {
                     ZStack {
                         LazyVStack {
+                            #if targetEnvironment(simulator)
+                                Image(.mockImage0)
+                                    .resizable()
+                                    .frame(width: 480 * 0.8, height: 640 * 0.8)
+                                    .clipShape(.rect(cornerRadius: 640 * 0.4 * 0.1))
+                            #else
                             if let image {
                                 image
                                     .resizable()
@@ -89,20 +98,40 @@ struct ImageFinderBottomSheetView: View {
                             } else {
                                 ProgressView() // TODO: Custom Error
                             }
+                            #endif
                         }
                     }
                 }
             }
         }
+        .task(priority: .high) {
+            volumeHandler.startHandler(disableSystemVolumeHandler: false)
+            setup()
+        }
         .onAppear {
             guard let frame = model.frame else { return }
             currentImageSize = .init(width: frame.width, height: frame.height)
+
+            if model.cameraModel.capturedLabel.isEmpty || model.cameraModel.capturedObjectBounds.equalTo(.zero) {
+                scanViewModel.playSound(.error)
+            } else {
+                scanViewModel.playSound(.success)
+            }
+
             shouldScale.toggle()
+            if scanViewModel.isInteractive {
+                scanViewModel.showInfo()
+            }
 
             print("MINX \(model.cameraModel.capturedObjectBounds.minX)")
             print("MAXX \(model.cameraModel.capturedObjectBounds.maxX)")
             print("MINY \(model.cameraModel.capturedObjectBounds.minY)")
             print("MAXY \(model.cameraModel.capturedObjectBounds.maxY)")
+        }
+        .onDisappear {
+            if scanViewModel.isInteractive {
+                scanViewModel.stop()
+            }
         }
         .ignoresSafeArea()
     }
@@ -117,7 +146,29 @@ struct ImageFinderBottomSheetView: View {
                 dismiss.callAsFunction()
             }
     }
+
+    private var toolBarItemLeading: some View {
+        Image(systemName: "info.bubble")
+            .resizable()
+            .frame(width: 28, height: 28)
+            .foregroundStyle(.blue)
+            .shadow(color: .secondary.opacity(0.5), radius: 5, x: .zero, y: .zero)
+            .onTapGesture {
+                scanViewModel.showInfo()
+            }
+    }
+
     // MARK: - Functions
+
+    private func setup() {
+        volumeHandler.upBlock = {
+            self.scanViewModel.didTapVolumeButton(direction: .up, model: model)
+        }
+
+        volumeHandler.downBlock = {
+            self.scanViewModel.didTapVolumeButton(direction: .down, model: model)
+        }
+    }
 }
 
 #Preview {

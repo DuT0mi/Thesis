@@ -32,11 +32,16 @@ final class ObjectDetectViewModel: ObservableObject {
 
     @Published var capturedObject: CameraManager.CameraResultModel
 
+    var refreshTime: Int {
+        tabProfileVM.objectDetectRefreshData
+    }
+
     @Injected private var hapticManager: HapticManager
     @Injected private var tabHosterInstance: TabHosterViewViewModel
     @Injected private var frameManagerInstance: FrameManager
     @Injected private var cameraManagerInstance: CameraManager
     @Injected private var speaker: SynthesizerManager
+    @Injected private var tabProfileVM: TabProfileLandingViewModel
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -56,6 +61,10 @@ final class ObjectDetectViewModel: ObservableObject {
 
     func resumeSession() {
         cameraManagerInstance.startSession()
+    }
+
+    func resetModelToForceUpdateView() {
+        capturedObject = .init(capturedLabel: String(), capturedObjectBounds: .zero)
     }
 
     func showHaptic(type: HapticType, impactStyle: UIImpactFeedbackGenerator.FeedbackStyle = .heavy, notificationStyle: UINotificationFeedbackGenerator.FeedbackType = .success) {

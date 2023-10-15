@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 import SwiftUI
 import Resolver
+import AVFoundation
 
 protocol ScanDocumentViewModelInput: BaseViewModelInput {
 }
@@ -21,14 +22,34 @@ final class ScanDocumentViewModel: ObservableObject {
 
     typealias Model = TextRecognizer.RecognizedModel
 
+    enum VolumeButtonType {
+        case up
+        case down
+    }
+
+    enum SystemSoundType: Int {
+        case success = 1150
+        case error = 1153
+    }
+
+    enum InfoType: String {
+        case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a kereséshez, lefele ha az egész talált képből szeretnéd a keresést."
+        case error = "Nincs talált objektum az aktuális neurális hálózati modell alapján. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra."
+    }
+
     // MARK: - Properties
 
     @Published var isSpeakerSpeaks = false
     @Published var isLoading = false
     @Published var isSearching = false
 
+    var isInteractive: Bool {
+        profileVM.interactiveMode
+    }
+
     @LazyInjected private var analyzer: ImageAnalyzer
     @Injected private var speaker: SynthesizerManager
+    @Injected private var profileVM: TabProfileLandingViewModel
 
     private(set) lazy var models = [Model]()
 
@@ -47,6 +68,40 @@ final class ScanDocumentViewModel: ObservableObject {
     func stop() {
         speaker.stop()
         isSpeakerSpeaks.toggle()
+    }
+
+    func showInfo(_ type: InfoType = .info) {
+        speaker.speak(with: type.rawValue)
+    }
+
+    func didTapVolumeButton(direction type: VolumeButtonType, model: ImageFinderBottomSheetModel) {
+        guard !model.cameraModel.capturedLabel.isEmpty, !model.cameraModel.capturedObjectBounds.equalTo(.zero) else {
+            self.playSound(.error)
+            self.showInfo(.error)
+
+            return
+        }
+
+        switch type {
+            case .up:
+                volumeButtonUpHandler()
+                debugPrint(String(describing: type))
+            case .down:
+                volumeButtonDownHandler()
+                debugPrint(String(describing: type))
+        }
+    }
+
+    private func volumeButtonUpHandler() {
+        
+    }
+
+    private func volumeButtonDownHandler() {
+
+    }
+
+    func playSound(_ type: SystemSoundType) {
+        speaker.playSystemSound(SystemSoundID(type.rawValue))
     }
 
     @MainActor
@@ -68,8 +123,7 @@ final class ScanDocumentViewModel: ObservableObject {
             }
     }
 
-    func findSimilarImages(
-        localDataBase coreDataElements: FetchedResults<TempData>, search forItem: CarouselModel) {
+    func findSimilarImages(localDataBase coreDataElements: FetchedResults<TempData>, search forItem: CarouselModel) {
         isSearching.toggle()
         analyzer.processImages(original: forItem, contestants: modelMapper(from: coreDataElements)) { [weak self] result in
             defer { self?.isSearching.toggle() }

@@ -14,6 +14,7 @@ struct ObjectDetectView: View {
         struct EventHandle {
             static let minimumTapDuration: Double = 2.0
             static let maximumDistance: CGFloat = 30
+            static let defaultRefreshDate: Int = -1 // Not set
         }
     }
 
@@ -25,6 +26,7 @@ struct ObjectDetectView: View {
     @State private var presentBottomSheet = false
     @State private var savedImage: UIImage?
     @State private var isLoading = false
+    @State private var previousModel: CameraManager.CameraResultModel = CameraManager.defaultCameraResultModel
 
     var body: some View {
         ZStack {
@@ -70,6 +72,22 @@ struct ObjectDetectView: View {
         }
         .onAppear {
             viewModel.didAppear()
+        }
+        .onChange(of: viewModel.capturedObject, perform: { value in
+            previousModel = value
+            checkIfModelHasChanged(TimeInterval(viewModel.refreshTime), model: value)
+        })
+    }
+
+    // MARK: - Functions
+
+    private func checkIfModelHasChanged(_ time: TimeInterval = 20.0, model newValue: CameraManager.CameraResultModel) {
+        guard time != Consts.EventHandle.defaultRefreshDate else { return }
+
+        DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + time) {
+            if newValue.capturedLabel.elementsEqual(previousModel.capturedLabel) || newValue.capturedObjectBounds.equalTo(previousModel.capturedObjectBounds) {
+                self.viewModel.resetModelToForceUpdateView()
+            }
         }
     }
 }

@@ -79,6 +79,8 @@
 		1AB9B7D92ADB07CA0046F048 /* CarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB9B7D82ADB07CA0046F048 /* CarouselModel.swift */; };
 		1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */; };
 		1ABED8C42ADBEB9B007982DD /* TabProfileLandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABED8C32ADBEB9B007982DD /* TabProfileLandingViewModel.swift */; };
+		1ABED8C72ADC08CA007982DD /* VolumeButtonHandler in Frameworks */ = {isa = PBXBuildFile; productRef = 1ABED8C62ADC08CA007982DD /* VolumeButtonHandler */; };
+		1ABED8C92ADC2709007982DD /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABED8C82ADC2709007982DD /* TimePicker.swift */; };
 		1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */; };
 		1AC604872AD2EF6E00BBE914 /* View+AnimatedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */; };
 		1AC937402AD47D1700851576 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 1AC9373F2AD47D1700851576 /* Resolver */; };
@@ -168,6 +170,7 @@
 		1AB9B7D82ADB07CA0046F048 /* CarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselModel.swift; sourceTree = "<group>"; };
 		1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		1ABED8C32ADBEB9B007982DD /* TabProfileLandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabProfileLandingViewModel.swift; sourceTree = "<group>"; };
+		1ABED8C82ADC2709007982DD /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 		1AC604832AD2CC0B00BBE914 /* ResultModel_1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResultModel_1.1.xcdatamodel; sourceTree = "<group>"; };
 		1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AnimatedActionButton.swift"; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 				1A915D672AC99DC4009FE4BE /* Pods_ThesisAccessibilityHelper.framework in Frameworks */,
 				1A915D772AC99FB3009FE4BE /* FirebaseAuth in Frameworks */,
 				1A915D812AC99FB3009FE4BE /* FirebaseDynamicLinks in Frameworks */,
+				1ABED8C72ADC08CA007982DD /* VolumeButtonHandler in Frameworks */,
 				1A915D832AC99FB3009FE4BE /* FirebaseFirestore in Frameworks */,
 				1A915D9B2AC99FB3009FE4BE /* FirebaseRemoteConfigSwift in Frameworks */,
 			);
@@ -581,6 +585,7 @@
 			children = (
 				1AC96B0F2ADAAC99000AE55E /* PanelView.swift */,
 				1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */,
+				1ABED8C82ADC2709007982DD /* TimePicker.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -710,6 +715,7 @@
 				1A915D9E2AC99FB3009FE4BE /* FirebaseStorageCombine-Community */,
 				1AC9373F2AD47D1700851576 /* Resolver */,
 				1AC937462AD47DEE00851576 /* Resolver */,
+				1ABED8C62ADC08CA007982DD /* VolumeButtonHandler */,
 			);
 			productName = ThesisAccessibilityHelper;
 			productReference = 1AA05F752AAAFA430084568F /* ThesisAccessibilityHelper.app */;
@@ -743,6 +749,7 @@
 			packageReferences = (
 				1A915D692AC99FB2009FE4BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1AC9373E2AD47D1700851576 /* XCRemoteSwiftPackageReference "Resolver" */,
+				1ABED8C52ADC08CA007982DD /* XCRemoteSwiftPackageReference "VolumeButtonHandler" */,
 			);
 			productRefGroup = 1AA05F762AAAFA430084568F /* Products */;
 			projectDirPath = "";
@@ -883,6 +890,7 @@
 				1AB040A02AB5DBB40037215E /* CGImage+create.swift in Sources */,
 				1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */,
 				1AB040A32AB5F4490037215E /* NavigationButton.swift in Sources */,
+				1ABED8C92ADC2709007982DD /* TimePicker.swift in Sources */,
 				1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */,
 				1AEC65DD2AC9C27700DEB3A8 /* ImagesCarousel.swift in Sources */,
 				1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */,
@@ -1134,6 +1142,14 @@
 				minimumVersion = 10.15.0;
 			};
 		};
+		1ABED8C52ADC08CA007982DD /* XCRemoteSwiftPackageReference "VolumeButtonHandler" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CipherBitCorp/VolumeButtonHandler";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		1AC9373E2AD47D1700851576 /* XCRemoteSwiftPackageReference "Resolver" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Resolver";
@@ -1279,6 +1295,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1A915D692AC99FB2009FE4BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		1ABED8C62ADC08CA007982DD /* VolumeButtonHandler */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1ABED8C52ADC08CA007982DD /* XCRemoteSwiftPackageReference "VolumeButtonHandler" */;
+			productName = VolumeButtonHandler;
 		};
 		1AC9373F2AD47D1700851576 /* Resolver */ = {
 			isa = XCSwiftPackageProductDependency;
