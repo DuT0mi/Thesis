@@ -125,8 +125,8 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/ObjectDetect+TextRecognizer/Views/ImageFinderBottomSheetView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "setup()"
             landmarkType = "7">
          </BreakpointContent>
@@ -141,9 +141,9 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/Scan+Speaker/ScanDocumentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "didTapVolumeButton(direction:model:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "didTapVolumeButton(direction:model:context:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

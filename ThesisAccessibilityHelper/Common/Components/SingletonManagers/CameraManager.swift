@@ -198,18 +198,6 @@ final class CameraManager: BaseCameraManager {
     private func update() {
         objectWillChange.send()
     }
-
-    private func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect, viewWidth: CGFloat, viewHeight: CGFloat) -> UIImage? {
-        let cropZone = CGRect(x: cropRect.origin.x, y: cropRect.origin.y, width: cropRect.size.width, height: cropRect.size.height)
-
-        guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to: cropZone)
-        else {
-            return nil
-        }
-
-        let croppedImage = UIImage(cgImage: cutImageRef)
-        return croppedImage
-    }
 }
 
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate

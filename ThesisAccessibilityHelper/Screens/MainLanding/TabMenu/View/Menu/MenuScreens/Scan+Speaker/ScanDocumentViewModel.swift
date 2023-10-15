@@ -50,6 +50,7 @@ final class ScanDocumentViewModel: ObservableObject {
     @LazyInjected private var analyzer: ImageAnalyzer
     @Injected private var speaker: SynthesizerManager
     @Injected private var profileVM: TabProfileLandingViewModel
+    @Injected private var hapticManager: HapticManager
 
     private(set) lazy var models = [Model]()
 
@@ -85,20 +86,27 @@ final class ScanDocumentViewModel: ObservableObject {
         isSpeakerSpeaks.toggle()
     }
 
-    func didTapVolumeButton(direction type: VolumeButtonType, model: ImageFinderBottomSheetModel) {
-        guard !model.cameraModel.capturedLabel.isEmpty else {
+    func didTapVolumeButton(direction type: VolumeButtonType, model: ImageFinderBottomSheetModel, context contestants: FetchedResults<TempData>) {
+        guard !model.cameraModel.capturedLabel.isEmpty, let cgImg = model.frame else {
             self.playSound(.error)
             self.showInfo(.error)
 
             return
         }
 
+        let carouselModel = CarouselModel(
+            id: UUID().uuidString,
+            image: Image(cgImg, scale: 1.0, orientation: .upMirrored, label: Text("AccessabilityCGImg")),
+            imageData: UIImage(cgImage: cgImg).pngData() ?? Data(count: .min),
+            detectedText: model.cameraModel.capturedLabel
+        )
+
         switch type {
             case .up:
-                volumeButtonUpHandler()
+                volumeButtonUpHandler(contestants, for: carouselModel, cropTo: model.cameraModel.capturedObjectBounds)
                 debugPrint(String(describing: type))
             case .down:
-                volumeButtonDownHandler()
+                volumeButtonDownHandler(contestants, for: carouselModel, cropTo: model.cameraModel.capturedObjectBounds)
                 debugPrint(String(describing: type))
         }
     }
@@ -127,6 +135,7 @@ final class ScanDocumentViewModel: ObservableObject {
     }
 
     func findSimilarImages(localDataBase coreDataElements: FetchedResults<TempData>, search forItem: CarouselModel) {
+        sortedModels.removeAll()
         isSearching.toggle()
         analyzer.processImages(original: forItem, contestants: modelMapper(from: coreDataElements)) { [weak self] result in
             defer { self?.isSearching.toggle() }
@@ -173,10 +182,32 @@ final class ScanDocumentViewModel: ObservableObject {
             }
     }
 
-    private func volumeButtonUpHandler() { // TODO: From the selected
+    private func volumeButtonUpHandler(_ contestants: FetchedResults<TempData>, for item: CarouselModel, cropTo rect: CGRect) {
+        guard let uiImage = cropImage(UIImage(data: item.imageData)!, toRect: rect) else { return }
+        var newItem = item
+        newItem.image = Image(uiImage: uiImage)
+        newItem.imageData = uiImage.pngData() ?? Data(count: .min)
+
+        findSimilarImages(localDataBase: contestants, search: newItem)
+
+        if !sortedModels.isEmpty {
+            hapticManager.notificationGenerator(type: .success)
+        }
     }
 
-    private func volumeButtonDownHandler() { // TODO: From all
+    private func volumeButtonDownHandler(_ contestants: FetchedResults<TempData>, for item: CarouselModel, cropTo rect: CGRect) { // TODO: From all
+    }
+    
+    private func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect) -> UIImage? {
+        let cropZone = CGRect(x: cropRect.origin.x, y: cropRect.origin.y, width: cropRect.size.width, height: cropRect.size.height)
+
+        guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to: cropZone)
+        else {
+            return nil
+        }
+
+        let croppedImage = UIImage(cgImage: cutImageRef)
+        return croppedImage
     }
 
     // MARK: - Intent(s)
@@ -218,6 +249,12 @@ extension ScanDocumentViewModel: ScanDocumentViewModelInput {
         resetLocalDB(context: cachedContext)
 
         models.forEach { CoreDataController().saveTempData(context: cachedContext, $0) }
+
+        resetCache()
+    }
+
+    func resetCache() {
+        sortedModels.removeAll()
     }
 }
 

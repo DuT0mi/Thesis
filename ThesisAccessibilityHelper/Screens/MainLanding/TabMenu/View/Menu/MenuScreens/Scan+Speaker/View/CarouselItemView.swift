@@ -39,6 +39,7 @@ struct CarouselItemView: View {
 
     var model: CarouselModel
     var type: ItemType = .back
+    var showButton = true
 
     var body: some View {
         BaseView {
@@ -73,14 +74,16 @@ struct CarouselItemView: View {
                         .lineLimit(nil)
                         .font(.caption2)
                     Spacer()
-                    Button("Find similar") {
-                        showBottomSheet.toggle()
-                        bottomSheetIsLoading = true
-
-                        scanViewModel.findSimilarImages(localDataBase: coreDataElements, search: model)
+                    if showButton {
+                        Button("Find similar") {
+                            showBottomSheet.toggle()
+                            bottomSheetIsLoading = true
+                            
+                            scanViewModel.findSimilarImages(localDataBase: coreDataElements, search: model)
+                        }
+                        .buttonStyle(.bordered)
+                        .buttonBorderShape(.roundedRectangle(radius: Consts.Layout.buttonCornerRadius))
                     }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.roundedRectangle(radius: Consts.Layout.buttonCornerRadius))
                 }
                 .tint(.red)
             }
