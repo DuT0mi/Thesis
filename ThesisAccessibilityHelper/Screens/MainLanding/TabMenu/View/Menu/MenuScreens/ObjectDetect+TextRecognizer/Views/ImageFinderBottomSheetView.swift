@@ -23,10 +23,19 @@ struct ImageFinderBottomSheetView: View {
     // MARK: - Properties
 
     @ObservedObject private var scanViewModel: ScanDocumentViewModel = Resolver.resolve()
+
     @Environment(\.dismiss) private var dismiss
+
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.resultID)]) private var coreDataElements: FetchedResults<TempData>
+
     @State private var volumeHandler = VolumeButtonHandler()
     @State private var currentImageSize: CGSize = .zero
     @State private var shouldScale = false
+    @State private var flipped = false
+    @State private var isLoading = false
+
+    private var front: Angle { flipped ? .degrees(180) : .degrees(0) }
+    private var back: Angle { flipped ? .degrees(0) : .degrees(-180) }
 
     var image: Image?
     var model: ImageFinderBottomSheetModel
@@ -41,7 +50,18 @@ struct ImageFinderBottomSheetView: View {
                 }
                 PanelView(text: "Talált objektum: \(model.cameraModel.capturedLabel)")
                     .frame(height: 75)
+                    .frame(minHeight: 75, alignment: .center)
                     .padding(.horizontal)
+                    .onTapGesture(count: 2) {
+                        guard !model.cameraModel.capturedLabel.isEmpty else { return }
+                        scanViewModel.customSpeak("""
+                                                  Talált objektum \(model.cameraModel.capturedLabel), a következő pozicióban a referencia koordináta rendszerhez képest:
+                                                  X irányban: \(model.cameraModel.capturedObjectBounds.minX < 0 ? Int(-1 * model.cameraModel.capturedObjectBounds.minX) : Int(model.cameraModel.capturedObjectBounds.minX))-től \(Int(model.cameraModel.capturedObjectBounds.maxX))-ig.
+                                                  Y irányban: \(Int(model.cameraModel.capturedObjectBounds.minY))-tól \(Int(model.cameraModel.capturedObjectBounds.maxY))-ig
+                                                  vagyis nagyjából \(findPosition()) van.
+                                                  """
+                        )
+                    }
                 ScrollView {
                     ZStack {
                         LazyVStack {
@@ -95,6 +115,30 @@ struct ImageFinderBottomSheetView: View {
                                             .opacity(shouldScale ? 1 : .zero)
                                             .offset(x: -currentImageSize.height * 0.3 * 0.05, y: -currentImageSize.height * 0.4 * 0.05)
                                     }
+                                if !scanViewModel.isSearching, !scanViewModel.sortedModels.isEmpty {
+                                    if let firstItem = scanViewModel.sortedModels.first {
+                                        Button {
+                                            withAnimation(.spring(.smooth)) { flipped.toggle() }
+                                        } label: {
+                                            ZStack {
+                                                CarouselItemView(bottomSheetIsLoading: .constant(false), model: firstItem.carouselModel, type: .front)
+                                                    .horizontalFlip(front, visible: !flipped)
+                                                CarouselItemView(bottomSheetIsLoading: .constant(false), model: firstItem.carouselModel, type: .back, showButton: false)
+                                                    .horizontalFlip(back, visible: flipped)
+                                            }
+                                        }
+                                        .frame(width: 200, height: 200, alignment: .center)
+                                        .padding()
+
+                                        Button {
+                                            scanViewModel.customSpeak("A meglévő tárgyaidból \(distanceToPercent(firstItem.featureprintDistance)) százalék magabiztossággal van már hasonló.")
+                                        } label: {
+                                            Text("\(distanceToPercent(firstItem.featureprintDistance))")
+                                        }
+                                        .buttonStyle(.bordered)
+                                        .buttonBorderShape(.roundedRectangle(radius: 12))
+                                    }
+                                }
                             } else {
                                 ProgressView() // TODO: Custom Error
                             }
@@ -122,16 +166,14 @@ struct ImageFinderBottomSheetView: View {
             if scanViewModel.isInteractive {
                 scanViewModel.showInfo()
             }
-
-            print("MINX \(model.cameraModel.capturedObjectBounds.minX)")
-            print("MAXX \(model.cameraModel.capturedObjectBounds.maxX)")
-            print("MINY \(model.cameraModel.capturedObjectBounds.minY)")
-            print("MAXY \(model.cameraModel.capturedObjectBounds.maxY)")
         }
         .onDisappear {
             if scanViewModel.isInteractive {
                 scanViewModel.stop()
             }
+            volumeHandler.stopHandler()
+            scanViewModel.stop()
+            scanViewModel.resetCache()
         }
         .ignoresSafeArea()
     }
@@ -158,15 +200,51 @@ struct ImageFinderBottomSheetView: View {
             }
     }
 
+    private func findPosition() -> String {
+        let refFrame = CGRect(x: 0, y: 0, width: AppConstants.AppDimension.width, height: AppConstants.AppDimension.height)
+        let objectFrame = model.cameraModel.capturedObjectBounds
+
+        let firstXColumn = refFrame.minY...refFrame.height / 3
+        let secondXColumn = refFrame.height / 3...refFrame.height / 3 * 2
+        _ = refFrame.height / 3 * 2...refFrame.maxY
+
+        let refMid = refFrame.midX
+
+        let oRefAvgX = objectFrame.midY
+
+        if firstXColumn ~= oRefAvgX {
+            if oRefAvgX > refMid {
+                return "bal felül"
+            } else {
+                return "jobb felül"
+            }
+        } else if secondXColumn ~= oRefAvgX {
+            return "középen"
+        } else {
+            if oRefAvgX > refMid {
+                return "bal alul"
+            } else {
+                return "jobb alul"
+            }
+        }
+    }
+
+    private func distanceToPercent(_ distance: Float) -> Float {
+        let percent =  (distance > 1.00001) ? (1 - distance) * -100 : (1 - distance) * 100
+        let percentFixed = percent < 10 ? percent * 10 : percent
+
+        return percentFixed
+    }
+
     // MARK: - Functions
 
     private func setup() {
         volumeHandler.upBlock = {
-            self.scanViewModel.didTapVolumeButton(direction: .up, model: model)
+            self.scanViewModel.didTapVolumeButton(direction: .up, model: model, context: coreDataElements)
         }
 
         volumeHandler.downBlock = {
-            self.scanViewModel.didTapVolumeButton(direction: .down, model: model)
+            self.scanViewModel.didTapVolumeButton(direction: .down, model: model, context: coreDataElements)
         }
     }
 }

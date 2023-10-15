@@ -30,11 +30,12 @@ final class ScanDocumentViewModel: ObservableObject {
     enum SystemSoundType: Int {
         case success = 1150
         case error = 1153
+        case confirm = 1111
     }
 
     enum InfoType: String {
-        case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a kereséshez, lefele ha az egész talált képből szeretnéd a keresést."
-        case error = "Nincs talált objektum az aktuális neurális hálózati modell alapján. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra."
+        case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a talált objektum kereséséhez, lefele ha az egész talált képből szeretnéd a keresést."
+        case error = "Nincs talált objektum. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra vagy a lefele gombbal próbálkozz az egész képben való kereséshez."
     }
 
     // MARK: - Properties
@@ -50,6 +51,7 @@ final class ScanDocumentViewModel: ObservableObject {
     @LazyInjected private var analyzer: ImageAnalyzer
     @Injected private var speaker: SynthesizerManager
     @Injected private var profileVM: TabProfileLandingViewModel
+    @Injected private var hapticManager: HapticManager
 
     private(set) lazy var models = [Model]()
 
@@ -65,39 +67,56 @@ final class ScanDocumentViewModel: ObservableObject {
 
     // MARK: - Functions
 
+    func customSpeak(_ text: String) {
+        guard !text.isEmpty else { return }
+        isSpeakerSpeaks.toggle()
+
+        speaker.speak(with: text)
+
+        isSpeakerSpeaks.toggle()
+    }
+
     func stop() {
         speaker.stop()
         isSpeakerSpeaks.toggle()
     }
 
     func showInfo(_ type: InfoType = .info) {
+        isSpeakerSpeaks.toggle()
         speaker.speak(with: type.rawValue)
+        isSpeakerSpeaks.toggle()
     }
 
-    func didTapVolumeButton(direction type: VolumeButtonType, model: ImageFinderBottomSheetModel) {
-        guard !model.cameraModel.capturedLabel.isEmpty, !model.cameraModel.capturedObjectBounds.equalTo(.zero) else {
+    func didTapVolumeButton(direction type: VolumeButtonType, model: ImageFinderBottomSheetModel, context contestants: FetchedResults<TempData>) {
+        guard let cgImg = model.frame else {
             self.playSound(.error)
             self.showInfo(.error)
 
             return
         }
 
+        if type == .up, model.cameraModel.capturedLabel.isEmpty {
+            self.playSound(.error)
+            self.showInfo(.error)
+
+            return
+        }
+
+        let carouselModel = CarouselModel(
+            id: UUID().uuidString,
+            image: Image(cgImg, scale: 1.0, orientation: .upMirrored, label: Text("AccessabilityCGImg")),
+            imageData: UIImage(cgImage: cgImg, scale: 1.0, orientation: .upMirrored).pngData() ?? Data(count: .min),
+            detectedText: model.cameraModel.capturedLabel
+        )
+
         switch type {
             case .up:
-                volumeButtonUpHandler()
+                volumeButtonUpHandler(contestants, for: carouselModel, cropTo: model.cameraModel.capturedObjectBounds)
                 debugPrint(String(describing: type))
             case .down:
-                volumeButtonDownHandler()
+                volumeButtonDownHandler(contestants, for: carouselModel)
                 debugPrint(String(describing: type))
         }
-    }
-
-    private func volumeButtonUpHandler() {
-        
-    }
-
-    private func volumeButtonDownHandler() {
-
     }
 
     func playSound(_ type: SystemSoundType) {
@@ -124,6 +143,7 @@ final class ScanDocumentViewModel: ObservableObject {
     }
 
     func findSimilarImages(localDataBase coreDataElements: FetchedResults<TempData>, search forItem: CarouselModel) {
+        sortedModels.removeAll()
         isSearching.toggle()
         analyzer.processImages(original: forItem, contestants: modelMapper(from: coreDataElements)) { [weak self] result in
             defer { self?.isSearching.toggle() }
@@ -170,6 +190,47 @@ final class ScanDocumentViewModel: ObservableObject {
             }
     }
 
+    private func volumeButtonUpHandler(_ contestants: FetchedResults<TempData>, for item: CarouselModel, cropTo rect: CGRect) {
+        guard let uiImage = cropImage(UIImage(data: item.imageData)!, toRect: rect) else { return }
+        var newItem = item
+        newItem.image = Image(uiImage: uiImage)
+        newItem.imageData = uiImage.pngData() ?? Data(count: .min)
+
+        findSimilarImages(localDataBase: contestants, search: newItem)
+
+        if !sortedModels.isEmpty {
+            hapticManager.notificationGenerator(type: .success)
+            playSound(.confirm)
+        }  else {
+            hapticManager.notificationGenerator(type: .error)
+            playSound(.error)
+        }
+    }
+
+    private func volumeButtonDownHandler(_ contestants: FetchedResults<TempData>, for item: CarouselModel) {
+        findSimilarImages(localDataBase: contestants, search: item)
+
+        if !sortedModels.isEmpty {
+            hapticManager.notificationGenerator(type: .success)
+            playSound(.confirm)
+        } else {
+            hapticManager.notificationGenerator(type: .error)
+            playSound(.error)
+        }
+    }
+
+    private func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect) -> UIImage? {
+        let cropZone = CGRect(x: cropRect.origin.x, y: cropRect.origin.y, width: cropRect.size.width, height: cropRect.size.height)
+
+        guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to: cropZone)
+        else {
+            return nil
+        }
+
+        let croppedImage = UIImage(cgImage: cutImageRef)
+        return croppedImage
+    }
+
     // MARK: - Intent(s)
 
     func appendElements(_ elements: [Model], on context: NSManagedObjectContext) {
@@ -209,6 +270,12 @@ extension ScanDocumentViewModel: ScanDocumentViewModelInput {
         resetLocalDB(context: cachedContext)
 
         models.forEach { CoreDataController().saveTempData(context: cachedContext, $0) }
+
+        resetCache()
+    }
+
+    func resetCache() {
+        sortedModels.removeAll()
     }
 }
 

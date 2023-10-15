@@ -16,12 +16,27 @@ struct TabProfileLandingView: View {
         }
     }
 
+    enum CountryCode: String, CaseIterable, RawRepresentable {
+        case hun = "HU"
+        case usa = "US"
+        case eng = "EN"
+    }
+
     // MARK: - Properties
 
     @StateObject private var viewModel = TabProfileLandingViewModel()
     @State private var interactiveMode = false
     @State private var refreshTime: Int = Consts.Layout.refreshTimeDefault
     @State private var showTimePicker = false
+    @State private var selectedCountryCode = CountryCode.hun.rawValue
+
+    private let countryCodes = CountryCode.allCases.map { $0.rawValue }
+
+    let countryFlags: [String: String] = [
+        "HU": "🇭🇺",
+        "US": "🇺🇸",
+        "EN": "🇬🇧"
+    ]
 
     private let columns = [
         MultiComponentPicker.Column(label: "s", options: Array(-1...60).map {
@@ -78,6 +93,14 @@ struct TabProfileLandingView: View {
                     }
                 }
             }
+            Picker("Language", selection: $selectedCountryCode) {
+                ForEach(countryCodes, id: \.self) { code in
+                    HStack {
+                        Text(countryFlags[code] ?? "")
+                            .font(.largeTitle)
+                    }
+                }
+            }
         } header: {
             Text("Settings")
         }
@@ -87,11 +110,16 @@ struct TabProfileLandingView: View {
 
     private func loadData() async {
         interactiveMode = viewModel.interactiveMode
+        selectedCountryCode = viewModel.objectDetectLanguage
+        refreshTime = viewModel.objectDetectRefreshData
     }
 
     private func saveData() {
         viewModel.setRefreshTime(refreshTime)
+        viewModel.setCountryCode(CountryCode(rawValue: selectedCountryCode) ?? CountryCode.hun)
     }
+
+    // TODO: Save when the value changes not when the view disappears
 }
 
 struct TabProfileLandingView_Previews: PreviewProvider {
