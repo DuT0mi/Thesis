@@ -11,6 +11,7 @@ import CoreData
 import SwiftUI
 import Resolver
 import AVFoundation
+import Vision
 
 protocol ScanDocumentViewModelInput: BaseViewModelInput {
 }
@@ -47,7 +48,8 @@ final class ScanDocumentViewModel: ObservableObject {
     var isInteractive: Bool {
         profileVM.interactiveMode
     }
-
+    
+    @LazyInjected private var textRecognizer: TextRecognizer
     @LazyInjected private var analyzer: ImageAnalyzer
     @Injected private var speaker: SynthesizerManager
     @Injected private var profileVM: TabProfileLandingViewModel
@@ -56,6 +58,8 @@ final class ScanDocumentViewModel: ObservableObject {
     private(set) lazy var models = [Model]()
 
     private(set) var sortedModels = [SortedModel]()
+
+    private(set) var carouselModel: CarouselModel?
 
     private var cachedContext: NSManagedObjectContext?
 
@@ -68,7 +72,12 @@ final class ScanDocumentViewModel: ObservableObject {
     // MARK: - Functions
 
     func customSpeak(_ text: String) {
-        guard !text.isEmpty else { return }
+        guard !text.isEmpty else {
+            self.playSound(.error)
+
+            return
+        }
+
         isSpeakerSpeaks.toggle()
 
         speaker.speak(with: text)
@@ -101,6 +110,8 @@ final class ScanDocumentViewModel: ObservableObject {
 
             return
         }
+   
+        textRecognizer(on: UIImage(cgImage: cgImg))
 
         let carouselModel = CarouselModel(
             id: UUID().uuidString,
@@ -231,6 +242,20 @@ final class ScanDocumentViewModel: ObservableObject {
         return croppedImage
     }
 
+    private func textRecognizer(on image: UIImage) -> String {
+        let detectedText = stringMapper(textRecognizer.findIn(image: image))
+
+        carouselModel = CarouselModel(id: UUID().uuidString, image: Image(uiImage: image), imageData: image.pngData() ?? Data(), detectedText: detectedText)
+
+        return detectedText
+    }
+
+    private func stringMapper(_ recArray: [VNRecognizedText]) -> String {
+        let array: [String] = recArray.map { $0.string }
+
+        return array.joined(separator: "")
+    }
+
     // MARK: - Intent(s)
 
     func appendElements(_ elements: [Model], on context: NSManagedObjectContext) {
@@ -276,6 +301,7 @@ extension ScanDocumentViewModel: ScanDocumentViewModelInput {
 
     func resetCache() {
         sortedModels.removeAll()
+        carouselModel = nil
     }
 }
 

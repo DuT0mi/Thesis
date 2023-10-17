@@ -104,6 +104,40 @@ final class TextRecognizer {
             })
         }
     }
+    
+    @discardableResult
+    func findIn(image: UIImage) -> [VNRecognizedText] {
+        guard let ciImage = CIImage(image: image) else { return [] }
+
+        var foundTexts = [VNRecognizedText]()
+
+        let requestHandler = VNImageRequestHandler(ciImage: ciImage, orientation: .upMirrored, options: [:])
+
+        let request = VNRecognizeTextRequest { request, error in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+
+            guard let observations = request.results as? [VNRecognizedTextObservation] else {
+                return
+            }
+
+            for observation in observations {
+                if let topCandidate = observation.topCandidates(1).first {
+                    foundTexts.append(topCandidate)
+                }
+            }
+        }
+
+        do {
+            try requestHandler.perform([request])
+        } catch {
+            print("Error: \(error)")
+        }
+        
+        return foundTexts
+    }
 
     private func setupVision() {
         let textRecognitionRequest = VNRecognizeTextRequest { (request, error) in // TODO: Publishing error
