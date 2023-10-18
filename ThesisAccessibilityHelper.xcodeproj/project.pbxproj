@@ -98,6 +98,7 @@
 		1AD1E8682AC04D4A00BCA580 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */; };
 		1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */; };
 		1AD302E02ADF187500E959B5 /* String+levenshteinDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD302DF2ADF187500E959B5 /* String+levenshteinDistance.swift */; };
+		1AD8DF6B2AE0715C0032418D /* HomeLandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD8DF6A2AE0715C0032418D /* HomeLandingViewModel.swift */; };
 		1AE53F1E2AD9C0DA00665594 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */; };
 		1AE53F202AD9C69000665594 /* ImageFinderBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F1F2AD9C69000665594 /* ImageFinderBottomSheetView.swift */; };
 		1AE53F222AD9E86B00665594 /* View+snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F212AD9E86B00665594 /* View+snapshot.swift */; };
@@ -188,6 +189,7 @@
 		1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
 		1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentViewModel.swift; sourceTree = "<group>"; };
 		1AD302DF2ADF187500E959B5 /* String+levenshteinDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+levenshteinDistance.swift"; sourceTree = "<group>"; };
+		1AD8DF6A2AE0715C0032418D /* HomeLandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLandingViewModel.swift; sourceTree = "<group>"; };
 		1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		1AE53F1F2AD9C69000665594 /* ImageFinderBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFinderBottomSheetView.swift; sourceTree = "<group>"; };
 		1AE53F212AD9E86B00665594 /* View+snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+snapshot.swift"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				1A5DF3CD2AB48B0300A872F2 /* TabHomeLandingView.swift */,
+				1AD8DF6A2AE0715C0032418D /* HomeLandingViewModel.swift */,
 			);
 			path = TabHome;
 			sourceTree = "<group>";
@@ -867,6 +870,7 @@
 				1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */,
 				1AB0409E2AB5D95A0037215E /* FrameManager.swift in Sources */,
 				1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */,
+				1AD8DF6B2AE0715C0032418D /* HomeLandingViewModel.swift in Sources */,
 				1AB9B7D92ADB07CA0046F048 /* CarouselModel.swift in Sources */,
 				1AD302E02ADF187500E959B5 /* String+levenshteinDistance.swift in Sources */,
 				1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */,

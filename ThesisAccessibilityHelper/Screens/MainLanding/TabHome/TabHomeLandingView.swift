@@ -10,9 +10,14 @@ import SwiftUI
 struct TabHomeLandingView: View {
     // MARK: - Properties
 
+    @StateObject private var viewModel = HomeLandingViewModel()
+
     var body: some View {
         BaseView {
             Text("Home Landing")
+        }
+        .onAppear {
+            viewModel.didAppear()
         }
         .ignoresSafeArea()
     }

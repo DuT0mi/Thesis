@@ -125,8 +125,8 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/Scan+Speaker/ScanDocumentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "didTapVolumeButton(direction:model:context:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -157,9 +157,217 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMenu/View/Menu/MenuScreens/Scan+Speaker/ScanDocumentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "customSpeak(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3EC51CA0-938F-4AEB-B71C-16B7D616A17D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Authentication/Account/AccountInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "createNewStandardAccount(user:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3EC51CA0-938F-4AEB-B71C-16B7D616A17D - ec51f483e0b49e57"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThesisAccessibilityHelper.AccountManager.createNewStandardAccount(user: ThesisAccessibilityHelper.StandardAccount) async throws -&gt; ()"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Authentication/Account/AccountInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "3EC51CA0-938F-4AEB-B71C-16B7D616A17D - 4e15cf3e056629c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ThesisAccessibilityHelper.AccountManager.createNewStandardAccount(user: ThesisAccessibilityHelper.StandardAccount) async throws -&gt; ()"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Authentication/Account/AccountInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B5A641D-2996-49D9-871A-1E2C6075EF9D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Authentication/AuthenticationInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "createUser(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2B5A641D-2996-49D9-871A-1E2C6075EF9D - c9af84f7a5819f81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThesisAccessibilityHelper.AuthenticationManager.createUser(email: Swift.String, password: Swift.String) async throws -&gt; ThesisAccessibilityHelper.AuthenticationDataResult"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Authentication/AuthenticationInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "2B5A641D-2996-49D9-871A-1E2C6075EF9D - 8d239c0ba5f0e1a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ThesisAccessibilityHelper.AuthenticationManager.createUser(email: Swift.String, password: Swift.String) async throws -&gt; ThesisAccessibilityHelper.AuthenticationDataResult"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Authentication/AuthenticationInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73EC8C96-0EDB-4F12-A504-927CE6E7E6EF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Authentication/ViewModel/UserViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "logIn()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "73EC8C96-0EDB-4F12-A504-927CE6E7E6EF - 6d427a9509e224a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThesisAccessibilityHelper.UserViewModel.logIn() async throws -&gt; ()"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Authentication/ViewModel/UserViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "73EC8C96-0EDB-4F12-A504-927CE6E7E6EF - 6ac7672119a1df92"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ThesisAccessibilityHelper.UserViewModel.logIn() async throws -&gt; ()"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Authentication/ViewModel/UserViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "607FB441-5382-48B6-BA28-28BBD5CFEDC2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Authentication/ViewModel/UserViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "signUp()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "607FB441-5382-48B6-BA28-28BBD5CFEDC2 - f9c4e4ef2dbd8977"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThesisAccessibilityHelper.UserViewModel.signUp() async throws -&gt; ()"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Authentication/ViewModel/UserViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "607FB441-5382-48B6-BA28-28BBD5CFEDC2 - a1eb5b13c2464796"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ThesisAccessibilityHelper.UserViewModel.signUp() async throws -&gt; ()"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Authentication/ViewModel/UserViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8ED35200-AC1B-4619-BF37-D8A041918C46"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Authentication/Account/AccountInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "createNewCompanyAccount(user:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

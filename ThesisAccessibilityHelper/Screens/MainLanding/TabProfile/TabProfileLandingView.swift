@@ -61,6 +61,9 @@ struct TabProfileLandingView: View {
         .task {
             await loadData()
         }
+        .onAppear {
+            viewModel.didAppear()
+        }
         .onDisappear {
             saveData()
         }

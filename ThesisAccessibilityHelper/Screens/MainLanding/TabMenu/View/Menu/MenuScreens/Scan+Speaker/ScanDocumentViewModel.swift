@@ -33,9 +33,9 @@ final class ScanDocumentViewModel: ObservableObject {
         case error = 1153
         case confirm = 1111
     }
-
+    // swiftlint: disable line_length
     enum InfoType: String {
-        case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a talált objektum kereséséhez, lefele ha az egész talált képből szeretnéd a keresést."
+        case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a talált objektum kereséséhez, lefele ha az egész talált képből szeretnéd a keresést. A képernyőt jobb felső sarkában lévő gombbal csukhatod be vagy húzd le. "
         case error = "Nincs talált objektum. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra vagy a lefele gombbal próbálkozz az egész képben való kereséshez."
     }
 
@@ -48,7 +48,16 @@ final class ScanDocumentViewModel: ObservableObject {
     var isInteractive: Bool {
         profileVM.interactiveMode
     }
-    
+
+    var cachedImageModel: ImageFinderBottomSheetModel? {
+        didSet {
+            guard let cachedImageModel, isInteractive else { return }
+            DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 5) { [weak self] in
+                self?.customSpeak("Talált objektum: \(cachedImageModel.cameraModel.capturedLabel)")
+            }
+        }
+    }
+
     @LazyInjected private var textRecognizer: TextRecognizer
     @LazyInjected private var analyzer: ImageAnalyzer
     @Injected private var speaker: SynthesizerManager
@@ -110,7 +119,7 @@ final class ScanDocumentViewModel: ObservableObject {
 
             return
         }
-   
+
         textRecognizer(on: UIImage(cgImage: cgImg))
 
         let carouselModel = CarouselModel(
@@ -212,7 +221,7 @@ final class ScanDocumentViewModel: ObservableObject {
         if !sortedModels.isEmpty {
             hapticManager.notificationGenerator(type: .success)
             playSound(.confirm)
-        }  else {
+        } else {
             hapticManager.notificationGenerator(type: .error)
             playSound(.error)
         }
@@ -281,6 +290,10 @@ final class ScanDocumentViewModel: ObservableObject {
             Image(.mockImage4)
         ]
     }
+
+    func setModel(_ model: ImageFinderBottomSheetModel) {
+        self.cachedImageModel = model
+    }
 }
 
 // MARK: - ScanDocumentViewModelInput
@@ -302,6 +315,7 @@ extension ScanDocumentViewModel: ScanDocumentViewModelInput {
     func resetCache() {
         sortedModels.removeAll()
         carouselModel = nil
+        cachedImageModel = nil
     }
 }
 

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Resolver
 
 final class TabProfileLandingViewModel: ObservableObject {
     // MARK: - Types
@@ -21,6 +22,8 @@ final class TabProfileLandingViewModel: ObservableObject {
     @AppStorage("objectDetectRefreshData") var objectDetectRefreshData: Int = Consts.defaultRefreshTime
     @AppStorage("objectDetectLanguage") var objectDetectLanguage = TabProfileLandingView.CountryCode.hun.rawValue
 
+    @LazyInjected private var speakerInstance: SynthesizerManager
+
     // MARK: - Intent(s)
 
     func setInteractiveMode(_ newValue: Bool) {
@@ -33,6 +36,18 @@ final class TabProfileLandingViewModel: ObservableObject {
 
     func setCountryCode(_ newValue: TabProfileLandingView.CountryCode) {
         objectDetectLanguage = newValue.rawValue
-        // TODO: Object detect dict
+    }
+}
+
+// MARK: - BaseViewModelInput
+
+extension TabProfileLandingViewModel: BaseViewModelInput {
+    func didAppear() {
+        if interactiveMode {
+            speakerInstance.speak(with: "Beléptél a Profil menüpontba")
+        }
+    }
+
+    func didDisAppear() {
     }
 }

@@ -175,6 +175,7 @@ struct ImageFinderBottomSheetView: View {
         }
         .onAppear {
             guard let frame = model.frame else { return }
+            scanViewModel.setModel(model)
             currentImageSize = .init(width: frame.width, height: frame.height)
 
             if model.cameraModel.capturedLabel.isEmpty || model.cameraModel.capturedObjectBounds.equalTo(.zero) {
