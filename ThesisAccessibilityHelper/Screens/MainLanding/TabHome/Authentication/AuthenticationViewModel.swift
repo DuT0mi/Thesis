@@ -83,9 +83,9 @@ final class AuthenticationViewModel: ObservableObject {
                 break
         }
     }
-    
+
     @MainActor
-    private func performOperation(_ operation: () async throws -> ()) async rethrows {
+    private func performOperation(_ operation: () async throws -> Void) async rethrows {
         defer {
             authenticationInteractor.encodeAuthenticatedStatus { [weak self] result in
                 self?.isAuthenticated = result
