@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct PopUpView: View{
+struct PopUpView: View {
     // MARK: - Properties
 
     var body: some View {
-        VStack{
+        VStack {
             Image(systemName: "person.crop.circle.badge.checkmark")
                 .foregroundColor(Color(red: 0, green: 0.4, blue: 0))
                 .bold()

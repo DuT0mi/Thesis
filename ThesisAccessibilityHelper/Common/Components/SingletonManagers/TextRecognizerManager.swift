@@ -104,7 +104,7 @@ final class TextRecognizer {
             })
         }
     }
-    
+
     @discardableResult
     func findIn(image: UIImage) -> [VNRecognizedText] {
         guard let ciImage = CIImage(image: image) else { return [] }
@@ -135,12 +135,12 @@ final class TextRecognizer {
         } catch {
             print("Error: \(error)")
         }
-        
+
         return foundTexts
     }
 
     private func setupVision() {
-        let textRecognitionRequest = VNRecognizeTextRequest { (request, error) in // TODO: Publishing error
+        let textRecognitionRequest = VNRecognizeTextRequest { (request, _) in // TODO: Publishing error
             guard let observations = request.results as? [VNRecognizedTextObservation] else {
                 print("Not found proper observations at: \(#file), \(#function), \(#column)")
                 return

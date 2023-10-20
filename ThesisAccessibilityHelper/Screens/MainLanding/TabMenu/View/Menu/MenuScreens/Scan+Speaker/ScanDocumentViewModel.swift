@@ -38,6 +38,7 @@ final class ScanDocumentViewModel: ObservableObject {
         case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a talált objektum kereséséhez, lefele ha az egész talált képből szeretnéd a keresést. A képernyőt jobb felső sarkában lévő gombbal csukhatod be vagy húzd le. "
         case error = "Nincs talált objektum. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra vagy a lefele gombbal próbálkozz az egész képben való kereséshez."
     }
+    // swiftlint: enable line_length
 
     // MARK: - Properties
 
@@ -251,6 +252,7 @@ final class ScanDocumentViewModel: ObservableObject {
         return croppedImage
     }
 
+    @discardableResult
     private func textRecognizer(on image: UIImage) -> String {
         let detectedText = stringMapper(textRecognizer.findIn(image: image))
 
@@ -273,7 +275,7 @@ final class ScanDocumentViewModel: ObservableObject {
         self.cachedContext = context
 
         elements.forEach {
-            guard !$0.resultingText.isEmpty && $0.cgImage != nil else { return }; #warning("Show error")
+            guard !$0.resultingText.isEmpty && $0.cgImage != nil else { return }
             models.append($0)
             CoreDataController().saveData(context: context, $0)
         }

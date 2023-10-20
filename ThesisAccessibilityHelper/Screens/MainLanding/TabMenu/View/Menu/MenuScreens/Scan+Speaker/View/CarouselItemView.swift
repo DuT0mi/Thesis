@@ -78,7 +78,7 @@ struct CarouselItemView: View {
                         Button("Find similar") {
                             showBottomSheet.toggle()
                             bottomSheetIsLoading = true
-                            
+
                             scanViewModel.findSimilarImages(localDataBase: coreDataElements, search: model)
                         }
                         .buttonStyle(.bordered)

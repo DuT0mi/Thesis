@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct MultiComponentPicker<Tag: Hashable>: View  {
+struct MultiComponentPicker<Tag: Hashable>: View {
     let columns: [Column]
     var selections: [Binding<Tag>]
 
@@ -24,7 +24,7 @@ struct MultiComponentPicker<Tag: Hashable>: View  {
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
-                ForEach(0 ..< columns.count, id:\.self) { index in
+                ForEach(0 ..< columns.count, id: \.self) { index in
                     let column = columns[index]
                     ZStack(alignment: Alignment.init(horizontal: .customCenter, vertical: .center)) {
                         if (!column.label.isEmpty && !column.options.isEmpty) {
