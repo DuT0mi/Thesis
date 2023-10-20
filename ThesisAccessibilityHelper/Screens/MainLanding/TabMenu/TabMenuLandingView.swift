@@ -6,11 +6,22 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct TabMenuLandingView: View {
+    // MARK: - Properties
+
+    @StateObject private var viewModel = TabMenuLandingViewModel()
+
     var body: some View {
         BaseView {
+            NotAuthenticatedView()
+                .zIndex(viewModel.isAuthenticated ? 0 : 1)
             MenuView()
+                .allowsHitTesting(viewModel.isAuthenticated ? true : false)
+        }
+        .task {
+            await viewModel.loadData()
         }
         .ignoresSafeArea()
     }

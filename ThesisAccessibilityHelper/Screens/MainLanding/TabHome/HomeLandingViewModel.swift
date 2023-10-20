@@ -12,8 +12,40 @@ import Resolver
 final class HomeLandingViewModel: ObservableObject {
     // MARK: - Properties
 
+    @Published private(set) var isAuthenticated = false
+
     @LazyInjected private var speakerInstance: SynthesizerManager
     @LazyInjected private var profileInstance: TabProfileLandingViewModel
+    @LazyInjected private var authenticationInteractor: AuthenticationInteractor
+
+    // MARK: - Initialization
+
+    init() {
+        addObservers()
+    }
+
+    // MARK: - Functions
+
+    func loadData() async {
+        authenticationInteractor.encodeAuthenticatedStatus { [weak self] result in
+            self?.isAuthenticated = result
+        }
+    }
+
+    private func addObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(authenticatedStatusDidChangeHandler),
+            name: .authenticatedStatusDidChange,
+            object: nil
+        )
+    }
+
+    @objc func authenticatedStatusDidChangeHandler() {
+        Task(priority: .high) {
+            await self.loadData()
+        }
+    }
 }
 
 // MARK: - BaseViewModelInput

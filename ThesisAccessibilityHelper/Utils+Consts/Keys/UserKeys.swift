@@ -9,4 +9,5 @@ import Foundation
 
 enum UserKeys: String, RawRepresentable {
     case currentUserID
+    case authenticationKey
 }

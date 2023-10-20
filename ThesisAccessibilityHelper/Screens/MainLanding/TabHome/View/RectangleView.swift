@@ -28,6 +28,7 @@ struct RectangleView: View {
     // MARK: - Properties
 
     var systemName: String
+    var isLogged = false
     var onTap: (() -> Void)?
 
     var body: some View {
@@ -44,7 +45,7 @@ struct RectangleView: View {
                             .overlay {
                                 Image(systemName: systemName)
                                     .frame(width: Consts.Layout.imageSize, height: Consts.Layout.imageSize)
-                                    .foregroundStyle(.black)
+                                    .foregroundStyle(isLogged ? .red : .black)
                             }
                             .zIndex(1)
                     }
@@ -56,6 +57,10 @@ struct RectangleView: View {
     }
 }
 
-#Preview {
-    RectangleView(systemName: "person.fill")
+#Preview("Not Logged") {
+    RectangleView(systemName: "person.fill.questionmark")
+}
+
+#Preview("Logged") {
+    RectangleView(systemName: "person.fill.checkmark", isLogged: true)
 }

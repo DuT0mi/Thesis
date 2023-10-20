@@ -14,6 +14,7 @@ struct TabHomeLandingView: View {
         struct Image {
             static let leading = "info.circle"
             static let trailing = "person.fill.questionmark"
+            static let trailingAuthenticated = "person.fill.checkmark"
 
             static let size: CGFloat = 28
             static let spacing: CGFloat = 16
@@ -36,8 +37,13 @@ struct TabHomeLandingView: View {
                         RectangleView(systemName: Consts.Image.leading) {
                             showInfo.toggle()
                         }
-                        RectangleView(systemName: Consts.Image.trailing) {
-                            showAuth.toggle()
+
+                        if viewModel.isAuthenticated {
+                            RectangleView(systemName: Consts.Image.trailingAuthenticated, isLogged: viewModel.isAuthenticated)
+                        } else {
+                            RectangleView(systemName: Consts.Image.trailing) {
+                                showAuth.toggle()
+                            }
                         }
                     }
                     Spacer()
@@ -51,6 +57,9 @@ struct TabHomeLandingView: View {
         .sheet(isPresented: $showAuth) {
             AuthenticationView(viewModel: authViewModel, type: .login)
                 .sheetStyle(style: .large, dismissable: true, showIndicator: true)
+        }
+        .task {
+            await viewModel.loadData()
         }
         .onAppear {
             viewModel.didAppear()

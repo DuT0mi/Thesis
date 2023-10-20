@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Resolver
 
 struct TabProfileLandingView: View {
     // MARK: - Types
@@ -29,6 +30,7 @@ struct TabProfileLandingView: View {
     @State private var refreshTime: Int = Consts.Layout.refreshTimeDefault
     @State private var showTimePicker = false
     @State private var selectedCountryCode = CountryCode.hun.rawValue
+    @State private var isPresentingConfirm = false
 
     private let countryCodes = CountryCode.allCases.map { $0.rawValue }
 
@@ -45,12 +47,24 @@ struct TabProfileLandingView: View {
 
     var body: some View {
         BaseView {
+            NotAuthenticatedView()
+                .opacity(viewModel.isAuthenticated ? .zero : 1)
+                .zIndex(viewModel.isAuthenticated ? .zero : 1)
             VStack {
                 Form {
                     settingsSection
+                    userSection
                 }
                 .formStyle(.grouped)
             }
+            .allowsHitTesting(viewModel.isAuthenticated ? true : false)
+        }
+        .confirmationDialog("Are you sure?", isPresented: $isPresentingConfirm) {
+            Button("Sign out?", role: .destructive) {
+                viewModel.signout()
+            }
+        } message: {
+            Text("You cannot undo this action")
         }
         .sheet(isPresented: $showTimePicker, onDismiss: {
             showTimePicker = false
@@ -59,6 +73,7 @@ struct TabProfileLandingView: View {
                 Binding<Int>(get: { self.refreshTime }, set: { self.refreshTime = $0 }) ])
         })
         .task {
+            await viewModel.loadData()
             await loadData()
         }
         .onAppear {
@@ -106,6 +121,25 @@ struct TabProfileLandingView: View {
             }
         } header: {
             Text("Settings")
+        }
+    }
+    private var userSection: some View {
+        Section {
+            Text("ID: \(viewModel.currentUser?.uid ?? "Not signed in")")
+            Text("Email: \(viewModel.currentUser?.email ?? "Not signed in")")
+            Button(role: .destructive) {
+                isPresentingConfirm.toggle()
+            } label: {
+                HStack {
+                    Spacer()
+                    Label("Log Out", systemImage: "figure.run")
+                        .foregroundColor(.red)
+                        .bold()
+                    Spacer()
+                }
+            }
+        } header: {
+            Text("Profile")
         }
     }
 
