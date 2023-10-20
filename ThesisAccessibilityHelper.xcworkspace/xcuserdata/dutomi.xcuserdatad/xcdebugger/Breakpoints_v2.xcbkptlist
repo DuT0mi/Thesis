@@ -374,77 +374,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "20E0F990-1C00-4A70-9E6E-CE281EF7FAA6"
+            uuid = "BC81716E-2316-439B-B95D-2FB563D3833F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabHosterView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5075DA5F-6262-4A20-A667-F6C38B32036A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabHome/Authentication/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "didTapButton(with:)"
-            landmarkType = "7">
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "AuthenticationViewModel"
+            landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "20E0F990-1C00-4A70-9E6E-CE281EF7FAA6 - 84ecd819ec28e9a7"
+                  uuid = "5075DA5F-6262-4A20-A667-F6C38B32036A - 2d1b6fd338ce49bb"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable () async -&gt; () in ThesisAccessibilityHelper.AuthenticationViewModel.didTapButton(with: ThesisAccessibilityHelper.AuthenticationView.Page) -&gt; ()"
+                  symbolName = "ThesisAccessibilityHelper.AuthenticationViewModel.deinit"
                   moduleName = "ThesisAccessibilityHelper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabHome/Authentication/AuthenticationViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "112">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
-                  uuid = "20E0F990-1C00-4A70-9E6E-CE281EF7FAA6 - c3d5adc845646d31"
+                  uuid = "5075DA5F-6262-4A20-A667-F6C38B32036A - d96d4ec173657646"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) await resume partial function for closure #2 @Sendable () async -&gt; () in ThesisAccessibilityHelper.AuthenticationViewModel.didTapButton(with: ThesisAccessibilityHelper.AuthenticationView.Page) -&gt; ()"
+                  symbolName = "ThesisAccessibilityHelper.AuthenticationViewModel.__deallocating_deinit"
                   moduleName = "ThesisAccessibilityHelper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabHome/Authentication/AuthenticationViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "20E0F990-1C00-4A70-9E6E-CE281EF7FAA6 - 28ffd0f305025405"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for closure #2 @Sendable () async -&gt; () in ThesisAccessibilityHelper.AuthenticationViewModel.didTapButton(with: ThesisAccessibilityHelper.AuthenticationView.Page) -&gt; ()"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabHome/Authentication/AuthenticationViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "20E0F990-1C00-4A70-9E6E-CE281EF7FAA6 - 8cf24b962017c606"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #2 @Sendable () async -&gt; () in ThesisAccessibilityHelper.AuthenticationViewModel.didTapButton(with: ThesisAccessibilityHelper.AuthenticationView.Page) -&gt; ()"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabHome/Authentication/AuthenticationViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "44">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>

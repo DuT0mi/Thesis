@@ -63,5 +63,10 @@ extension Resolver: ResolverRegistering {
             FireStoreDatabaseInteractor.shared
         }
         .scope(.application)
+
+        register {
+            AuthenticationViewModel()
+        }
+        .scope(.application)
     }
 }

@@ -13,18 +13,27 @@ import FirebaseAuth
 ///  - uid: The user's ID
 ///  - email: The user's email
 ///  - photoURL: The user's photoURL
+///  - description: A textual representation of the receiver
+///  - additionalUserInfo: For more information see `FIRAdditionalUserInfo`
+///  - credential: For more information see `FIRAuthCredential`
 struct AuthenticationDataResult {
     // MARK: - Properties
 
-    let uid: String
-    let email: String?
-    let photoURL: String?
+    var uid: String
+    var email: String?
+    var photoURL: String?
+    var description: String?
+    var additionalUserInfo: AdditionalUserInfo?
+    var credential: AuthCredential?
 
     // MARK: - Initialization
 
-    init(user: User) {
+    init(user: User, additionalUserInfo: AdditionalUserInfo? = nil, credential: AuthCredential? = nil) {
         self.uid = user.uid
         self.email = user.email
         self.photoURL = user.photoURL?.absoluteString
+        self.description = user.description
+        self.additionalUserInfo = additionalUserInfo
+        self.credential = credential
     }
 }

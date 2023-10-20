@@ -8,7 +8,6 @@
 import Foundation
 import Resolver
 
-@MainActor
 final class AuthenticationViewModel: ObservableObject {
     // MARK: - Types
 
@@ -44,22 +43,23 @@ final class AuthenticationViewModel: ObservableObject {
 
     @Published var email = String()
     @Published var password = String()
-    @Published var selectedType: AccountType
+    @Published var selectedType: AccountType = .impared
     @Published var alertMessage = String()
     @Published var alert = false
     @Published var authenticationStatus: AuthenticationResponseStatus = .none
     @Published private(set) var isLoading = false
+    @Published private(set) var isAuthenticated = false
 
     @LazyInjected private var authenticationInteractor: AuthenticationInteractor
 
     // MARK: - Initialization
 
     init() {
-        _selectedType = .init(initialValue: .impared)
     }
 
     // MARK: - Functions
 
+    @MainActor
     func didTapButton(with type: AuthenticationView.Page) {
         isLoading.toggle()
 
@@ -73,29 +73,37 @@ final class AuthenticationViewModel: ObservableObject {
         switch type {
             case .login:
                 Task {
-                    do {
-                        try await login()
-                        authenticationStatus = .successful
-                    } catch {
-                        alertMessage = error.localizedDescription
-                        authenticationStatus = .error(error)
-                    }
+                    try await performOperation(login)
                 }
             case .signup:
                 Task {
-                    do {
-                        try await signup()
-                        authenticationStatus = .successful
-                    } catch {
-                        alertMessage = error.localizedDescription
-                        authenticationStatus = .error(error)
-                    }
+                    try await performOperation(signup)
                 }
             @unknown default:
                 break
         }
     }
+    
+    @MainActor
+    private func performOperation(_ operation: () async throws -> ()) async rethrows {
+        defer {
+            authenticationInteractor.encodeAuthenticatedStatus { [weak self] result in
+                self?.isAuthenticated = result
+            }
+        }
 
+        do {
+            try await operation()
+            authenticationStatus = .successful
+            authenticationInteractor.saveAuthenticatedStatus(.authenticated)
+        } catch {
+            authenticationInteractor.saveAuthenticatedStatus(.notAuthenticated)
+            alertMessage = error.localizedDescription
+            authenticationStatus = .error(error)
+        }
+    }
+
+    @MainActor
     private func login() async throws {
         do {
             try await authenticationInteractor.login(.init(email: email, password: password))
@@ -109,6 +117,7 @@ final class AuthenticationViewModel: ObservableObject {
 
     }
 
+    @MainActor
     private func signup() async throws {
         do {
             try await authenticationInteractor.createUser(.init(email: email, password: password))
@@ -122,11 +131,13 @@ final class AuthenticationViewModel: ObservableObject {
         }
     }
 
+    @MainActor
     private func showAlertMessage(_ alertMessage: String) {
         self.alertMessage = alertMessage
         alert.toggle()
     }
 
+    @MainActor
     private func resetCache() {
         authenticationStatus = .none
     }

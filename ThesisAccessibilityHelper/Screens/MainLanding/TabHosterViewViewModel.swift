@@ -37,6 +37,5 @@ final class TabHosterViewViewModel: ObservableObject {
                 self?.shouldShowTabBar = receivedValue
             }
             .store(in: &cancellables)
-
     }
 }

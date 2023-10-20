@@ -103,6 +103,9 @@
 		1AD161B52AE2D02F0014E51A /* AuthenticationDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161B42AE2D02F0014E51A /* AuthenticationDataResult.swift */; };
 		1AD161B82AE2D1960014E51A /* UserKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161B72AE2D1960014E51A /* UserKeys.swift */; };
 		1AD161BA2AE2E43A0014E51A /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161B92AE2E43A0014E51A /* PopupView.swift */; };
+		1AD161BF2AE2F9640014E51A /* Error+AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161BE2AE2F9640014E51A /* Error+AuthenticationError.swift */; };
+		1AD161C12AE316A10014E51A /* NotAuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161C02AE316A10014E51A /* NotAuthenticatedView.swift */; };
+		1AD161C32AE3267C0014E51A /* TabMenuLandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161C22AE3267C0014E51A /* TabMenuLandingViewModel.swift */; };
 		1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */; };
 		1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */; };
 		1AD1E8662AC04B9000BCA580 /* TextRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */; };
@@ -205,6 +208,9 @@
 		1AD161B42AE2D02F0014E51A /* AuthenticationDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDataResult.swift; sourceTree = "<group>"; };
 		1AD161B72AE2D1960014E51A /* UserKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKeys.swift; sourceTree = "<group>"; };
 		1AD161B92AE2E43A0014E51A /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		1AD161BE2AE2F9640014E51A /* Error+AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+AuthenticationError.swift"; sourceTree = "<group>"; };
+		1AD161C02AE316A10014E51A /* NotAuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotAuthenticatedView.swift; sourceTree = "<group>"; };
+		1AD161C22AE3267C0014E51A /* TabMenuLandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMenuLandingViewModel.swift; sourceTree = "<group>"; };
 		1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
 		1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentView.swift; sourceTree = "<group>"; };
 		1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerManager.swift; sourceTree = "<group>"; };
@@ -321,6 +327,7 @@
 				1A5DF3D52AB4D43F00A872F2 /* Views */,
 				1A5DF3D12AB490A700A872F2 /* MenuView.swift */,
 				1A5DF3D62AB4D45900A872F2 /* MenuViewModel.swift */,
+				1AD161C22AE3267C0014E51A /* TabMenuLandingViewModel.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -423,6 +430,7 @@
 				1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */,
 				1AE53F212AD9E86B00665594 /* View+snapshot.swift */,
 				1AD302DF2ADF187500E959B5 /* String+levenshteinDistance.swift */,
+				1AD161BE2AE2F9640014E51A /* Error+AuthenticationError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -622,6 +630,7 @@
 				1ABED8C82ADC2709007982DD /* TimePicker.swift */,
 				1AD161A72AE2AF0E0014E51A /* SecureTextField.swift */,
 				1AD161B92AE2E43A0014E51A /* PopupView.swift */,
+				1AD161C02AE316A10014E51A /* NotAuthenticatedView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -963,6 +972,8 @@
 				1ACC9DF82AD7184F00A58531 /* ImageAnalyzer.swift in Sources */,
 				1AD161B32AE2D0260014E51A /* AuthenticationUserModel.swift in Sources */,
 				1AE53F222AD9E86B00665594 /* View+snapshot.swift in Sources */,
+				1AD161BF2AE2F9640014E51A /* Error+AuthenticationError.swift in Sources */,
+				1AD161C12AE316A10014E51A /* NotAuthenticatedView.swift in Sources */,
 				1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */,
 				1AA539B52ACE01E900E8E0DC /* AlbumView.swift in Sources */,
 				1AD1E8682AC04D4A00BCA580 /* DocumentPickerView.swift in Sources */,
@@ -984,6 +995,7 @@
 				1ABED8C92ADC2709007982DD /* TimePicker.swift in Sources */,
 				1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */,
 				1AEC65DD2AC9C27700DEB3A8 /* ImagesCarousel.swift in Sources */,
+				1AD161C32AE3267C0014E51A /* TabMenuLandingViewModel.swift in Sources */,
 				1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */,
 				1A5DF3D72AB4D45900A872F2 /* MenuViewModel.swift in Sources */,
 				1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */,
