@@ -92,6 +92,9 @@
 		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
 		1ACC9DF82AD7184F00A58531 /* ImageAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */; };
 		1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF92AD729E300A58531 /* FoundImages.swift */; };
+		1AD161A12AE28BF00014E51A /* HomeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A02AE28BF00014E51A /* HomeInfoView.swift */; };
+		1AD161A32AE28C310014E51A /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A22AE28C310014E51A /* AuthenticationView.swift */; };
+		1AD161A62AE290C70014E51A /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A52AE290C70014E51A /* RectangleView.swift */; };
 		1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */; };
 		1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */; };
 		1AD1E8662AC04B9000BCA580 /* TextRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */; };
@@ -183,6 +186,9 @@
 		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
 		1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalyzer.swift; sourceTree = "<group>"; };
 		1ACC9DF92AD729E300A58531 /* FoundImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundImages.swift; sourceTree = "<group>"; };
+		1AD161A02AE28BF00014E51A /* HomeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoView.swift; sourceTree = "<group>"; };
+		1AD161A22AE28C310014E51A /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		1AD161A52AE290C70014E51A /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
 		1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentView.swift; sourceTree = "<group>"; };
 		1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerManager.swift; sourceTree = "<group>"; };
@@ -250,6 +256,7 @@
 		1A5DF3C32AB48A2600A872F2 /* TabHome */ = {
 			isa = PBXGroup;
 			children = (
+				1AD1619F2AE289150014E51A /* View */,
 				1A5DF3CD2AB48B0300A872F2 /* TabHomeLandingView.swift */,
 				1AD8DF6A2AE0715C0032418D /* HomeLandingViewModel.swift */,
 			);
@@ -604,6 +611,16 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		1AD1619F2AE289150014E51A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1AD161A02AE28BF00014E51A /* HomeInfoView.swift */,
+				1AD161A22AE28C310014E51A /* AuthenticationView.swift */,
+				1AD161A52AE290C70014E51A /* RectangleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1AD1E8612AC0461300BCA580 /* Scan+Speaker */ = {
 			isa = PBXGroup;
 			children = (
@@ -878,6 +895,7 @@
 				1AC604872AD2EF6E00BBE914 /* View+AnimatedActionButton.swift in Sources */,
 				1A9428622ABA28230042D9BB /* Documentation.docc in Sources */,
 				1AA539AD2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld in Sources */,
+				1AD161A62AE290C70014E51A /* RectangleView.swift in Sources */,
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,
 				1AC96B122ADAB25E000AE55E /* ImageCoordinatePointView.swift in Sources */,
 				1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */,
@@ -889,6 +907,7 @@
 				1A5DF3CA2AB48ACC00A872F2 /* TabProfileLandingView.swift in Sources */,
 				1AB040972AB5CA470037215E /* ObjectDetectViewModel.swift in Sources */,
 				1AB040952AB5C51E0037215E /* CameraFrameView.swift in Sources */,
+				1AD161A32AE28C310014E51A /* AuthenticationView.swift in Sources */,
 				1AEC65DB2AC9B0CC00DEB3A8 /* HintView.swift in Sources */,
 				1A96BE3A2AAB48AD003DE05B /* Localized.swift in Sources */,
 				1A9665CA2AACC6FC0087F964 /* BaseView.swift in Sources */,
@@ -898,6 +917,7 @@
 				1AB040A02AB5DBB40037215E /* CGImage+create.swift in Sources */,
 				1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */,
 				1AB040A32AB5F4490037215E /* NavigationButton.swift in Sources */,
+				1AD161A12AE28BF00014E51A /* HomeInfoView.swift in Sources */,
 				1ABED8C92ADC2709007982DD /* TimePicker.swift in Sources */,
 				1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */,
 				1AEC65DD2AC9C27700DEB3A8 /* ImagesCarousel.swift in Sources */,

@@ -36,9 +36,9 @@ struct TabHosterView: View {
                     customTabBarFactory()
                 }
             }
+            .ignoresSafeArea()
         }
         .environmentObject(viewModel)
-        .ignoresSafeArea()
     }
 
     // MARK: - Initialization
