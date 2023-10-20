@@ -187,7 +187,7 @@ final class CameraManager: BaseCameraManager {
 
             let topLabelObservation = objectObservation.labels[0]
 
-            guard topLabelObservation.confidence > Float(0.849999) else { continue } // TODO: On settings tab
+            guard topLabelObservation.confidence > Float(0.849999) else { continue }
 
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
 

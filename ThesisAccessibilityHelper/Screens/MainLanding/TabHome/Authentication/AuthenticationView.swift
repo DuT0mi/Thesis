@@ -23,28 +23,53 @@ struct AuthenticationView: View {
 
     // MARK: - Properties
 
-    @StateObject private var viewModel = AuthenticationViewModel()
+    @ObservedObject var viewModel: AuthenticationViewModel
+    @Environment(\.dismiss) private var dismiss
     @State private var showSignup = false
+    @State private var showPopup = false
 
     var type: Page
 
     var body: some View {
         BaseView {
+            if viewModel.isLoading {
+                ProgressView()
+            }
+
             VStack(alignment: .center, spacing: 16) {
                 Group {
                     titleComponent
                     emailComponent
                     passwordComponent
-                    if type == .login {
-                        signupComponent
+
+                    switch type {
+                        case .login:
+                            signupComponent
+                        case .signup:
+                            pickerComponent
                     }
                 }
                 .padding()
                 buttonComponent
             }
         }
+        .onChange(of: viewModel.authenticationStatus) { value in
+            switch value {
+                case .successful:
+                    self.selfDismiss()
+                default:
+                    break
+            }
+        }
+        .alert(isPresented: $viewModel.alert, content: {
+            Alert(
+                title: Text("Message"),
+                message: Text(viewModel.alertMessage),
+                dismissButton: .destructive(Text("Got it!"))
+            )
+        })
         .sheet(isPresented: $showSignup) {
-            AuthenticationView(type: .signup)
+            AuthenticationView(viewModel: viewModel, type: .signup)
         }
     }
 
@@ -104,16 +129,34 @@ struct AuthenticationView: View {
             .buttonStyle(BorderlessButtonStyle())
         }
     }
+
+    private var pickerComponent: some View {
+        Picker("Account", systemImage: "person.fill.questionmark", selection: $viewModel.selectedType) {
+            Text("I am helper")
+                .tag(AuthenticationViewModel.AccountType.helper)
+            Text("I am visually impared")
+                .tag(AuthenticationViewModel.AccountType.impared)
+        }
+        .pickerStyle(.segmented)
+    }
+
+    // MARK: - Functions
+
+    private func selfDismiss() {
+        withAnimation(.smooth) {
+            self.dismiss.callAsFunction()
+        }
+    }
 }
 
 #Preview("Login") {
     BaseView {
-        AuthenticationView(type: .login)
+        AuthenticationView(viewModel: AuthenticationViewModel(), type: .login)
     }
 }
 
 #Preview("Sign up") {
     BaseView {
-        AuthenticationView(type: .signup)
+        AuthenticationView(viewModel: AuthenticationViewModel(), type: .signup)
     }
 }

@@ -23,6 +23,7 @@ struct TabHomeLandingView: View {
     // MARK: - Properties
 
     @StateObject private var viewModel = HomeLandingViewModel()
+    @StateObject private var authViewModel = AuthenticationViewModel()
     @State private var showInfo = false
     @State private var showAuth = false
 
@@ -48,7 +49,7 @@ struct TabHomeLandingView: View {
                 .sheetStyle(style: .mixed, dismissable: true, showIndicator: true)
         }
         .sheet(isPresented: $showAuth) {
-            AuthenticationView(type: .login)
+            AuthenticationView(viewModel: authViewModel, type: .login)
                 .sheetStyle(style: .large, dismissable: true, showIndicator: true)
         }
         .onAppear {

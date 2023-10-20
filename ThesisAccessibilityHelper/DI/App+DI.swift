@@ -53,5 +53,15 @@ extension Resolver: ResolverRegistering {
             TextRecognizer.shared
         }
         .scope(.application)
+
+        register {
+            AuthenticationInteractor.shared
+        }
+        .scope(.application)
+
+        register {
+            FireStoreDatabaseInteractor.shared
+        }
+        .scope(.application)
     }
 }

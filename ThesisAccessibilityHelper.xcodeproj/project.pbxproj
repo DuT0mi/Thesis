@@ -97,6 +97,12 @@
 		1AD161A62AE290C70014E51A /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A52AE290C70014E51A /* RectangleView.swift */; };
 		1AD161A82AE2AF0E0014E51A /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A72AE2AF0E0014E51A /* SecureTextField.swift */; };
 		1AD161AB2AE2AFC00014E51A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161AA2AE2AFC00014E51A /* AuthenticationViewModel.swift */; };
+		1AD161AD2AE2C95F0014E51A /* AuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161AC2AE2C95F0014E51A /* AuthenticationInteractor.swift */; };
+		1AD161AF2AE2CD750014E51A /* FireStoreDatabaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161AE2AE2CD750014E51A /* FireStoreDatabaseInteractor.swift */; };
+		1AD161B32AE2D0260014E51A /* AuthenticationUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161B22AE2D0260014E51A /* AuthenticationUserModel.swift */; };
+		1AD161B52AE2D02F0014E51A /* AuthenticationDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161B42AE2D02F0014E51A /* AuthenticationDataResult.swift */; };
+		1AD161B82AE2D1960014E51A /* UserKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161B72AE2D1960014E51A /* UserKeys.swift */; };
+		1AD161BA2AE2E43A0014E51A /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161B92AE2E43A0014E51A /* PopupView.swift */; };
 		1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */; };
 		1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */; };
 		1AD1E8662AC04B9000BCA580 /* TextRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */; };
@@ -193,6 +199,12 @@
 		1AD161A52AE290C70014E51A /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		1AD161A72AE2AF0E0014E51A /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
 		1AD161AA2AE2AFC00014E51A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		1AD161AC2AE2C95F0014E51A /* AuthenticationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractor.swift; sourceTree = "<group>"; };
+		1AD161AE2AE2CD750014E51A /* FireStoreDatabaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreDatabaseInteractor.swift; sourceTree = "<group>"; };
+		1AD161B22AE2D0260014E51A /* AuthenticationUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUserModel.swift; sourceTree = "<group>"; };
+		1AD161B42AE2D02F0014E51A /* AuthenticationDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDataResult.swift; sourceTree = "<group>"; };
+		1AD161B72AE2D1960014E51A /* UserKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKeys.swift; sourceTree = "<group>"; };
+		1AD161B92AE2E43A0014E51A /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
 		1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentView.swift; sourceTree = "<group>"; };
 		1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerManager.swift; sourceTree = "<group>"; };
@@ -353,6 +365,7 @@
 		1A96BE2D2AAB3959003DE05B /* Utils+Consts */ = {
 			isa = PBXGroup;
 			children = (
+				1AD161B62AE2D18D0014E51A /* Keys */,
 				1AB040A82AB652CE0037215E /* License */,
 				1AB040A12AB5F4320037215E /* Utils */,
 				1A9A24AA2AACE1FA0005EBA0 /* Extensions */,
@@ -527,6 +540,7 @@
 		1AB040982AB5CD580037215E /* SingletonManagers */ = {
 			isa = PBXGroup;
 			children = (
+				1AD161B02AE2D0100014E51A /* HelperModels */,
 				1ACC0EE12ABA0FE400113911 /* Base */,
 				1AB040992AB5CD6B0037215E /* CameraManager.swift */,
 				1AB0409D2AB5D95A0037215E /* FrameManager.swift */,
@@ -534,6 +548,8 @@
 				1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */,
 				1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */,
 				1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */,
+				1AD161AC2AE2C95F0014E51A /* AuthenticationInteractor.swift */,
+				1AD161AE2AE2CD750014E51A /* FireStoreDatabaseInteractor.swift */,
 			);
 			path = SingletonManagers;
 			sourceTree = "<group>";
@@ -605,6 +621,7 @@
 				1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */,
 				1ABED8C82ADC2709007982DD /* TimePicker.swift */,
 				1AD161A72AE2AF0E0014E51A /* SecureTextField.swift */,
+				1AD161B92AE2E43A0014E51A /* PopupView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -633,6 +650,31 @@
 				1AD161AA2AE2AFC00014E51A /* AuthenticationViewModel.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		1AD161B02AE2D0100014E51A /* HelperModels */ = {
+			isa = PBXGroup;
+			children = (
+				1AD161B12AE2D01B0014E51A /* Authentication */,
+			);
+			path = HelperModels;
+			sourceTree = "<group>";
+		};
+		1AD161B12AE2D01B0014E51A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1AD161B22AE2D0260014E51A /* AuthenticationUserModel.swift */,
+				1AD161B42AE2D02F0014E51A /* AuthenticationDataResult.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		1AD161B62AE2D18D0014E51A /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				1AD161B72AE2D1960014E51A /* UserKeys.swift */,
+			);
+			path = Keys;
 			sourceTree = "<group>";
 		};
 		1AD1E8612AC0461300BCA580 /* Scan+Speaker */ = {
@@ -889,12 +931,15 @@
 				1A915DA12AC9A0E3009FE4BE /* AppDelegate.swift in Sources */,
 				1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */,
 				1AA539A92ACDD7AF00E8E0DC /* CoreDataController.swift in Sources */,
+				1AD161AF2AE2CD750014E51A /* FireStoreDatabaseInteractor.swift in Sources */,
 				1AA05F7B2AAAFA430084568F /* TabHosterView.swift in Sources */,
 				1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */,
 				1AB0409A2AB5CD6B0037215E /* CameraManager.swift in Sources */,
+				1AD161AD2AE2C95F0014E51A /* AuthenticationInteractor.swift in Sources */,
 				1AD161AB2AE2AFC00014E51A /* AuthenticationViewModel.swift in Sources */,
 				1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */,
 				1AB0409C2AB5CFE70037215E /* Error+Camera.swift in Sources */,
+				1AD161BA2AE2E43A0014E51A /* PopupView.swift in Sources */,
 				1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */,
 				1AE53F1E2AD9C0DA00665594 /* HapticManager.swift in Sources */,
 				1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */,
@@ -908,6 +953,7 @@
 				1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
 				1AC604872AD2EF6E00BBE914 /* View+AnimatedActionButton.swift in Sources */,
+				1AD161B52AE2D02F0014E51A /* AuthenticationDataResult.swift in Sources */,
 				1A9428622ABA28230042D9BB /* Documentation.docc in Sources */,
 				1AA539AD2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld in Sources */,
 				1AD161A62AE290C70014E51A /* RectangleView.swift in Sources */,
@@ -915,6 +961,7 @@
 				1AC96B122ADAB25E000AE55E /* ImageCoordinatePointView.swift in Sources */,
 				1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */,
 				1ACC9DF82AD7184F00A58531 /* ImageAnalyzer.swift in Sources */,
+				1AD161B32AE2D0260014E51A /* AuthenticationUserModel.swift in Sources */,
 				1AE53F222AD9E86B00665594 /* View+snapshot.swift in Sources */,
 				1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */,
 				1AA539B52ACE01E900E8E0DC /* AlbumView.swift in Sources */,
@@ -940,6 +987,7 @@
 				1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */,
 				1A5DF3D72AB4D45900A872F2 /* MenuViewModel.swift in Sources */,
 				1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */,
+				1AD161B82AE2D1960014E51A /* UserKeys.swift in Sources */,
 				1AE53F202AD9C69000665594 /* ImageFinderBottomSheetView.swift in Sources */,
 				1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */,
 				1A5DF3CC2AB48ADF00A872F2 /* TabMenuLandingView.swift in Sources */,
