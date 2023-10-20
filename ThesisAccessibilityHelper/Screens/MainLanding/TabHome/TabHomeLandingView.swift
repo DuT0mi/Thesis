@@ -48,7 +48,7 @@ struct TabHomeLandingView: View {
                 .sheetStyle(style: .mixed, dismissable: true, showIndicator: true)
         }
         .sheet(isPresented: $showAuth) {
-            AuthenticationView()
+            AuthenticationView(type: .login)
                 .sheetStyle(style: .large, dismissable: true, showIndicator: true)
         }
         .onAppear {

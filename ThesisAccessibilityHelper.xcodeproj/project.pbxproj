@@ -95,6 +95,8 @@
 		1AD161A12AE28BF00014E51A /* HomeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A02AE28BF00014E51A /* HomeInfoView.swift */; };
 		1AD161A32AE28C310014E51A /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A22AE28C310014E51A /* AuthenticationView.swift */; };
 		1AD161A62AE290C70014E51A /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A52AE290C70014E51A /* RectangleView.swift */; };
+		1AD161A82AE2AF0E0014E51A /* SecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A72AE2AF0E0014E51A /* SecureTextField.swift */; };
+		1AD161AB2AE2AFC00014E51A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161AA2AE2AFC00014E51A /* AuthenticationViewModel.swift */; };
 		1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */; };
 		1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */; };
 		1AD1E8662AC04B9000BCA580 /* TextRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */; };
@@ -189,6 +191,8 @@
 		1AD161A02AE28BF00014E51A /* HomeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoView.swift; sourceTree = "<group>"; };
 		1AD161A22AE28C310014E51A /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		1AD161A52AE290C70014E51A /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		1AD161A72AE2AF0E0014E51A /* SecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextField.swift; sourceTree = "<group>"; };
+		1AD161AA2AE2AFC00014E51A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
 		1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentView.swift; sourceTree = "<group>"; };
 		1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerManager.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 		1A5DF3C32AB48A2600A872F2 /* TabHome */ = {
 			isa = PBXGroup;
 			children = (
+				1AD161A92AE2AF9E0014E51A /* Authentication */,
 				1AD1619F2AE289150014E51A /* View */,
 				1A5DF3CD2AB48B0300A872F2 /* TabHomeLandingView.swift */,
 				1AD8DF6A2AE0715C0032418D /* HomeLandingViewModel.swift */,
@@ -599,6 +604,7 @@
 				1AC96B0F2ADAAC99000AE55E /* PanelView.swift */,
 				1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */,
 				1ABED8C82ADC2709007982DD /* TimePicker.swift */,
+				1AD161A72AE2AF0E0014E51A /* SecureTextField.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -615,10 +621,18 @@
 			isa = PBXGroup;
 			children = (
 				1AD161A02AE28BF00014E51A /* HomeInfoView.swift */,
-				1AD161A22AE28C310014E51A /* AuthenticationView.swift */,
 				1AD161A52AE290C70014E51A /* RectangleView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1AD161A92AE2AF9E0014E51A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1AD161A22AE28C310014E51A /* AuthenticationView.swift */,
+				1AD161AA2AE2AFC00014E51A /* AuthenticationViewModel.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		1AD1E8612AC0461300BCA580 /* Scan+Speaker */ = {
@@ -878,6 +892,7 @@
 				1AA05F7B2AAAFA430084568F /* TabHosterView.swift in Sources */,
 				1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */,
 				1AB0409A2AB5CD6B0037215E /* CameraManager.swift in Sources */,
+				1AD161AB2AE2AFC00014E51A /* AuthenticationViewModel.swift in Sources */,
 				1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */,
 				1AB0409C2AB5CFE70037215E /* Error+Camera.swift in Sources */,
 				1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */,
@@ -907,6 +922,7 @@
 				1A5DF3CA2AB48ACC00A872F2 /* TabProfileLandingView.swift in Sources */,
 				1AB040972AB5CA470037215E /* ObjectDetectViewModel.swift in Sources */,
 				1AB040952AB5C51E0037215E /* CameraFrameView.swift in Sources */,
+				1AD161A82AE2AF0E0014E51A /* SecureTextField.swift in Sources */,
 				1AD161A32AE28C310014E51A /* AuthenticationView.swift in Sources */,
 				1AEC65DB2AC9B0CC00DEB3A8 /* HintView.swift in Sources */,
 				1A96BE3A2AAB48AD003DE05B /* Localized.swift in Sources */,
