@@ -11,6 +11,7 @@ import CoreData
 import SwiftUI
 import Resolver
 import AVFoundation
+import Vision
 
 protocol ScanDocumentViewModelInput: BaseViewModelInput {
 }
@@ -32,9 +33,9 @@ final class ScanDocumentViewModel: ObservableObject {
         case error = 1153
         case confirm = 1111
     }
-
+    // swiftlint: disable line_length
     enum InfoType: String {
-        case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a talált objektum kereséséhez, lefele ha az egész talált képből szeretnéd a keresést."
+        case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a talált objektum kereséséhez, lefele ha az egész talált képből szeretnéd a keresést. A képernyőt jobb felső sarkában lévő gombbal csukhatod be vagy húzd le. "
         case error = "Nincs talált objektum. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra vagy a lefele gombbal próbálkozz az egész képben való kereséshez."
     }
 
@@ -48,6 +49,16 @@ final class ScanDocumentViewModel: ObservableObject {
         profileVM.interactiveMode
     }
 
+    var cachedImageModel: ImageFinderBottomSheetModel? {
+        didSet {
+            guard let cachedImageModel, isInteractive else { return }
+            DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 5) { [weak self] in
+                self?.customSpeak("Talált objektum: \(cachedImageModel.cameraModel.capturedLabel)")
+            }
+        }
+    }
+
+    @LazyInjected private var textRecognizer: TextRecognizer
     @LazyInjected private var analyzer: ImageAnalyzer
     @Injected private var speaker: SynthesizerManager
     @Injected private var profileVM: TabProfileLandingViewModel
@@ -56,6 +67,8 @@ final class ScanDocumentViewModel: ObservableObject {
     private(set) lazy var models = [Model]()
 
     private(set) var sortedModels = [SortedModel]()
+
+    private(set) var carouselModel: CarouselModel?
 
     private var cachedContext: NSManagedObjectContext?
 
@@ -68,7 +81,12 @@ final class ScanDocumentViewModel: ObservableObject {
     // MARK: - Functions
 
     func customSpeak(_ text: String) {
-        guard !text.isEmpty else { return }
+        guard !text.isEmpty else {
+            self.playSound(.error)
+
+            return
+        }
+
         isSpeakerSpeaks.toggle()
 
         speaker.speak(with: text)
@@ -101,6 +119,8 @@ final class ScanDocumentViewModel: ObservableObject {
 
             return
         }
+
+        textRecognizer(on: UIImage(cgImage: cgImg))
 
         let carouselModel = CarouselModel(
             id: UUID().uuidString,
@@ -201,7 +221,7 @@ final class ScanDocumentViewModel: ObservableObject {
         if !sortedModels.isEmpty {
             hapticManager.notificationGenerator(type: .success)
             playSound(.confirm)
-        }  else {
+        } else {
             hapticManager.notificationGenerator(type: .error)
             playSound(.error)
         }
@@ -231,6 +251,20 @@ final class ScanDocumentViewModel: ObservableObject {
         return croppedImage
     }
 
+    private func textRecognizer(on image: UIImage) -> String {
+        let detectedText = stringMapper(textRecognizer.findIn(image: image))
+
+        carouselModel = CarouselModel(id: UUID().uuidString, image: Image(uiImage: image), imageData: image.pngData() ?? Data(), detectedText: detectedText)
+
+        return detectedText
+    }
+
+    private func stringMapper(_ recArray: [VNRecognizedText]) -> String {
+        let array: [String] = recArray.map { $0.string }
+
+        return array.joined(separator: "")
+    }
+
     // MARK: - Intent(s)
 
     func appendElements(_ elements: [Model], on context: NSManagedObjectContext) {
@@ -256,6 +290,10 @@ final class ScanDocumentViewModel: ObservableObject {
             Image(.mockImage4)
         ]
     }
+
+    func setModel(_ model: ImageFinderBottomSheetModel) {
+        self.cachedImageModel = model
+    }
 }
 
 // MARK: - ScanDocumentViewModelInput
@@ -276,6 +314,8 @@ extension ScanDocumentViewModel: ScanDocumentViewModelInput {
 
     func resetCache() {
         sortedModels.removeAll()
+        carouselModel = nil
+        cachedImageModel = nil
     }
 }
 

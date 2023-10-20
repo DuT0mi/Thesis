@@ -145,6 +145,10 @@ struct ScanDocumentView: View {
                 }
             }
         }
+        .onAppear {
+            guard viewModel.isInteractive else { return }
+            viewModel.customSpeak("A szkenneléshez használd a job sarokban lévő gombot vagy a képernyő közepén lévőt.")
+        }
         .ignoresSafeArea()
         .onDisappear {
             viewModel.didDisAppear()

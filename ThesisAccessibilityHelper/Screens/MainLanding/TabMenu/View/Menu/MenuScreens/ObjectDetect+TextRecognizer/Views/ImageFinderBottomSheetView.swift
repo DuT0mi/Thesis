@@ -53,7 +53,11 @@ struct ImageFinderBottomSheetView: View {
                     .frame(minHeight: 75, alignment: .center)
                     .padding(.horizontal)
                     .onTapGesture(count: 2) {
-                        guard !model.cameraModel.capturedLabel.isEmpty else { return }
+                        guard !model.cameraModel.capturedLabel.isEmpty else {
+                            scanViewModel.customSpeak(model.cameraModel.capturedLabel)
+
+                            return
+                        }
                         scanViewModel.customSpeak("""
                                                   Talált objektum \(model.cameraModel.capturedLabel), a következő pozicióban a referencia koordináta rendszerhez képest:
                                                   X irányban: \(model.cameraModel.capturedObjectBounds.minX < 0 ? Int(-1 * model.cameraModel.capturedObjectBounds.minX) : Int(model.cameraModel.capturedObjectBounds.minX))-től \(Int(model.cameraModel.capturedObjectBounds.maxX))-ig.
@@ -115,8 +119,25 @@ struct ImageFinderBottomSheetView: View {
                                             .opacity(shouldScale ? 1 : .zero)
                                             .offset(x: -currentImageSize.height * 0.3 * 0.05, y: -currentImageSize.height * 0.4 * 0.05)
                                     }
-                                if !scanViewModel.isSearching, !scanViewModel.sortedModels.isEmpty {
+
+                                Spacer()
+
+                                if !scanViewModel.isSearching, !scanViewModel.sortedModels.isEmpty, let model = scanViewModel.carouselModel {
+                                    Text("A keresendő")
+
+                                    CarouselItemView(bottomSheetIsLoading: .constant(false), model: model, type: .back, showButton: false)
+                                        .padding()
+                                        .onTapGesture {
+                                            scanViewModel.customSpeak("A keresendő képen lévő szöveg: \(model.detectedText.isEmpty ? "Nem elég pontos a művelethez" : model.detectedText)")
+                                        }
+
+                                    Divider()
+                                        .bold()
+                                        .font(.caption)
+                                        .frame(minWidth: AppConstants.AppDimension.width)
+
                                     if let firstItem = scanViewModel.sortedModels.first {
+                                        Text("Talált objektum a meglévők közül:")
                                         Button {
                                             withAnimation(.spring(.smooth)) { flipped.toggle() }
                                         } label: {
@@ -131,9 +152,9 @@ struct ImageFinderBottomSheetView: View {
                                         .padding()
 
                                         Button {
-                                            scanViewModel.customSpeak("A meglévő tárgyaidból \(distanceToPercent(firstItem.featureprintDistance)) százalék magabiztossággal van már hasonló.")
+                                            scanViewModel.customSpeak("A meglévő tárgyaidból \(distanceToPercent(firstItem.featureprintDistance)) százalék magabiztossággal van már hasonló. A keresendő objetktum szöveg és a megtalált objetum szövege \(similarityPercentage(firstItem.carouselModel.detectedText, model.detectedText))százalékban -ban egyezik meg")
                                         } label: {
-                                            Text("\(distanceToPercent(firstItem.featureprintDistance))")
+                                            Text("\(String(format: "%.2f", distanceToPercent(firstItem.featureprintDistance)))")
                                         }
                                         .buttonStyle(.bordered)
                                         .buttonBorderShape(.roundedRectangle(radius: 12))
@@ -154,6 +175,7 @@ struct ImageFinderBottomSheetView: View {
         }
         .onAppear {
             guard let frame = model.frame else { return }
+            scanViewModel.setModel(model)
             currentImageSize = .init(width: frame.width, height: frame.height)
 
             if model.cameraModel.capturedLabel.isEmpty || model.cameraModel.capturedObjectBounds.equalTo(.zero) {
@@ -162,16 +184,16 @@ struct ImageFinderBottomSheetView: View {
                 scanViewModel.playSound(.success)
             }
 
-            shouldScale.toggle()
             if scanViewModel.isInteractive {
                 scanViewModel.showInfo()
             }
         }
         .onDisappear {
+            volumeHandler.stopHandler()
+
             if scanViewModel.isInteractive {
                 scanViewModel.stop()
             }
-            volumeHandler.stopHandler()
             scanViewModel.stop()
             scanViewModel.resetCache()
         }
@@ -230,10 +252,31 @@ struct ImageFinderBottomSheetView: View {
     }
 
     private func distanceToPercent(_ distance: Float) -> Float {
-        let percent =  (distance > 1.00001) ? (1 - distance) * -100 : (1 - distance) * 100
+        let percent = (distance > 1.00001) ? (1 - distance) * -100 : (1 - distance) * 100
         let percentFixed = percent < 10 ? percent * 10 : percent
 
         return percentFixed
+    }
+
+    private func similarityPercentage(_ string1: String, _ string2: String) -> String {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = .zero
+        formatter.maximumFractionDigits = 2
+
+        let distance = string1.levenshteinDistance(to: string2)
+        let maxLength = max(string1.count, string2.count)
+
+        if maxLength == 0 {
+            return "\(100.0)"
+        }
+
+        let similarity = 100.0 - (Double(distance) / Double(maxLength)) * 100.0
+
+        if let formatted = formatter.string(from: max(similarity, 0.0) as NSNumber) {
+            return formatted
+        } else {
+            return String(format: "%.2f", max(similarity, 0.0))
+        }
     }
 
     // MARK: - Functions

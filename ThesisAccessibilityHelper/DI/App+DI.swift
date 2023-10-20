@@ -48,5 +48,10 @@ extension Resolver: ResolverRegistering {
             TabProfileLandingViewModel()
         }
         .scope(.application)
+
+        register {
+            TextRecognizer.shared
+        }
+        .scope(.application)
     }
 }

@@ -92,11 +92,16 @@
 		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
 		1ACC9DF82AD7184F00A58531 /* ImageAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */; };
 		1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF92AD729E300A58531 /* FoundImages.swift */; };
+		1AD161A12AE28BF00014E51A /* HomeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A02AE28BF00014E51A /* HomeInfoView.swift */; };
+		1AD161A32AE28C310014E51A /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A22AE28C310014E51A /* AuthenticationView.swift */; };
+		1AD161A62AE290C70014E51A /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD161A52AE290C70014E51A /* RectangleView.swift */; };
 		1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */; };
 		1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */; };
 		1AD1E8662AC04B9000BCA580 /* TextRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */; };
 		1AD1E8682AC04D4A00BCA580 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */; };
 		1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */; };
+		1AD302E02ADF187500E959B5 /* String+levenshteinDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD302DF2ADF187500E959B5 /* String+levenshteinDistance.swift */; };
+		1AD8DF6B2AE0715C0032418D /* HomeLandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD8DF6A2AE0715C0032418D /* HomeLandingViewModel.swift */; };
 		1AE53F1E2AD9C0DA00665594 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */; };
 		1AE53F202AD9C69000665594 /* ImageFinderBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F1F2AD9C69000665594 /* ImageFinderBottomSheetView.swift */; };
 		1AE53F222AD9E86B00665594 /* View+snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE53F212AD9E86B00665594 /* View+snapshot.swift */; };
@@ -181,11 +186,16 @@
 		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
 		1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalyzer.swift; sourceTree = "<group>"; };
 		1ACC9DF92AD729E300A58531 /* FoundImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundImages.swift; sourceTree = "<group>"; };
+		1AD161A02AE28BF00014E51A /* HomeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoView.swift; sourceTree = "<group>"; };
+		1AD161A22AE28C310014E51A /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		1AD161A52AE290C70014E51A /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Int8LUT.mlmodel; sourceTree = "<group>"; };
 		1AD1E8622AC04A7F00BCA580 /* ScanDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentView.swift; sourceTree = "<group>"; };
 		1AD1E8652AC04B9000BCA580 /* TextRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerManager.swift; sourceTree = "<group>"; };
 		1AD1E8672AC04D4A00BCA580 /* DocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
 		1AD1E8692AC04F8F00BCA580 /* ScanDocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentViewModel.swift; sourceTree = "<group>"; };
+		1AD302DF2ADF187500E959B5 /* String+levenshteinDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+levenshteinDistance.swift"; sourceTree = "<group>"; };
+		1AD8DF6A2AE0715C0032418D /* HomeLandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLandingViewModel.swift; sourceTree = "<group>"; };
 		1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		1AE53F1F2AD9C69000665594 /* ImageFinderBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFinderBottomSheetView.swift; sourceTree = "<group>"; };
 		1AE53F212AD9E86B00665594 /* View+snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+snapshot.swift"; sourceTree = "<group>"; };
@@ -246,7 +256,9 @@
 		1A5DF3C32AB48A2600A872F2 /* TabHome */ = {
 			isa = PBXGroup;
 			children = (
+				1AD1619F2AE289150014E51A /* View */,
 				1A5DF3CD2AB48B0300A872F2 /* TabHomeLandingView.swift */,
+				1AD8DF6A2AE0715C0032418D /* HomeLandingViewModel.swift */,
 			);
 			path = TabHome;
 			sourceTree = "<group>";
@@ -392,6 +404,7 @@
 				1AA539B22ACE018700E8E0DC /* ViewModifier+Flip.swift */,
 				1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */,
 				1AE53F212AD9E86B00665594 /* View+snapshot.swift */,
+				1AD302DF2ADF187500E959B5 /* String+levenshteinDistance.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -596,6 +609,16 @@
 				1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		1AD1619F2AE289150014E51A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1AD161A02AE28BF00014E51A /* HomeInfoView.swift */,
+				1AD161A22AE28C310014E51A /* AuthenticationView.swift */,
+				1AD161A52AE290C70014E51A /* RectangleView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1AD1E8612AC0461300BCA580 /* Scan+Speaker */ = {
@@ -864,12 +887,15 @@
 				1AB040A52AB63E5B0037215E /* ObjectView.swift in Sources */,
 				1AB0409E2AB5D95A0037215E /* FrameManager.swift in Sources */,
 				1A5DF3D22AB490A700A872F2 /* MenuView.swift in Sources */,
+				1AD8DF6B2AE0715C0032418D /* HomeLandingViewModel.swift in Sources */,
 				1AB9B7D92ADB07CA0046F048 /* CarouselModel.swift in Sources */,
+				1AD302E02ADF187500E959B5 /* String+levenshteinDistance.swift in Sources */,
 				1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
 				1AC604872AD2EF6E00BBE914 /* View+AnimatedActionButton.swift in Sources */,
 				1A9428622ABA28230042D9BB /* Documentation.docc in Sources */,
 				1AA539AD2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld in Sources */,
+				1AD161A62AE290C70014E51A /* RectangleView.swift in Sources */,
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,
 				1AC96B122ADAB25E000AE55E /* ImageCoordinatePointView.swift in Sources */,
 				1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */,
@@ -881,6 +907,7 @@
 				1A5DF3CA2AB48ACC00A872F2 /* TabProfileLandingView.swift in Sources */,
 				1AB040972AB5CA470037215E /* ObjectDetectViewModel.swift in Sources */,
 				1AB040952AB5C51E0037215E /* CameraFrameView.swift in Sources */,
+				1AD161A32AE28C310014E51A /* AuthenticationView.swift in Sources */,
 				1AEC65DB2AC9B0CC00DEB3A8 /* HintView.swift in Sources */,
 				1A96BE3A2AAB48AD003DE05B /* Localized.swift in Sources */,
 				1A9665CA2AACC6FC0087F964 /* BaseView.swift in Sources */,
@@ -890,6 +917,7 @@
 				1AB040A02AB5DBB40037215E /* CGImage+create.swift in Sources */,
 				1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */,
 				1AB040A32AB5F4490037215E /* NavigationButton.swift in Sources */,
+				1AD161A12AE28BF00014E51A /* HomeInfoView.swift in Sources */,
 				1ABED8C92ADC2709007982DD /* TimePicker.swift in Sources */,
 				1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */,
 				1AEC65DD2AC9C27700DEB3A8 /* ImagesCarousel.swift in Sources */,
