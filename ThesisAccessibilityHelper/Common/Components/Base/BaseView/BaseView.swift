@@ -29,7 +29,7 @@ struct BaseView<Content>: View where Content: View {
         var gradientStart: UnitPoint
         var gradientEnd: UnitPoint
 
-        // MARK: - GradientConfiguration pnitialization
+        // MARK: - GradientConfiguration initialization
 
         init(
             colors: [Color] = [
