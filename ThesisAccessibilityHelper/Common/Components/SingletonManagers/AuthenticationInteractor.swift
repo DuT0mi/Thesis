@@ -22,8 +22,6 @@ final class AuthenticationInteractor {
 
     static let shared = AuthenticationInteractor()
 
-    @LazyInjected private var fireStoreInteractor: FireStoreDatabaseInteractor
-
     // MARK: - Initialization
 
     private init() {
