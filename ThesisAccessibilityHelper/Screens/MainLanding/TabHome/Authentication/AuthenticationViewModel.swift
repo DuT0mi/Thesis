@@ -34,7 +34,7 @@ final class AuthenticationViewModel: ObservableObject {
         }
     }
 
-    enum AccountType {
+    enum AccountType: String {
         case helper
         case impared
     }
@@ -51,6 +51,7 @@ final class AuthenticationViewModel: ObservableObject {
     @Published private(set) var isAuthenticated = false
 
     @LazyInjected private var authenticationInteractor: AuthenticationInteractor
+    @LazyInjected private var firestoreDBInteractor: FireStoreDatabaseInteractor
 
     // MARK: - Initialization
 
@@ -120,9 +121,9 @@ final class AuthenticationViewModel: ObservableObject {
     @MainActor
     private func signup() async throws {
         do {
-            try await authenticationInteractor.createUser(.init(email: email, password: password))
+            let userDataResponse: AuthenticationDataResult = try await authenticationInteractor.createUser(.init(email: email, password: password))
             self.isLoading.toggle()
-            /* create and save account here ... */ // TODO: ...
+            self.createUser(userDataResponse)
             resetCache()
         } catch {
             self.alertMessage = error.localizedDescription
@@ -140,6 +141,27 @@ final class AuthenticationViewModel: ObservableObject {
     @MainActor
     private func resetCache() {
         authenticationStatus = .none
+    }
+
+    private func createUser(_ userDataResponse: AuthenticationDataResult) {
+        Task(priority: .userInitiated) {
+            switch self.selectedType {
+                case .helper:
+                    await firestoreDBInteractor.createUser(user: userFactory(userDataResponse, type: .helper))
+                case .impared:
+                    await firestoreDBInteractor.createUser(user: userFactory(userDataResponse, type: .impared))
+            }
+
+        }
+    }
+
+    private func userFactory(_ userDataResponse: AuthenticationDataResult, type: AccountType ) async -> UserModelInput {
+        switch type {
+            case .helper:
+                return HelperUserModel(authenticationDataResult: userDataResponse)
+            case .impared:
+                return ImparedUserModel(authenticationDataResult: userDataResponse)
+        }
     }
 }
 

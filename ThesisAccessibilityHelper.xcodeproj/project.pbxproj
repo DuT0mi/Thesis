@@ -81,6 +81,9 @@
 		1ABED8C42ADBEB9B007982DD /* TabProfileLandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABED8C32ADBEB9B007982DD /* TabProfileLandingViewModel.swift */; };
 		1ABED8C72ADC08CA007982DD /* VolumeButtonHandler in Frameworks */ = {isa = PBXBuildFile; productRef = 1ABED8C62ADC08CA007982DD /* VolumeButtonHandler */; };
 		1ABED8C92ADC2709007982DD /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABED8C82ADC2709007982DD /* TimePicker.swift */; };
+		1ABF1BC72AE3FA5500C61DBD /* HelperUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF1BC62AE3FA5500C61DBD /* HelperUserModel.swift */; };
+		1ABF1BC92AE3FD1700C61DBD /* UserModelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF1BC82AE3FD1700C61DBD /* UserModelInput.swift */; };
+		1ABF1BCB2AE408A800C61DBD /* ImparedUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF1BCA2AE408A800C61DBD /* ImparedUserModel.swift */; };
 		1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */; };
 		1AC604872AD2EF6E00BBE914 /* View+AnimatedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */; };
 		1AC937402AD47D1700851576 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 1AC9373F2AD47D1700851576 /* Resolver */; };
@@ -187,6 +190,9 @@
 		1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
 		1ABED8C32ADBEB9B007982DD /* TabProfileLandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabProfileLandingViewModel.swift; sourceTree = "<group>"; };
 		1ABED8C82ADC2709007982DD /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
+		1ABF1BC62AE3FA5500C61DBD /* HelperUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperUserModel.swift; sourceTree = "<group>"; };
+		1ABF1BC82AE3FD1700C61DBD /* UserModelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelInput.swift; sourceTree = "<group>"; };
+		1ABF1BCA2AE408A800C61DBD /* ImparedUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImparedUserModel.swift; sourceTree = "<group>"; };
 		1AC604832AD2CC0B00BBE914 /* ResultModel_1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResultModel_1.1.xcdatamodel; sourceTree = "<group>"; };
 		1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AnimatedActionButton.swift"; sourceTree = "<group>"; };
@@ -596,6 +602,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		1ABF1BC52AE3FA4000C61DBD /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				1ABF1BC62AE3FA5500C61DBD /* HelperUserModel.swift */,
+				1ABF1BC82AE3FD1700C61DBD /* UserModelInput.swift */,
+				1ABF1BCA2AE408A800C61DBD /* ImparedUserModel.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
 		1AC500442AACC6D7007D0167 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +680,7 @@
 		1AD161B02AE2D0100014E51A /* HelperModels */ = {
 			isa = PBXGroup;
 			children = (
+				1ABF1BC52AE3FA4000C61DBD /* Firestore */,
 				1AD161B12AE2D01B0014E51A /* Authentication */,
 			);
 			path = HelperModels;
@@ -959,6 +976,7 @@
 				1AD8DF6B2AE0715C0032418D /* HomeLandingViewModel.swift in Sources */,
 				1AB9B7D92ADB07CA0046F048 /* CarouselModel.swift in Sources */,
 				1AD302E02ADF187500E959B5 /* String+levenshteinDistance.swift in Sources */,
+				1ABF1BC72AE3FA5500C61DBD /* HelperUserModel.swift in Sources */,
 				1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
 				1AC604872AD2EF6E00BBE914 /* View+AnimatedActionButton.swift in Sources */,
@@ -983,6 +1001,7 @@
 				1AD161A82AE2AF0E0014E51A /* SecureTextField.swift in Sources */,
 				1AD161A32AE28C310014E51A /* AuthenticationView.swift in Sources */,
 				1AEC65DB2AC9B0CC00DEB3A8 /* HintView.swift in Sources */,
+				1ABF1BCB2AE408A800C61DBD /* ImparedUserModel.swift in Sources */,
 				1A96BE3A2AAB48AD003DE05B /* Localized.swift in Sources */,
 				1A9665CA2AACC6FC0087F964 /* BaseView.swift in Sources */,
 				1AE53F252AD9EF4A00665594 /* ImageFinderBottomSheetModel.swift in Sources */,
@@ -991,6 +1010,7 @@
 				1AB040A02AB5DBB40037215E /* CGImage+create.swift in Sources */,
 				1ABE4AF52AB23081004DD0EE /* YOLOv3Tiny.mlmodel in Sources */,
 				1AB040A32AB5F4490037215E /* NavigationButton.swift in Sources */,
+				1ABF1BC92AE3FD1700C61DBD /* UserModelInput.swift in Sources */,
 				1AD161A12AE28BF00014E51A /* HomeInfoView.swift in Sources */,
 				1ABED8C92ADC2709007982DD /* TimePicker.swift in Sources */,
 				1AD1E86A2AC04F8F00BCA580 /* ScanDocumentViewModel.swift in Sources */,

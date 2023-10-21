@@ -53,13 +53,9 @@ struct AuthenticationView: View {
                 buttonComponent
             }
         }
-        .onChange(of: viewModel.authenticationStatus) { value in
-            switch value {
-                case .successful:
-                    self.selfDismiss()
-                default:
-                    break
-            }
+        .onChange(of: viewModel.isAuthenticated) { value in
+            guard value else { return }
+            dismiss.callAsFunction()
         }
         .alert(isPresented: $viewModel.alert, content: {
             Alert(
@@ -138,14 +134,6 @@ struct AuthenticationView: View {
                 .tag(AuthenticationViewModel.AccountType.impared)
         }
         .pickerStyle(.segmented)
-    }
-
-    // MARK: - Functions
-
-    private func selfDismiss() {
-        withAnimation(.smooth) {
-            self.dismiss.callAsFunction()
-        }
     }
 }
 
