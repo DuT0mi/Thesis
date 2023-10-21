@@ -68,5 +68,10 @@ extension Resolver: ResolverRegistering {
             AuthenticationViewModel()
         }
         .scope(.application)
+
+        register {
+            TabMapLandingViewModel()
+        }
+        .scope(.application)
     }
 }

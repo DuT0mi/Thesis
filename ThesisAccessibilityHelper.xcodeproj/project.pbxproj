@@ -84,7 +84,6 @@
 		1ABF1BC72AE3FA5500C61DBD /* HelperUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF1BC62AE3FA5500C61DBD /* HelperUserModel.swift */; };
 		1ABF1BC92AE3FD1700C61DBD /* UserModelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF1BC82AE3FD1700C61DBD /* UserModelInput.swift */; };
 		1ABF1BCB2AE408A800C61DBD /* ImparedUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF1BCA2AE408A800C61DBD /* ImparedUserModel.swift */; };
-		1ABF1BCE2AE4164500C61DBD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF1BCD2AE4164500C61DBD /* MapView.swift */; };
 		1ABF1BD02AE4194700C61DBD /* TabMapLandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF1BCF2AE4194700C61DBD /* TabMapLandingViewModel.swift */; };
 		1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */; };
 		1AC604872AD2EF6E00BBE914 /* View+AnimatedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC604862AD2EF6E00BBE914 /* View+AnimatedActionButton.swift */; };
@@ -195,7 +194,6 @@
 		1ABF1BC62AE3FA5500C61DBD /* HelperUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperUserModel.swift; sourceTree = "<group>"; };
 		1ABF1BC82AE3FD1700C61DBD /* UserModelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelInput.swift; sourceTree = "<group>"; };
 		1ABF1BCA2AE408A800C61DBD /* ImparedUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImparedUserModel.swift; sourceTree = "<group>"; };
-		1ABF1BCD2AE4164500C61DBD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1ABF1BCF2AE4194700C61DBD /* TabMapLandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMapLandingViewModel.swift; sourceTree = "<group>"; };
 		1AC604832AD2CC0B00BBE914 /* ResultModel_1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResultModel_1.1.xcdatamodel; sourceTree = "<group>"; };
 		1AC604842AD2DD4C00BBE914 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
@@ -301,6 +299,7 @@
 			children = (
 				1ABF1BCC2AE4163C00C61DBD /* View */,
 				1A5DF3C72AB48AB700A872F2 /* TabMapLandingView.swift */,
+				1ABF1BCF2AE4194700C61DBD /* TabMapLandingViewModel.swift */,
 			);
 			path = TabMap;
 			sourceTree = "<group>";
@@ -620,8 +619,6 @@
 		1ABF1BCC2AE4163C00C61DBD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1ABF1BCD2AE4164500C61DBD /* MapView.swift */,
-				1ABF1BCF2AE4194700C61DBD /* TabMapLandingViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1010,7 +1007,6 @@
 				1AA539B52ACE01E900E8E0DC /* AlbumView.swift in Sources */,
 				1AD1E8682AC04D4A00BCA580 /* DocumentPickerView.swift in Sources */,
 				1A5DF3CA2AB48ACC00A872F2 /* TabProfileLandingView.swift in Sources */,
-				1ABF1BCE2AE4164500C61DBD /* MapView.swift in Sources */,
 				1AB040972AB5CA470037215E /* ObjectDetectViewModel.swift in Sources */,
 				1AB040952AB5C51E0037215E /* CameraFrameView.swift in Sources */,
 				1AD161A82AE2AF0E0014E51A /* SecureTextField.swift in Sources */,
@@ -1191,6 +1187,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera pls";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pls give location";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Lib pls";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1228,6 +1225,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera pls";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pls give location";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Lib pls";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
