@@ -10,11 +10,18 @@ import SwiftUI
 struct TabMapLandingView: View {
     // MARK: - Properties
 
+    @StateObject private var viewModel = TabMapLandingViewModel()
+
     var body: some View {
-        BaseView {
-            Text("Map Landing")
+        ZStack {
+            MapView()
         }
-        .ignoresSafeArea()
+        .onAppear {
+            viewModel.didAppear()
+        }
+        .onDisappear {
+            viewModel.didDisAppear()
+        }
     }
 }
 
