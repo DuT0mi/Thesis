@@ -73,5 +73,10 @@ extension Resolver: ResolverRegistering {
             TabMapLandingViewModel()
         }
         .scope(.application)
+
+        register {
+            PushnotificationInteractor()
+        }
+        .scope(.application)
     }
 }

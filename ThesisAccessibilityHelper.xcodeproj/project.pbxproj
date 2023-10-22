@@ -94,6 +94,7 @@
 		1AC96B102ADAAC99000AE55E /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC96B0F2ADAAC99000AE55E /* PanelView.swift */; };
 		1AC96B122ADAB25E000AE55E /* ImageCoordinatePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */; };
 		1ACB91092AE55C000044FB83 /* Query+getDocumentAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACB91082AE55C000044FB83 /* Query+getDocumentAs.swift */; };
+		1ACB910B2AE579430044FB83 /* PushnotificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACB910A2AE579430044FB83 /* PushnotificationInteractor.swift */; };
 		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
 		1ACC9DF82AD7184F00A58531 /* ImageAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */; };
 		1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF92AD729E300A58531 /* FoundImages.swift */; };
@@ -204,6 +205,7 @@
 		1AC96B0F2ADAAC99000AE55E /* PanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
 		1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoordinatePointView.swift; sourceTree = "<group>"; };
 		1ACB91082AE55C000044FB83 /* Query+getDocumentAs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+getDocumentAs.swift"; sourceTree = "<group>"; };
+		1ACB910A2AE579430044FB83 /* PushnotificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushnotificationInteractor.swift; sourceTree = "<group>"; };
 		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
 		1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalyzer.swift; sourceTree = "<group>"; };
 		1ACC9DF92AD729E300A58531 /* FoundImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundImages.swift; sourceTree = "<group>"; };
@@ -571,6 +573,7 @@
 				1AE53F1D2AD9C0DA00665594 /* HapticManager.swift */,
 				1AD161AC2AE2C95F0014E51A /* AuthenticationInteractor.swift */,
 				1AD161AE2AE2CD750014E51A /* FireStoreDatabaseInteractor.swift */,
+				1ACB910A2AE579430044FB83 /* PushnotificationInteractor.swift */,
 			);
 			path = SingletonManagers;
 			sourceTree = "<group>";
@@ -979,6 +982,7 @@
 				1AD161AB2AE2AFC00014E51A /* AuthenticationViewModel.swift in Sources */,
 				1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */,
 				1AB0409C2AB5CFE70037215E /* Error+Camera.swift in Sources */,
+				1ACB910B2AE579430044FB83 /* PushnotificationInteractor.swift in Sources */,
 				1AD161BA2AE2E43A0014E51A /* PopupView.swift in Sources */,
 				1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */,
 				1AE53F1E2AD9C0DA00665594 /* HapticManager.swift in Sources */,
