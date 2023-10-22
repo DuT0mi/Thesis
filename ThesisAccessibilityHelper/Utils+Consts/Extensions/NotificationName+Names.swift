@@ -12,6 +12,7 @@ extension Notification.Name {
     static let speakerStoppedSpeaking = Notification.Name("speakerStarterdSpeaking")
     static let visionWillAppear = Notification.Name("VISIONNOW")
     static let authenticatedStatusDidChange = Notification.Name("authenticatedStatusDidChange")
+    static let signedIn = Notification.Name("signedIn")
 
 }
 
@@ -20,4 +21,5 @@ extension Notification.Name {
     static let speakerStoppedSpeaking = Notification.Name.speakerStoppedSpeaking
     static let visionWillAppear = Notification.Name.visionWillAppear
     static let authenticatedStatusDidChange = Notification.Name.authenticatedStatusDidChange
+    static let signedIn = Notification.Name.signedIn
 }

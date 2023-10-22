@@ -16,53 +16,5 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2468A826-85B8-446A-9757-F95C39BDEDB2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabHome/Authentication/AuthenticationViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "signup()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2468A826-85B8-446A-9757-F95C39BDEDB2 - 924650e85ae4eb93"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for ThesisAccessibilityHelper.AuthenticationViewModel.signup() async throws -&gt; ()"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabHome/Authentication/AuthenticationViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "2468A826-85B8-446A-9757-F95C39BDEDB2 - 924650e85ae4ebb2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for ThesisAccessibilityHelper.AuthenticationViewModel.signup() async throws -&gt; ()"
-                  moduleName = "ThesisAccessibilityHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabHome/Authentication/AuthenticationViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "152">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
