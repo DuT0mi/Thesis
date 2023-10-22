@@ -97,6 +97,7 @@ final class TabProfileLandingViewModel: ObservableObject {
     }
 
     private func resetCache() {
+        currentUser = nil
         cachedUser = nil
     }
 
