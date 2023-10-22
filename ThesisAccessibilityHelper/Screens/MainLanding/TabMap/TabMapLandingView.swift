@@ -38,10 +38,19 @@ struct TabMapLandingView: View {
                         if mapItem == viewModel.routeDestinitation {
                             let placeMark = mapItem.placemark
                             Marker(placeMark.name ?? "Place", coordinate: placeMark.coordinate)
+                                .tint(Color.blue)
                         }
                     } else {
                         let placeMark = mapItem.placemark
                         Marker(placeMark.name ?? "Place", coordinate: placeMark.coordinate)
+                            .tint(Color.blue)
+                    }
+                }
+
+                if viewModel.helpers.count != .zero {
+                    ForEach(viewModel.helpers, id: \.self) { helperMapItem in
+                        let placeMark = helperMapItem.placemark
+                        Marker(viewModel.titleForMarker, coordinate: placeMark.coordinate)
                     }
                 }
 
@@ -66,6 +75,9 @@ struct TabMapLandingView: View {
             .searchable(text: $viewModel.searchText, isPresented: $showSearchBar)
             .allowsHitTesting(viewModel.isLoading ? false : true)
         }
+        .task {
+            await viewModel.loadData() // TODO: Create MOCK Scheme (+more) <- preview going to crash anytime
+        }
         .ignoresSafeArea(.all, edges: [.horizontal, .bottom])
         .onAppear {
             viewModel.didAppear()
@@ -73,7 +85,7 @@ struct TabMapLandingView: View {
         .onDisappear {
             viewModel.didDisAppear()
         }
-        .navigationTitle("Find and help")
+        .navigationTitle("Finder")
         .toolbar(showRoute ? .hidden : .visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(.visible, for: .navigationBar)
@@ -156,7 +168,7 @@ struct TabMapLandingView: View {
                 if let lookAround {
                     LookAroundPreview(scene: $lookAround)
                 } else {
-                    ContentUnavailableView("No preview avaialable", systemImage: "eye.slash")
+                    ContentUnavailableView("No preview available", systemImage: "eye.slash")
                 }
             }
             .frame(minHeight: 200, maxHeight: 250)
@@ -169,6 +181,22 @@ struct TabMapLandingView: View {
                     }
                 } label: {
                     Image(systemName: "xmark.circle.fill")
+                        .font(.title)
+                        .foregroundStyle(.black)
+                        .background(.white, in: .circle)
+                }
+                .padding(8)
+            }
+            .overlay(alignment: .topLeading) {
+                Button {
+                    viewModel.routeDestinitation = viewModel.mapSelection
+                    let options = [
+                        MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking,
+                        MKLaunchOptionsMapCenterKey: viewModel.routeDestinitation?.placemark.coordinate
+                    ] as [String: Any]
+                    viewModel.routeDestinitation?.openInMaps(launchOptions: options)
+                } label: {
+                    Image(systemName: "arrow.up.forward.app.fill")
                         .font(.title)
                         .foregroundStyle(.black)
                         .background(.white, in: .circle)

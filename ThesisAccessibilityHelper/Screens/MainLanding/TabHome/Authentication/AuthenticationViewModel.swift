@@ -128,7 +128,7 @@ final class AuthenticationViewModel: ObservableObject {
             let userDataResponse: AuthenticationDataResult = try await authenticationInteractor.createUser(.init(email: email, password: password))
             self.isLoading.toggle()
             self.createUser(userDataResponse)
-            
+
             authenticationStatus = .signupSuccessfully
             authenticationInteractor.saveAuthenticatedStatus(.signupSuccessfully)
         } catch {

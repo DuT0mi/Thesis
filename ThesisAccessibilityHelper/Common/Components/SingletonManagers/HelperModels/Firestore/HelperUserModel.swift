@@ -13,6 +13,8 @@ struct HelperUserModel {
     var userID: String
     var email: String?
     var dateCreated: Date?
+    var latitude: Double?
+    var longitude: Double?
     var type: AuthenticationViewModel.AccountType {
         get { .helper }
         set { }
@@ -41,6 +43,8 @@ extension HelperUserModel {
         case email
         case dateCreated = "date_cerated"
         case type
+        case latitude
+        case longitude
     }
 }
 
@@ -54,6 +58,8 @@ extension HelperUserModel: Codable {
         self.userID = try container.decode(String.self, forKey: .userID)
         self.email = try container.decodeIfPresent(String.self, forKey: .email)
         self.dateCreated = try container.decodeIfPresent(Date.self, forKey: .dateCreated)
+        self.latitude = try container.decodeIfPresent(Double.self, forKey: .latitude)
+        self.longitude = try container.decodeIfPresent(Double.self, forKey: .longitude)
     }
 
     func encode(to encoder: Encoder) throws {

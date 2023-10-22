@@ -29,6 +29,12 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
     @Published private(set) var currentUserLocation: CLLocationCoordinate2D?
     @Published private(set) var isLoading = true
     @Published private(set) var searchResults = [MKMapItem]()
+    @Published private(set) var helpers = [MKMapItem]()
+
+    @Published private(set) var titleForMarker = "..."
+
+
+    private var _currentUser: UserModelInput?
 
 //    var lookAroundBindingWrapper: Binding<MKLookAroundScene?> {
 //        Binding {
@@ -41,6 +47,8 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
     private(set) var defaultLocation: CLLocationCoordinate2D = .init(latitude: Consts.bmeQLa, longitude: Consts.bmeQLo)
 
     @LazyInjected private var tabHosterInstance: TabHosterViewViewModel
+    @LazyInjected private var firestoreDBInteractor: FireStoreDatabaseInteractor
+    @LazyInjected private var authenticationInteractor: AuthenticationInteractor
 
     private lazy var locationManager = CLLocationManager()
 
@@ -124,6 +132,46 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
                 self.route = result?.routes.first
             }
         }
+    }
+
+    @MainActor
+    func loadData() async {
+        await fetchUsers()
+    }
+
+    // swiftlint: disable identifier_name
+    @MainActor
+    private func fetchUsers() async {
+        if let userID = authenticationInteractor._authenticationDataResult?.uid, let _currentUser = try? await firestoreDBInteractor.getUserBased(on: userID) {
+            var users: [UserModelInput]?
+            switch _currentUser.type {
+                case .helper:
+                    setTitle("Impared")
+                    users = try? await firestoreDBInteractor.fetchImpared()
+                case .impared:
+                    setTitle("Helper")
+                    users = try? await firestoreDBInteractor.fetchHelpers()
+            }
+            userMapper(users: users)
+        }
+    }
+    // swiftlint: enable identifier_name
+
+    private func userMapper(users: [UserModelInput]?) {
+        guard let users else { return }
+
+        helpers = users
+            .lazy
+            .filter { $0.latitude != nil && $0.longitude != nil }
+            .map {
+                MKMapItem(placemark: .init(coordinate: .init(latitude: $0.latitude!, longitude: $0.longitude!)))
+            }
+    }
+
+    private func setTitle(_ title: String) {
+        guard !title.isEmpty else { return }
+
+        titleForMarker = title
     }
 }
 
