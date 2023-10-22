@@ -107,8 +107,12 @@ final class AuthenticationViewModel: ObservableObject {
         do {
             try await authenticationInteractor.login(.init(email: email, password: password))
             self.isLoading.toggle()
+
             authenticationStatus = .successful
             authenticationInteractor.saveAuthenticatedStatus(.authenticated)
+
+            NotificationCenter.default.post(Notification(name: .signedIn))
+
             resetCache()
         } catch {
             self.alertMessage = error.localizedDescription
@@ -124,6 +128,7 @@ final class AuthenticationViewModel: ObservableObject {
             let userDataResponse: AuthenticationDataResult = try await authenticationInteractor.createUser(.init(email: email, password: password))
             self.isLoading.toggle()
             self.createUser(userDataResponse)
+            
             authenticationStatus = .signupSuccessfully
             authenticationInteractor.saveAuthenticatedStatus(.signupSuccessfully)
         } catch {

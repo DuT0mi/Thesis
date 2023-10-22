@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseAuth
 import Resolver
+import UIKit
 
 @MainActor
 final class AuthenticationInteractor {
@@ -25,9 +26,15 @@ final class AuthenticationInteractor {
 
     static let shared = AuthenticationInteractor()
 
+    @LazyInjected private var fireStoreDBInteractor: FireStoreDatabaseInteractor
+    @LazyInjected private var tabMapLandingVM: TabMapLandingViewModel
+
+    private var _authenticationDataResult: AuthenticationDataResult?
+
     // MARK: - Initialization
 
     private init() {
+        addObservers()
     }
 
     // MARK: - Functions
@@ -108,4 +115,36 @@ final class AuthenticationInteractor {
         }
         defaults.synchronize()
     }
+
+    private func addObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleDelegateNotification),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleDelegateNotification),
+            name: .signedIn,
+            object: nil
+        )
+    }
+
+    // swiftlint: disable identifier_name
+    @objc func handleDelegateNotification() {
+        getCurrentUser { [weak self] result in
+            guard case .success(let authDataRes) = result else {
+                return
+            }
+            self?._authenticationDataResult = authDataRes
+        }
+        Task {
+            guard let _authenticationDataResult, let loc = tabMapLandingVM.currentUserLocation else { return }
+            await fireStoreDBInteractor.updateCoordinates(for: _authenticationDataResult, coordinates: (loc.latitude, loc.longitude))
+            print("TEST | DATA RES: \(_authenticationDataResult), LOC: \(loc)")
+        }
+    }
+    // swiftlint: enable identifier_name
 }
