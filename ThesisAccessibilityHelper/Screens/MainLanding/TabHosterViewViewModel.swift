@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Resolver
 
 final class TabHosterViewViewModel: ObservableObject {
     // MARK: - Properties
@@ -16,6 +17,8 @@ final class TabHosterViewViewModel: ObservableObject {
     static let shared = TabHosterViewViewModel()
 
     var tabBarStatus = PassthroughSubject<TabBarStatus, Never>()
+    
+    @LazyInjected private var pushnotificationInteractor: PushnotificationInteractor
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -37,5 +40,14 @@ final class TabHosterViewViewModel: ObservableObject {
                 self?.shouldShowTabBar = receivedValue
             }
             .store(in: &cancellables)
+    }
+}
+
+extension TabHosterViewViewModel: BaseViewModelInput {
+    func didAppear() {
+        pushnotificationInteractor.onAppearNotification()
+    }
+
+    func didDisAppear() {
     }
 }

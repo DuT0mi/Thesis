@@ -36,6 +36,9 @@ struct TabHosterView: View {
                     customTabBarFactory()
                 }
             }
+            .onAppear {
+                viewModel.didAppear()
+            }
             .ignoresSafeArea()
         }
         .environmentObject(viewModel)
