@@ -28,8 +28,10 @@ final class AuthenticationInteractor {
 
     @LazyInjected private var fireStoreDBInteractor: FireStoreDatabaseInteractor
     @LazyInjected private var tabMapLandingVM: TabMapLandingViewModel
-
-    private var _authenticationDataResult: AuthenticationDataResult?
+    
+    // swiftlint: disable identifier_name
+    private(set) var _authenticationDataResult: AuthenticationDataResult?
+    // swiftlint: enable identifier_name
 
     // MARK: - Initialization
 

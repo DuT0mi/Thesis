@@ -66,6 +66,31 @@ final class FireStoreDatabaseInteractor {
         try? await collectionRefence.document(dataRes.uid).setData(data, merge: true)
     }
 
+    func fetchHelpers() async throws -> [HelperUserModel] {
+        let query: Query = self.getAllHelperUsersQuery()
+
+        return try await query
+            .getDocuments(as: HelperUserModel.self)
+    }
+
+    func fetchImpared() async throws -> [ImparedUserModel] {
+        let query: Query = self.getAllImparedUsersQuery()
+
+        return try await query
+            .getDocuments(as: ImparedUserModel.self)
+    }
+
+    func getUserBased(on userID: String) async throws -> UserModelInput? {
+        if let user = try? await getHelperAccount(userID: userID) {
+            cachedUser = user
+            return user
+        } else if let user = try? await getImparedAccount(userID: userID) {
+            cachedUser = user
+            return user
+        }
+        return nil
+    }
+
     private func registerHelper(user: HelperUserModel) async throws {
         try helperCollection.document(user.userID).setData(from: user, merge: true) { [weak self] error in
             print(error)
@@ -78,22 +103,19 @@ final class FireStoreDatabaseInteractor {
         }
     }
 
-    private func getUserBased(on userID: String) async throws -> UserModelInput? {
-        if let user = try? await getHelperAccount(userID: userID) {
-            cachedUser = user
-            return user
-        } else if let user = try? await getImparedAccount(userID: userID) {
-            cachedUser = user
-            return user
-        }
-        return nil
-    }
-
     private func getHelperAccount(userID: String) async throws -> UserModelInput {
         try await helperCollection.document(userID).getDocument(as: HelperUserModel.self)
     }
 
     private func getImparedAccount(userID: String) async throws -> UserModelInput {
         try await imparedCollection.document(userID).getDocument(as: ImparedUserModel.self)
+    }
+
+    private func getAllHelperUsersQuery() -> Query {
+        helperCollection
+    }
+
+    private func getAllImparedUsersQuery() -> Query {
+        imparedCollection
     }
 }

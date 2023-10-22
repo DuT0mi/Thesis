@@ -11,5 +11,7 @@ protocol UserModelInput {
     var userID: String { get set }
     var email: String? { get set }
     var dateCreated: Date? { get set }
+    var latitude: Double? { get set }
+    var longitude: Double? { get set }
     var type: AuthenticationViewModel.AccountType { get }
 }

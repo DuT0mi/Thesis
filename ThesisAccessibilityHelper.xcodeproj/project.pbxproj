@@ -93,6 +93,7 @@
 		1AC9374E2AD4845200851576 /* CarouselItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9374D2AD4845200851576 /* CarouselItemView.swift */; };
 		1AC96B102ADAAC99000AE55E /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC96B0F2ADAAC99000AE55E /* PanelView.swift */; };
 		1AC96B122ADAB25E000AE55E /* ImageCoordinatePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */; };
+		1ACB91092AE55C000044FB83 /* Query+getDocumentAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACB91082AE55C000044FB83 /* Query+getDocumentAs.swift */; };
 		1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */; };
 		1ACC9DF82AD7184F00A58531 /* ImageAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */; };
 		1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9DF92AD729E300A58531 /* FoundImages.swift */; };
@@ -202,6 +203,7 @@
 		1AC9374D2AD4845200851576 /* CarouselItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemView.swift; sourceTree = "<group>"; };
 		1AC96B0F2ADAAC99000AE55E /* PanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
 		1AC96B112ADAB25E000AE55E /* ImageCoordinatePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoordinatePointView.swift; sourceTree = "<group>"; };
+		1ACB91082AE55C000044FB83 /* Query+getDocumentAs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+getDocumentAs.swift"; sourceTree = "<group>"; };
 		1ACC0EE22ABA0FF000113911 /* BaseCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraManager.swift; sourceTree = "<group>"; };
 		1ACC9DF72AD7184F00A58531 /* ImageAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalyzer.swift; sourceTree = "<group>"; };
 		1ACC9DF92AD729E300A58531 /* FoundImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundImages.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				1AE53F212AD9E86B00665594 /* View+snapshot.swift */,
 				1AD302DF2ADF187500E959B5 /* String+levenshteinDistance.swift */,
 				1AD161BE2AE2F9640014E51A /* Error+AuthenticationError.swift */,
+				1ACB91082AE55C000044FB83 /* Query+getDocumentAs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -987,6 +990,7 @@
 				1AD8DF6B2AE0715C0032418D /* HomeLandingViewModel.swift in Sources */,
 				1AB9B7D92ADB07CA0046F048 /* CarouselModel.swift in Sources */,
 				1AD302E02ADF187500E959B5 /* String+levenshteinDistance.swift in Sources */,
+				1ACB91092AE55C000044FB83 /* Query+getDocumentAs.swift in Sources */,
 				1ABF1BC72AE3FA5500C61DBD /* HelperUserModel.swift in Sources */,
 				1AAAE4932AC84001003704E5 /* NotificationName+Names.swift in Sources */,
 				1AAA6C5F2AACCD6300F1CA85 /* LongLoadingView.swift in Sources */,
