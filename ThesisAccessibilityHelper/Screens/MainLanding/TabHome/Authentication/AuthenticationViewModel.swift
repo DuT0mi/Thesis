@@ -16,15 +16,16 @@ final class AuthenticationViewModel: ObservableObject {
 
         case none
         case successful
+        case signupSuccessfully
         case error(Error)
 
         // MARK: - Equatable
 
         static func == (lhs: AuthenticationResponseStatus, rhs: AuthenticationResponseStatus) -> Bool {
             switch (lhs, rhs) {
-                case (.none, .none):
-                    return true
-                case (.successful, .successful):
+                case (.none, .none),
+                    (.successful, .successful),
+                    (.signupSuccessfully, .signupSuccessfully):
                     return true
                 case let (.error(error1), .error(error2)):
                     return error1.localizedDescription == error2.localizedDescription
@@ -92,13 +93,10 @@ final class AuthenticationViewModel: ObservableObject {
                 self?.isAuthenticated = result
             }
         }
-
         do {
             try await operation()
-            authenticationStatus = .successful
-            authenticationInteractor.saveAuthenticatedStatus(.authenticated)
         } catch {
-            authenticationInteractor.saveAuthenticatedStatus(.notAuthenticated)
+            authenticationInteractor.saveAuthenticatedStatus(.error)
             alertMessage = error.localizedDescription
             authenticationStatus = .error(error)
         }
@@ -109,6 +107,8 @@ final class AuthenticationViewModel: ObservableObject {
         do {
             try await authenticationInteractor.login(.init(email: email, password: password))
             self.isLoading.toggle()
+            authenticationStatus = .successful
+            authenticationInteractor.saveAuthenticatedStatus(.authenticated)
             resetCache()
         } catch {
             self.alertMessage = error.localizedDescription
@@ -124,7 +124,8 @@ final class AuthenticationViewModel: ObservableObject {
             let userDataResponse: AuthenticationDataResult = try await authenticationInteractor.createUser(.init(email: email, password: password))
             self.isLoading.toggle()
             self.createUser(userDataResponse)
-            resetCache()
+            authenticationStatus = .signupSuccessfully
+            authenticationInteractor.saveAuthenticatedStatus(.signupSuccessfully)
         } catch {
             self.alertMessage = error.localizedDescription
             self.alert.toggle()
@@ -138,9 +139,10 @@ final class AuthenticationViewModel: ObservableObject {
         alert.toggle()
     }
 
-    @MainActor
     private func resetCache() {
         authenticationStatus = .none
+        email.removeAll()
+        password.removeAll()
     }
 
     private func createUser(_ userDataResponse: AuthenticationDataResult) {
@@ -169,6 +171,7 @@ final class AuthenticationViewModel: ObservableObject {
 
 extension AuthenticationViewModel: BaseViewModelInput {
     func didAppear() {
+        resetCache()
     }
 
     func didDisAppear() {

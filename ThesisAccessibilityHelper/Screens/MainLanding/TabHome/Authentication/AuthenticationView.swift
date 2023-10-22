@@ -14,6 +14,12 @@ struct AuthenticationView: View {
         struct Layout {
             static let iconSize: CGFloat = 28
         }
+
+        struct Animation {
+            static let popupTime: TimeInterval = 0.75
+
+            static let extraTime: Float = 2.25
+        }
     }
 
     enum Page: String, CaseIterable, Equatable {
@@ -36,6 +42,10 @@ struct AuthenticationView: View {
                 ProgressView()
             }
 
+            if showPopup {
+                getPopUpContent(content: PopupView(size: .large), extratime: Consts.Animation.extraTime)
+            }
+
             VStack(alignment: .center, spacing: 16) {
                 Group {
                     titleComponent
@@ -52,10 +62,25 @@ struct AuthenticationView: View {
                 .padding()
                 buttonComponent
             }
+        }.task {
+            switch self.type {
+                case .login:
+                    viewModel.didAppear()
+                default:
+                    break
+            }
         }
         .onChange(of: viewModel.isAuthenticated) { value in
             guard value else { return }
             dismiss.callAsFunction()
+        }
+        .onChange(of: viewModel.authenticationStatus) { newValue in
+            switch newValue {
+                case .signupSuccessfully, .successful:
+                    showPopup = true
+                default:
+                    break
+            }
         }
         .alert(isPresented: $viewModel.alert, content: {
             Alert(
@@ -134,6 +159,19 @@ struct AuthenticationView: View {
                 .tag(AuthenticationViewModel.AccountType.impared)
         }
         .pickerStyle(.segmented)
+    }
+
+    // MARK: - Functions
+
+    private func getPopUpContent<TimeType>(content: some View, extratime: TimeType ) -> some View {
+        content
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(truncating: (extratime) as! NSNumber)){
+                    withAnimation(.easeInOut(duration: Consts.Animation.popupTime)){
+                        showPopup = false
+                    }
+                }
+            }
     }
 }
 

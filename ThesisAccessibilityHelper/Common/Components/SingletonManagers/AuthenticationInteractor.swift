@@ -16,6 +16,9 @@ final class AuthenticationInteractor {
     enum AuthenticationState: String, RawRepresentable {
         case authenticated
         case notAuthenticated
+        case signupSuccessfully
+        case `default`
+        case error
     }
 
     // MARK: - Properties
@@ -42,14 +45,13 @@ final class AuthenticationInteractor {
     func createUser(_ user: AuthenticationUserModel) async throws -> AuthenticationDataResult {
         let authDataResult = try await Auth.auth().createUser(withEmail: user.email, password: user.password)
 
-        setCurrentUserID(authDataResult.user.uid)
-
         return userMapper(authDataResult)
     }
 
     func signOut() throws {
         try Auth.auth().signOut()
-        saveAuthenticatedStatus(.notAuthenticated)
+        saveAuthenticatedStatus(.default)
+        resetDefaults()
     }
 
     func getCurrentUser(completion: @escaping (Result<AuthenticationDataResult, Error>) -> Void) {
@@ -80,6 +82,8 @@ final class AuthenticationInteractor {
                 completion(true)
             case .notAuthenticated:
                 completion(false)
+            default:
+                completion(false)
         }
 
     }
@@ -94,5 +98,14 @@ final class AuthenticationInteractor {
             additionalUserInfo: authDataRes.additionalUserInfo,
             credential: authDataRes.credential
         )
+    }
+
+    private func resetDefaults() {
+        let defaults = UserDefaults.standard
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
+        defaults.synchronize()
     }
 }
