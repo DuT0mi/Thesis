@@ -33,7 +33,6 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
 
     @Published private(set) var titleForMarker = "..."
 
-
     private var _currentUser: UserModelInput?
 
 //    var lookAroundBindingWrapper: Binding<MKLookAroundScene?> {

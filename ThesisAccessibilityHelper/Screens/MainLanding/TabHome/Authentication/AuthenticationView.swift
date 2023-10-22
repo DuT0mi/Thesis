@@ -166,8 +166,8 @@ struct AuthenticationView: View {
     private func getPopUpContent<TimeType>(content: some View, extratime: TimeType ) -> some View {
         content
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + Double(truncating: (extratime) as! NSNumber)){
-                    withAnimation(.easeInOut(duration: Consts.Animation.popupTime)){
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(truncating: (extratime) as! NSNumber)) {
+                    withAnimation(.easeInOut(duration: Consts.Animation.popupTime)) {
                         showPopup = false
                     }
                 }

@@ -17,7 +17,7 @@ final class TabHosterViewViewModel: ObservableObject {
     static let shared = TabHosterViewViewModel()
 
     var tabBarStatus = PassthroughSubject<TabBarStatus, Never>()
-    
+
     @LazyInjected private var pushnotificationInteractor: PushnotificationInteractor
 
     private var cancellables = Set<AnyCancellable>()

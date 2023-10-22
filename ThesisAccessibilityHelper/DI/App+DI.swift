@@ -8,6 +8,7 @@
 import Resolver
 
 extension Resolver: ResolverRegistering {
+    // swiftlint: disable function_body_length
     public static func registerAllServices() {
         register {
             ScanDocumentViewModel()
@@ -80,3 +81,4 @@ extension Resolver: ResolverRegistering {
         .scope(.application)
     }
 }
+// swiftlint: enable function_body_length
