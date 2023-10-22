@@ -24,8 +24,7 @@ final class ImageAnalyzer {
     func processImages(
         original: CarouselModel,
         contestants: [CarouselModel],
-        completion: @escaping (Result<[(model: CarouselModel, index: Int, featureprintDistance: Float)], URLError>) -> Void)
-    {
+        completion: @escaping (Result<[(model: CarouselModel, index: Int, featureprintDistance: Float)], URLError>) -> Void) {
         var ranks = [(model: CarouselModel, index: Int, featureprintDistance: Float)]()
 
         guard let originalFPO = featureprintObservationForImage(data: original.imageData) else {
@@ -59,7 +58,6 @@ final class ImageAnalyzer {
             default:
                 completion(.success(ranks))
         }
-
     }
 
     private func featureprintObservationForImage(data: Data) -> VNFeaturePrintObservation? {

@@ -161,6 +161,7 @@ struct TabMapLandingView: View {
 
     // MARK: - Functions
 
+    // swiftlint: disable function_body_length
     @ViewBuilder
     func buildMapDetails() -> some View {
         VStack(spacing: 16) {
@@ -220,6 +221,7 @@ struct TabMapLandingView: View {
         }
         .padding()
     }
+    // swiftlint: enable function_body_length
 
     @MainActor
     func fetchLookAround() {

@@ -26,8 +26,8 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMap/TabMapLandingViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "fetchUsers()"
             landmarkType = "7">
             <Locations>
@@ -59,6 +59,36 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
                   endingLineNumber = "144"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "EE9123B7-25C3-4C77-A971-BCA4AF7DC78B - e5d3e402726c6742"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThesisAccessibilityHelper.TabMapLandingViewModel.fetchUsers() async -&gt; ()"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMap/TabMapLandingViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "EE9123B7-25C3-4C77-A971-BCA4AF7DC78B - 662489bb97814790"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ThesisAccessibilityHelper.TabMapLandingViewModel.fetchUsers() async -&gt; ()"
+                  moduleName = "ThesisAccessibilityHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dutomi/Documents/Developing/ThesisBME/Main/ThesisAccessibilityHelper/Screens/MainLanding/TabMap/TabMapLandingViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
                   offsetFromSymbolStart = "60">
                </Location>
             </Locations>
