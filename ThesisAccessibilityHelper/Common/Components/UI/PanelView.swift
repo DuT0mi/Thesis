@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A View that defines a Panel based on a __RoundedRectangle__
 struct PanelView: View {
     // MARK: - Types
 
@@ -35,6 +36,8 @@ struct PanelView: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     PanelView(text: "")

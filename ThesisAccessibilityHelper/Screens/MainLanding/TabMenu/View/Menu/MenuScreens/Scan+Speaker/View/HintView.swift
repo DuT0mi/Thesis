@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A View that show help the usage of the scanner
 struct HintView: View {
     // MARK: - Types
 
@@ -71,6 +72,8 @@ struct HintView: View {
         RoundedRectangle(cornerRadius: 20)
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     HintView()

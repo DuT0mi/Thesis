@@ -8,6 +8,7 @@
 import Vision
 import VisionKit
 
+/// A class that can recognize text in / from images
 final class TextRecognizer {
     // MARK: - Types
 

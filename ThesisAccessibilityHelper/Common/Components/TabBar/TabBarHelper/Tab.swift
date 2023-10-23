@@ -17,7 +17,7 @@ enum Tab: String, CaseIterable {
             case .home:
                 return "house.and.flag"
             case .menu:
-                return "book"
+                return "circle.grid.cross.up.filled"
             case .profile:
                 return "gear"
         }

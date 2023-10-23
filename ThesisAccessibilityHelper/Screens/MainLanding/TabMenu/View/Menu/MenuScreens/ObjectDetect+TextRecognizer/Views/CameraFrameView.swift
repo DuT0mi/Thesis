@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// The actual capture whole camera view
+/// - Parameters:
+///  - image: The current image (CVPixelBuffer -> CGImage)
+///  - imageOrientation: The orientation of the image, the default is: *.upMirrored*
 struct CameraFrameView: View {
     // MARK: - Types
 

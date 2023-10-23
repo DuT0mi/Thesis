@@ -15,6 +15,7 @@ import Resolver
 protocol ObjectDetectViewModelInput: BaseViewModelInput {
 }
 
+/// A class that manages the ``ObjectView``, and process the data
 @MainActor
 final class ObjectDetectViewModel: ObservableObject {
     // MARK: - Types

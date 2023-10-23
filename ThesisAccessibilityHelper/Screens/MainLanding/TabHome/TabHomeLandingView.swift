@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// The  Home view
 struct TabHomeLandingView: View {
     // MARK: - Types
 

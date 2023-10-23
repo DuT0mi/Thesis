@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// The scanner
 struct ScanDocumentView: View {
     // MARK: - Types
 

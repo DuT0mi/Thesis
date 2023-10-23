@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A popup view showing the successful operation for the user
 struct PopupView: View {
     // MARK: - Types
 
@@ -31,6 +32,8 @@ struct PopupView: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview("Small") {
     PopupView(size: .small)

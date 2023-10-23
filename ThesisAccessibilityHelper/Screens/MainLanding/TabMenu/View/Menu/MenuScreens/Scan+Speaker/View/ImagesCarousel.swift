@@ -8,6 +8,9 @@
 import SwiftUI
 import Resolver
 
+/// A View that makes a Carousel based on specified models: ``CarouselModel``
+/// - Parameters:
+///  - models: The models to loop on, that are :`CarouselModel`
 struct ImagesCarousel: View {
     // MARK: - Types
 
@@ -66,6 +69,8 @@ struct ImagesCarousel: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     ImagesCarousel(models: [])

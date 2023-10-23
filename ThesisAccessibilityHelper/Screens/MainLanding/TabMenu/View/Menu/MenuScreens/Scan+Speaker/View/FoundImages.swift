@@ -8,6 +8,10 @@
 import SwiftUI
 import Resolver
 
+/// A View that shows the found image, based on specified models: ``SortedModel``
+/// - Parameters:
+///  - showBottomSheet: __Binding__, show a bottom sheet or not
+///  - bottomSheetIsLoading: __Binding__, is a bottom sheet is loading or not
 struct FoundImagesView: View {
     // MARK: - Types
 
@@ -94,6 +98,8 @@ struct FoundImagesView: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     FoundImagesView(showBottomSheet: .constant(false), bottomSheetIsLoading: .constant(false))

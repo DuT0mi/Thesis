@@ -8,9 +8,18 @@
 import Foundation
 import Resolver
 
+// TODO: Request help if the user is the impared
+
+/// Manages the authentication view ``AuthenticationView`` and getting data from the ``AuthenticationInteractor``
 final class AuthenticationViewModel: ObservableObject {
     // MARK: - Types
 
+    /// Response status of the authentication response, conform the **Equatable**
+    /// - **Cases**:
+    ///  - *none*: The default response
+    ///  - *successful*: The successful response
+    ///  - *signupSuccessfully*: The signupSuccessfully response
+    ///  - *error*: The error response with the corresponding **error** as associated value
     enum AuthenticationResponseStatus: Equatable {
         // MARK: - Properties
 
@@ -35,6 +44,10 @@ final class AuthenticationViewModel: ObservableObject {
         }
     }
 
+    /// The User's possible account types
+    /// - **Cases**
+    ///  - *helper*: The helper, who helps the visually impared people on the Map (``TabMapLandingView``)
+    ///  - *impared* The visually impared user, also can see the helpers and go to them (Request help is ongoing)
     enum AccountType: String {
         case helper
         case impared

@@ -159,6 +159,8 @@ struct TabProfileLandingView: View {
     // TODO: Save when the value changes not when the view disappears
 }
 
+// MARK: - Preview
+
 struct TabProfileLandingView_Previews: PreviewProvider {
     static var previews: some View {
         TabProfileLandingView()

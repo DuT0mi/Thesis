@@ -9,6 +9,10 @@ import SwiftUI
 import Resolver
 import VolumeButtonHandler
 
+/// The image finder bottom sheet that appears after longPressure gesture is got the corresponding state
+/// - Parameters:
+///  - image: The image that has been captured via snapshot (aka the whole screen as Image)
+///  - model: The model for more information, see ``ImageFinderBottomSheetModel``
 struct ImageFinderBottomSheetView: View {
     // MARK: - Types
 

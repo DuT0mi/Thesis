@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
 
+/// A View that shows the Map and Users on it based on the current user type
 struct TabMapLandingView: View {
     // MARK: - Properties
 

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TabItem: View {
+    // MARK: - Properties
+
     var tint: Color
     var inactiveTint: Color
     var tab: Tab
@@ -31,9 +33,9 @@ struct TabItem: View {
                             .matchedGeometryEffect(id: "ACTIVE", in: animation)
                     }
                 }
-            Text(tab.rawValue)
-                .font(.caption)
-                .foregroundColor(activeTab == tab ? tint : .gray)
+//            Text(tab.rawValue)
+//                .font(.caption)
+//                .foregroundColor(activeTab == tab ? tint : .gray)
         }
         .frame(maxWidth: .infinity)
         .contentShape(Rectangle())

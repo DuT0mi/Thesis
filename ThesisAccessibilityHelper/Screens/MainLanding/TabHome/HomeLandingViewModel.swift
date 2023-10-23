@@ -8,6 +8,7 @@
 import Foundation
 import Resolver
 
+/// Manages the ``TabHomeLandingView``
 @MainActor
 final class HomeLandingViewModel: ObservableObject {
     // MARK: - Properties

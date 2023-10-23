@@ -8,6 +8,10 @@
 import SwiftUI
 import Combine
 
+/// The detected object view at the corresponding position
+/// - Parameters:
+///  - resultLabel: The label of the founds object
+///  - bufferSize: The position of the found object
 struct ObjectView: View {
     // MARK: - Types
 

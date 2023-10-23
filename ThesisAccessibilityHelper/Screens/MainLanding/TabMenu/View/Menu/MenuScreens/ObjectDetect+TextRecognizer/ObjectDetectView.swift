@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// The heart of the object detect
 struct ObjectDetectView: View {
     // MARK: - Types
 

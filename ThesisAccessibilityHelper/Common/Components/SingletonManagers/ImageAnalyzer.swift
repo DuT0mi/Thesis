@@ -9,6 +9,7 @@ import Foundation
 import Vision
 import SwiftUI
 
+/// A class that can find the featureprint observation (alias distance) between images, also capable for sort the result
 final class ImageAnalyzer {
     // MARK: - Properties
 

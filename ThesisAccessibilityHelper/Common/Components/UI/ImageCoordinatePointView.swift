@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A View that is represents a Coordinate point used, at ``ImageFinderBottomSheetView``
 struct ImageCoordinatePointView: View {
     // MARK: - Types
 
@@ -37,6 +38,8 @@ struct ImageCoordinatePointView: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     ImageCoordinatePointView()

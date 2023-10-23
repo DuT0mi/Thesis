@@ -10,6 +10,7 @@ import FirebaseStorage
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+/// The interactor that manages the backend CRUD requests
 @MainActor
 final class FireStoreDatabaseInteractor {
     // MARK: - Types

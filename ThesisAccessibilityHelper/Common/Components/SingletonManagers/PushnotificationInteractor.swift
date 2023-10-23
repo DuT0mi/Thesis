@@ -9,6 +9,8 @@ import Foundation
 import UserNotifications
 import UIKit
 
+// TODO: Localization if done
+/// The interactor that manages the push notifications (possibly ther will be from firebase too)
 final class PushnotificationInteractor {
     // MARK: - Types
 

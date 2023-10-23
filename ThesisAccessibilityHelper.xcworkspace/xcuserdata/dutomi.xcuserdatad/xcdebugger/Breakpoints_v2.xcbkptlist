@@ -26,8 +26,8 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabMap/TabMapLandingViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "fetchUsers()"
             landmarkType = "7">
             <Locations>
@@ -104,25 +104,9 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabHosterViewViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "didAppear()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E05925B4-DF9E-46F8-A70E-4BB8EFB8A9BD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/AuthenticationInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "handleDelegateNotification()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -136,8 +120,8 @@
             filePath = "ThesisAccessibilityHelper/Screens/MainLanding/TabHome/Authentication/AuthenticationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "login()"
             landmarkType = "7">
          </BreakpointContent>
@@ -152,8 +136,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/FireStoreDatabaseInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "updateCoordinates(for:coordinates:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -168,8 +152,8 @@
             filePath = "ThesisAccessibilityHelper/Common/Components/SingletonManagers/FireStoreDatabaseInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "updateCoordinates(for:coordinates:)"
             landmarkType = "7">
             <Locations>

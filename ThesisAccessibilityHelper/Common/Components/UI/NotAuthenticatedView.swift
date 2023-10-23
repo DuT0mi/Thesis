@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A View that is being showed when the User is not authenticatd with *.zIndex(...) modifier on a BaseView or ZStack*
 struct NotAuthenticatedView: View {
     // MARK: - Types
 
@@ -56,6 +57,8 @@ struct NotAuthenticatedView: View {
         .ignoresSafeArea()
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     NotAuthenticatedView()

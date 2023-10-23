@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// The View for the authentication flow
+/// - Parameters:
+///  - type: The type of the authentication, type of: ``Page``
 struct AuthenticationView: View {
     // MARK: - Types
 
@@ -22,6 +25,10 @@ struct AuthenticationView: View {
         }
     }
 
+    /// The type of the authentication flow page
+    /// - **Case**
+    ///  - *login*: Log in
+    ///  - *signup*: Signing up
     enum Page: String, CaseIterable, Equatable {
         case login
         case signup
