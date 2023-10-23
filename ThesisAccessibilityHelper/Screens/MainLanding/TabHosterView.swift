@@ -8,6 +8,7 @@
 import SwiftUI
 import Resolver
 
+/// The Hoster View of Home
 struct TabHosterView: View {
     // MARK: - Properties
 

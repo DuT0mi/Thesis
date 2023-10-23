@@ -73,6 +73,8 @@ struct AlbumView: View {
     // MARK: - Functions
 }
 
+// MARK: - Preview
+
 #Preview {
     AlbumView()
 }

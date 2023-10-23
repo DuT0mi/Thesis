@@ -7,6 +7,15 @@
 
 import Foundation
 
+/// A Model that describes an impared typed User, being uplodaded and downloaded from the **FireBase server**
+/// - Parameters:
+///  - userID: The User's ID
+///  - email: The User's email
+///  - dateCreated: The date when the User's profiel was created
+///  - latitude: The User's latitude coordinate
+///  - longitude: The User's longitude coordinate
+///  - type: The User's type, for more information see: ``AuthenticationViewModel``
+///  - protocol: ``UserModelInput``
 struct ImparedUserModel {
     // MARK: - Properties
 

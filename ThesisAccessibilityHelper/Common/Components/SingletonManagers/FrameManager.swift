@@ -9,6 +9,7 @@ import AVFoundation
 import Vision
 import UIKit
 
+/// Gives the camera frame as `CVPixelBuffer`
 final class FrameManager: NSObject, ObservableObject {
     // MARK: - Properties
 

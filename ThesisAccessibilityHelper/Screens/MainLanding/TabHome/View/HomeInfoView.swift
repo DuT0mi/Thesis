@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// The info view about the app
 struct HomeInfoView: View {
     var body: some View {
         BaseView {

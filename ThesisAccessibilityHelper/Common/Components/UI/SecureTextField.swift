@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A textfield with an oppurtunity to see the securefield's (`SecureField`) binded text.
 struct SecureTextField: View {
     @State private var isSecureField = true
     @Binding var secureText: String
@@ -27,6 +28,8 @@ struct SecureTextField: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     SecureTextField(secureText: .constant("AA"))

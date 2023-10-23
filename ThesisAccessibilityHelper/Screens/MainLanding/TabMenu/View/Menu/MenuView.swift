@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A View that represents the menu
 struct MenuView: View {
     // MARK: - Properties
 

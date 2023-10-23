@@ -8,6 +8,9 @@
 import CoreData
 import UIKit
 
+// TODO: Logger
+
+/// A class that has the ability to manage the Core Data based local database.
 final class CoreDataController: ObservableObject {
     // MARK: - Types
 
@@ -113,7 +116,7 @@ final class CoreDataController: ObservableObject {
         container.loadPersistentStores { description, error in
             precondition(error == nil)
 
-            print("LOG | LOADED SUCCESSFULLY | DESCRIPTION: \(description)") // TODO: Logger
+            print("LOG | LOADED SUCCESSFULLY | DESCRIPTION: \(description)")
         }
     }
 }

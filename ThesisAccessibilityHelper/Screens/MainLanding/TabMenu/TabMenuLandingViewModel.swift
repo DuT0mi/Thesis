@@ -8,6 +8,7 @@
 import Foundation
 import Resolver
 
+/// The View Model layer for the ``TabMenuLandingView``
 @MainActor
 final class TabMenuLandingViewModel: ObservableObject {
     // MARK: - Properties

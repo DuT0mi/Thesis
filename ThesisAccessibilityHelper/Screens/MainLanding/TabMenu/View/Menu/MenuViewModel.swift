@@ -13,6 +13,7 @@ protocol MenuViewModelInput: BaseViewModelInput {
     func didTapMenuItem(on menuItemType: MenuViewModel.MenuItemType)
 }
 
+/// Manages the ``MenuView``
 @MainActor
 final class MenuViewModel: ObservableObject {
     // MARK: - Types

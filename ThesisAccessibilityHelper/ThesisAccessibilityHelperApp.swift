@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// TODO: Replace prints with logs
+
 @main
 struct ThesisAccessibilityHelperApp: App {
     // MARK: - Properties

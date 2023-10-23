@@ -8,6 +8,11 @@
 import SwiftUI
 import Resolver
 
+/// An item of the carouse, for more information see ``ImagesCarousel``
+/// - Parameters:
+///  - model: The model to show, `CarouselModel`
+///  - type: The item's type, type of:`ItemType`
+///  - showButton: Decidies wether show a button or not
 struct CarouselItemView: View {
     // MARK: - Types
 
@@ -22,7 +27,8 @@ struct CarouselItemView: View {
             static let grayOpacity: CGFloat = 0.6
         }
     }
-
+    
+    /// The type of the Item based on TapGestures
     enum ItemType {
         case back
         case front
@@ -90,6 +96,8 @@ struct CarouselItemView: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     CarouselItemView(bottomSheetIsLoading: .constant(false), model: .init(id: "House".lowercased(), image: Image(systemName: ""), imageData: Data(), detectedText: ""))

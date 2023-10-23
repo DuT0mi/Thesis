@@ -473,9 +473,9 @@
 			children = (
 				1A915DA02AC9A0E3009FE4BE /* AppDelegate.swift */,
 				1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */,
+				1A9428612ABA28230042D9BB /* Documentation.docc */,
 				1AC937432AD47D2200851576 /* DI */,
 				1AA539A72ACDD79B00E8E0DC /* LocalStorage */,
-				1A9428612ABA28230042D9BB /* Documentation.docc */,
 				1ABE4AF32AB2306D004DD0EE /* Resources */,
 				1A96BE302AAB3EE7003DE05B /* Common */,
 				1A96BE2D2AAB3959003DE05B /* Utils+Consts */,

@@ -18,6 +18,7 @@ protocol ScanDocumentViewModelInput: BaseViewModelInput {
 
 // swiftlint:disable force_unwrapping
 
+/// The View Model of the ``ScanDocumentView``
 final class ScanDocumentViewModel: ObservableObject {
     // MARK: - Types
 

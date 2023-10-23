@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import Resolver
 
+/// Manages the ``TabHosterView``
 final class TabHosterViewViewModel: ObservableObject {
     // MARK: - Properties
 

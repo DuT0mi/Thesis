@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 
+/// The class that provides speaking with `AVSpeechSynthesizer`
 final class SynthesizerManager: NSObject {
     // MARK: - Types
 

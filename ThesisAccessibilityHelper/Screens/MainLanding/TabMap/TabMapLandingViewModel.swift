@@ -11,6 +11,7 @@ import MapKit
 import Combine
 import SwiftUI
 
+/// A View Model for the ``TabMapLandingView``
 final class TabMapLandingViewModel: NSObject, ObservableObject {
     // MARK: - Types
 

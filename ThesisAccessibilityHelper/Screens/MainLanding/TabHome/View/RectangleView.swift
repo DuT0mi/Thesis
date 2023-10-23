@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+/// A View that represents the entry point to the authentication flow
+/// - Parameters:
+///  - systemName: The **SF Symbol** name for the Icon to show on the middle of the rectanlge
+///  - isLogged: Flag for decide if it needs to show the Authentication flow or not
+///  - onTap: TapGesture entry point
 struct RectangleView: View {
     // MARK: - Types
 
@@ -56,6 +61,8 @@ struct RectangleView: View {
         }
     }
 }
+
+// MARK: - Preview
 
 #Preview("Not Logged") {
     RectangleView(systemName: "person.fill.questionmark")

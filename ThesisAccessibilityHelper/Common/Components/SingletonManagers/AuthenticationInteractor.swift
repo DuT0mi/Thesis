@@ -10,10 +10,19 @@ import FirebaseAuth
 import Resolver
 import UIKit
 
+/// The interactor layer for the Authentication flow
 @MainActor
 final class AuthenticationInteractor {
     // MARK: - Types
+    
 
+    /// The authentication state's for the current corresponding User
+    /// - **Cases**:
+    ///  - *authenticated*: Authenticated state
+    ///  - *notAuthenticated*: Not authenticated state
+    ///  - *signupSuccessfully*: Sign up successfully, for showing popup view : ``PopupView``
+    ///  - *`default`* :The default state
+    ///  - *error*: The error state
     enum AuthenticationState: String, RawRepresentable {
         case authenticated
         case notAuthenticated
@@ -101,6 +110,22 @@ final class AuthenticationInteractor {
 
     }
 
+    // swiftlint: disable identifier_name
+    @objc func handleDelegateNotification() {
+        getCurrentUser { [weak self] result in
+            guard case .success(let authDataRes) = result else {
+                return
+            }
+            self?._authenticationDataResult = authDataRes
+        }
+        Task {
+            guard let _authenticationDataResult, let loc = tabMapLandingVM.currentUserLocation else { return }
+            await fireStoreDBInteractor.updateCoordinates(for: _authenticationDataResult, coordinates: (loc.latitude, loc.longitude))
+            print("TEST | DATA RES: \(_authenticationDataResult), LOC: \(loc)")
+        }
+    }
+    // swiftlint: enable identifier_name
+
     private func setCurrentUserID(_ userID: String) {
         UserDefaults.standard.set(userID, forKey: UserKeys.currentUserID.rawValue)
     }
@@ -137,20 +162,4 @@ final class AuthenticationInteractor {
             object: nil
         )
     }
-
-    // swiftlint: disable identifier_name
-    @objc func handleDelegateNotification() {
-        getCurrentUser { [weak self] result in
-            guard case .success(let authDataRes) = result else {
-                return
-            }
-            self?._authenticationDataResult = authDataRes
-        }
-        Task {
-            guard let _authenticationDataResult, let loc = tabMapLandingVM.currentUserLocation else { return }
-            await fireStoreDBInteractor.updateCoordinates(for: _authenticationDataResult, coordinates: (loc.latitude, loc.longitude))
-            print("TEST | DATA RES: \(_authenticationDataResult), LOC: \(loc)")
-        }
-    }
-    // swiftlint: enable identifier_name
 }

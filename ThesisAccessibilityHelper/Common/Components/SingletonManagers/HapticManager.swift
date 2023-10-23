@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// A class that manages the haptics
 class HapticManager {
     // MARK: - Properties
 
