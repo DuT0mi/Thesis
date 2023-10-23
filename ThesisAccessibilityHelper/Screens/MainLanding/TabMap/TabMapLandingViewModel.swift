@@ -141,7 +141,7 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
     // swiftlint: disable identifier_name
     @MainActor
     private func fetchUsers() async {
-        if let userID = authenticationInteractor._authenticationDataResult?.uid, let _currentUser = try? await firestoreDBInteractor.getUserBased(on: userID) {
+        if let userID = authenticationInteractor.getCurrentUser()?.uid, let _currentUser = try? await firestoreDBInteractor.getUserBased(on: userID) {
             var users: [UserModelInput]?
             switch _currentUser.type {
                 case .helper:

@@ -73,6 +73,10 @@ final class AuthenticationInteractor {
         completion(.success(.init(user: user)))
     }
 
+    func getCurrentUser() -> AuthenticationDataResult? {
+        AuthenticationDataResult(user: Auth.auth().currentUser) ?? (_authenticationDataResult ?? nil)
+    }
+
     func saveAuthenticatedStatus(_ state: AuthenticationState) {
         UserDefaults.standard.set(state.rawValue, forKey: UserKeys.authenticationKey.rawValue)
 

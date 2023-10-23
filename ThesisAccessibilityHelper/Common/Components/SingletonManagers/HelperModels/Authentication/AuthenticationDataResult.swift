@@ -36,4 +36,15 @@ struct AuthenticationDataResult {
         self.additionalUserInfo = additionalUserInfo
         self.credential = credential
     }
+
+    init?(user: User?, additionalUserInfo: AdditionalUserInfo? = nil, credential: AuthCredential? = nil) {
+        guard let user else { return nil }
+
+        self.uid = user.uid
+        self.email = user.email
+        self.photoURL = user.photoURL?.absoluteString
+        self.description = user.description
+        self.additionalUserInfo = additionalUserInfo
+        self.credential = credential
+    }
 }
