@@ -66,6 +66,9 @@ struct TabHosterView: View {
                     activeTab: $activeTab,
                     position: $tabShapePosition
                 )
+                .accessibilityLabel("Tab Bar for \($0.rawValue) page")
+                .accessibilityAddTraits(.isButton)
+                .accessibilityRemoveTraits(.isImage)
             }
         }
         .padding()
