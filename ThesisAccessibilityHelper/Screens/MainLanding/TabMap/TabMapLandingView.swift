@@ -16,11 +16,39 @@ struct TabMapLandingView: View {
     @State private var cameraPosition: MapCameraPosition = .userLocation(followsHeading: true, fallback: .automatic)
     @State private var lookAround: MKLookAroundScene?
     @State private var viewingRegion: MKCoordinateRegion?
+    @State private var selectedMapStyle: MapStyle = .standard
     @State private var showSearchBar = false
     @State private var showDetails = false
     @State private var showRoute = false
 
     @Namespace var mapScope
+
+    @ViewBuilder
+    private var contextMenu: some View {
+        Menu("Options") {
+            AnimatedActionButton(title: "Standard", systemImage: "car.rear") {
+                selectedMapStyle = .standard
+            }
+
+            Menu("Imagery type") {
+                AnimatedActionButton(title: "Flat - 2D", systemImage: "airplane") {
+                    selectedMapStyle = .imagery(elevation: .flat)
+                }
+                AnimatedActionButton(title: "Realistic - 3D", systemImage: "airplane") {
+                    selectedMapStyle = .imagery(elevation: .realistic)
+                }
+            }
+
+            Menu("Hybrid type") {
+                AnimatedActionButton(title: "Hybrid-flat-2D", systemImage: "globe.asia.australia.fill") {
+                    selectedMapStyle = .hybrid(elevation: .flat, pointsOfInterest: .all, showsTraffic: true)
+                }
+                AnimatedActionButton(title: "Hybrid-realistic-3D", systemImage: "globe.asia.australia.fill") {
+                    selectedMapStyle = .hybrid(elevation: .realistic, pointsOfInterest: .all, showsTraffic: true)
+                }
+            }
+        }
+    }
 
     var body: some View {
         ZStack {
@@ -60,6 +88,7 @@ struct TabMapLandingView: View {
                         .stroke(.blue, style: .init(lineWidth: 10))
                 }
             }
+            .mapStyle(selectedMapStyle)
             .onMapCameraChange({ mapCameraUpdateContext in
                 viewingRegion = mapCameraUpdateContext.region
                 Task {
@@ -105,6 +134,16 @@ struct TabMapLandingView: View {
                         viewModel.resetResult()
                     }
                     .allowsHitTesting(viewModel.searchResults.count == .zero ? false : true)
+            }
+            ToolbarItem(placement: .automatic) {
+                Image(systemName: "globe.desk")
+                    .foregroundStyle(viewModel.isLoading ? Color.gray : Color.blue)
+                    .frame(width: 28, height: 28)
+                    .allowsHitTesting(viewModel.isLoading ? false : true)
+                    .contextMenu {
+                        contextMenu
+                    }
+                    .padding(.horizontal)
             }
         }
         .onChange(of: viewModel.mapSelection) { oldValue, newValue in
