@@ -29,23 +29,41 @@ struct TabMapLandingView: View {
             AnimatedActionButton(title: "Standard", systemImage: "car.rear") {
                 selectedMapStyle = .standard
             }
+            .accessibilityLabel("Map type chooser")
+            .accessibilityAddTraits(.isButton)
+            .accessibilityHint("Standard map type")
 
             Menu("Imagery type") {
                 AnimatedActionButton(title: "Flat - 2D", systemImage: "airplane") {
                     selectedMapStyle = .imagery(elevation: .flat)
                 }
+                .accessibilityLabel("Map type chooser")
+                .accessibilityAddTraits(.isButton)
+                .accessibilityHint("Imagery type and flat2D")
+
                 AnimatedActionButton(title: "Realistic - 3D", systemImage: "airplane") {
                     selectedMapStyle = .imagery(elevation: .realistic)
                 }
+                .accessibilityLabel("Map type chooser")
+                .accessibilityAddTraits(.isButton)
+                .accessibilityHint("Imagery type and realistic3D")
             }
 
             Menu("Hybrid type") {
                 AnimatedActionButton(title: "Hybrid-flat-2D", systemImage: "globe.asia.australia.fill") {
                     selectedMapStyle = .hybrid(elevation: .flat, pointsOfInterest: .all, showsTraffic: true)
                 }
+                .accessibilityLabel("Map type chooser")
+                .accessibilityAddTraits(.isButton)
+                .accessibilityHint("Hybrid type and flat 2D")
+
                 AnimatedActionButton(title: "Hybrid-realistic-3D", systemImage: "globe.asia.australia.fill") {
                     selectedMapStyle = .hybrid(elevation: .realistic, pointsOfInterest: .all, showsTraffic: true)
                 }
+                .accessibilityLabel("Map type chooser")
+                .accessibilityAddTraits(.isButton)
+                .accessibilityHint("Hybrid type and realistic 3D")
+
             }
         }
     }
@@ -134,6 +152,9 @@ struct TabMapLandingView: View {
                         viewModel.resetResult()
                     }
                     .allowsHitTesting(viewModel.searchResults.count == .zero ? false : true)
+                    .accessibilityLabel("Marker deleter")
+                    .accessibilityAddTraits(.isButton)
+                    .accessibilityHint("Press to delete the markers")
             }
             ToolbarItem(placement: .automatic) {
                 Image(systemName: "globe.desk")
@@ -144,6 +165,9 @@ struct TabMapLandingView: View {
                         contextMenu
                     }
                     .padding(.horizontal)
+                    .accessibilityLabel("Map type chooser")
+                    .accessibilityAddTraits(.isButton)
+                    .accessibilityHint("Press to choose the markers")
             }
         }
         .onChange(of: viewModel.mapSelection) { oldValue, newValue in
@@ -195,6 +219,7 @@ struct TabMapLandingView: View {
                 .background(.red.gradient, in: .rect(cornerRadius: 15))
                 .padding()
                 .background(.ultraThinMaterial)
+                .accessibilityHint("Tap twice to end the route")
             }
         }
     }
@@ -226,6 +251,9 @@ struct TabMapLandingView: View {
                         .foregroundStyle(.black)
                         .background(.white, in: .circle)
                 }
+                .accessibilityAddTraits(.isButton)
+                .accessibilityHint("Tap the close the preview")
+                .accessibilityLabel("Close button")
                 .padding(8)
             }
             .overlay(alignment: .topLeading) {
@@ -241,6 +269,9 @@ struct TabMapLandingView: View {
                         .font(.title)
                         .foregroundStyle(.black)
                         .background(.white, in: .circle)
+                        .accessibilityAddTraits(.isButton)
+                        .accessibilityHint("Tap the open the destinitation in the system map")
+                        .accessibilityLabel("Open system map button")
                 }
                 .padding(8)
             }
@@ -253,6 +284,8 @@ struct TabMapLandingView: View {
                     showDetails = true
                 }
             }
+            .accessibilityHint("Tap the get the direction of the destinitation ")
+            .accessibilityLabel("Direction button")
             .foregroundStyle(.white)
             .bold()
             .frame(maxWidth: .infinity)
