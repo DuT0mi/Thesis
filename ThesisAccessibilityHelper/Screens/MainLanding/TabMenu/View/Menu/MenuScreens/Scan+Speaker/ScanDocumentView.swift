@@ -63,6 +63,8 @@ struct ScanDocumentView: View {
                             didTapHint = true
                         }
                         .padding(.top, Consts.Layout.padding)
+                        .accessibilityLabel("Hint View")
+                        .accessibilityHint("Tap to the right top button for scanning")
                     if !viewModel.isLoading, !viewModel.models.isEmpty, coreDataElements.count != .zero {
                         ImagesCarousel(models: viewModel.modelMapper(from: coreDataElements))
                             .frame(width: Consts.Layout.contentFrameSize, height: Consts.Layout.contentFrameSize)
@@ -88,6 +90,7 @@ struct ScanDocumentView: View {
                             .buttonStyle(.borderedProminent)
                             .tint(Color.white)
                             .foregroundStyle(.black)
+                            .accessibilityHint("Tap the open the scanner")
                         }
                         .frame(width: Consts.Layout.contentFrameSize, height: Consts.Layout.contentFrameSize)
 

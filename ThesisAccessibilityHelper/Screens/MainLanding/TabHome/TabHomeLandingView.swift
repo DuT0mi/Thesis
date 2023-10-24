@@ -38,13 +38,23 @@ struct TabHomeLandingView: View {
                         RectangleView(systemName: Consts.Image.leading) {
                             showInfo.toggle()
                         }
+                        .accessibilityLabel("Info button")
+                        .accessibilityHint("Tap for open the info")
+                        .accessibilityAddTraits(.isButton)
 
                         if viewModel.isAuthenticated {
                             RectangleView(systemName: Consts.Image.trailingAuthenticated, isLogged: viewModel.isAuthenticated)
+                                .accessibilityLabel("Authentication button")
+                                .accessibilityHint("Tap for open authentication")
+                                .accessibilityValue(!viewModel.isAuthenticated ? "is available" : "is not available")
+                                .accessibilityAddTraits(.isButton)
                         } else {
                             RectangleView(systemName: Consts.Image.trailing) {
                                 showAuth.toggle()
                             }
+                            .accessibilityHint("Tap for open the authentication")
+                            .accessibilityValue(!viewModel.isAuthenticated ? "is available" : "is not available")
+                            .accessibilityAddTraits(.isButton)
                         }
                     }
                     Spacer()
