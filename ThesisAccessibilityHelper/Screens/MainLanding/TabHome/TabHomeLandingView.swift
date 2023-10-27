@@ -52,8 +52,9 @@ struct TabHomeLandingView: View {
                             RectangleView(systemName: Consts.Image.trailingAuthenticated, isLogged: viewModel.isAuthenticated)
                                 .accessibilityLabel("Authentication button")
                                 .accessibilityHint("Tap for open authentication")
-                                .accessibilityValue(!viewModel.isAuthenticated ? "is available" : "is not available")
+                                .accessibilityValue(!viewModel.isAuthenticated ? "is available" : "is not available, you are signed in")
                                 .accessibilityAddTraits(.isButton)
+                                .accessibilityHidden(!viewModel.isAuthenticated)
                         } else {
                             RectangleView(systemName: Consts.Image.trailing) {
                                 showAuth.toggle()
@@ -61,6 +62,7 @@ struct TabHomeLandingView: View {
                             .accessibilityHint("Tap for open the authentication")
                             .accessibilityValue(!viewModel.isAuthenticated ? "is available" : "is not available")
                             .accessibilityAddTraits(.isButton)
+                            .accessibilityHidden(viewModel.isAuthenticated)
                         }
                     }
                     Spacer()

@@ -26,14 +26,18 @@ struct AlbumView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\.resultID)]) private var coreDataElements: FetchedResults<TempData>
 
     @StateObject private var viewModel = AlbumViewModel()
+    @State private var isPresentingConfirm = false
 
     private let columns = Array(repeating: GridItem(), count: Consts.Layout.columns)
 
     var body: some View {
         BaseView {
-            ScrollView(.vertical) {
-                LazyVGrid(columns: columns) {
-                    if !coreDataElements.isEmpty {
+            if viewModel.isLoading {
+                ProgressView()
+            }
+            if !coreDataElements.isEmpty {
+                ScrollView(.vertical) {
+                    LazyVGrid(columns: columns) {
                         ForEach(coreDataElements, id: \.resultID) { tempData in
                             Image(uiImage: UIImage(data: tempData.imageData!)!)
                                 .resizable()
@@ -41,11 +45,23 @@ struct AlbumView: View {
                                 .frame(width: Consts.Layout.imageFrameWidth)
                                 .clipShape(.rect(cornerRadius: Consts.Layout.imageClipShapeCornerRadius))
                         }
-                    } else {
-                        ProgressView()
                     }
                 }
+            } else {
+                VStack(spacing: 16) {
+                    LottieView(animationName: "emptycart")
+                        .frame(height: AppConstants.ScreenDimensions.height / 2)
+                        .padding()
+                    Label("You haven't added any item yet", systemImage: "camera.viewfinder")
+                }
             }
+        }
+        .confirmationDialog("Are you sure?", isPresented: $isPresentingConfirm) {
+            Button("Delete all items?", role: .destructive) {
+                viewModel.deleteAllItem(on: managedObjectContext)
+            }
+        } message: {
+            Text("You cannot undo this action")
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -63,11 +79,17 @@ struct AlbumView: View {
     @ViewBuilder
     private var contextMenu: some View {
         Menu {
-            AnimatedActionButton(title: "Find similary images", systemImage: "text.viewfinder") {
+            AnimatedActionButton(title: "Delete all", systemImage: "trash") {
+                isPresentingConfirm.toggle()
             }
+            .disabled(isDeleteButtonDisabled)
         } label: {
             Text("Options")
         }
+    }
+
+    private var isDeleteButtonDisabled: Bool {
+        coreDataElements.isEmpty || viewModel.isLoading
     }
 
     // MARK: - Functions

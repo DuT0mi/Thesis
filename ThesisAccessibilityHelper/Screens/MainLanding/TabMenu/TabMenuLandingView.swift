@@ -18,6 +18,7 @@ struct TabMenuLandingView: View {
         BaseView {
             NotAuthenticatedView()
                 .zIndex(viewModel.isAuthenticated ? 0 : 1)
+                .accessibilityHidden(viewModel.isAuthenticated ? true : false)
             MenuView()
                 .allowsHitTesting(viewModel.isAuthenticated ? true : false)
         }

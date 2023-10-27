@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import SwiftUI
+import Resolver
 
 protocol AlbumViewModelInput: BaseViewModelInput {
 }
@@ -18,12 +19,20 @@ final class AlbumViewModel: ObservableObject {
 
     // MARK: - Properties
 
+    @Published private(set) var isLoading = false
     // MARK: - Initialization
 
     init() {
     }
 
     // MARK: - Functions
+
+    func deleteAllItem(on context: NSManagedObjectContext) {
+        isLoading = true
+        CoreDataController().reset(context: context) { [weak self] in
+            self?.isLoading = false
+        }
+    }
 }
 
 // MARK: - AlbumViewModelInput
