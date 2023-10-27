@@ -62,6 +62,13 @@ final class SynthesizerManager: NSObject {
     func playSystemSound(_ inSystemSoundID: SystemSoundID) {
         AudioServicesPlaySystemSound(inSystemSoundID)
     }
+
+    /// For sounds see: `https://github.com/TUNER88/iOSSystemSoundsLibrary`
+    /// - Parameters:
+    ///   - type: convenience for basic sounds in the app
+    func playSystemSound(_ type: SpeakType) {
+        AudioServicesPlaySystemSound(SystemSoundID(type.rawValue))
+    }
 }
 // MARK: - AVSpeechSynthesizerDelegate
 
@@ -69,4 +76,10 @@ extension SynthesizerManager: AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         NotificationCenter.default.post(name: .speakerStoppedSpeaking, object: nil)
     }
+}
+
+// MARK: - SynthesizerManager
+
+extension SynthesizerManager {
+    typealias SpeakType = ScanDocumentViewModel.SystemSoundType
 }
