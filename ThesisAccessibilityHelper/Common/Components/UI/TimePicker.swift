@@ -10,8 +10,12 @@ import SwiftUI
 
 /// A custom picker for Time based operations
 struct MultiComponentPicker<Tag: Hashable>: View {
+    // MARK: - Properties
+
     let columns: [Column]
     var selections: [Binding<Tag>]
+
+    // MARK: - Initialization
 
     init?(columns: [Column], selections: [Binding<Tag>]) {
         guard !columns.isEmpty && columns.count == selections.count else {
@@ -53,6 +57,8 @@ struct MultiComponentPicker<Tag: Hashable>: View {
     }
 }
 
+// MARK: - MultiComponentPicker
+
 extension MultiComponentPicker {
     struct Column {
         struct Option {
@@ -64,6 +70,8 @@ extension MultiComponentPicker {
         var options: [Option]
     }
 }
+
+// MARK: - HorizontalAlignment
 
 private extension HorizontalAlignment {
     enum CustomCenter: AlignmentID {

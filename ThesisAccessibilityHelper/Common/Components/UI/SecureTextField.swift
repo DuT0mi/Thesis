@@ -9,6 +9,8 @@ import SwiftUI
 
 /// A textfield with an oppurtunity to see the securefield's (`SecureField`) binded text.
 struct SecureTextField: View {
+    // MARK: - Properties
+
     @State private var isSecureField = true
     @Binding var secureText: String
 
