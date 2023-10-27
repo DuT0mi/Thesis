@@ -15,11 +15,13 @@ struct ThesisAccessibilityHelperApp: App {
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var dataController = CoreDataController()
+    @StateObject var demoModelData = DemoData()
 
     var body: some Scene {
         WindowGroup {
             TabHosterView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
+                .environmentObject(demoModelData)
         }
     }
 }

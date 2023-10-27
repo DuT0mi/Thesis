@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TabShape: Shape {
+    // MARK: - Properties
+
     var midPoint: CGFloat
 
     var animatableData: CGFloat {
@@ -16,6 +18,8 @@ struct TabShape: Shape {
             midPoint = newValue
         }
     }
+
+    // MARK: - Functions
 
     func path(in rect: CGRect) -> Path {
         return Path { path in

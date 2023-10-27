@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A4EDD4A2AEC112900AACE9A /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4EDD492AEC112900AACE9A /* DemoData.swift */; };
+		1A4EDD4C2AEC116D00AACE9A /* DemoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4EDD4B2AEC116D00AACE9A /* DemoItem.swift */; };
+		1A4EDD4F2AEC130C00AACE9A /* demoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A4EDD4E2AEC130C00AACE9A /* demoData.json */; };
+		1A4EDD512AEC144A00AACE9A /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4EDD502AEC144A00AACE9A /* PageView.swift */; };
+		1A4EDD542AEC148800AACE9A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4EDD532AEC148800AACE9A /* PageViewController.swift */; };
+		1A4EDD572AEC14BF00AACE9A /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4EDD562AEC14BF00AACE9A /* PageControl.swift */; };
+		1A4EDD592AEC154C00AACE9A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4EDD582AEC154C00AACE9A /* CardView.swift */; };
+		1A4EDD5B2AEC156A00AACE9A /* TextOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4EDD5A2AEC156A00AACE9A /* TextOverlay.swift */; };
+		1A4EDD682AEC328400AACE9A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1A4EDD672AEC328400AACE9A /* Lottie */; };
+		1A4EDD6B2AEC32B200AACE9A /* emptycart.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A4EDD6A2AEC32B200AACE9A /* emptycart.json */; };
+		1A4EDD6D2AEC32DC00AACE9A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4EDD6C2AEC32DC00AACE9A /* LottieView.swift */; };
+		1A4EDD6F2AEC409000AACE9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4EDD6E2AEC409000AACE9A /* LaunchScreen.storyboard */; };
 		1A5A01232AADF6480060F528 /* TabHosterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A01222AADF6480060F528 /* TabHosterViewViewModel.swift */; };
 		1A5DF3C82AB48AB700A872F2 /* TabMapLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3C72AB48AB700A872F2 /* TabMapLandingView.swift */; };
 		1A5DF3CA2AB48ACC00A872F2 /* TabProfileLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5DF3C92AB48ACC00A872F2 /* TabProfileLandingView.swift */; };
@@ -146,6 +158,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A4EDD492AEC112900AACE9A /* DemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
+		1A4EDD4B2AEC116D00AACE9A /* DemoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoItem.swift; sourceTree = "<group>"; };
+		1A4EDD4E2AEC130C00AACE9A /* demoData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = demoData.json; sourceTree = "<group>"; };
+		1A4EDD502AEC144A00AACE9A /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		1A4EDD532AEC148800AACE9A /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		1A4EDD562AEC14BF00AACE9A /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		1A4EDD582AEC154C00AACE9A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1A4EDD5A2AEC156A00AACE9A /* TextOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOverlay.swift; sourceTree = "<group>"; };
+		1A4EDD6A2AEC32B200AACE9A /* emptycart.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = emptycart.json; sourceTree = "<group>"; };
+		1A4EDD6C2AEC32DC00AACE9A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		1A4EDD6E2AEC409000AACE9A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A5A01222AADF6480060F528 /* TabHosterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHosterViewViewModel.swift; sourceTree = "<group>"; };
 		1A5DF3C72AB48AB700A872F2 /* TabMapLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMapLandingView.swift; sourceTree = "<group>"; };
 		1A5DF3C92AB48ACC00A872F2 /* TabProfileLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabProfileLandingView.swift; sourceTree = "<group>"; };
@@ -273,6 +296,7 @@
 				1A915D912AC99FB3009FE4BE /* FirebaseInstallations in Frameworks */,
 				1A915D992AC99FB3009FE4BE /* FirebaseRemoteConfig in Frameworks */,
 				1A915D9D2AC99FB3009FE4BE /* FirebaseStorage in Frameworks */,
+				1A4EDD682AEC328400AACE9A /* Lottie in Frameworks */,
 				1A915D7D2AC99FB3009FE4BE /* FirebaseDatabase in Frameworks */,
 				1A915D9F2AC99FB3009FE4BE /* FirebaseStorageCombine-Community in Frameworks */,
 				1A915D672AC99DC4009FE4BE /* Pods_ThesisAccessibilityHelper.framework in Frameworks */,
@@ -287,9 +311,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A4EDD462AEC0E9600AACE9A /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				1A4EDD552AEC14B200AACE9A /* UIView */,
+				1A4EDD522AEC147A00AACE9A /* ViewController */,
+				1A4EDD482AEC10AA00AACE9A /* Model */,
+				1A4EDD472AEC10A600AACE9A /* View */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		1A4EDD472AEC10A600AACE9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1A4EDD502AEC144A00AACE9A /* PageView.swift */,
+				1A4EDD582AEC154C00AACE9A /* CardView.swift */,
+				1A4EDD5A2AEC156A00AACE9A /* TextOverlay.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1A4EDD482AEC10AA00AACE9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A4EDD492AEC112900AACE9A /* DemoData.swift */,
+				1A4EDD4B2AEC116D00AACE9A /* DemoItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1A4EDD4D2AEC128100AACE9A /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				1A4EDD4E2AEC130C00AACE9A /* demoData.json */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		1A4EDD522AEC147A00AACE9A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1A4EDD532AEC148800AACE9A /* PageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1A4EDD552AEC14B200AACE9A /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				1A4EDD562AEC14BF00AACE9A /* PageControl.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		1A4EDD692AEC329F00AACE9A /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				1A4EDD6A2AEC32B200AACE9A /* emptycart.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		1A5DF3C32AB48A2600A872F2 /* TabHome */ = {
 			isa = PBXGroup;
 			children = (
+				1A4EDD462AEC0E9600AACE9A /* Intro */,
 				1AD161A92AE2AF9E0014E51A /* Authentication */,
 				1AD1619F2AE289150014E51A /* View */,
 				1A5DF3CD2AB48B0300A872F2 /* TabHomeLandingView.swift */,
@@ -375,7 +462,6 @@
 			children = (
 				1A5DF3C62AB48A4E00A872F2 /* TabProfile */,
 				1A5DF3C52AB48A4400A872F2 /* TabMenu */,
-				1A5DF3C42AB48A3100A872F2 /* TabMap */,
 				1A5DF3C32AB48A2600A872F2 /* TabHome */,
 				1AA05F7A2AAAFA430084568F /* TabHosterView.swift */,
 				1A5A01222AADF6480060F528 /* TabHosterViewViewModel.swift */,
@@ -473,6 +559,7 @@
 			children = (
 				1A915DA02AC9A0E3009FE4BE /* AppDelegate.swift */,
 				1AA05F782AAAFA430084568F /* ThesisAccessibilityHelperApp.swift */,
+				1A4EDD6E2AEC409000AACE9A /* LaunchScreen.storyboard */,
 				1A9428612ABA28230042D9BB /* Documentation.docc */,
 				1AC937432AD47D2200851576 /* DI */,
 				1AA539A72ACDD79B00E8E0DC /* LocalStorage */,
@@ -532,6 +619,7 @@
 		1AB0408D2AB5B41C0037215E /* MenuScreens */ = {
 			isa = PBXGroup;
 			children = (
+				1A5DF3C42AB48A3100A872F2 /* TabMap */,
 				1AA539AE2ACDDAE500E8E0DC /* Album */,
 				1AD1E8612AC0461300BCA580 /* Scan+Speaker */,
 				1AB0408E2AB5BE760037215E /* ObjectDetect+TextRecognizer */,
@@ -582,6 +670,7 @@
 			isa = PBXGroup;
 			children = (
 				1AB040A22AB5F4490037215E /* NavigationButton.swift */,
+				1A4EDD6C2AEC32DC00AACE9A /* LottieView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -606,6 +695,8 @@
 		1ABE4AF32AB2306D004DD0EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1A4EDD692AEC329F00AACE9A /* Animation */,
+				1A4EDD4D2AEC128100AACE9A /* Intro */,
 				1AD1DBF02ABF0D320003683F /* YOLOv3Int8LUT.mlmodel */,
 				1ABE4AF42AB23081004DD0EE /* YOLOv3Tiny.mlmodel */,
 			);
@@ -838,6 +929,7 @@
 				1AC9373F2AD47D1700851576 /* Resolver */,
 				1AC937462AD47DEE00851576 /* Resolver */,
 				1ABED8C62ADC08CA007982DD /* VolumeButtonHandler */,
+				1A4EDD672AEC328400AACE9A /* Lottie */,
 			);
 			productName = ThesisAccessibilityHelper;
 			productReference = 1AA05F752AAAFA430084568F /* ThesisAccessibilityHelper.app */;
@@ -872,6 +964,7 @@
 				1A915D692AC99FB2009FE4BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1AC9373E2AD47D1700851576 /* XCRemoteSwiftPackageReference "Resolver" */,
 				1ABED8C52ADC08CA007982DD /* XCRemoteSwiftPackageReference "VolumeButtonHandler" */,
+				1A4EDD662AEC328400AACE9A /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 1AA05F762AAAFA430084568F /* Products */;
 			projectDirPath = "";
@@ -887,10 +980,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4EDD4F2AEC130C00AACE9A /* demoData.json in Resources */,
+				1A4EDD6F2AEC409000AACE9A /* LaunchScreen.storyboard in Resources */,
 				1AA05F802AAAFA440084568F /* Preview Assets.xcassets in Resources */,
 				1A96BE352AAB4747003DE05B /* Localizable.strings in Resources */,
 				1AA05F7D2AAAFA440084568F /* Assets.xcassets in Resources */,
 				1AB040AA2AB652F00037215E /* LICENSE.txt in Resources */,
+				1A4EDD6B2AEC32B200AACE9A /* emptycart.json in Resources */,
 				1AA05F872AAAFBF30084568F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -968,6 +1064,7 @@
 				1A9D1A842AB712F9008C30EC /* ViewModifier+GeoSize.swift in Sources */,
 				1AB040902AB5BFC00037215E /* ObjectDetectView.swift in Sources */,
 				1ABED8C42ADBEB9B007982DD /* TabProfileLandingViewModel.swift in Sources */,
+				1A4EDD592AEC154C00AACE9A /* CardView.swift in Sources */,
 				1ACC0EE32ABA0FF000113911 /* BaseCameraManager.swift in Sources */,
 				1A5DF3D42AB4925500A872F2 /* MenuViewItem.swift in Sources */,
 				1AC96B102ADAAC99000AE55E /* PanelView.swift in Sources */,
@@ -975,16 +1072,20 @@
 				1AD1E8632AC04A7F00BCA580 /* ScanDocumentView.swift in Sources */,
 				1AA539A92ACDD7AF00E8E0DC /* CoreDataController.swift in Sources */,
 				1AD161AF2AE2CD750014E51A /* FireStoreDatabaseInteractor.swift in Sources */,
+				1A4EDD4C2AEC116D00AACE9A /* DemoItem.swift in Sources */,
 				1AA05F7B2AAAFA430084568F /* TabHosterView.swift in Sources */,
+				1A4EDD6D2AEC32DC00AACE9A /* LottieView.swift in Sources */,
 				1A9A24AC2AACE21A0005EBA0 /* ViewModifier+Sheet.swift in Sources */,
 				1AB0409A2AB5CD6B0037215E /* CameraManager.swift in Sources */,
 				1AD161AD2AE2C95F0014E51A /* AuthenticationInteractor.swift in Sources */,
 				1AD161AB2AE2AFC00014E51A /* AuthenticationViewModel.swift in Sources */,
+				1A4EDD572AEC14BF00AACE9A /* PageControl.swift in Sources */,
 				1ACC9DFA2AD729E300A58531 /* FoundImages.swift in Sources */,
 				1AB0409C2AB5CFE70037215E /* Error+Camera.swift in Sources */,
 				1ACB910B2AE579430044FB83 /* PushnotificationInteractor.swift in Sources */,
 				1AD161BA2AE2E43A0014E51A /* PopupView.swift in Sources */,
 				1AC604852AD2DD4C00BBE914 /* AlbumViewModel.swift in Sources */,
+				1A4EDD5B2AEC156A00AACE9A /* TextOverlay.swift in Sources */,
 				1AE53F1E2AD9C0DA00665594 /* HapticManager.swift in Sources */,
 				1AF13F2C2AACEE780097E085 /* TabPosition.swift in Sources */,
 				1AD1DBF12ABF0D320003683F /* YOLOv3Int8LUT.mlmodel in Sources */,
@@ -1001,6 +1102,7 @@
 				1AC604872AD2EF6E00BBE914 /* View+AnimatedActionButton.swift in Sources */,
 				1AD161B52AE2D02F0014E51A /* AuthenticationDataResult.swift in Sources */,
 				1A9428622ABA28230042D9BB /* Documentation.docc in Sources */,
+				1A4EDD512AEC144A00AACE9A /* PageView.swift in Sources */,
 				1AA539AD2ACDD80F00E8E0DC /* ResultModel.xcdatamodeld in Sources */,
 				1AD161A62AE290C70014E51A /* RectangleView.swift in Sources */,
 				1AB040AC2AB6548D0037215E /* SynthesizerManager.swift in Sources */,
@@ -1010,6 +1112,7 @@
 				1AD161B32AE2D0260014E51A /* AuthenticationUserModel.swift in Sources */,
 				1AE53F222AD9E86B00665594 /* View+snapshot.swift in Sources */,
 				1AD161BF2AE2F9640014E51A /* Error+AuthenticationError.swift in Sources */,
+				1A4EDD542AEC148800AACE9A /* PageViewController.swift in Sources */,
 				1AD161C12AE316A10014E51A /* NotAuthenticatedView.swift in Sources */,
 				1AF13F282AACEE3E0097E085 /* TabBarItem.swift in Sources */,
 				1AA539B52ACE01E900E8E0DC /* AlbumView.swift in Sources */,
@@ -1039,6 +1142,7 @@
 				1AF13F2E2AACEE890097E085 /* TabShape.swift in Sources */,
 				1A5DF3D72AB4D45900A872F2 /* MenuViewModel.swift in Sources */,
 				1AA05F792AAAFA430084568F /* ThesisAccessibilityHelperApp.swift in Sources */,
+				1A4EDD4A2AEC112900AACE9A /* DemoData.swift in Sources */,
 				1AD161B82AE2D1960014E51A /* UserKeys.swift in Sources */,
 				1AE53F202AD9C69000665594 /* ImageFinderBottomSheetView.swift in Sources */,
 				1A9665CD2AACC77A0087F964 /* BaseViewModel.swift in Sources */,
@@ -1194,12 +1298,16 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera pls";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pls give location";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Lib pls";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1232,12 +1340,16 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera pls";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Pls give location";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Lib pls";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1280,6 +1392,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1A4EDD662AEC328400AACE9A /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios/";
+			requirement = {
+				kind = exactVersion;
+				version = 3.1.9;
+			};
+		};
 		1A915D692AC99FB2009FE4BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1307,6 +1427,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1A4EDD672AEC328400AACE9A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A4EDD662AEC328400AACE9A /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		1A915D6A2AC99FB3009FE4BE /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1A915D692AC99FB2009FE4BE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

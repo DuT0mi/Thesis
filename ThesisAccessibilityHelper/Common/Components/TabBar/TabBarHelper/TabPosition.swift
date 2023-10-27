@@ -15,6 +15,8 @@ struct PositionKey: PreferenceKey {
     }
 }
 
+// MARK: - View
+
 extension View {
     @ViewBuilder
     func viewPosition(completion: @escaping (CGRect) -> Void ) -> some View {

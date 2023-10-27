@@ -78,7 +78,7 @@ final class CoreDataController: ObservableObject {
         }
     }
 
-    func reset(context: NSManagedObjectContext) {
+    func reset(context: NSManagedObjectContext, completion: (() -> Void)? = nil) {
         let fetchRequest: NSFetchRequest<LocalData> = LocalData.fetchRequest()
 
         do {
@@ -89,6 +89,7 @@ final class CoreDataController: ObservableObject {
             }
 
             self.saveContext(context: context)
+            completion?()
 
         } catch {
             print("LOG | ERROR: \(error)")

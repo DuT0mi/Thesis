@@ -13,8 +13,7 @@ import UIKit
 /// The interactor layer for the Authentication flow
 @MainActor
 final class AuthenticationInteractor {
-    // MARK: - Types
-    
+    // MARK: - Types 
 
     /// The authentication state's for the current corresponding User
     /// - **Cases**:

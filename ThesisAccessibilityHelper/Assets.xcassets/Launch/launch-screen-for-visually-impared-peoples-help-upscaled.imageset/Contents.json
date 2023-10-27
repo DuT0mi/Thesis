@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "launch-screen-for-visually-impared-peoples-help-upscaled.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

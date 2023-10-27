@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The Tab"s of the TabView see ``TabHosterView``
 enum Tab: String, CaseIterable {
     case home = "Home"
     case menu = "Menu"
@@ -28,6 +29,7 @@ enum Tab: String, CaseIterable {
     }
 }
 
+/// An enum that describes the current status of the tab bar
 enum TabBarStatus {
     case show
     case hide
