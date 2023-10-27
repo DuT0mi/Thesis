@@ -3,7 +3,7 @@
 ## Title: Exploring quality of life improvement opportunities with artificial intelligence tools in an iOS environment
 > Made at BUTE - EE BSc
 # Installation
-- download the source code and leave the magic line at  corresponding fodler `pod install`
+- download the source code and leave the magic line at  corresponding folder `pod install`
   - If you do not have cocoapods, [getting started with cocoapods](https://guides.cocoapods.org/using/getting-started.html)
 # Tested environments
 - iPhone SE3 (2 different devices) - iOS 17, works fine
