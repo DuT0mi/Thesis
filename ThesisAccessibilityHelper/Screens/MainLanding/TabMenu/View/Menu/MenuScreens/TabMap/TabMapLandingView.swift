@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
 
+// swiftlint: disable type_body_length
 /// A View that shows the Map and Users on it based on the current user type
 struct TabMapLandingView: View {
     // MARK: - Properties
@@ -307,6 +308,9 @@ struct TabMapLandingView: View {
         }
     }
 }
+// swiftlint: enable type_body_length
+
+// MARK: - Preview
 
 struct TabMapLandingView_Previews: PreviewProvider {
     static var previews: some View {

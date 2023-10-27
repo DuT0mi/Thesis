@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-
 /// A custom picker for Time based operations
 struct MultiComponentPicker<Tag: Hashable>: View {
     let columns: [Column]

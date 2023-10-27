@@ -8,7 +8,6 @@
 import Foundation
 import CoreData
 import SwiftUI
-import Resolver
 
 protocol AlbumViewModelInput: BaseViewModelInput {
 }
