@@ -27,7 +27,7 @@ struct CarouselItemView: View {
             static let grayOpacity: CGFloat = 0.6
         }
     }
-    
+
     /// The type of the Item based on TapGestures
     enum ItemType {
         case back

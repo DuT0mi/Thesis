@@ -24,6 +24,7 @@ struct TabHomeLandingView: View {
 
     // MARK: - Properties
 
+    @EnvironmentObject var demoModelData: DemoData
     @StateObject private var viewModel = HomeLandingViewModel()
     @StateObject private var authViewModel = AuthenticationViewModel()
     @State private var showInfo = false
@@ -33,6 +34,11 @@ struct TabHomeLandingView: View {
         NavigationView {
             BaseView {
                 VStack {
+                    PageView(pages: demoModelData.demoItems!.compactMap {
+                        CardView(demoCard: $0)
+                            .scrollClipDisabled(true)
+                    })
+                    .aspectRatio(3 / 2, contentMode: .fit)
                     Spacer()
                     HStack(spacing: Consts.Image.spacing) {
                         RectangleView(systemName: Consts.Image.leading) {
@@ -61,6 +67,7 @@ struct TabHomeLandingView: View {
                 }
             }
         }
+        .ignoresSafeArea()
         .sheet(isPresented: $showInfo) {
             HomeInfoView()
                 .sheetStyle(style: .mixed, dismissable: true, showIndicator: true)

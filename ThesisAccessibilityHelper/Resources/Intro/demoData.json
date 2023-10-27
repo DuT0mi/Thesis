@@ -1,0 +1,26 @@
+[
+    {
+       "id": 0,
+       "title": "Find others",
+       "description" : "Help / find them",
+       "imageName" : "introMap"
+    },
+    {
+       "id": 1,
+       "title": "Detect",
+       "description" : "Detect object",
+       "imageName" : "introObjectDetect"
+    },
+    {
+       "id": 2,
+       "title": "Scan",
+       "description" : "Scan and find similarity",
+       "imageName" : "introScanner"
+    },
+    {
+       "id": 3,
+       "title": "Store",
+       "description" : "Store them",
+       "imageName" : "introObjectDetect"
+    }
+]

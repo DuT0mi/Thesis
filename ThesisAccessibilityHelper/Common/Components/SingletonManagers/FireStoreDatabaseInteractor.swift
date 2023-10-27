@@ -10,6 +10,8 @@ import FirebaseStorage
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+// TODO: Logger instead of print(...)
+
 /// The interactor that manages the backend CRUD requests
 @MainActor
 final class FireStoreDatabaseInteractor {
