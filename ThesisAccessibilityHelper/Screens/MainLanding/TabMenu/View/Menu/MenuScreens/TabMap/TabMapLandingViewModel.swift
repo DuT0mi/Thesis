@@ -18,6 +18,21 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
     private struct Consts {
         static let bmeQLa: CLLocationDegrees = 47.473533988323574
         static let bmeQLo: CLLocationDegrees = 19.059854268015204
+        static let pollRequestTime: TimeInterval = 15
+    }
+
+    /// A Model that is represent a marker and the corresponding userID for the marker
+    /// - Parameters:
+    ///  - mkMap: The MKMapItem
+    ///  - userID: The corresponding userID of the location
+    ///  - id: For conforming to Identifiable
+    struct MarkerItem: Identifiable {
+        var mkMap: MKMapItem
+        var userID: String
+
+        var id: UUID {
+            UUID()
+        }
     }
 
     // MARK: - Properties
@@ -30,25 +45,30 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
     @Published private(set) var currentUserLocation: CLLocationCoordinate2D?
     @Published private(set) var isLoading = true
     @Published private(set) var searchResults = [MKMapItem]()
-    @Published private(set) var helpers = [MKMapItem]()
+    @Published private(set) var usersBasedOnType = [MKMapItem]()
+    @Published private(set) var mapNotification = [MapNotification]()
 
     @Published private(set) var titleForMarker = "..."
 
-    private var _currentUser: UserModelInput?
+    private var cachedUser: UserModelInput?
+    private lazy var cachedHelperModel = [MarkerItem]()
 
-//    var lookAroundBindingWrapper: Binding<MKLookAroundScene?> {
-//        Binding {
-//            self.lookAround
-//        } set: { newValue in
-//            self.lookAround = newValue
-//        }
-//    }
+    private var isNotificationBeignHandled = false
+
+    //    var lookAroundBindingWrapper: Binding<MKLookAroundScene?> {
+    //        Binding {
+    //            self.lookAround
+    //        } set: { newValue in
+    //            self.lookAround = newValue
+    //        }
+    //    }
 
     private(set) var defaultLocation: CLLocationCoordinate2D = .init(latitude: Consts.bmeQLa, longitude: Consts.bmeQLo)
 
     @LazyInjected private var tabHosterInstance: TabHosterViewViewModel
     @LazyInjected private var firestoreDBInteractor: FireStoreDatabaseInteractor
     @LazyInjected private var authenticationInteractor: AuthenticationInteractor
+    @LazyInjected private var speaker: SynthesizerManager
 
     private lazy var locationManager = CLLocationManager()
 
@@ -67,6 +87,12 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
             await self.setup()
         }
     }
+
+    //    deinit {
+    //        Task {
+    //            await firestoreDBInteractor.removeListener()
+    //        }
+    //    }
 
     // MARK: - Functions
 
@@ -127,8 +153,11 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
             // TODO: More params..
 
             Task {
-//                let result = try? await MKDirections(request: request).calculateETA() // TODO: ETA and more
+                let eta = try? await MKDirections(request: request).calculateETA()
                 let result = try? await MKDirections(request: request).calculate()
+                if let eta {
+                    await self.sendNotification(eta: eta, mapselection: mapSelection)
+                }
                 self.route = result?.routes.first
             }
         }
@@ -139,11 +168,63 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
         await fetchUsers()
     }
 
+    func didCloseNotification() {
+        isNotificationBeignHandled = false
+
+        if let noti = mapNotification.first {
+            Task {
+                try? await firestoreDBInteractor.updateNotificationStatus(for: noti.notificationID)
+            }
+        }
+        speaker.playSystemSound(.confirm)
+        speaker.speak(with: "Sikersen bezártad az értesítést!")
+        mapNotification.removeAll()
+    }
+
+    // swiftlint:disable line_length
+    func didTapToSpeak(on notification: MapNotification) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeZone = .current
+        dateFormatter.calendar = .current
+
+        let arrivalDate = dateFormatter.date(from: notification.etaExpectedArrivalDate?.description ?? "")
+        let nowDate = dateFormatter.date(from: Date().description)
+
+        speaker.speak(with: "Az értesítés \(String(describing: notification.senderID))-től érkezett, várható érkezés \(notification.etaExpectedTravelTime ?? .nan) másodperc, a segítő: \(String(describing: notification.etaDistance)) méter távolságra van tőled, nagyjából \(arrivalDate ?? .distantFuture)-ra fog megérkezni és most \(nowDate ?? .now) az idő")
+    }
+    // swiftlint:enable line_length
+
+    @MainActor
+    private func sendNotification(eta: MKDirections.ETAResponse, mapselection: MKMapItem) async {
+        if !cachedHelperModel.isEmpty, let cachedUser {
+            guard let receiver = cachedHelperModel.first(where: { $0.mkMap.isEqual(mapselection) }), cachedUser.type == .helper else { return }
+
+            let notification = MapNotification(
+                notificationID: UUID().uuidString,
+                date: Date(),
+                senderID: cachedUser.userID,
+                receiverID: receiver.userID,
+                didSent: false,
+                etaExpectedTravelTime: eta.expectedTravelTime,
+                etaDistance: eta.distance,
+                etaExpectedArrivalDate: eta.expectedArrivalDate
+            )
+
+            await firestoreDBInteractor.createNotification(notification)
+        }
+    }
+
     // swiftlint: disable identifier_name
+    /// A function that fetch the users, the name may be not properly
+    /// - Returns:
+    ///  - If the current user type **helper**, then the `usersBasedOnType` will be *impared*
+    ///  - If the current user type **impared**, then the `usersBasedOnType` will be *helpers*
     @MainActor
     private func fetchUsers() async {
         if let userID = authenticationInteractor.getCurrentUser()?.uid, let _currentUser = try? await firestoreDBInteractor.getUserBased(on: userID) {
             var users: [UserModelInput]?
+            cachedUser = _currentUser
             switch _currentUser.type {
                 case .helper:
                     setTitle("Impared")
@@ -160,11 +241,13 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
     private func userMapper(users: [UserModelInput]?) {
         guard let users else { return }
 
-        helpers = users
+        usersBasedOnType = users
             .lazy
             .filter { $0.latitude != nil && $0.longitude != nil }
             .map {
-                MKMapItem(placemark: .init(coordinate: .init(latitude: $0.latitude!, longitude: $0.longitude!)))
+                let item = MKMapItem(placemark: .init(coordinate: .init(latitude: $0.latitude!, longitude: $0.longitude!)))
+                cachedHelperModel.append(.init(mkMap: item, userID: $0.userID))
+                return item
             }
     }
 
@@ -173,6 +256,36 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
 
         titleForMarker = title
     }
+
+    // swiftlint: disable identifier_name
+    private func pollNotification() {
+        Task {
+            guard let polledValue = await firestoreDBInteractor.getNotification() else {
+                print("Not received polled value at: \(#file), function: \(#function)")
+
+                return
+            }
+            if let cachedUser {
+                handleNotifications(polledValue, currentUser: cachedUser)
+            } else if let userID = await authenticationInteractor.getCurrentUser()?.uid, let _currentUser = try? await firestoreDBInteractor.getUserBased(on: userID) {
+                handleNotifications(polledValue, currentUser: _currentUser)
+            }
+        }
+    }
+    // swiftlint: enable identifier_name
+    private func handleNotifications(_ notification: MapNotification, currentUser: UserModelInput) {
+        guard let receiverID = notification.receiverID, receiverID == currentUser.userID else { return }
+
+        isNotificationBeignHandled = true
+
+        DispatchQueue.main.async { [weak self] in
+            self?.mapNotification.append(notification)
+            self?.speaker.playSystemSound(1003)
+            DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 1) {
+                self?.speaker.speak(with: "Értesítésed jött, nyomd meg kétszer rövid időn belül képernyő közepén lévő nézetet a felolvasásért, vagy 2 másodpercig a becsukásért")
+            }
+        }
+    }
 }
 
 // MARK: - BaseViewModelInput
@@ -180,6 +293,15 @@ final class TabMapLandingViewModel: NSObject, ObservableObject {
 extension TabMapLandingViewModel: BaseViewModelInput {
     func didAppear() {
         tabHosterInstance.tabBarStatus.send(.hide)
+
+        Timer.publish(every: Consts.pollRequestTime, on: .main, in: .default)
+            .autoconnect()
+            .sink { [weak self] _ in
+                if self?.isNotificationBeignHandled == false {
+                    self?.pollNotification()
+                }
+            }
+            .store(in: &cancellables)
     }
 
     func didDisAppear() {

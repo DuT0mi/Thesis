@@ -45,7 +45,8 @@ final class AlbumViewModel: ObservableObject {
 
     func deleteAllItem(on context: NSManagedObjectContext) {
         isLoading = true
-        CoreDataController().reset(context: context) { [weak self] in
+        resetCache()
+        CoreDataController.shared.resetTemp(context: context) { [weak self] in
             self?.isLoading = false
         }
     }
@@ -75,6 +76,10 @@ final class AlbumViewModel: ObservableObject {
 
         speakerInstance.speak(with: "Talált szöveg: \(text)")
         speakerInstance.playSystemSound(.success)
+    }
+
+    private func resetCache() {
+        model.removeAll()
     }
 }
 

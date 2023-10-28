@@ -28,9 +28,11 @@ final class CoreDataController: ObservableObject {
 
     let container = NSPersistentContainer(name: Consts.Name.coreDataEntity)
 
+    static var shared = CoreDataController()
+
     // MARK: - Initialization
 
-    init() {
+    private init() {
         setupContainers()
     }
 
@@ -96,7 +98,7 @@ final class CoreDataController: ObservableObject {
         }
     }
 
-    func resetTemp(context: NSManagedObjectContext) {
+    func resetTemp(context: NSManagedObjectContext, completion: (() -> Void)? = nil) {
         let fetchRequest: NSFetchRequest<TempData> = TempData.fetchRequest()
 
         do {
@@ -107,6 +109,7 @@ final class CoreDataController: ObservableObject {
             }
 
             self.saveContext(context: context)
+            completion?()
 
         } catch {
             print("LOG | ERROR: \(error)")

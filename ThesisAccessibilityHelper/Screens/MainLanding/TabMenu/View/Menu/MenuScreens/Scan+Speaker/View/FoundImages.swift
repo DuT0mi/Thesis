@@ -74,7 +74,7 @@ struct FoundImagesView: View {
                             }
                             .scrollTargetLayout()
                         } else {
-                            ProgressView()
+                            EmptyCustomView(progressView: true)
                         }
                     }
                     .contentMargins(16, for: .scrollContent)

@@ -165,7 +165,7 @@ struct ImageFinderBottomSheetView: View {
                                     }
                                 }
                             } else {
-                                ProgressView() // TODO: Custom Error
+                                EmptyCustomView(progressView: false)
                             }
                             #endif
                         }
