@@ -7,16 +7,14 @@
 
 import SwiftUI
 
-// TODO: Replace prints with logs
-
 @main
 struct ThesisAccessibilityHelperApp: App {
     // MARK: - Properties
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-//    @StateObject private var dataController = CoreDataController()
-    private let dataController = CoreDataController.shared
     @StateObject var demoModelData = DemoData()
+
+    private let dataController = CoreDataController.shared
 
     var body: some Scene {
         WindowGroup {
