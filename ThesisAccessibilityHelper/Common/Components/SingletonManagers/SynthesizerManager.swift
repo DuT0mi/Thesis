@@ -58,7 +58,7 @@ final class SynthesizerManager: NSObject {
 
     /// For sounds see: `https://github.com/TUNER88/iOSSystemSoundsLibrary`
     /// - Parameters:
-    ///   - inSystemSoundID: The ID, in this app use __1150__: for success __1153__: for error, __1111__ for confirm
+    ///   - inSystemSoundID: The ID, in this app use __1150__: for success __1153__: for error, __1111__ for confirm, __1003__ for received notification
     func playSystemSound(_ inSystemSoundID: SystemSoundID) {
         AudioServicesPlaySystemSound(inSystemSoundID)
     }

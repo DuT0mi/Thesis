@@ -70,9 +70,19 @@ struct ScanDocumentView: View {
                             .frame(width: Consts.Layout.contentFrameSize, height: Consts.Layout.contentFrameSize)
                             .padding(.top)
                     } else if !viewModel.isLoading, viewModel.models.isEmpty, coreDataElements.count != .zero {
-                        Label("Korábbi képeid, amelyek műveletre várnak.", image: "exclamationmark.bubble.fill")
+                        Label("Your previous objects, tap to save and play its text", systemImage: "exclamationmark.bubble.fill")
                             .tint(Color.red)
                             .font(.system(size: Consts.Appearance.imageFont, weight: .bold, design: .rounded))
+                            .onTapGesture {
+                                viewModel.speak(
+                                    viewModel.mapperForPrevious(from: coreDataElements),
+                                    possibilityForMore: coreDataElements.count > 1
+                                )
+                                viewModel.setPreviousContext(managedObjectContext, elements: coreDataElements)
+                            }
+                            .accessibilityHint("Tap for play its text")
+                            .accessibilityValue("Tap for play its text")
+                            .accessibilityAddTraits(.isButton)
                         ImagesCarousel(models: viewModel.modelMapper(from: coreDataElements))
                             .frame(width: Consts.Layout.contentFrameSize, height: Consts.Layout.contentFrameSize )
                             .padding(.top)

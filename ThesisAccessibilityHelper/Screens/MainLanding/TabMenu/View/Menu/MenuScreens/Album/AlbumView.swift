@@ -45,9 +45,9 @@ struct AlbumView: View {
             if !coreDataElements.isEmpty {
                 coreDataElementsView
                     .opacity(selectedItem == nil ? 1 : .zero)
-            } else {
-                emptyView
             }
+            EmptyCustomView()
+                .opacity(showEmtpyView ? 1 : .zero)
 
             selectedItemView
         }
@@ -111,15 +111,6 @@ struct AlbumView: View {
         }
     }
 
-    private var emptyView: some View {
-        VStack(spacing: 16 ) {
-            LottieView(animationName: "emptycart")
-                .frame(height: AppConstants.ScreenDimensions.height / 2)
-                .padding()
-            Label("You haven't added any item yet", systemImage: "camera.viewfinder")
-        }
-    }
-
     @ViewBuilder
     private var contextMenu: some View {
         Menu {
@@ -168,6 +159,10 @@ struct AlbumView: View {
 
     private var isDeleteButtonDisabled: Bool {
         coreDataElements.isEmpty || viewModel.isLoading
+    }
+
+    private var showEmtpyView: Bool {
+        coreDataElements.isEmpty || viewModel.model.isEmpty
     }
 
     // MARK: - Functions

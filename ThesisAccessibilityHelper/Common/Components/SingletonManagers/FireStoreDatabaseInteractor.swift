@@ -9,6 +9,8 @@ import Foundation
 import FirebaseStorage
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseFirestoreCombineSwift
+import Combine
 
 // TODO: Logger instead of print(...)
 
@@ -20,8 +22,10 @@ final class FireStoreDatabaseInteractor {
     private struct Consts {
         static let helperCollection = "helper_users"
         static let imparedCollection = "impared_users"
+        static let notification = "notification"
     }
-
+    
+    /// A struct for FireStireDatabase Coding keys for coordinates
     struct FSDBCodingKeys {
         enum Coordinates: String, CodingKey {
             case longitude
@@ -39,6 +43,9 @@ final class FireStoreDatabaseInteractor {
 
     private let helperCollection = Firestore.firestore().collection(Consts.helperCollection)
     private let imparedCollection = Firestore.firestore().collection(Consts.imparedCollection)
+    private let notificationCollection = Firestore.firestore().collection(Consts.notification)
+
+//    private var listener: ListenerRegistration?
 
     // MARK: - Initialization
 
@@ -46,6 +53,38 @@ final class FireStoreDatabaseInteractor {
     }
 
     // MARK: - Functions
+
+    func getNotification(limit: Int = 1) async -> MapNotification? {
+        guard ((try? await getAllNotificationQuantity() > .zero) != nil) else { return nil }
+        let notificationsQuery: Query = getAllNotification()
+
+        return try? await
+                notificationsQuery
+                    .limit(to: limit)
+                    .whereField(MapNotification.CodingKeys.didSent.rawValue, isEqualTo: false)
+                    .getDocumentsWithSnapshot(as: MapNotification.self)
+                    .forms
+                    .first
+    }
+
+    func updateNotificationStatus(for notificationID: String) async throws {
+        let data: [String: Any] = [
+            MapNotification.CodingKeys.didSent.rawValue: true as Any ,
+        ]
+
+        try? notificationCollection.document(notificationID).updateData(data)
+    }
+
+    // TODO: oppurtinity to delete from the DB
+    func createNotification(_ notification: MapNotification) async {
+        try? notificationCollection.document(notification.notificationID).setData(from: notification, merge: true) { [weak self] error in
+            print("ERROR: \(error?.localizedDescription)")
+        }
+    }
+
+//    func removeListener() {
+//        listener?.remove()
+//    }
 
     func createUser(user: UserModelInput) async {
         switch user.type {
@@ -120,5 +159,13 @@ final class FireStoreDatabaseInteractor {
 
     private func getAllImparedUsersQuery() -> Query {
         imparedCollection
+    }
+
+    private func getAllNotification() -> Query {
+        notificationCollection
+    }
+
+    private func getAllNotificationQuantity() async throws -> Int {
+        try await notificationCollection.aggregationCount()
     }
 }

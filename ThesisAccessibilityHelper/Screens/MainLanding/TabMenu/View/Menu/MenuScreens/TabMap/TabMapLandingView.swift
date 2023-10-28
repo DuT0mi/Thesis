@@ -21,6 +21,7 @@ struct TabMapLandingView: View {
     @State private var showSearchBar = false
     @State private var showDetails = false
     @State private var showRoute = false
+    @State private var showBottomSheet = false
 
     @Namespace var mapScope
 
@@ -78,6 +79,19 @@ struct TabMapLandingView: View {
                     .foregroundStyle(.ultraThickMaterial)
                     .zIndex(viewModel.isLoading ? 1 : 0)
             }
+
+            if showNotification {
+                MapNotificationView(mapNotification: viewModel.mapNotification.first!, action: {
+                    viewModel.didTapToSpeak(on: viewModel.mapNotification.first!)
+                }, longAction: {
+                    viewModel.didCloseNotification()
+                })
+                .frame(width: AppConstants.ScreenDimensions.width * 0.7, height: AppConstants.ScreenDimensions.height * 0.7)
+                .zIndex(2)
+                .accessibilityValue("Tap for information and at least 2sec tap for close the notification")
+                .accessibilityHint("Tap for information and at least 2sec tap for close the notification")
+                .accessibilityAddTraits(.isButton)
+            }
             Map(position: $cameraPosition, interactionModes: .all, selection: $viewModel.mapSelection, scope: mapScope) {
                 Marker("You", coordinate: viewModel.currentUserLocation ?? viewModel.defaultLocation)
 
@@ -95,8 +109,8 @@ struct TabMapLandingView: View {
                     }
                 }
 
-                if viewModel.helpers.count != .zero {
-                    ForEach(viewModel.helpers, id: \.self) { helperMapItem in
+                if viewModel.usersBasedOnType.count != .zero {
+                    ForEach(viewModel.usersBasedOnType, id: \.self) { helperMapItem in
                         let placeMark = helperMapItem.placemark
                         Marker(viewModel.titleForMarker, coordinate: placeMark.coordinate)
                     }
@@ -122,7 +136,7 @@ struct TabMapLandingView: View {
             }
             .zIndex(viewModel.isLoading ? .zero : 1)
             .searchable(text: $viewModel.searchText, isPresented: $showSearchBar)
-            .allowsHitTesting(viewModel.isLoading ? false : true)
+            .allowsHitTesting(disabelHitTesting ? false : true)
         }
         .task {
             await viewModel.loadData() // TODO: Create MOCK Scheme (+more) <- preview going to crash anytime
@@ -223,6 +237,14 @@ struct TabMapLandingView: View {
                 .accessibilityHint("Tap twice to end the route")
             }
         }
+    }
+
+    private var disabelHitTesting: Bool {
+        viewModel.isLoading || viewModel.mapNotification.count > .zero
+    }
+
+    private var showNotification: Bool {
+        viewModel.mapNotification.count > .zero
     }
 
     // MARK: - Functions

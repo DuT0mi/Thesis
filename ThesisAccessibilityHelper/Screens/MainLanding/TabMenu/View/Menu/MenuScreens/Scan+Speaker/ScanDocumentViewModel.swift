@@ -14,6 +14,7 @@ import AVFoundation
 import Vision
 
 protocol ScanDocumentViewModelInput: BaseViewModelInput {
+    var isInteractive: Bool { get }
 }
 
 // swiftlint:disable force_unwrapping
@@ -37,7 +38,7 @@ final class ScanDocumentViewModel: ObservableObject {
     // swiftlint: disable line_length
     enum InfoType: String {
         case info = "Amennyiben sikeres az objektum detektálás, nyomd meg a hangerő szabályzó gombot felfele a talált objektum kereséséhez, lefele ha az egész talált képből szeretnéd a keresést. A képernyőt jobb felső sarkában lévő gombbal csukhatod be vagy húzd le. "
-        case error = "Nincs talált objektum. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra vagy a lefele gombbal próbálkozz az egész képben való kereséshez."
+        case error = "Nincs talált objektum. Kérlek csukd be az aktuális felületet a jobb sarokban lévő gombbal és próbáld újra vagy a lefele gombbal próbálkozz az egész képben való kereséshez. Amennyiben azt nyomtad meg kérlek próbálkozz újra."
     }
     // swiftlint: enable line_length
 
@@ -46,6 +47,7 @@ final class ScanDocumentViewModel: ObservableObject {
     @Published var isSpeakerSpeaks = false
     @Published var isLoading = false
     @Published var isSearching = false
+    @Published private(set) var isEmpty = false
 
     var isInteractive: Bool {
         profileVM.interactiveMode
@@ -141,6 +143,16 @@ final class ScanDocumentViewModel: ObservableObject {
         }
     }
 
+    @MainActor
+    func setPreviousContext(_ context: NSManagedObjectContext, elements: FetchedResults<LocalData>) {
+        for (index, item) in modelMapper(from: elements).enumerated() {
+            if let cgImagefromData = CGImage.create(from: item.imageData) {
+                let modelItem: Model = .init(resultingText: item.detectedText, cgImage: cgImagefromData, atPage: index)
+                CoreDataController.shared.saveData(context: context, modelItem)
+            }
+        }
+    }
+
     func playSound(_ type: SystemSoundType) {
         speaker.playSystemSound(SystemSoundID(type.rawValue))
     }
@@ -164,7 +176,17 @@ final class ScanDocumentViewModel: ObservableObject {
             }
     }
 
+    @MainActor
+    func mapperForPrevious(from localDataElements: FetchedResults<LocalData>) -> String {
+        localDataElements
+        .filter { $0.imageData != nil && $0.imageText != nil && $0.imageId != nil }
+        .map { $0.imageText!}
+        .joined()
+
+    }
+
     func findSimilarImages(localDataBase coreDataElements: FetchedResults<TempData>, search forItem: CarouselModel) {
+        guard coreDataElements.count > .zero else { return }
         sortedModels.removeAll()
         isSearching.toggle()
         analyzer.processImages(original: forItem, contestants: modelMapper(from: coreDataElements)) { [weak self] result in
@@ -180,15 +202,13 @@ final class ScanDocumentViewModel: ObservableObject {
 
     func resetLocalDB(context: NSManagedObjectContext) {
         isLoading = true
-        CoreDataController().reset(context: context)
+        CoreDataController.shared.reset(context: context)
         isLoading = false
     }
 
     @MainActor
-    private func speak(_ text: String) {
-        guard !text.isEmpty else { return }
-
-        let scanText = "Szkennelt objektum szöveg tartalma: \(text)"
+    func speak(_ text: String, possibilityForMore: Bool = false) {
+        let scanText = "Szkennelt objektum\(possibilityForMore ? "ok" : "") szöveg tartalma: \(text.isEmpty ? "Üres" : text)"
 
         speaker.speak(with: scanText)
     }
@@ -237,6 +257,7 @@ final class ScanDocumentViewModel: ObservableObject {
             playSound(.confirm)
         } else {
             hapticManager.notificationGenerator(type: .error)
+            showInfo(.error)
             playSound(.error)
         }
     }
@@ -278,7 +299,7 @@ final class ScanDocumentViewModel: ObservableObject {
         elements.forEach {
             guard !$0.resultingText.isEmpty && $0.cgImage != nil else { return }
             models.append($0)
-            CoreDataController().saveData(context: context, $0)
+            CoreDataController.shared.saveData(context: context, $0)
         }
 
         isLoading.toggle()
@@ -310,7 +331,7 @@ extension ScanDocumentViewModel: ScanDocumentViewModelInput {
 
         resetLocalDB(context: cachedContext)
 
-        models.forEach { CoreDataController().saveTempData(context: cachedContext, $0) }
+        models.forEach { CoreDataController.shared.saveTempData(context: cachedContext, $0) }
 
         resetCache()
     }

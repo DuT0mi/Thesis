@@ -128,6 +128,7 @@ struct AuthenticationView: View {
                 .frame(width: Consts.Layout.iconSize, height: Consts.Layout.iconSize)
             SecureTextField(secureText: $viewModel.password)
                 .tint(.black)
+                .textInputAutocapitalization(.never)
         }
     }
 

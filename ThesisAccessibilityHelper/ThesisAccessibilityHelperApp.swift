@@ -14,7 +14,8 @@ struct ThesisAccessibilityHelperApp: App {
     // MARK: - Properties
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @StateObject private var dataController = CoreDataController()
+//    @StateObject private var dataController = CoreDataController()
+    private let dataController = CoreDataController.shared
     @StateObject var demoModelData = DemoData()
 
     var body: some Scene {
