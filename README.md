@@ -5,6 +5,20 @@
 # Installation
 - download the source code and leave the magic line at  corresponding folder `pod install`
   - If you do not have cocoapods, [getting started with cocoapods](https://guides.cocoapods.org/using/getting-started.html)
+# Used Techologies
+- Firebase:
+  - Authentication
+  - FireStore
+- Vision
+- VisionKit
+- CoreML - YoloV3
+- SwiftUI (up to date to iOS17+ )
+- UIKit + wrapping
+- MapKit
+- CoreLocation
+- VoiceOver + home made speaker with AVF
+- Combine for data flow + camera frame
+- DocC
 # Tested environments
 - iPhone SE3 (2 different devices) - iOS 17, works fine
 - iPhone 14 Pro Max iOS 17.02, works fine
