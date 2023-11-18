@@ -19,6 +19,7 @@
 - VoiceOver + home made speaker with AVF
 - Combine for data flow + camera frame
 - DocC
+- Lottie
 # Tested environments
 - iPhone SE3 (2 different devices) - iOS 17, works fine
 - iPhone 14 Pro Max iOS 17.02, works fine
