@@ -115,7 +115,7 @@ final class TextRecognizer {
         let requestHandler = VNImageRequestHandler(ciImage: ciImage, orientation: .upMirrored, options: [:])
 
         let request = VNRecognizeTextRequest { request, error in
-            if let error = error {
+            if let error {
                 print("Error: \(error)")
                 return
             }
