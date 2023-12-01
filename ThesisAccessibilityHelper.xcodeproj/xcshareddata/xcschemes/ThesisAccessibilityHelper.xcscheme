@@ -28,6 +28,30 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1AA8729E2B1A9E0300692A29"
+               BuildableName = "ThesisAccessibilityHelperTests.xctest"
+               BlueprintName = "ThesisAccessibilityHelperTests"
+               ReferencedContainer = "container:ThesisAccessibilityHelper.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1AA872AB2B1AA42A00692A29"
+               BuildableName = "ThesisAccessibilityHelperUITests.xctest"
+               BlueprintName = "ThesisAccessibilityHelperUITests"
+               ReferencedContainer = "container:ThesisAccessibilityHelper.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
